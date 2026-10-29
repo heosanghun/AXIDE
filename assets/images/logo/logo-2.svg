@@ -1,0 +1,20 @@
+<svg width="144" height="94" viewBox="0 0 144 94" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="logo2Badge" x1="44" y1="4" x2="100" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#09090B"/>
+      <stop offset="100%" stop-color="#27272A"/>
+    </linearGradient>
+    <linearGradient id="logo2Glow" x1="44" y1="4" x2="100" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FD3A25"/>
+      <stop offset="100%" stop-color="#38BDF8"/>
+    </linearGradient>
+  </defs>
+  <!-- Top Emblem Box -->
+  <rect x="45" y="4" width="54" height="54" rx="14" fill="url(#logo2Badge)" stroke="url(#logo2Glow)" stroke-width="1.5"/>
+  <path d="M72 14L85 42H78.8L72 27L65.2 42H59L72 14Z" fill="#FFFFFF"/>
+  <path d="M65.8 35.5H78.2" stroke="#FD3A25" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="72" cy="21" r="2.2" fill="#38BDF8"/>
+  <!-- Bottom Wordmark -->
+  <text x="72" y="79" text-anchor="middle" font-family="'Urbanist', 'Pretendard', sans-serif" font-weight="800" font-size="22" letter-spacing="3.5" fill="#09090B">AXIDE</text>
+  <text x="72" y="91" text-anchor="middle" font-family="'Urbanist', 'Pretendard', sans-serif" font-weight="700" font-size="8.5" letter-spacing="2.2" fill="#FD3A25">SOVEREIGN AI · COGNI-OS</text>
+</svg>

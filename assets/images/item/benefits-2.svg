@@ -1,0 +1,21 @@
+<svg width="239" height="361" viewBox="0 0 239 361" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="cardGrad2" x1="0" y1="0" x2="239" y2="361" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#27272A" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#09090B" stop-opacity="0.95"/>
+    </linearGradient>
+    <linearGradient id="borderGrad2" x1="0" y1="0" x2="239" y2="361" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.7"/>
+      <stop offset="50%" stop-color="#3F3F46" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#FD3A25" stop-opacity="0.7"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="235" height="357" rx="20" fill="url(#cardGrad2)" stroke="url(#borderGrad2)" stroke-width="2"/>
+  <line x1="24" y1="48" x2="215" y2="48" stroke="#3F3F46" stroke-width="1" stroke-dasharray="4 4"/>
+  <circle cx="34" cy="28" r="5" fill="#FD3A25"/>
+  <circle cx="50" cy="28" r="5" fill="#38BDF8"/>
+  <circle cx="66" cy="28" r="5" fill="#22C55E"/>
+  <text x="208" y="32" text-anchor="end" font-family="'Urbanist', sans-serif" font-weight="700" font-size="10" fill="#A1A1AA">TECH-AUDIT v1.0</text>
+  <line x1="24" y1="316" x2="215" y2="316" stroke="#3F3F46" stroke-width="1"/>
+  <text x="119.5" y="338" text-anchor="middle" font-family="'Urbanist', sans-serif" font-weight="700" font-size="10" letter-spacing="1.2" fill="#22C55E">● Ed25519 + SHA256 VERIFIED</text>
+</svg>

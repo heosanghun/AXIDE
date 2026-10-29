@@ -1,0 +1,28 @@
+<svg width="231" height="278" viewBox="0 0 231 278" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="shieldOuter" x1="15" y1="10" x2="215" y2="268" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.35"/>
+      <stop offset="50%" stop-color="#2563EB" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#FD3A25" stop-opacity="0.35"/>
+    </linearGradient>
+    <linearGradient id="shieldStroke" x1="15" y1="10" x2="215" y2="268" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="50%" stop-color="#60A5FA"/>
+      <stop offset="100%" stop-color="#FD3A25"/>
+    </linearGradient>
+  </defs>
+  <!-- Sovereign Air-Gap Shield -->
+  <path d="M115.5 8L216 48V132C216 198 172.5 247.5 115.5 270C58.5 247.5 15 198 15 132V48L115.5 8Z" fill="url(#shieldOuter)" stroke="url(#shieldStroke)" stroke-width="2.5"/>
+  <path d="M115.5 28L196 60V129C196 183 161 224 115.5 244C70 224 35 183 35 129V60L115.5 28Z" fill="#18181B" fill-opacity="0.88" stroke="#3F3F46" stroke-width="1.5"/>
+  <!-- Equilibrium Ring & Lock -->
+  <circle cx="115.5" cy="122" r="46" stroke="#38BDF8" stroke-width="1.8" stroke-dasharray="6 4"/>
+  <circle cx="115.5" cy="122" r="32" fill="#09090B" stroke="#FD3A25" stroke-width="2"/>
+  <!-- Lock / Zero Outbound Icon -->
+  <rect x="103.5" y="118" width="24" height="18" rx="4" fill="#38BDF8"/>
+  <path d="M108.5 118V112C108.5 108.134 111.634 105 115.5 105C119.366 105 122.5 108.134 122.5 112V118" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="115.5" cy="127" r="2.2" fill="#09090B"/>
+  <!-- Telemetry Labels -->
+  <rect x="57" y="182" width="117" height="24" rx="12" fill="#09090B" stroke="#38BDF8" stroke-width="1.2"/>
+  <text x="115.5" y="198" text-anchor="middle" font-family="'Urbanist', 'Pretendard', sans-serif" font-weight="700" font-size="10.5" letter-spacing="1" fill="#38BDF8">0 BYTE OUTBOUND</text>
+  <text x="115.5" y="222" text-anchor="middle" font-family="'Urbanist', 'Pretendard', sans-serif" font-weight="600" font-size="9.5" fill="#A1A1AA">AIR-GAPPED SOVEREIGN AI</text>
+</svg>

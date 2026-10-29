@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko-KR" lang="ko-KR"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko-KR" lang="ko-KR">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <title>방산 부품 여권 (Part Passport v1) & Field Vault | AXIDE (주식회사 액사이드)</title>
+    <meta name="author" content="AXIDE Inc. (주식회사 액사이드)">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description"
+        content="원청 체계업체 품질팀과 1·2차 정밀가공 협력사를 연결하는 방산 부품 여권(Part Passport Spec v1)과 Field Vault 6종 하드웨어 패키지의 상세 명세를 확인하십시오.">
+
+    <!-- font -->
+    <link rel="stylesheet" href="assets/fonts/fonts.css">
+    <link rel="stylesheet" href="assets/icon/icomoon/style.css">
+    <!-- css -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+
+    <link rel="stylesheet" href="assets/css/slick.css">
+    <link rel="stylesheet" href="assets/css/slick.theme.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+
+    <!-- Favicon and Touch Icons  -->
+    <link rel="shortcut icon" href="assets/images/logo/favicon.svg">
+    <link rel="apple-touch-icon-precomposed" href="assets/images/logo/favicon.svg">
+</head>
+
+<body class="counter-scroll">
+    <canvas class="cursor-trail" id="trail" style="display: none;"></canvas>
+
+    <!-- Scroll Top -->
+    <button id="goTop">
+        <span class="border-progress"></span>
+        <span class="ic-wrap">
+            <span class="icon icon-long-arrow-alt-up-solid"></span>
+        </span>
+    </button>
+    <!-- /Scroll Top -->
+
+    <!-- #wrapper -->
+    <main id="wrapper">
+
+        <!-- Header -->
+        <header class="tf-header header1">
+            <div class="header-inner">
+                <a href="#" class="tf-btn style-1 open-mb-menu mobile-menu">
+                    <i class="icon icon-grip-lines-solid"></i>
+                </a>
+                <div class="box-navigation">
+                    <ul class="nav-menu-main">
+                        <li class="menu-item has-child">
+                            <a href="#" class="item-link link1">홈</a>
+                            <ul class="sub-menu">
+                                <li class="sub-menu-item">
+                                    <a href="index.html" class="item-link link1">홈 01 — 방산 폐쇄망 AI 표준</a>
+                                </li>
+                                <li class="sub-menu-item">
+                                    <a href="index-v2.html" class="item-link link1">홈 02 — 소버린 AI 모션</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="menu-item">
+                            <a href="about.html" class="item-link link1">회사소개</a>
+                        </li>
+                        <li class="menu-item has-child">
+                            <a href="#" class="item-link link1 active">솔루션</a>
+                            <ul class="sub-menu">
+                                <li class="sub-menu-item">
+                                    <a href="service.html" class="item-link link1">Cogni-OS 3층 아키텍처 & 하드웨어</a>
+                                </li>
+                                <li class="sub-menu-item">
+                                    <a href="service-single.html" class="item-link link1 active">방산 부품 여권 (Part Passport v1)</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="menu-item has-child">
+                            <a href="#" class="item-link link1">실증사례</a>
+                            <ul class="sub-menu">
+                                <li class="sub-menu-item">
+                                    <a href="work.html" class="item-link link1">공급계약 & 5단계 진화 로드맵</a>
+                                </li>
+                                <li class="sub-menu-item">
+                                    <a href="work-single.html" class="item-link link1">아주산업 1호 계약 & 도면 복원 실측</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="menu-item has-child">
+                            <a href="#" class="item-link link1">기술·규제 백서</a>
+                            <ul class="sub-menu">
+                                <li class="sub-menu-item">
+                                    <a href="blog-standard.html" class="item-link link1">기술 백서 & 규제 브리핑</a>
+                                </li>
+                                <li class="sub-menu-item">
+                                    <a href="blog-two-columns.html" class="item-link link1">기술 아카이브 (2열)</a>
+                                </li>
+                                <li class="sub-menu-item">
+                                    <a href="blog-three-columns.html" class="item-link link1">기술 아카이브 (3열)</a>
+                                </li>
+                                <li class="sub-menu-item">
+                                    <a href="blog-single.html" class="item-link link1">DEQ 상수 메모리 & 감사 봉인 상세</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="menu-item">
+                            <a href="contact.html" class="item-link link1">도입문의</a>
+                        </li>
+                    </ul>
+                </div>
+                <a href="index.html" class="logo-site">
+                    <img src="assets/images/logo/logo-2.svg" alt="AXIDE Logo">
+                </a>
+                <a href="contact.html" class="tf-btn">
+                    <span class="d-none d-md-inline">1시간 현장 데모 신청</span>
+                    <i class="icon icon-arrow-top-right d-md-none"></i>
+                </a>
+            </div>
+        </header>
+        <!-- /Header -->
+
+        <!-- Hero Banner -->
+        <div class="section-hero v2">
+            <div class="hero-image">
+            </div>
+            <div class="container">
+                <div class="content-wrap text-center">
+                    <div class="title text-display-2 effectFade fadeRotateX">
+                        <span class="title1 fw-semibold text-gradient-1">방산 부품 여권 (Part Passport) &</span>
+                        <br>
+                        <div class="title2 d-flex gap-20 justify-content-center flex-wrap">
+                            <span class="fw-semibold text-gradient-1">Field Vault 6종 하드웨어</span>
+                            <div class="title-icon">
+                                <div class="box"></div>
+                                <div class="title-icon-wrap">
+                                    <img src="assets/images/item/item-13.svg" alt="System 4 CAD" class="img-1 img-transform-3">
+                                    <img src="assets/images/item/item-14.svg" alt="아주산업 1.1억" class="img-2 img-transform-3">
+                                    <img src="assets/images/item/item-15.svg" alt="0 Byte 반출" class="img-3 img-transform-3">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text text-body-3 effectFade fadeUp">
+                        "도면은 공장 밖으로 나가지 않고, 부품은 여권을 들고 올라옵니다."<br>
+                        공장 안의 암호학적 봉인을 원청 체계업체 품질팀 ↔ 1차 협력사 ↔ 2차 정밀가공사 공급망 표준으로 연결합니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- /Hero Banner -->
+
+        <!-- section-services-single -->
+        <div id="services" class="section-services-single flat-spacing pt-0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="top-image mb-40 effectFade fadeZoom">
+                            <img src="assets/images/section/service-single-1.jpg" alt="AXIDE Field Vault IP67 2-Box 6-Hardware Appliance Kit">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="heading fw-semibold mb-20 effectFade fadeUp">상자 2개, 설치 1시간, 외부 포트 0 — Field Vault 어플라이언스</div>
+                    </div>
+                </div>
+                <div class="row mb-80">
+                    <div class="col-md-7 md-mb-24">
+                        <p class="text-secondary effectFade fadeUp">
+                            방위산업 보안구역과 정밀가공 공장은 수개월이 걸리는 네트워크 공사나 외부 클라우드 연동 SI 프로젝트를 허용하지 않습니다. 주식회사 액사이드(AXIDE)는 현장에서 즉시 작동하는 6종의 하드웨어와 3층 소버린 AI 소프트웨어를 IP67 방진·방수 등급의 군용 하드케이스 2개(<strong>Field Vault</strong>)에 통합했습니다. 케이스 상판에는 고유 일련번호, 소프트웨어·모델 SHA256 해시, 오프라인 검증 QR이 각인된 브러시드 알루미늄 명판과 물리적 개봉 흔적 봉인 라벨(Tamper-evident Seal)이 부착되어 반입 순간부터 물리적·암호학적 무결성을 보장합니다.
+                        </p>
+                    </div>
+                    <div class="col-md-5">
+                        <p class="text-secondary mb-30 effectFade fadeUp">
+                            특히 공장 안에서 생성된 도면 해독·공정 지시·측정 기록은 <strong>하드웨어 바인딩 USB 보안 동글</strong>과 <strong>방산 부품 여권(Part Passport Spec v1)</strong>에 Ed25519 전자서명 및 SHA256 해시 체인으로 봉인되어, 부품이 협력사에서 원청 체계업체로 납품될 때 도면 원본 유출 없이 완벽한 품질·보안 증명을 제공합니다.
+                        </p>
+                        <div class="list-tags effectFade fadeUp">
+                            <a href="work-single.html" class="tags-item fw-semibold">Part Passport Spec v1</a>
+                            <a href="work-single.html" class="tags-item fw-semibold">Ed25519 + SHA256 체인</a>
+                            <a href="work-single.html" class="tags-item fw-semibold">ATP v1.0 168시간 내구 검증</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-40">
+                    <div class="col-md-8 md-mb-24">
+                        <div class="image effectFade fadeUp">
+                            <img src="assets/images/section/service-single-2.jpg" alt="CogniBoard Sovereign AI Mission Control v0.16.2 실제 구동 화면">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="image effectFade fadeUp" data-delay="0.1">
+                            <img src="assets/images/section/service-single-3.jpg" alt="방산 부품 여권 Part Passport 공식 키 비주얼">
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-40">
+                    <div class="col-12">
+                        <div class="heading fw-semibold mb-20 effectFade fadeUp">왜 '방산 부품 여권(Part Passport)'이 공급망의 게임 체인저인가?</div>
+                        <p class="text-secondary effectFade fadeUp">
+                            2026년 12월 10일 시행되는 개정 <strong>방위산업기술 보호법(법률 제21768호)</strong>은 방산 도면 및 기술의 외부 유출 시 징역 3년 이상 및 벌금 65억 원 이하 병과라는 강력한 처벌을 규정하며, 원청 체계업체뿐만 아니라 1·2차 협력사까지 동일한 보안 관리 의무를 부과합니다. 더불어 2027년 12월 본격화되는 EU 고위험 AI 규제 및 디지털 제품 여권(ESPR)은 완제품에 들어가는 모든 부품의 생산·검증 이력 추적을 요구합니다.
+                            <br>
+                            <br>
+                            액사이드의 <strong>방산 부품 여권(Part Passport Spec v1)</strong>은 이 문제를 정면으로 해결합니다. 2차 정밀가공사가 부품을 가공할 때 Cogni-OS가 정본 도면의 SHA256 해시, 사용된 폐쇄망 AI 모델 해시, 작업자 음성·HUD 지시 이력, 그리고 치수 측정값을 하나로 묶어 Ed25519 전자서명으로 봉인합니다. 부품이 1차 협력사를 거쳐 원청 체계업체 품질팀에 도착하면, 품질팀은 도면 원본 파일을 다시 열어보거나 외부 망에 접속할 필요 없이 <strong>원청 검증 노드(연 3,600만 원 구독)</strong>에서 동글과 여권을 꽂아 1초 만에 "정본 도면 일치 · 외부 전송 0 Byte · 해시 체인 변조 없음"을 검증합니다.
+                        </p>
+                    </div>
+                </div>
+                <div class="row justify-content-between">
+                    <div class="col-md-6 md-mb-24">
+                        <div class="heading fw-semibold mb-20 effectFade fadeUp">Field Vault 6종 하드웨어 & 납품 산출물</div>
+                        <p class="text-secondary mb-30 effectFade fadeUp">
+                            모든 장비는 사전 페어링 및 해시 봉인 상태로 출고되며, 현장에서 전원만 연결하면 1시간 이내에 폐쇄망 AI 관제소(CogniBoard)가 기동됩니다.
+                        </p>
+                        <ul class="list-text type-check mb-30">
+                            <li class="effectFade fadeUp">
+                                <i class="icon icon-check-solid"></i>
+                                ① 폐쇄망 AI 워크스테이션 (NVIDIA RTX PRO 6000 / 6000 Ada 48GB GPU, 128GB RAM)
+                            </li>
+                            <li class="effectFade fadeUp">
+                                <i class="icon icon-check-solid"></i>
+                                ② 현장 이동형 서버 노트북 (ASUS ROG Strix SCAR 18, RTX 5090 — 이중화 및 이동 실증)
+                            </li>
+                            <li class="effectFade fadeUp">
+                                <i class="icon icon-check-solid"></i>
+                                ③ 방산 현장용 태블릿 (갤럭시 탭 S11 울트라) + ④ 로키드(Rokid) AR 스마트글라스 (3줄 HUD)
+                            </li>
+                            <li class="effectFade fadeUp">
+                                <i class="icon icon-check-solid"></i>
+                                ⑤ 하드웨어 바인딩 USB 보안 동글 (30일 유예 라이선스) + ⑥ WAN 물리 차단 전용 공유기
+                            </li>
+                        </ul>
+                        <h6 class="title fw-semibold mb-16 effectFade fadeUp">ATP v1.0 인수시험 기본 제공 문서</h6>
+                        <ul class="d-grid gap-8 mb-30">
+                            <li class="effectFade fadeUp">+ 계약서 제8조 기반 인수시험절차서(ATP v1.0) 및 30회 반복 추론 성적서</li>
+                            <li class="effectFade fadeUp">+ 168시간 연속 무중단 가동 로그 및 외부 패킷 0 Byte 캡처 증적</li>
+                            <li class="effectFade fadeUp">+ Ed25519·SHA256 오프라인 검증기 실행 파일 및 변조 탐지 테스트 시트</li>
+                            <li class="effectFade fadeUp">+ 방산 부품 여권(Part Passport Spec v1) 스키마 명세서 및 동글 매뉴얼</li>
+                        </ul>
+                        <a href="contact.html" class="tf-btn effectFade fadeRotateX">
+                            Field Vault 실물 시연 신청하기
+                        </a>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="image bot-image effectFade fadeUp">
+                            <img src="assets/images/section/service-single-4.jpg" alt="ATP v1.0 168시간 연속 가동 및 오프라인 검증 스테이션">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /section-services-single -->
+
+        <div class="box-white">
+            <!-- section-process -->
+            <div class="section-process flat-spacing">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <div class="process-heading h-100">
+                                <div class="heading-section mb-80">
+                                    <div class="heading-sub fw-semibold effectFade fadeUp">Part Passport Chain</div>
+                                    <div class="heading-title text-gradient-3 effectFade fadeRotateX">부품 여권 3단계 <br> 공급망 검증 루프</div>
+                                </div>
+                                <div class="group-btn-slider">
+                                    <div class="nav-prev-swiper">
+                                        <i class="icon icon-angle-left-solid"></i>
+                                    </div>
+                                    <div class="nav-next-swiper">
+                                        <i class="icon icon-angle-right-solid"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="process-slide">
+                                <div dir="ltr" class="swiper tf-swiper swiper-box-shadow" data-preview="1.78" data-tablet="1.78" data-mobile-sm="1.5" data-mobile="1.2"
+                                    data-loop="false" data-center="false" data-space-lg="24" data-space-md="24" data-space="15">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <div class="process-card">
+                                                <i class="icon icon-search-solid"></i>
+                                                <div class="content">
+                                                    <h4 class="title fw-semibold">2차 정밀가공사: 봉인 생성</h4>
+                                                    <p class="text text-secondary">선반·CNC 가공 현장에서 Cogni-OS로 도면을 해독하고 가공·측정을 마치면, 도면 해시와 추론 로그가 Ed25519 서명으로 부품 여권에 첫 봉인됩니다.</p>
+                                                </div>
+                                                <div class="bot">
+                                                    <div class="time fw-semibold">TIER-2 MACHINING</div>
+                                                    <div class="number">
+                                                        <span class="text-neutral-400">01</span>
+                                                        <span class="text-neutral-200">/03</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="process-card">
+                                                <i class="icon icon-bolt-solid"></i>
+                                                <div class="content">
+                                                    <h4 class="title fw-semibold">1차 협력사: 조립·체인 연결</h4>
+                                                    <p class="text text-secondary">단품 여권들의 SHA256 해시 체인을 이어 받아 모듈 조립 및 중간 품질검사 이력을 추가 서명하며, 도면 원본 외부 반출 없이 무결성을 유지합니다.</p>
+                                                </div>
+                                                <div class="bot">
+                                                    <div class="time fw-semibold">TIER-1 ASSEMBLY</div>
+                                                    <div class="number">
+                                                        <span class="text-neutral-400">02</span>
+                                                        <span class="text-neutral-200">/03</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="process-card">
+                                                <i class="icon icon-user-check-solid-1"></i>
+                                                <div class="content">
+                                                    <h4 class="title fw-semibold">원청 체계업체: 1초 오프라인 검증</h4>
+                                                    <p class="text text-secondary">원청 품질보증(QA)팀이 검증 노드에서 부품 여권 동글을 스캔하여 정본 도면 해시 일치 여부와 전 공정 위변조 유무를 1초 만에 확정합니다.</p>
+                                                </div>
+                                                <div class="bot">
+                                                    <div class="time fw-semibold">PRIME QA NODE</div>
+                                                    <div class="number">
+                                                        <span class="text-neutral-400">03</span>
+                                                        <span class="text-neutral-200">/03</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /section-process -->
+        </div>
+
+        <!-- section-faqs -->
+        <div class="section-faqs flat-spacing">
+            <div class="container">
+                <div class="heading-section center mb-64">
+                    <div class="heading-sub fw-semibold effectFade fadeUp">Part Passport FAQs</div>
+                    <div class="heading-title text-gradient-3 effectFade fadeRotateX">
+                        방산 부품 여권 및 동글 <br>자주 묻는 질문
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="accordion-asked" id="accordion-asked">
+                            <div class="accordion-asked-item effectFade fadeRotateX">
+                                <div class="accordion-asked-title" id="asked1">
+                                    <button class="accordion-button text-body-1 fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                                        Q1. 부품 여권(Part Passport) 안에 도면 원본 파일이 들어가나요?
+                                        <span class="right-icon"></span>
+                                    </button>
+                                </div>
+                                <div id="collapse1" role="region" class="accordion-collapse collapse show" aria-labelledby="asked1" data-bs-parent="#accordion-asked">
+                                    <div class="accordion-body">
+                                        절대 들어가지 않습니다. 도면 원본은 공장 밖으로 나가지 않으며, 부품 여권에는 정본 도면의 비가역 암호화 해시(SHA256), AI 모델 해시, 승인된 공정 요약, 치수 검사값, 그리고 Ed25519 전자서명 체인만 수록됩니다. 따라서 여권이 이동하더라도 도면 기밀 유출 위험은 0%입니다.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-asked-item effectFade fadeRotateX" data-delay="0.1">
+                                <div class="accordion-asked-title" id="asked2">
+                                    <button class="accordion-button text-body-1 fw-semibold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                                        Q2. 원청 체계업체가 아직 검증 노드를 도입하지 않은 경우에도 협력사 단독으로 쓸 수 있나요?
+                                        <span class="right-icon"></span>
+                                    </button>
+                                </div>
+                                <div id="collapse2" role="region" class="accordion-collapse collapse" aria-labelledby="asked2" data-bs-parent="#accordion-asked">
+                                    <div class="accordion-body">
+                                        네. 아주산업 1호 공급계약(1.1억 원) 사례처럼 협력사 단독으로도 보안구역 내 3D 도면 초고속 해독, 스마트글라스 3줄 HUD 작업 지원, 그리고 자체 방위산업기술 보호법 감사 대비용 Tech-Audit 봉인 리포트 생성 기능을 100% 활용할 수 있습니다.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-asked-item effectFade fadeRotateX" data-delay="0.2">
+                                <div class="accordion-asked-title" id="asked3">
+                                    <button class="accordion-button text-body-1 fw-semibold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                                        Q3. USB 보안 동글을 복제하거나 다른 PC에 꽂으면 작동하나요?
+                                        <span class="right-icon"></span>
+                                    </button>
+                                </div>
+                                <div id="collapse3" role="region" class="accordion-collapse collapse" aria-labelledby="asked3" data-bs-parent="#accordion-asked">
+                                    <div class="accordion-body">
+                                        작동하지 않습니다. 동글 내부의 암호화 키는 납품된 Field Vault 워크스테이션의 CPU·메인보드·GPU 하드웨어 고유 식별자(HWID)와 바인딩되어 있어, 인가되지 않은 외부 PC에 꽂거나 복제를 시도하면 즉시 기동이 차단되고 감사 로그에 보안 경고가 기록됩니다.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-asked-item effectFade fadeRotateX" data-delay="0.3">
+                                <div class="accordion-asked-title" id="asked4">
+                                    <button class="accordion-button text-body-1 fw-semibold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                                        Q4. 로키드(Rokid) AR 스마트글라스는 작업 현장에서 어떤 정보를 보여주나요?
+                                        <span class="right-icon"></span>
+                                    </button>
+                                </div>
+                                <div id="collapse4" role="region" class="accordion-collapse collapse" aria-labelledby="asked4" data-bs-parent="#accordion-asked">
+                                    <div class="accordion-body">
+                                        선반·CNC 가공 작업자의 시야를 방해하지 않도록 복잡한 전체 텍스트 대신 ① 핵심 치수 및 공차(예: 내경 Ø42.0 ±0.02mm), ② 현재 공정 주의사항, ③ 판단 보류/검증 상태 등 꼭 필요한 '3줄 요약 HUD'만 선명하게 띄워주며 한국어 음성으로 다음 단면을 호출할 수 있습니다.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /section-faqs -->
+
+        <!-- section-contact -->
+        <div id="contact" class="flat-spacing pt-0">
+            <div class="section-contact">
+                <div class="contact-image">
+                    <img src="assets/images/section/contact-image-bg.jpg" alt="대전 액사이드 소버린 AI 미션 컨트롤 및 Field Vault">
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="col-left">
+                                <div class="heading-section mb-48">
+                                    <div class="heading-sub fw-semibold effectFade fadeUp">Part Passport Pilot</div>
+                                    <div class="heading-title text-gradient-3 effectFade fadeRotateX">
+                                        원청·협력사 부품 여권 <br> 파일럿 및 도입 문의
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="contact-item mb-20 effectFade fadeRotateX">
+                                        <i class="icon icon-envelope-solid"></i>
+                                        <div class="content">
+                                            <div class="title fw-semibold mb-2">공식 이메일</div>
+                                            <div class="text">wwwhunycom@naver.com</div>
+                                        </div>
+                                    </div>
+                                    <div class="contact-item effectFade fadeRotateX" data-delay="0.1">
+                                        <i class="icon icon-headset-solid"></i>
+                                        <div class="content">
+                                            <div class="title fw-semibold mb-2">직통 전화 · 본사 주소</div>
+                                            <div class="text">010-6689-3508 | 대전광역시 유성구 관들1길 47</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <form class="form-contact effectFade fadeUp" action="contact.html" method="get">
+                                <h4 class="heading fw-semibold">부품 여권 & Field Vault 데모 신청</h4>
+                                <fieldset class="mb-21">
+                                    <label class="fw-semibold text-body-3 mb-20">기업·기관명 및 담당자 성함</label>
+                                    <input class="" type="text" placeholder="예: 한국항공정밀 / 김방산 품질팀장" required>
+                                </fieldset>
+                                <fieldset class="mb-21">
+                                    <label class="fw-semibold text-body-3 mb-20">연락처 또는 이메일</label>
+                                    <input class="" type="text" placeholder="예: 010-0000-0000 / qa@company.co.kr" required>
+                                </fieldset>
+                                <fieldset class="mb-18">
+                                    <label class="fw-semibold text-body-3 mb-0">실증 희망 내용</label>
+                                    <textarea name="text" class="" placeholder="원청-협력사 부품 여권 파일럿 또는 단일 공장 Field Vault 도입 문의를 남겨주세요."></textarea>
+                                </fieldset>
+                                <div class="attachment d-flex gap-8 align-items-center">
+                                    <i class="icon icon-paperclip-solid fs-24"></i>
+                                    <div class="fw-semibold text-body-3">Part Passport Spec v1 기술 명세서 제공</div>
+                                </div>
+                                <button type="submit" class="tf-btn w-100">파일럿 상담 신청하기</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /section-contact -->
+
+        <!-- footer -->
+        <footer>
+            <div class="footer-image">
+                <img class="effectFade fadeUp" src="assets/images/logo/logo-footer.png" alt="AXIDE Watermark">
+            </div>
+            <div class="container">
+                <div class="footer-content">
+                    <a href="index.html" class="footer-logo">
+                        <img src="assets/images/logo/logo-2.svg" alt="AXIDE Logo">
+                    </a>
+                    <div class="title h6 fw-semibold">증명을 파는 회사 <br> 주식회사 액사이드 (AXIDE Inc.)</div>
+                    <div class="text">대전광역시 유성구 관들1길 47 · 대표이사 허상훈 · 010-6689-3508 · wwwhunycom@naver.com</div>
+                    <div class="tf-social-1 justify-content-center">
+                        <a href="service.html" class="text-body-1 fw-semibold">
+                            Cogni-OS 3층 구조
+                            <div class="social-item">
+                                <i class="icon icon-arrow-top-right"></i>
+                            </div>
+                        </a>
+                        <a href="service-single.html" class="text-body-1 fw-semibold">
+                            방산 부품 여권 v1
+                            <div class="social-item">
+                                <i class="icon icon-arrow-top-right"></i>
+                            </div>
+                        </a>
+                        <a href="work-single.html" class="text-body-1 fw-semibold">
+                            아주산업 1호 계약
+                            <div class="social-item">
+                                <i class="icon icon-arrow-top-right"></i>
+                            </div>
+                        </a>
+                        <a href="blog-standard.html" class="text-body-1 fw-semibold">
+                            기술·규제 백서
+                            <div class="social-item">
+                                <i class="icon icon-arrow-top-right"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <ul class="footer-links d-flex gap-24 align-items-center">
+                        <li>
+                            <a href="about.html" class="fw-semibold link-underline link1">회사소개</a>
+                        </li>
+                        <li>
+                            <a href="service.html" class="fw-semibold link-underline link1">솔루션</a>
+                        </li>
+                        <li>
+                            <a href="work.html" class="fw-semibold link-underline link1">실증사례</a>
+                        </li>
+                        <li>
+                            <a href="contact.html" class="fw-semibold link-underline link1">도입문의</a>
+                        </li>
+                    </ul>
+                    <p class="text-secondary coppy-rights text-center">© 2026 AXIDE Inc. (주식회사 액사이드). All Rights Reserved. | 특허 제10-2973709호 · PCT/KR2026/011625</p>
+                    <a href="#" class="action-go-top d-flex gap-8 align-items-center justify-content-end link1">
+                        <span class="fw-semibold">맨 위로</span>
+                        <i class="icon icon-long-arrow-alt-up-solid fs-20"></i>
+                    </a>
+                </div>
+            </div>
+        </footer>
+        <!-- /footer -->
+    </main>
+    <!-- /wrapper -->
+
+    <!-- Mobile Menu -->
+    <div class="offcanvas-menu">
+        <div class="offcanvas-content">
+            <div class="container h-100">
+                <div class="offcanvas-content_wrapin">
+                    <div class="canvas_head">
+                        <a href="index.html" class="logo-site">
+                            <img src="assets/images/logo/logo.svg" alt="AXIDE Logo">
+                        </a>
+                        <div class="btn-mobile-menu close-mb-menu text-caption link">
+                            <i class="icon icon-close"></i>
+                            닫기
+                        </div>
+                    </div>
+                    <div class="canvas_center">
+                        <ul class="nav-ul-mb" id="mobile-menu">
+                            <li>
+                                <div class="item">
+                                    <div class="has-sub-menu">
+                                        <a href="#dropdown-menu-index" class="mb-menu-link text-display-1 collapsed" data-bs-toggle="collapse"
+                                            aria-expanded="false" aria-controls="dropdown-menu-index">
+                                            <span class="text">홈</span>
+                                        </a>
+                                        <div id="dropdown-menu-index" class="collapse" data-bs-parent="#mobile-menu">
+                                            <ul class="sub-nav-menu">
+                                                <li><a href="index.html" class="sub-nav-link text-white">홈 01 — 방산 폐쇄망 AI 표준</a></li>
+                                                <li><a href="index-v2.html" class="sub-nav-link text-white">홈 02 — 소버린 AI 모션</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item">
+                                    <a href="about.html" class="mb-menu-link text-display-1">
+                                        <span class="text">회사소개</span>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item">
+                                    <div class="has-sub-menu">
+                                        <a href="#dropdown-menu-1" class="mb-menu-link text-display-1 collapsed" data-bs-toggle="collapse"
+                                            aria-expanded="false" aria-controls="dropdown-menu-1">
+                                            <span class="text">실증사례</span>
+                                        </a>
+                                        <div id="dropdown-menu-1" class="collapse" data-bs-parent="#mobile-menu">
+                                            <ul class="sub-nav-menu">
+                                                <li><a href="work.html" class="sub-nav-link text-white">공급계약 & 5단계 진화 로드맵</a></li>
+                                                <li><a href="work-single.html" class="sub-nav-link text-white">아주산업 1호 계약 & 도면 복원 실측</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item">
+                                    <div class="has-sub-menu">
+                                        <a href="#dropdown-menu-2" class="mb-menu-link text-display-1 collapsed" data-bs-toggle="collapse"
+                                            aria-expanded="false" aria-controls="dropdown-menu-2">
+                                            <span class="text">솔루션</span>
+                                        </a>
+                                        <div id="dropdown-menu-2" class="collapse" data-bs-parent="#mobile-menu">
+                                            <ul class="sub-nav-menu">
+                                                <li><a href="service.html" class="sub-nav-link text-white">Cogni-OS 3층 아키텍처 & 하드웨어</a></li>
+                                                <li><a href="service-single.html" class="sub-nav-link text-white">방산 부품 여권 (Part Passport v1)</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item">
+                                    <div class="has-sub-menu">
+                                        <a href="#dropdown-menu-3" class="mb-menu-link text-display-1 collapsed" data-bs-toggle="collapse"
+                                            aria-expanded="false" aria-controls="dropdown-menu-3">
+                                            <span class="text">기술·규제 백서</span>
+                                        </a>
+                                        <div id="dropdown-menu-3" class="collapse" data-bs-parent="#mobile-menu">
+                                            <ul class="sub-nav-menu">
+                                                <li><a href="blog-standard.html" class="sub-nav-link text-white">기술 백서 & 규제 브리핑</a></li>
+                                                <li><a href="blog-two-columns.html" class="sub-nav-link text-white">기술 아카이브 (2열)</a></li>
+                                                <li><a href="blog-three-columns.html" class="sub-nav-link text-white">기술 아카이브 (3열)</a></li>
+                                                <li><a href="blog-single.html" class="sub-nav-link text-white">DEQ 상수 메모리 & 감사 봉인 상세</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item">
+                                    <a href="contact.html" class="mb-menu-link text-display-1">
+                                        <span class="text">도입문의</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="canvas_foot">
+                        <div class="left">
+                            <a href="mailto:wwwhunycom@naver.com" class="text-caption text-neutral-200">wwwhunycom@naver.com</a>
+                            <p class="text-caption text-neutral-200">
+                                DAEJEON <span class="clock"></span>
+                            </p>
+                        </div>
+                        <div class="right">
+                            <a href="service-single.html" class="tf-link-icon text-caption text-neutral-200">
+                                <i class="icon icon-arrow-top-right"></i>
+                                PART PASSPORT
+                            </a>
+                            <a href="work-single.html" class="tf-link-icon text-caption text-neutral-200">
+                                <i class="icon icon-arrow-top-right"></i>
+                                ATP v1.0 REPORT
+                            </a>
+                            <a href="tel:01066893508" class="tf-link-icon text-caption text-neutral-200">
+                                <i class="icon icon-arrow-top-right"></i>
+                                010-6689-3508
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Mobile Menu -->
+
+    <!-- Left Bar -->
+    <div class="tf-left-bar">
+        <a class="btn-setting-color" data-bs-toggle="offcanvas" href="#settingColorMenu">
+            <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.0015 7.50004C11.1115 7.50004 10.2415 7.76396 9.50144 8.25843C8.76142 8.7529 8.18464 9.4557 7.84405 10.278C7.50346 11.1002 7.41434 12.005 7.58797 12.8779C7.76161 13.7509 8.19019 14.5527 8.81953 15.182C9.44886 15.8114 10.2507 16.2399 11.1236 16.4136C11.9965 16.5872 12.9013 16.4981 13.7236 16.1575C14.5458 15.8169 15.2487 15.2401 15.7431 14.5001C16.2376 13.7601 16.5015 12.8901 16.5015 12C16.5003 10.8069 16.0258 9.66308 15.1821 8.81943C14.3385 7.97579 13.1946 7.50128 12.0015 7.50004ZM12.0015 15C11.4082 15 10.8281 14.8241 10.3348 14.4945C9.84145 14.1648 9.45693 13.6963 9.22987 13.1481C9.00281 12.5999 8.9434 11.9967 9.05915 11.4148C9.17491 10.8328 9.46063 10.2983 9.88019 9.87872C10.2997 9.45916 10.8343 9.17344 11.4162 9.05769C11.9982 8.94193 12.6014 9.00134 13.1496 9.2284C13.6977 9.45547 14.1663 9.83998 14.4959 10.3333C14.8256 10.8267 15.0015 11.4067 15.0015 12C15.0015 12.7957 14.6854 13.5588 14.1228 14.1214C13.5602 14.684 12.7972 15 12.0015 15Z" fill="#fff"/>
+            </svg>
+        </a>
+    </div>
+    <!-- /Left Bar -->
+
+    <!-- Setting Color -->
+    <div class="offcanvas offcanvas-end offcanvas-color" id="settingColorMenu">
+        <div class="offcanvas-content">
+            <span class="icon-close-popup" data-bs-dismiss="offcanvas">
+                <i class="icon-close"></i>
+            </span>
+            <div class="canvas-header">
+                <h3 class="fw-semibold text-white">테마 및 커서 설정</h3>
+            </div>
+            <div class="canvas-body">
+                <h6 class="title fw-semibold text-white">브랜드 강조 색상</h6>
+                <div class="settings-color list-choose mb-24">
+                    <button type="button" class="choose-item link-no-action active"></button>
+                    <button type="button" class="choose-item link-no-action"></button>
+                    <button type="button" class="choose-item link-no-action"></button>
+                    <button type="button" class="choose-item link-no-action"></button>
+                    <button type="button" class="choose-item link-no-action"></button>
+                    <button type="button" class="choose-item link-no-action"></button>
+                    <button type="button" class="choose-item link-no-action"></button>
+                    <button type="button" class="choose-item link-no-action"></button>
+                </div>
+                <h6 class="title fw-semibold text-white">인터랙티브 커서 궤적</h6>
+                <div>
+                    <input type="checkbox" id="cursor" class="tf-switch-check style-small">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Setting Color -->
+
+    <!-- Javascript -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.nice-select.min.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/slick.min.js"></script>
+    <script src="assets/js/countto.js"></script>
+    <script src="assets/js/carousel.js"></script>
+    <script src="assets/js/infinityslide.js"></script>
+    <script src="assets/js/ScrollSmooth.js"></script>
+    <script src="assets/js/gsap.min.js"></script>
+    <script src="assets/js/ScrollTrigger.min.js"></script>
+    <script src="assets/js/ScrollToPlugin.min.js"></script>
+    <script src="assets/js/gsapAnimation.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

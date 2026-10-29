@@ -1,0 +1,22 @@
+<svg width="136" height="32" viewBox="0 0 136 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="axideMarkGrad" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#09090B"/>
+      <stop offset="100%" stop-color="#27272A"/>
+    </linearGradient>
+    <linearGradient id="axideAccentGrad" x1="6" y1="6" x2="26" y2="26" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FD3A25"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+  </defs>
+  <!-- Hexagonal Sovereign Shield Badge -->
+  <rect x="1" y="1" width="30" height="30" rx="8" fill="url(#axideMarkGrad)" stroke="#3F3F46" stroke-width="1"/>
+  <!-- Geometric 'A' & Equilibrium Orbit -->
+  <path d="M16 6.5L24.5 23.5H20.6L16 14.2L11.4 23.5H7.5L16 6.5Z" fill="#FFFFFF"/>
+  <path d="M12.2 19.5H19.8" stroke="#FD3A25" stroke-width="2.4" stroke-linecap="round"/>
+  <circle cx="16" cy="11.5" r="1.6" fill="#38BDF8"/>
+  <!-- AXIDE Wordmark -->
+  <text x="39" y="22.5" font-family="'Urbanist', 'Pretendard', sans-serif" font-weight="800" font-size="21" letter-spacing="1.2" fill="#09090B">AXIDE</text>
+  <circle cx="111.5" cy="19.5" r="2.5" fill="#FD3A25"/>
+  <text x="117" y="21.5" font-family="'Urbanist', 'Pretendard', sans-serif" font-weight="700" font-size="9.5" letter-spacing="0.5" fill="#52525B">AI</text>
+</svg>

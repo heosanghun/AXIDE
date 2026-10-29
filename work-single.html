@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko-KR" lang="ko-KR"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko-KR" lang="ko-KR">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <title>AXIDE — 아주산업 1호 정식 공급계약 & 방산 부품 여권 구축 상세 | Cogni-OS</title>
+    <meta name="author" content="AXIDE Inc. (주식회사 액사이드)">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="아주산업 1호 정식 공급계약(1.1억 원) 및 방산 공급망 2D→3D 도면 복원(CogniCraft)·ATP v1.0 실측 성적서·Part Passport 구축 상세 케이스 스터디.">
+
+    <!-- font -->
+    <link rel="stylesheet" href="assets/fonts/fonts.css">
+    <link rel="stylesheet" href="assets/icon/icomoon/style.css">
+    <!-- css -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/slick.css">
+    <link rel="stylesheet" href="assets/css/slick.theme.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+
+    <!-- Favicon and Touch Icons  -->
+    <link rel="shortcut icon" href="assets/images/logo/favicon.svg">
+    <link rel="apple-touch-icon-precomposed" href="assets/images/logo/favicon.svg">
+</head>
+
+<body class="counter-scroll">
+    <canvas class="cursor-trail d-none d-xl-block" id="trail"></canvas>
+
+    <!-- Scroll Top -->
+    <button id="goTop">
+        <span class="border-progress"></span>
+        <span class="ic-wrap">
+            <span class="icon icon-arrow-top"></span>
+        </span>
+    </button>
+    <!-- /Scroll Top -->
+
+    <!-- Preload -->
+    <div class="preload preload-container">
+        <div class="preload-logo">
+            <img src="assets/images/logo/favicon.svg" alt="AXIDE">
+        </div>
+    </div>
+    <!-- /Preload -->
+
+    <main id="wrapper">
+        <!-- Header -->
+        <header class="tf-header header1">
+            <div class="header-inner">
+                <a href="index.html" class="logo-site">
+                    <img src="assets/images/logo/logo.svg" alt="AXIDE Cogni-OS">
+                </a>
+                <div class="box-navigation">
+                    <ul class="nav-menu-main">
+                        <li class="menu-item has-child">
+                            <a href="index.html" class="item-link link1">홈</a>
+                            <ul class="sub-menu">
+                                <li class="sub-menu-item"><a href="index.html" class="sub-menu-link">Cogni-OS 메인 (그라디언트)</a></li>
+                                <li class="sub-menu-item"><a href="index-v2.html" class="sub-menu-link">방산·에어갭 에디션 (애니메이션)</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item">
+                            <a href="about.html" class="item-link link1">AXIDE 소개</a>
+                        </li>
+                        <li class="menu-item has-child">
+                            <a href="work.html" class="item-link link1">도입 사례</a>
+                            <ul class="sub-menu">
+                                <li class="sub-menu-item"><a href="work.html" class="sub-menu-link">실증 레퍼런스</a></li>
+                                <li class="sub-menu-item"><a href="work-single.html" class="sub-menu-link">아주산업·방산 구축 상세</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item has-child">
+                            <a href="service.html" class="item-link link1">솔루션</a>
+                            <ul class="sub-menu">
+                                <li class="sub-menu-item"><a href="service.html" class="sub-menu-link">Cogni-OS 제품군</a></li>
+                                <li class="sub-menu-item"><a href="service-single.html" class="sub-menu-link">부품 여권 & 아키텍처 상세</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item has-child">
+                            <a href="#" class="item-link link1">기술 인사이트</a>
+                            <ul class="sub-menu">
+                                <li class="sub-menu-item"><a href="blog-standard.html" class="sub-menu-link">방산법·기술 백서 (표준형)</a></li>
+                                <li class="sub-menu-item"><a href="blog-two-columns.html" class="sub-menu-link">에어갭 벤치마크 (2단 그리드)</a></li>
+                                <li class="sub-menu-item"><a href="blog-three-columns.html" class="sub-menu-link">아키텍처 리포트 (3단 그리드)</a></li>
+                                <li class="sub-menu-item"><a href="blog-single.html" class="sub-menu-link">2026 방위산업기술 보호법 해설</a></li>
+                                <li class="sub-menu-item"><a href="404.html" class="sub-menu-link">보안 구역 안내 (404)</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item">
+                            <a href="contact.html" class="item-link link1">도입 문의</a>
+                        </li>
+                    </ul>
+                </div>
+                <a href="contact.html" class="tf-btn d-lg-flex d-none">
+                    파일럿 신청하기
+                </a>
+                <a href="#" class="tf-btn open-mb-menu mobile-menu d-lg-none d-flex">
+                    <i class="icon icon-grip-lines-solid"></i>
+                </a>
+            </div>
+        </header>
+        <!-- /Header -->
+        <!-- Hero Banner -->
+        <div class="section-hero v2">
+            <div class="hero-image">
+            </div>
+            <div class="container">
+                <div class="content-wrap text-center">
+                    <div class="title text-display-2 effectFade fadeRotateX">
+                        <span class="title1 fw-semibold text-gradient-1">아주산업 1호 공급계약 &</span>
+                        <br>
+                        <div class="title2 d-flex gap-20 justify-content-center flex-wrap">
+                            <span class="fw-semibold text-gradient-1">CogniCraft 도면·여권 실증</span>
+                            <div class="title-icon">
+                                <div class="box"></div>
+                                <div class="title-icon-wrap">
+                                    <img src="assets/images/item/item-13.svg" alt="" class="img-1 img-transform-3">
+                                    <img src="assets/images/item/item-14.svg" alt="" class="img-2 img-transform-3">
+                                    <img src="assets/images/item/item-15.svg" alt="" class="img-3 img-transform-3">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text effectFade fadeUp">
+                        2026년 4월 20일 체결된 아주산업 정식 공급계약(1.1억 원)의 CogniBoard v0.16.2 실가동 관제 시스템과 <br>
+                        2D 도면(도면 296)에서 3D CAD 솔리드 복원·ATP v1.0 성적서·Part Passport로 이어지는 완결형 기술 실증 사례입니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- /Hero Banner -->
+        <!-- section-work-single -->
+        <div id="works" class="section-work-single flat-spacing pt-0">
+            <div class="container">
+                <div class="row mb-32">
+                    <div class="col-12">
+                        <div class="wrap-image mb-60 effectFade fadeZoom">
+                            <img src="assets/images/section/work-single-1.jpg" alt="CogniBoard v0.16.2 실가동 대시보드">
+                        </div>
+                        <h2 class="heading fw-semibold mb-32 effectFade fadeUp">프로젝트 개요 (Project Details)</h2>
+                        <p class="text-secondary effectFade fadeUp">
+                            주식회사 액사이드(AXIDE Inc.)는 2026년 4월 20일 중견 건설·건자재 선도기업 <strong>아주산업과 1호 정식 공급계약(계약금액 110,000,000원, 부가세 포함)</strong>을 체결하고, 사내 폐쇄망 인프라에 에어갭 소버린 AI 운영체제 <strong>Cogni-OS</strong>와 실시간 오케스트레이션 관제 보드 <strong>CogniBoard v0.16.2</strong>를 구축했습니다. 상단 이미지는 실제 가동 중인 CogniBoard v0.16.2 화면으로, 좌측 도메인 트리(01_기획·전략, 02_인사·총무, 03_재무·회계, 04_마케팅·세일즈, 05_개발·IT, 06_법무·감사, 07_고객지원·CS, 99_시스템·공통)와 중앙 에이전트 토폴로지 맵, 우측 태스크 실행 큐(Running 42 / Queued 311 / Done 514 / Denied 12)가 단일 콘솔에서 통제됩니다.
+                            <br><br>
+                            외부 클라우드 LLM API를 일절 호출하지 않는 순수 내부망 환경(Outbound 0 Byte)에서 사내 기술 표준서, 배합 설계 문서, 설비 보전 이력, 법무·감사 규정을 멀티에이전트 합의로 처리하며, 모든 에이전트의 실행 결과는 SHA-256 해시 체인으로 봉인되어 위·변조가 불가능한 감사 증거로 남습니다. 3개월간의 본사 실증을 마친 뒤 아주그룹 지주 및 계열사로의 확산을 추진하고 있습니다.
+                        </p>
+                    </div>
+                </div>
+                <div class="row mb-60">
+                    <div class="col-md-8 md-mb-24">
+                        <div class="text-body-1 fw-semibold text-secondary mb-15 effectFade fadeUp">
+                            DELIVERABLES (핵심 구축 산출물)
+                        </div>
+                        <div class="list-tags effectFade fadeUp">
+                            <a href="#" class="tags-item fw-semibold">Cogni-OS Air-Gap Core</a>
+                            <a href="#" class="tags-item fw-semibold">CogniBoard v0.16.2</a>
+                            <a href="#" class="tags-item fw-semibold">CogniCraft 2D→3D CAD</a>
+                            <a href="#" class="tags-item fw-semibold">Part Passport v1.0</a>
+                            <a href="#" class="tags-item fw-semibold">ATP v1.0 성적서</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="text-body-1 fw-semibold text-secondary mb-15 effectFade fadeUp" data-delay="0.1">
+                            INDUSTRY (적용 산업군)
+                        </div>
+                        <div class="list-tags effectFade fadeUp" data-delay="0.1">
+                            <a href="#" class="tags-item fw-semibold">중견 제조 · 방위산업 공급망</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-60">
+                    <div class="col-12">
+                        <div class="wrap-image effectFade fadeZoom">
+                            <img src="assets/images/section/work-single-2.jpg" alt="AXIDE Field Vault 현장 1시간 내 설치">
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-60">
+                    <div class="col-12">
+                        <h2 class="heading fw-semibold mb-20 effectFade fadeUp">현장 1시간 설치 & 에어갭 아키텍처 (Project Research)</h2>
+                        <p class="text-secondary effectFade fadeUp">
+                            전담 IT 인력이 부족한 제조 공장 및 방산 2·3차 협력사 현장의 도입 장벽을 없애기 위해, AXIDE는 방진·방습 Pelican 1510 케이스에 사내 구축형 고성능 GPU 워크스테이션, YubiKey 5 FIPS 하드웨어 보안키 2개, 산업용 QR 스캐너와 라벨 프린터를 올인원으로 패키징한 <strong>AXIDE Field Vault</strong>를 설계했습니다. 현장 도착 후 전원만 연결하면 1시간 이내에 인터넷이 완전히 차단된 에어갭 AI 노드가 가동됩니다.
+                            <br><br>
+                            내부 추론 엔진은 8대의 NVIDIA B200 GPU 클러스터에서 64,615건의 SFT/DPO 제조·방산 데이터셋으로 파인튜닝된 오픈웨이트 모델(Qwen3.5-9B / 27B / 35B-A3B MoE)을 구동하며, 사내 코딩 및 도면·규격 추론 벤치마크 93.3점(외부 API 대비 110% 성능), p95 추론 응답 240ms, 감사 추적 상관율 99.1%를 달성했습니다.
+                        </p>
+                    </div>
+                </div>
+                <div class="row mb-60">
+                    <div class="col-12">
+                        <h2 class="heading fw-semibold mb-20 effectFade fadeUp">실증 결과: 2D 도면 296 → 3D 솔리드 복원 & ATP v1.0 (Project Results)</h2>
+                        <p class="text-secondary effectFade fadeUp">
+                            하단 좌측 이미지는 실제 제조·방산 현장의 <strong>2D 삼각법 기계제도 도면(도면 296)</strong>이며, 우측 이미지는 <strong>CogniCraft</strong> 엔진이 폐쇄망 내부에서 정면도·평면도·우측면도의 치수선, 은선, 구멍·슬롯 형상 및 GD&T 기하공차를 자동 판독해 복원한 <strong>3D 파라메트릭 CAD 솔리드 모델</strong>입니다. 복원된 3D STEP/IGES 모델은 공구 경로(G-code) 생성과 함께 즉시 <strong>ATP(Acceptance Test Procedure) v1.0 자동 인수시험 성적서</strong>의 기준값으로 변환됩니다. 가공 완료된 알루미늄 6061 부품은 로보티즈 OMY-F3M 6자유도 측정 루프를 거쳐 실측 편차가 기록되고, 작업자 YubiKey 서명 후 <strong>Part Passport v1.0</strong>이 발행되어 원청 입고 시 단 3초 만에 위·변조 여부가 검증됩니다.
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 md-mb-24">
+                        <div class="image effectFade fadeUp">
+                            <img src="assets/images/section/work-single-3.jpg" alt="원본 2D 기계제도 도면 296">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="image effectFade fadeUp" data-delay="0.1">
+                            <img src="assets/images/section/work-single-4.jpg" alt="CogniCraft가 자동 복원한 3D CAD 솔리드 모델">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /section-work-single -->
+        <div class="box-black">
+            <div class="light-box"></div>
+            <img class="light-top" src="assets/images/item/light-top.png" alt="">
+            <img class="light-bot" src="assets/images/item/light-bot.png" alt="">
+            <!-- section-testimonials -->
+            <div class="section-testimonials flat-spacing">
+                <div class="container">
+                    <div class="heading-section center mb-64">
+                        <div class="heading-sub fw-semibold style-1 effectFade fadeUp">Testimonials</div>
+                        <div class="heading-title text-white effectFade fadeRotateX">도입 고객 및 파트너 총평</div>
+                    </div>
+                    <div class="testimonials-v2-wrap">
+                        <div class="col-left">
+                            <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M44.375 70.4063V41.0938C44.375 33.0729 47.0729 26.3646 52.4687 20.9688C58.0104 15.4271 65.5208 11.6354 75 9.59375V29.0625C71.3542 30.2292 68.9479 31.6875 67.7812 33.4375C66.6146 35.0417 65.9583 37.0833 65.8125 39.5625H75V70.4063H44.375ZM5 70.4063V41.0938C5 33.0729 7.69792 26.3646 13.0938 20.9688C18.6354 15.4271 26.1458 11.6354 35.625 9.59375V29.0625C32.125 30.2292 29.7187 31.6875 28.4062 33.4375C27.2396 35.0417 26.5833 37.0833 26.4375 39.5625H35.625V70.4063H5Z" fill="#27272A"/>
+                            </svg>
+                            <div class="swiper-testimonial_wrap">
+                                <div dir="ltr" class="swiper tf-swiper swiper-testimonial">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <div>
+                                                <div class="top-icon d-flex gap-4">
+                                                    <i class="icon icon-star-solid"></i>
+                                                    <i class="icon icon-star-solid"></i>
+                                                    <i class="icon icon-star-solid"></i>
+                                                    <i class="icon icon-star-solid"></i>
+                                                    <i class="icon icon-star-solid"></i>
+                                                </div>
+                                                <div class="text-body-1 text-white desc">
+                                                    “핵심 설계 자산과 사내 데이터를 외부 클라우드로 일절 내보내지 않으면서도, CogniBoard v0.16을 통해 부서별 에이전트 실행 현황과 감사 로그를 한눈에 통제할 수 있어 1호 정식 공급계약을 결정했습니다.”
+                                                </div>
+                                                <div class="cite mb-0">
+                                                    <img class="line-left" src="assets/images/item/line-1.png" alt="">
+                                                    <div class="name text-body-3 text-neutral-400 fw-semibold">아주산업 DX추진실</div>
+                                                    <div class="line"></div>
+                                                    <div class="sub text-body-3 text-neutral-400">1호 정식 공급계약 (1.1억 원) 고객사</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div>
+                                                <div class="top-icon d-flex gap-4">
+                                                    <i class="icon icon-star-solid"></i>
+                                                    <i class="icon icon-star-solid"></i>
+                                                    <i class="icon icon-star-solid"></i>
+                                                    <i class="icon icon-star-solid"></i>
+                                                    <i class="icon icon-star-solid"></i>
+                                                </div>
+                                                <div class="text-body-1 text-white desc">
+                                                    “2026년 12월 방위산업기술 보호법 시행을 앞두고 협력사 도면 유출과 수기 성적서 위·변조 우려가 가장 큰 고민이었습니다. AXIDE Field Vault와 Part Passport는 도면 원본 반출 없이 3초 만에 진본성을 증명합니다.”
+                                                </div>
+                                                <div class="cite mb-0">
+                                                    <img class="line-left" src="assets/images/item/line-1.png" alt="">
+                                                    <div class="name text-body-3 text-neutral-400 fw-semibold">방산 항공·정밀가공 협력사 대표</div>
+                                                    <div class="line"></div>
+                                                    <div class="sub text-body-3 text-neutral-400">Field Vault 파일럿 파트너</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div>
+                                                <div class="top-icon d-flex gap-4">
+                                                    <i class="icon icon-star-solid"></i>
+                                                    <i class="icon icon-star-solid"></i>
+                                                    <i class="icon icon-star-solid"></i>
+                                                    <i class="icon icon-star-solid"></i>
+                                                    <i class="icon icon-star-solid"></i>
+                                                </div>
+                                                <div class="text-body-1 text-white desc">
+                                                    “망분리 금융 환경에서 요구되는 99.1% 감사 추적 상관율과 p95 240ms 이하의 고속 응답성을 동시에 충족하는 소버린 AI 아키텍처입니다. 엔터프라이즈 내부망 AI 거버넌스의 표준을 제시합니다.”
+                                                </div>
+                                                <div class="cite mb-0">
+                                                    <img class="line-left" src="assets/images/item/line-1.png" alt="">
+                                                    <div class="name text-body-3 text-neutral-400 fw-semibold">금융권 AX연구소 수석 아키텍트</div>
+                                                    <div class="line"></div>
+                                                    <div class="sub text-body-3 text-neutral-400">엔터프라이즈 기술 검증 파트너</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-right">
+                            <div dir="ltr" class="swiper sw-main-image">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div class="testimonial-image-v2">
+                                            <img src="assets/images/section/tes-1.jpg" alt="고객사 임원 1">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="testimonial-image-v2">
+                                            <img src="assets/images/section/tes-2.jpg" alt="고객사 임원 2">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="testimonial-image-v2">
+                                            <img src="assets/images/section/tes-3.jpg" alt="고객사 임원 3">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /section-testimonials -->
+        </div>
+        <!-- section-featured-works -->
+        <div class="section-featured-works flat-spacing">
+            <div class="container">
+                <div class="heading-section center mb-64">
+                    <div class="heading-sub fw-semibold effectFade fadeUp">Project</div>
+                    <div class="heading-title text-gradient-3 effectFade fadeRotateX">다음 실증 레퍼런스</div>
+                </div>
+                <div class="featured-works-list position-relative">
+                    <div class="element effectFade fadeUp">
+                        <div class="featured-works-item">
+                            <div class="image main-mouse-hover">
+                                <img src="assets/images/section/featured-works-4.jpg" alt="로보티즈 OMY-F3M 오픈소스 로봇팔 측정 루프">
+                                <a href="service-single.html" class="tf-mouse view-project h6">
+                                    상세 보기
+                                    <i class="icon icon-arrow-top-right"></i>
+                                </a>
+                            </div>
+                            <div class="content">
+                                <div class="pagi-dot">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span class="active"></span>
+                                </div>
+                                <div class="bot">
+                                    <h4 class="heading fw-semibold">로보티즈 OMY-F3M 로봇팔 <br> 측정 & 알루미늄 6061 자기 증명</h4>
+                                    <div class="grid-text">
+                                        <div class="item">
+                                            <div class="title text-secondary">DESCRIPTION</div>
+                                            <div class="text-body-3 fw-semibold">6자유도 오픈소스 매니퓰레이터(OMY-F3M)가 알루미늄 6061 가공 시편 3종(브래킷·플랜지·하우징)을 자동 측정하고 실물 옆에 Part Passport #0001을 봉인.</div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="title text-secondary">DELIVERABLES</div>
+                                            <div class="fw-semibold">CogniCraft STEP/G-code 생성, <br> OMY-F3M 자동 측정 루프, Part Passport #0001</div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="title text-secondary">INDUSTRY</div>
+                                            <div class="fw-semibold">로보틱스 / 자율 제조(Autonomous Mfg)</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /section-featured-works -->
+        <!-- footer -->
+        <footer>
+            <div class="footer-image">
+                <img class="effectFade fadeUp" src="assets/images/logo/logo-footer.png" alt="AXIDE Watermark">
+            </div>
+            <div class="container">
+                <div class="footer-content">
+                    <a href="index.html" class="footer-logo">
+                        <img src="assets/images/logo/logo-2.svg" alt="AXIDE">
+                    </a>
+                    <div class="title h6 fw-semibold">주식회사 액사이드 (AXIDE Inc.) <br> 소버린 에어갭 AI & 부품 여권 공식 채널</div>
+                    <div class="text">“도면은 공장 밖으로 나가지 않고, 부품은 여권을 들고 올라옵니다.”</div>
+                    <div class="tf-social-1 justify-content-center">
+                        <a href="https://x.com/" target="_blank" class="text-body-1 fw-semibold">
+                            Twitter / X
+                            <div class="social-item">
+                                <i class="icon icon-twitter-x"></i>
+                            </div>
+                        </a>
+                        <a href="https://www.facebook.com/" target="_blank" class="text-body-1 fw-semibold">
+                            Facebook
+                            <div class="social-item">
+                                <i class="icon icon-facebook-f"></i>
+                            </div>
+                        </a>
+                        <a href="https://www.instagram.com/" target="_blank" class="text-body-1 fw-semibold">
+                            Instagram
+                            <div class="social-item">
+                                <i class="icon icon-instagram"></i>
+                            </div>
+                        </a>
+                        <a href="https://www.linkedin.com/" target="_blank" class="text-body-1 fw-semibold">
+                            Linkedin
+                            <div class="social-item">
+                                <i class="icon icon-linkedin-in"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <ul class="footer-links d-flex gap-24 align-items-center">
+                        <li>
+                            <a href="about.html" class="fw-semibold link-underline link1">AXIDE 소개</a>
+                        </li>
+                        <li>
+                            <a href="service.html" class="fw-semibold link-underline link1">솔루션</a>
+                        </li>
+                        <li>
+                            <a href="work.html" class="fw-semibold link-underline link1">도입 사례</a>
+                        </li>
+                        <li>
+                            <a href="contact.html" class="fw-semibold link-underline link1">도입 문의</a>
+                        </li>
+                    </ul>
+                    <p class="text-secondary coppy-rights text-center">© 2026 AXIDE Inc. (주식회사 액사이드). All Rights Reserved.</p>
+                    <a href="#" class="action-go-top d-flex gap-8 align-items-center justify-content-end link1">
+                        <span class="fw-semibold">맨 위로 이동</span>
+                        <i class="icon icon-long-arrow-alt-up-solid fs-20"></i>
+                    </a>
+                </div>
+            </div>
+        </footer>
+        <!-- /footer -->
+    </main>
+    <!-- /wrapper -->
+
+    <!-- Mobile Menu -->
+    <div class="offcanvas-menu">
+        <div class="offcanvas-content">
+            <div class="container h-100">
+                <div class="offcanvas-content_wrapin">
+                    <div class="canvas_head">
+                        <a href="index.html" class="logo-site">
+                            <img src="assets/images/logo/logo.svg" alt="AXIDE">
+                        </a>
+                        <div class="btn-mobile-menu close-mb-menu text-caption link">
+                            <i class="icon icon-close"></i>
+                            닫기
+                        </div>
+                    </div>
+                    <div class="canvas_center">
+                        <ul class="nav-ul-mb" id="mobile-menu">
+                            <li>
+                                <div class="item">
+                                    <div class="has-sub-menu">
+                                        <a href="#dropdown-menu-index" class="mb-menu-link text-display-1 collapsed" data-bs-toggle="collapse"
+                                            aria-expanded="false" aria-controls="dropdown-menu-index">
+                                            <span class="text">Home</span>
+                                        </a>
+                                        <div id="dropdown-menu-index" class="collapse" data-bs-parent="#mobile-menu">
+                                            <ul class="sub-nav-menu">
+                                                <li><a href="index.html" class="sub-nav-link text-white">Cogni-OS 메인</a></li>
+                                                <li><a href="index-v2.html" class="sub-nav-link text-white">방산·에어갭 에디션</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item">
+                                    <a href="about.html" class="mb-menu-link text-display-1">
+                                        <span class="text">About</span>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item">
+                                    <div class="has-sub-menu">
+                                        <a href="#dropdown-menu-1" class="mb-menu-link text-display-1 collapsed" data-bs-toggle="collapse"
+                                            aria-expanded="false" aria-controls="dropdown-menu-1">
+                                            <span class="text">Works</span>
+                                        </a>
+                                        <div id="dropdown-menu-1" class="collapse" data-bs-parent="#mobile-menu">
+                                            <ul class="sub-nav-menu">
+                                                <li><a href="work.html" class="sub-nav-link text-white">실증 레퍼런스</a></li>
+                                                <li><a href="work-single.html" class="sub-nav-link text-white">아주산업·방산 구축 상세</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item">
+                                    <div class="has-sub-menu">
+                                        <a href="#dropdown-menu-2" class="mb-menu-link text-display-1 collapsed" data-bs-toggle="collapse"
+                                            aria-expanded="false" aria-controls="dropdown-menu-2">
+                                            <span class="text">Services</span>
+                                        </a>
+                                        <div id="dropdown-menu-2" class="collapse" data-bs-parent="#mobile-menu">
+                                            <ul class="sub-nav-menu">
+                                                <li><a href="service.html" class="sub-nav-link text-white">Cogni-OS 제품군</a></li>
+                                                <li><a href="service-single.html" class="sub-nav-link text-white">부품 여권 & 아키텍처 상세</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item">
+                                    <div class="has-sub-menu">
+                                        <a href="#dropdown-menu-3" class="mb-menu-link text-display-1 collapsed" data-bs-toggle="collapse"
+                                            aria-expanded="false" aria-controls="dropdown-menu-3">
+                                            <span class="text">Pages</span>
+                                        </a>
+                                        <div id="dropdown-menu-3" class="collapse" data-bs-parent="#mobile-menu">
+                                            <ul class="sub-nav-menu">
+                                                <li><a href="blog-standard.html" class="sub-nav-link text-white">기술 백서 (표준형)</a></li>
+                                                <li><a href="blog-two-columns.html" class="sub-nav-link text-white">에어갭 벤치마크 (2단)</a></li>
+                                                <li><a href="blog-three-columns.html" class="sub-nav-link text-white">아키텍처 리포트 (3단)</a></li>
+                                                <li><a href="blog-single.html" class="sub-nav-link text-white">방위산업기술 보호법 해설</a></li>
+                                                <li><a href="404.html" class="sub-nav-link text-white">404 안내</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item">
+                                    <a href="contact.html" class="mb-menu-link text-display-1">
+                                        <span class="text">Contact</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="canvas_foot">
+                        <div class="left">
+                            <a href="mailto:contact@axide.ai" class="link text-caption">contact@axide.ai</a>
+                            <p class="text-caption">
+                                대한민국 서울특별시 <span class="clock"></span>
+                            </p>
+                        </div>
+                        <div class="right">
+                            <a href="https://x.com/" target="_blank" class="tf-link-icon text-caption link">
+                                <i class="icon icon-arrow-top-right"></i>
+                                TWITTER / X
+                            </a>
+                            <a href="https://www.linkedin.com/" target="_blank" class="tf-link-icon text-caption link">
+                                <i class="icon icon-arrow-top-right"></i>
+                                LINKEDIN
+                            </a>
+                            <a href="https://github.com/" target="_blank" class="tf-link-icon text-caption link">
+                                <i class="icon icon-arrow-top-right"></i>
+                                GITHUB
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Mobile Menu -->
+
+    <!-- Left Bar -->
+    <div class="tf-left-bar">
+        <a class="btn-setting-color" data-bs-toggle="offcanvas" href="#settingColorMenu"><i class="icon icon-gear-solid"></i></a>
+    </div>
+    <!-- /Left Bar -->
+
+    <!-- Setting Color -->
+    <div class="offcanvas offcanvas-end offcanvas-color" id="settingColorMenu">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">인터페이스 테마 설정</h5>
+            <span class="icon-close-popup" data-bs-dismiss="offcanvas">
+                <i class="icon-close"></i>
+            </span>
+        </div>
+        <div class="offcanvas-body">
+            <div class="br-line"></div>
+            <div class="ayar-ig">
+                <h6 class="title">멀티 에디션 네비게이션</h6>
+                <div class="list-home">
+                    <div class="item">
+                        <a href="index.html" class="image"><img src="assets/images/section/home-1.jpg" alt="Cogni-OS 메인"></a>
+                        <a href="index.html" class="text-body-3 link">Cogni-OS 메인</a>
+                    </div>
+                    <div class="item">
+                        <a href="index-v2.html" class="image"><img src="assets/images/section/home-2.jpg" alt="방산·에어갭 에디션"></a>
+                        <a href="index-v2.html" class="text-body-3 link">방산·에어갭 에디션</a>
+                    </div>
+                </div>
+            </div>
+            <div class="br-line"></div>
+        </div>
+    </div>
+    <!-- /Setting Color -->
+
+    <!-- Javascript -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.nice-select.min.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/slick.min.js"></script>
+    <script src="assets/js/countto.js"></script>
+    <script src="assets/js/carousel.js"></script>
+    <script src="assets/js/infinityslide.js"></script>
+    <script src="assets/js/ScrollSmooth.js"></script>
+    <script src="assets/js/gsap.min.js"></script>
+    <script src="assets/js/ScrollTrigger.min.js"></script>
+    <script src="assets/js/ScrollToPlugin.min.js"></script>
+    <script src="assets/js/gsapAnimation.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

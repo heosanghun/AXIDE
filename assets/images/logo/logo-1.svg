@@ -1,0 +1,22 @@
+<svg width="86" height="86" viewBox="0 0 86 86" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="logo1Bg" x1="0" y1="0" x2="86" y2="86" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#18181B"/>
+      <stop offset="100%" stop-color="#09090B"/>
+    </linearGradient>
+    <linearGradient id="logo1Ring" x1="12" y1="12" x2="74" y2="74" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FD3A25"/>
+      <stop offset="50%" stop-color="#38BDF8"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+  </defs>
+  <rect width="86" height="86" rx="22" fill="url(#logo1Bg)"/>
+  <rect x="2" y="2" width="82" height="82" rx="20" stroke="url(#logo1Ring)" stroke-width="1.5" stroke-opacity="0.65"/>
+  <!-- Shield Polygon -->
+  <path d="M43 15L66 25.5V44.5C66 58.2 56.2 68.8 43 72.5C29.8 68.8 20 58.2 20 44.5V25.5L43 15Z" fill="#1E293B" fill-opacity="0.55" stroke="#38BDF8" stroke-width="1.5"/>
+  <!-- AXIDE 'A' Monogram -->
+  <path d="M43 24L57 54H50.2L43 38L35.8 54H29L43 24Z" fill="#FFFFFF"/>
+  <path d="M36.5 47H49.5" stroke="#FD3A25" stroke-width="3.5" stroke-linecap="round"/>
+  <circle cx="43" cy="32" r="2.5" fill="#38BDF8"/>
+  <text x="43" y="66" text-anchor="middle" font-family="'Urbanist', sans-serif" font-weight="800" font-size="8.5" letter-spacing="2" fill="#E4E4E7">COGNI-OS</text>
+</svg>
