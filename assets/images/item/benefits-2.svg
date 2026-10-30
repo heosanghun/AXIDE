@@ -1,21 +1,51 @@
 <svg width="239" height="361" viewBox="0 0 239 361" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="cardGrad2" x1="0" y1="0" x2="239" y2="361" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#27272A" stop-opacity="0.9"/>
-      <stop offset="100%" stop-color="#09090B" stop-opacity="0.95"/>
+      <stop offset="0%" stop-color="#1E2028" stop-opacity="0.96"/>
+      <stop offset="100%" stop-color="#09090B" stop-opacity="0.98"/>
     </linearGradient>
     <linearGradient id="borderGrad2" x1="0" y1="0" x2="239" y2="361" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.7"/>
-      <stop offset="50%" stop-color="#3F3F46" stop-opacity="0.3"/>
-      <stop offset="100%" stop-color="#FD3A25" stop-opacity="0.7"/>
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.75"/>
+      <stop offset="50%" stop-color="#3F3F46" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#FD3A25" stop-opacity="0.75"/>
+    </linearGradient>
+    <linearGradient id="hudGlow" x1="20" y1="64" x2="219" y2="196" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#22C55E" stop-opacity="0.06"/>
     </linearGradient>
   </defs>
   <rect x="2" y="2" width="235" height="357" rx="20" fill="url(#cardGrad2)" stroke="url(#borderGrad2)" stroke-width="2"/>
-  <line x1="24" y1="48" x2="215" y2="48" stroke="#3F3F46" stroke-width="1" stroke-dasharray="4 4"/>
-  <circle cx="34" cy="28" r="5" fill="#FD3A25"/>
-  <circle cx="50" cy="28" r="5" fill="#38BDF8"/>
-  <circle cx="66" cy="28" r="5" fill="#22C55E"/>
-  <text x="208" y="32" text-anchor="end" font-family="'Urbanist', sans-serif" font-weight="700" font-size="10" fill="#A1A1AA">TECH-AUDIT v1.0</text>
-  <line x1="24" y1="316" x2="215" y2="316" stroke="#3F3F46" stroke-width="1"/>
-  <text x="119.5" y="338" text-anchor="middle" font-family="'Urbanist', sans-serif" font-weight="700" font-size="10" letter-spacing="1.2" fill="#22C55E">● Ed25519 + SHA256 VERIFIED</text>
+  <line x1="20" y1="46" x2="219" y2="46" stroke="#3F3F46" stroke-width="1" stroke-dasharray="4 4"/>
+  <circle cx="28" cy="25" r="4.5" fill="#FD3A25"/>
+  <circle cx="42" cy="25" r="4.5" fill="#38BDF8"/>
+  <circle cx="56" cy="25" r="4.5" fill="#22C55E"/>
+  <text x="215" y="29" text-anchor="end" font-family="'Urbanist', 'Pretendard', sans-serif" font-weight="700" font-size="9.5" letter-spacing="0.8" fill="#A1A1AA">ROKID AR 3-LINE HUD</text>
+
+  <!-- AR HUD Frame -->
+  <rect x="18" y="60" width="203" height="132" rx="12" fill="url(#hudGlow)" stroke="#38BDF8" stroke-width="1.2"/>
+  <text x="30" y="80" font-family="'Pretendard', 'Urbanist', sans-serif" font-weight="700" font-size="10" fill="#38BDF8">[HUD LINE 01 · 핵심 치수/공차]</text>
+  <text x="30" y="97" font-family="'Urbanist', 'Pretendard', sans-serif" font-weight="800" font-size="13" fill="#FFFFFF">내경 Ø42.0 ±0.02mm (H7)</text>
+
+  <line x1="30" y1="108" x2="209" y2="108" stroke="#3F3F46" stroke-width="0.8"/>
+  <text x="30" y="124" font-family="'Pretendard', 'Urbanist', sans-serif" font-weight="700" font-size="10" fill="#FBBF24">[HUD LINE 02 · 공정 지시]</text>
+  <text x="30" y="140" font-family="'Pretendard', 'Urbanist', sans-serif" font-weight="600" font-size="11" fill="#E4E4E7">정삭 선반 1,800 RPM · 동심도 주의</text>
+
+  <line x1="30" y1="150" x2="209" y2="150" stroke="#3F3F46" stroke-width="0.8"/>
+  <text x="30" y="166" font-family="'Pretendard', 'Urbanist', sans-serif" font-weight="700" font-size="10" fill="#22C55E">[HUD LINE 03 · 수렴/봉인 상태]</text>
+  <text x="30" y="181" font-family="'Urbanist', 'Pretendard', sans-serif" font-weight="700" font-size="10.5" fill="#22C55E">DEQ 수렴 완료 · TTFT 0.161s</text>
+
+  <!-- Voice Command Waveform Box -->
+  <rect x="18" y="204" width="203" height="52" rx="10" fill="#141418" stroke="#3F3F46" stroke-width="1"/>
+  <circle cx="38" cy="230" r="11" fill="#FD3A25" fill-opacity="0.2" stroke="#FD3A25" stroke-width="1.4"/>
+  <circle cx="38" cy="230" r="4" fill="#FD3A25"/>
+  <text x="56" y="225" font-family="'Pretendard', 'Urbanist', sans-serif" font-weight="700" font-size="10" fill="#FFFFFF">한국어 음성 호출 (핸즈프리)</text>
+  <text x="56" y="242" font-family="'Pretendard', 'Urbanist', sans-serif" font-weight="600" font-size="10" fill="#A1A1AA">“단면도 A-A 공차 확대한 뒤 봉인해”</text>
+
+  <!-- Galaxy Tab S11 + USB Dongle Status -->
+  <rect x="18" y="266" width="203" height="38" rx="9" fill="#141418" stroke="#27272A" stroke-width="1"/>
+  <text x="30" y="283" font-family="'Urbanist', 'Pretendard', sans-serif" font-weight="700" font-size="9.5" fill="#38BDF8">GALAXY TAB S11 ULTRA + DONGLE</text>
+  <text x="30" y="296" font-family="'Pretendard', 'Urbanist', sans-serif" font-weight="600" font-size="9.5" fill="#D4D4D8">방산 부품 여권 v1 자동 서명 대기</text>
+
+  <line x1="20" y1="316" x2="219" y2="316" stroke="#3F3F46" stroke-width="1"/>
+  <text x="119.5" y="338" text-anchor="middle" font-family="'Urbanist', 'Pretendard', sans-serif" font-weight="700" font-size="10" letter-spacing="1" fill="#22C55E">● Ed25519 + SHA256 VERIFIED</text>
 </svg>

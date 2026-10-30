@@ -211,7 +211,7 @@
             const $p = $(this);
             const val = isYearly ? $p.data('year') : $p.data('month');
             $p.text($p.attr(isYearly ? 'data-year-text' : 'data-month-text') || formatUSD(val));
-            $p.next('.price-per').text($p.attr(isYearly ? 'data-year-per' : 'data-month-per') || (isYearly ? '/ year' : '/ month'));
+            const $per = $p.next('.price-per'); $per.text($p.attr(isYearly ? 'data-year-per' : 'data-month-per') || $per.attr(isYearly ? 'data-year-per' : 'data-month-per') || (isYearly ? '/ 연간 라이선스' : '/ 초기 도입'));
             });
         }
 
