@@ -191,6 +191,91 @@
                         </div>
                     </div>
                 </div>
+                <div class="mb-60">
+                    <!-- Cogni-OS Reference Architecture v1.0 Showcase -->
+                    <div class="arch-blueprint-wrap effectFade fadeUp">
+                        <div class="arch-blueprint-header">
+                            <div>
+                                <div class="arch-blueprint-badge">
+                                    <span>●</span> COGNI-OS REFERENCE ARCHITECTURE v1.0 · ATOM TEAM
+                                </div>
+                                <h3 class="arch-blueprint-title">Cogni-OS 참조 아키텍처 (L0~L5 6계층 · ADAS · A2A 공급망)</h3>
+                                <p class="arch-blueprint-sub">ADAS 기반 자율 진화 및 원청↔공급업체 A2A(Agent-to-Agent) 방산·제조 공급망을 위한 계층형 에이전트 운영체제</p>
+                            </div>
+                            <div class="arch-blueprint-meta">
+                                <span class="arch-meta-pill">버전: v1.0 (2026-10-31)</span>
+                                <span class="arch-meta-pill">소속: AXIDE Atom Team</span>
+                                <span class="arch-meta-pill">GPU: RTX 6000 Ada 48GB / RTX PRO 4500 32GB</span>
+                            </div>
+                        </div>
+                        <div class="arch-blueprint-frame">
+                            <a href="assets/images/doc/cogni-os-reference-architecture.jpg" target="_blank" title="클릭하여 원본 해상도로 보기">
+                                <img src="assets/images/doc/cogni-os-reference-architecture.jpg" alt="Cogni-OS 참조 아키텍처 — ADAS 기반 자율 진화 및 A2A 공급망을 위한 계층형 에이전트 운영체제">
+                            </a>
+                        </div>
+                        <div class="arch-legend-bar">
+                            <div class="arch-legend-items">
+                                <span class="fw-bold text-white">범례 (Legend):</span>
+                                <span class="arch-legend-item"><span class="arch-dot-control"></span> 제어 (실행)</span>
+                                <span class="arch-legend-item"><span class="arch-dot-evol"></span> 진화 피드백 (ADAS)</span>
+                                <span class="arch-legend-item"><span class="arch-dot-data"></span> 데이터 흐름</span>
+                                <span class="arch-legend-item"><span class="arch-dot-a2a"></span> A2A 서명 메시지</span>
+                                <span class="arch-legend-item"><span class="arch-dot-lock">🔒</span> 사람 승인 (Human Gate)</span>
+                            </div>
+                            <div class="text-neutral-400">※ 이미지를 클릭하면 전체 화면으로 확대됩니다</div>
+                        </div>
+                        <div class="arch-grid-cards">
+                            <div class="arch-domain-card">
+                                <div class="card-head">
+                                    <h5>① 원청 ↔ 공급업체 6단계 A2A 공급망 순환</h5>
+                                    <span class="card-tag">A2A Supply Chain</span>
+                                </div>
+                                <p>원청 Cogni-OS의 5대 에이전트(<strong>구매 오케스트레이터 · 공급업체 선정 · 발주 에이전트 · 입고 검사 · 대금 지급</strong>)와 부품 공장 간 서명된 A2A 메시지로 전 주기를 자동화하며 중요 결정 지점마다 사람 승인(🔒)을 거칩니다.</p>
+                                <ul class="arch-layer-list">
+                                    <li><strong>① 견적요청</strong> (도면·수량·납기·사양) → <strong>② 견적서</strong> 자동 회신</li>
+                                    <li><strong>③ 발주서 [🔒 사람 승인]</strong> → <strong>④ 진행보고</strong> (수락·공정 현황 실시간 동기화)</li>
+                                    <li><strong>⑤ 납품·세금계산서·부품여권 [🔒 사람 승인]</strong> → <strong>⑥ 대금·재발주 [🔒 사람 승인]</strong> 반복 순환</li>
+                                </ul>
+                            </div>
+                            <div class="arch-domain-card">
+                                <div class="card-head">
+                                    <h5>② 공급업체 Cogni-OS 6계층 (L0~L5) & ADAS 진화</h5>
+                                    <span class="card-tag tag-amber">L0~L5 + ADAS</span>
+                                </div>
+                                <ul class="arch-layer-list">
+                                    <li><strong>L5 인터페이스 계층</strong>: A2A 게이트웨이(서명된 메시지) · 작업 요청 접수 · 사람 승인 콘솔</li>
+                                    <li><strong>L4 진화 계층 (ADAS)</strong>: 메타 에이전트(기존 설계 불러오기 → 새 에이전트 생성/변이 → 샌드박스·홀드아웃 평가 → 아카이브 저장) & 평가자(성능 로그 검증 및 버전 관리)</li>
+                                    <li><strong>L3 오케스트레이션 계층</strong>: 작업 계획기 · 스케줄러 · 상태 머신 · 이벤트 버스</li>
+                                    <li><strong>L2 에이전트 실행 계층 (8종)</strong>: 도면 해석 · CAD · 가공 경로 · 기계 제어(🔒) · 검사(✅) · 부품여권(QR) · 물류 · 청구(🔒)</li>
+                                    <li><strong>L1 도구/드라이버 계층 (9종)</strong>: DXF/PDF 파서 · CAD API · G-code/AM 슬라이서 · CNC/AM/CMM 드라이버 · ERP/전자세금계산서/SMTP 연동</li>
+                                </ul>
+                            </div>
+                            <div class="arch-domain-card">
+                                <div class="card-head">
+                                    <h5>③ L0 메모리·연산 계층 & 전 계층 관통 거버넌스</h5>
+                                    <span class="card-tag tag-red">Zero-Copy & SHA-256</span>
+                                </div>
+                                <ul class="arch-layer-list">
+                                    <li><strong>에이전트 아카이브 & 모듈 스트리머</strong>: NVMe SSD(벡터 인덱스·설계 코드+어댑터)에서 <strong>CPU/RAM 우회 없이 NVMe → GPU 직접 전송</strong>(프리페치·이중 버퍼)</li>
+                                    <li><strong>DEQ 추론 코어</strong>: VRAM 상주 f_θ · 고정점 수렴 z* · <strong>O(1) 상수 메모리</strong> 추론 (RTX 6000 Ada 48GB / RTX PRO 4500 32GB)</li>
+                                    <li><strong>거버넌스 (전 계층 관통)</strong>: <strong>승인 게이트</strong> · <strong>감사 원장(SHA-256)</strong> · <strong>정책 및 권한(RBAC)</strong> · <strong>버전 관리·롤백</strong></li>
+                                </ul>
+                            </div>
+                            <div class="arch-domain-card">
+                                <div class="card-head">
+                                    <h5>④ 물리적 제조 현장 · 외부 서비스 & 부품여권</h5>
+                                    <span class="card-tag tag-green">Shop-Floor & Passport</span>
+                                </div>
+                                <ul class="arch-layer-list">
+                                    <li><strong>물리적 제조 현장 직결</strong>: <strong>CNC 공작기계</strong> · <strong>금속 3D 프린터</strong> · <strong>CMM · 3D 스캐너</strong> · <strong>포장 · 출하</strong> 설비 실시간 제어·계측</li>
+                                    <li><strong>외부 서비스 연동</strong>: 전자세금계산서 서비스 · 이메일(SMTP) · 사내 ERP 단방향/보안 연동</li>
+                                    <li><strong>방산 부품여권 (Part Passport QR 봉인)</strong>: <strong>도면 버전 · 모델 해시 · 재료 로트 · 공정 이력 · 검사 보고서 · 디지털 서명</strong> 6대 항목 암호학 봉인</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Cogni-OS Reference Architecture v1.0 Showcase -->
+                </div>
                 <div class="row mb-40">
                     <div class="col-12">
                         <div class="heading fw-semibold mb-20 effectFade fadeUp">왜 '방산 부품 여권(Part Passport)'이 공급망의 게임 체인저인가?</div>
