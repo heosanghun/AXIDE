@@ -10114,17 +10114,21 @@ p,
   left: auto !important;
   max-width: 100% !important;
   width: 100%;
-  height: 270px;
+  height: auto !important;
+  aspect-ratio: 16 / 9;
   margin-top: 24px;
-  border-radius: 24px;
+  border-radius: 22px;
   overflow: hidden;
-  box-shadow: 0 18px 40px rgba(9, 13, 22, 0.16);
+  background: #070b14;
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  box-shadow: 0 18px 40px rgba(9, 13, 22, 0.22);
 }
 .services-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  border-radius: 24px;
+  object-fit: contain;
+  border-radius: 21px;
+  cursor: zoom-in;
 }
 
 /* 6-B. Cogni-OS Reference Architecture (L0~L5, ADAS & A2A) Enterprise Dark-Luxury Showcase */
@@ -11616,6 +11620,128 @@ footer .footer-content .footer-logo.axide-footer-brand {
     font-size: 7px;
     letter-spacing: 0.12em;
   }
+}
+
+/* ==========================================================================
+   20. AXIDE 8-Infographic Master Visual Deck & Uncropped 16:9 Infographic Fit
+   ========================================================================== */
+.work-item .image {
+  background: #070b14;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(56, 189, 248, 0.22);
+}
+.work-item .image img {
+  width: 100%;
+  height: auto !important;
+  aspect-ratio: 16 / 9;
+  object-fit: contain !important;
+  display: block;
+}
+.article-blog-item .blog-image {
+  background: #070b14;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.article-blog-item .blog-image img {
+  width: 100%;
+  height: auto !important;
+  aspect-ratio: 16 / 9;
+  object-fit: contain !important;
+}
+
+.axide-master-deck {
+  margin: 22px 0 30px;
+  padding: 20px;
+  border-radius: 22px;
+  background: rgba(8, 12, 22, 0.85);
+  border: 1px solid rgba(56, 189, 248, 0.22);
+}
+.axide-deck-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.axide-deck-title {
+  font-size: 14.5px;
+  font-weight: 800;
+  color: #f8fafc;
+  letter-spacing: -0.015em;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.axide-deck-title i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #38bdf8;
+  box-shadow: 0 0 10px #38bdf8;
+  display: inline-block;
+}
+.axide-deck-hint {
+  font-size: 12px;
+  color: #94a3b8;
+  font-weight: 500;
+}
+.axide-deck-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+@media (max-width: 991px) {
+  .axide-deck-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 575px) {
+  .axide-deck-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.axide-deck-card {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #050811;
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  padding: 6px 6px 9px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.24s cubic-bezier(0.22, 1, 0.36, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.axide-deck-card:hover,
+.axide-deck-card.active {
+  border-color: #38bdf8;
+  background: rgba(15, 23, 42, 0.95);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.55), 0 0 18px rgba(56, 189, 248, 0.28);
+}
+.axide-deck-card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 9px;
+  display: block;
+}
+.axide-deck-card .deck-card-label {
+  padding: 0 4px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #e2e8f0;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.axide-deck-card.active .deck-card-label {
+  color: #38bdf8;
 }
 
 /*# sourceMappingURL=styles.css.map */

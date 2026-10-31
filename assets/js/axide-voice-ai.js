@@ -1106,11 +1106,36 @@
       });
     });
 
-    // Also allow clicking the Reference Architecture image to open the zoom modal
+    // Also allow clicking the Reference Architecture image or Services image to open the zoom modal
     document.querySelectorAll(".arch-blueprint-frame a").forEach((link) => {
       link.addEventListener("click", function (e) {
         e.preventDefault();
         openArchModal(this.getAttribute("href"));
+      });
+    });
+
+    document.querySelectorAll(".services-image img").forEach((img) => {
+      img.addEventListener("click", function () {
+        openArchModal(this.getAttribute("src"));
+      });
+    });
+
+    // Interactive 8-Infographic Master Deck switcher
+    document.querySelectorAll(".axide-deck-card").forEach((card) => {
+      card.addEventListener("click", function () {
+        const src = this.getAttribute("data-src");
+        const wrap = this.closest(".arch-blueprint-wrap");
+        if (!wrap || !src) return;
+        wrap.querySelectorAll(".axide-deck-card").forEach((c) => c.classList.remove("active"));
+        this.classList.add("active");
+        const mainImg = wrap.querySelector(".arch-blueprint-frame img");
+        const mainLink = wrap.querySelector(".arch-blueprint-frame a");
+        if (mainImg) mainImg.setAttribute("src", src);
+        if (mainLink) mainLink.setAttribute("href", src);
+      });
+      card.addEventListener("dblclick", function () {
+        const src = this.getAttribute("data-src");
+        if (src) openArchModal(src);
       });
     });
 
