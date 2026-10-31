@@ -1,6 +1,6 @@
 /**
  * AXIDE Cogni-Voice AI (아리아 · Aria)
- * Gemini Flash & Neural Korean Female Voice Concierge + Full Website Controller
+ * Real Studio-Grade Neural Korean Female Voice (Seraphina HD + Gemini Live Aoede) + Full Website Controller
  * Domain: https://axide.ai | https://heosanghun.github.io/AXIDE/
  */
 (function () {
@@ -9,7 +9,8 @@
   const STORAGE_KEY_HISTORY = "axide_voice_history_v1";
   const STORAGE_KEY_OPEN = "axide_voice_panel_open_v1";
   const STORAGE_KEY_PENDING = "axide_voice_pending_utterance_v1";
-  const STORAGE_KEY_CONTINUOUS = "axide_voice_continuous_v1";
+  const STORAGE_KEY_PENDING_CLIP = "axide_voice_pending_clip_v1";
+  const AUDIO_VERSION = "20261101v9";
 
   const PAGE_LABELS = {
     "index.html": "메인 홈 (방산 폐쇄망 AI 표준)",
@@ -34,58 +35,73 @@
   }
 
   /* --------------------------------------------------------------------------
-   * 1. Korean Female Voice Synthesis & Phonetic Normalization Engine
+   * 1. Real Studio-Grade Neural Korean Female Voice Engine (HTMLAudio + Gemini TTS)
    * -------------------------------------------------------------------------- */
   let synth = window.speechSynthesis || null;
   let selectedVoice = null;
+  let currentAudio = null;
   let isSpeaking = false;
+
+  function stopAllAudio() {
+    if (currentAudio) {
+      try {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+      } catch (e) {}
+      currentAudio = null;
+    }
+    if (synth) {
+      try {
+        synth.cancel();
+      } catch (e) {}
+    }
+    isSpeaking = false;
+  }
 
   function selectBestKoreanFemaleVoice() {
     if (!synth) return null;
     const voices = synth.getVoices() || [];
     if (!voices.length) return null;
 
+    // Exclude old robotic desktop SAPI voice (Microsoft Heami) unless nothing else exists
     const koVoices = voices.filter(
       (v) =>
         v.lang.toLowerCase().includes("ko") ||
         v.name.toLowerCase().includes("korean") ||
         v.name.includes("한국")
     );
+    const nonRoboticKo = koVoices.filter((v) => !/Heami/i.test(v.name));
 
     const priorityPatterns = [
+      /Seraphina.*Natural/i,
       /SunHi.*Natural/i,
       /SunHi/i,
       /SeoHyeon.*Natural/i,
-      /SeoHyeon/i,
-      /JiMin/i,
+      /InJoon.*Natural/i,
       /Yuna/i,
       /Sora/i,
       /Google.*한국/i,
-      /Google.*Korean/i,
-      /Female/i
+      /Google.*Korean/i
     ];
 
     for (const pattern of priorityPatterns) {
-      const found = koVoices.find((v) => pattern.test(v.name));
+      const found = nonRoboticKo.find((v) => pattern.test(v.name)) || koVoices.find((v) => pattern.test(v.name));
       if (found) return found;
     }
-    return koVoices[0] || voices[0] || null;
+    return nonRoboticKo[0] || koVoices[0] || null;
   }
 
-  if (synth) {
-    selectedVoice = selectBestKoreanFemaleVoice();
-    if (synth.onvoiceschanged !== undefined) {
-      synth.onvoiceschanged = function () {
-        selectedVoice = selectBestKoreanFemaleVoice();
-        updateVoiceBadgeText();
-      };
-    }
+  if (synth && synth.onvoiceschanged !== undefined) {
+    synth.onvoiceschanged = function () {
+      selectedVoice = selectBestKoreanFemaleVoice();
+    };
   }
 
   function normalizeForKoreanSpeech(text) {
     return String(text || "")
       .replace(/AXIDE/gi, "액사이드")
       .replace(/Cogni-OS/gi, "코그니 오에스")
+      .replace(/Cogni-Vault Pod/gi, "코그니 볼트 파드")
       .replace(/CogniBoard/gi, "코그니보드")
       .replace(/CogniCraft/gi, "코그니크래프트")
       .replace(/Part Passport/gi, "파트 패스포트")
@@ -122,33 +138,84 @@
       .trim();
   }
 
-  function speakFemaleVoice(text, onEndCallback) {
+  function playHtmlAudioSrc(src, onEndCallback, onErrorFallback) {
+    stopAllAudio();
+    const audio = new Audio(src);
+    audio.preload = "auto";
+    currentAudio = audio;
+    isSpeaking = true;
+    setWidgetState("speaking");
+
+    let finished = false;
+    function finishCleanly() {
+      if (finished) return;
+      finished = true;
+      if (currentAudio === audio) {
+        currentAudio = null;
+        isSpeaking = false;
+      }
+      setWidgetState(isListening ? "listening" : "idle");
+      if (onEndCallback) onEndCallback();
+    }
+
+    audio.onended = finishCleanly;
+    audio.onerror = function () {
+      if (finished) return;
+      finished = true;
+      if (currentAudio === audio) {
+        currentAudio = null;
+        isSpeaking = false;
+      }
+      if (onErrorFallback) {
+        onErrorFallback();
+      } else {
+        setWidgetState("idle");
+        if (onEndCallback) onEndCallback();
+      }
+    };
+
+    const playPromise = audio.play();
+    if (playPromise && typeof playPromise.catch === "function") {
+      playPromise.catch(function () {
+        if (finished) return;
+        finished = true;
+        if (currentAudio === audio) {
+          currentAudio = null;
+          isSpeaking = false;
+        }
+        if (onErrorFallback) {
+          onErrorFallback();
+        } else {
+          setWidgetState("idle");
+          if (onEndCallback) onEndCallback();
+        }
+      });
+    }
+  }
+
+  function speakBrowserFallback(text, onEndCallback) {
     if (!synth) {
+      setWidgetState("idle");
       if (onEndCallback) onEndCallback();
       return;
     }
-    synth.cancel();
-
     const cleanText = normalizeForKoreanSpeech(text);
     if (!cleanText) {
+      setWidgetState("idle");
       if (onEndCallback) onEndCallback();
       return;
     }
-
     if (!selectedVoice) {
       selectedVoice = selectBestKoreanFemaleVoice();
     }
-
     const utterance = new SpeechSynthesisUtterance(cleanText);
     utterance.lang = "ko-KR";
     if (selectedVoice) {
       utterance.voice = selectedVoice;
     }
-    // Natural, warm, articulate female announcer prosody
-    const isNaturalOnline =
-      selectedVoice && /Natural|Online|Google/i.test(selectedVoice.name);
-    utterance.pitch = isNaturalOnline ? 1.04 : 1.12;
-    utterance.rate = isNaturalOnline ? 1.04 : 1.02;
+    // Keep natural 1.0 pitch/rate so browser fallback never sounds artificially warped
+    utterance.pitch = 1.0;
+    utterance.rate = 1.0;
     utterance.volume = 1.0;
 
     utterance.onstart = function () {
@@ -165,8 +232,50 @@
       setWidgetState("idle");
       if (onEndCallback) onEndCallback();
     };
-
     synth.speak(utterance);
+  }
+
+  async function speakDynamicGeminiTtsOrFallback(text, onEndCallback) {
+    stopAllAudio();
+    const cleanText = normalizeForKoreanSpeech(text);
+    if (!cleanText) {
+      if (onEndCallback) onEndCallback();
+      return;
+    }
+    try {
+      const resp = await fetch("/api/tts", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text: cleanText })
+      });
+      if (resp.ok) {
+        const data = await resp.json();
+        if (data && data.audioBase64) {
+          const mime = data.mimeType || "audio/wav";
+          playHtmlAudioSrc(
+            `data:${mime};base64,${data.audioBase64}`,
+            onEndCallback,
+            () => speakBrowserFallback(text, onEndCallback)
+          );
+          return;
+        }
+      }
+    } catch (e) {
+      // Static host or offline: fall back gracefully
+    }
+    speakBrowserFallback(text, onEndCallback);
+  }
+
+  function speakFemaleVoice(text, onEndCallback, clipKey) {
+    stopAllAudio();
+    if (clipKey) {
+      const mp3Url = `assets/audio/aria/${clipKey}.mp3?v=${AUDIO_VERSION}`;
+      playHtmlAudioSrc(mp3Url, onEndCallback, () => {
+        speakDynamicGeminiTtsOrFallback(text, onEndCallback);
+      });
+      return;
+    }
+    speakDynamicGeminiTtsOrFallback(text, onEndCallback);
   }
 
   /* --------------------------------------------------------------------------
@@ -180,21 +289,24 @@
     // A. Stop / Mute commands
     if (/멈춰|그만|조용|음소거|닫아|종료/.test(q)) {
       return {
-        reply: "네, 음성 안내를 멈추겠습니다. 필요하실 때 언제든 우측 마이크 버튼을 눌러주세요.",
+        clipKey: "stop",
+        reply: "네, 안내를 잠시 멈출게요. 필요하실 때 언제든 저를 다시 불러주세요.",
         action: { type: "stop_speaking", target: "" }
       };
     }
 
     // B. Architecture Blueprint Zoom / Scroll Commands
-    if (/참조\s*아키텍처|아키텍처\s*도면|아키텍처\s*크게|블루프린트|l0|l4|adas|에이다스|a2a|에이투에이/.test(lower)) {
-      if (/크게|확대|모달|전체\s*화면/.test(q)) {
+    if (/참조\s*아키텍처|아키텍처\s*도면|아키텍처\s*크게|아키텍처\s*보여|블루프린트|l0|l4|adas|에이다스|a2a|에이투에이|공간\s*분할/.test(lower)) {
+      if (/크게|확대|모달|전체\s*화면|공간\s*분할/.test(q)) {
         return {
-          reply: "Cogni-OS 참조 아키텍처 버전 1.0 도면을 전체 화면으로 확대해 드립니다. 원청과 공급업체 간 6단계 A2A 공급망과 L0부터 L5까지의 6계층 및 ADAS 자율 진화 구조를 확인하실 수 있습니다.",
+          clipKey: "arch_zoom",
+          reply: "네! Cogni-OS 참조 아키텍처를 전체 화면으로 크게 띄워드릴게요. 원청에서 부품 공장까지 이어지는 6단계 공급망과, 스스로 진화하는 ADAS 구조를 한눈에 보실 수 있어요.",
           action: { type: "open_arch_modal", target: "assets/images/doc/cogni-os-reference-architecture.jpg" }
         };
       }
       return {
-        reply: "Cogni-OS 참조 아키텍처 섹션으로 이동합니다. NVMe에서 GPU로 직접 전송하는 L0 DEQ 추론 코어부터 L4 ADAS 메타 에이전트 자율 진화, 그리고 원청과 부품 공장을 잇는 6단계 A2A 공급망까지 한눈에 확인해 보세요.",
+        clipKey: "arch_scroll",
+        reply: "Cogni-OS 참조 아키텍처 쪽으로 안내해 드릴게요. NVMe에서 GPU로 바로 연결되는 추론 코어부터, 원청과 공장을 잇는 공급망까지 한눈에 확인해 보세요.",
         action: {
           type: document.querySelector(".arch-blueprint-wrap") ? "scroll" : "navigate",
           target: document.querySelector(".arch-blueprint-wrap") ? ".arch-blueprint-wrap" : "index.html#services"
@@ -205,91 +317,105 @@
     // C. Page Navigation Commands (All 13 Pages)
     if (/홈\s*2|버전\s*2|비디오\s*홈|모션\s*홈|v2/.test(lower)) {
       return {
-        reply: "소버린 AI 모션 비디오가 적용된 홈 버전 2 페이지로 바로 이동하겠습니다.",
+        clipKey: "nav_home2",
+        reply: "네, 소버린 AI 모션 영상이 담긴 홈 버전 2 페이지로 바로 이동할게요!",
         action: { type: "navigate", target: "index-v2.html" }
       };
     }
     if (/(메인|홈으로|첫\s*페이지|홈\s*페이지|홈\s*1)/.test(lower) && !/홈페이지에서/.test(lower)) {
       return {
-        reply: "주식회사 액사이드 메인 홈페이지로 이동합니다.",
+        clipKey: "nav_home1",
+        reply: "네, 액사이드 메인 홈 화면으로 바로 이동할게요.",
         action: { type: "navigate", target: "index.html" }
       };
     }
-    if (/회사\s*소개|액사이드\s*소개|기업\s*소개|창업\s*미션|허상훈\s*대표|대표이사\s*소개|어바웃/.test(lower)) {
+    if (/회사\s*소개|액사이드\s*소개|기업\s*소개|창업\s*미션|허상훈\s*대표|대표이사\s*소개|어바웃|월드\s*모델/.test(lower)) {
       return {
-        reply: "주식회사 액사이드의 창업 미션과 허상훈 대표이사, KAIST 및 충북대 산업AI 연구진이 소개된 회사소개 페이지로 이동합니다.",
+        clipKey: "nav_about",
+        reply: "허상훈 대표님과 KAIST, 충북대 산업 AI 연구진이 함께하는 회사소개 페이지로 안내해 드릴게요.",
         action: { type: "navigate", target: "about.html" }
       };
     }
     if (/부품\s*여권|파트\s*패스포트|필드\s*볼트|하드웨어\s*상세|동글|솔루션\s*상세/.test(lower)) {
       if (/이동|열어|가자|가줘|보여줘|페이지/.test(lower) || curPage !== "service-single.html") {
         return {
-          reply: "방산 부품 여권과 Field Vault 6종 하드웨어 금고 상세 페이지로 이동합니다. 도면 유출 없이 정본 도면 해시와 검사 이력을 1초 만에 검증하는 아키텍처를 확인해 보세요.",
+          clipKey: "nav_passport",
+          reply: "방산 부품 여권과 Field Vault 하드웨어 상세 페이지로 이동할게요! 도면 유출 걱정 없이 단 1초 만에 무결성을 증명하는 구조를 보실 수 있어요.",
           action: { type: "navigate", target: "service-single.html" }
         };
       }
     }
     if (/솔루션|제품\s*소개|모듈|서비스\s*페이지/.test(lower)) {
       return {
-        reply: "Cogni-OS의 핵심 아키텍처와 4대 모듈, 인수가능시험 프로토콜이 정리된 솔루션 페이지로 이동합니다.",
+        clipKey: "nav_service",
+        reply: "Cogni-OS의 핵심 아키텍처와 4대 모듈이 정리된 솔루션 페이지로 바로 안내해 드릴게요.",
         action: { type: "navigate", target: "service.html" }
       };
     }
-    if (/아주산업|1호\s*계약|일호\s*계약|도면\s*복원|도면\s*296|3d\s*복원|성적표\s*상세/.test(lower)) {
+    if (/아주산업|1호\s*계약|일호\s*계약|도면\s*복원|도면\s*296|3d\s*복원|성적표\s*상세|정밀\s*선택/.test(lower)) {
       return {
-        reply: "아주산업 1.1억 원 1호 정식 공급계약과 2D 도면 296에서 3D CAD 솔리드 모델을 자동 복원한 실증 상세 페이지로 이동합니다.",
+        clipKey: "nav_ajou",
+        reply: "아주산업 1.1억 원 1호 공급계약과, 2D 도면을 3D 모델로 복원한 실증 페이지로 이동할게요!",
         action: { type: "navigate", target: "work-single.html" }
       };
     }
     if (/실증\s*사례|도입\s*사례|레퍼런스|로드맵|5단계|오단계|로보티즈/.test(lower)) {
       if (/이동|페이지|열어|가줘|보여줘/.test(lower) && curPage !== "work.html") {
         return {
-          reply: "아주산업 공급계약, 방산 부품 여권 파일럿, 신한카드 AX연구소 공동연구, 그리고 로보티즈 로봇팔 5단계 진화 로드맵이 담긴 실증사례 페이지로 이동합니다.",
+          clipKey: "nav_work",
+          reply: "아주산업 공급계약부터 부품 여권 파일럿, 신한카드 공동연구, 그리고 로보티즈 로봇팔 로드맵까지 담긴 실증사례 페이지로 안내해 드릴게요.",
           action: { type: "navigate", target: "work.html" }
         };
       }
     }
     if (/2열|2단|이열/.test(lower) && /백서|블로그|아카이브/.test(lower)) {
       return {
-        reply: "기술 아카이브 2열 그리드 페이지로 이동합니다.",
+        clipKey: "nav_blog2",
+        reply: "네, 기술 아카이브 2열 그리드 화면으로 이동할게요.",
         action: { type: "navigate", target: "blog-two-columns.html" }
       };
     }
     if (/3열|3단|삼열/.test(lower) && /백서|블로그|아카이브/.test(lower)) {
       return {
-        reply: "기술 아카이브 3열 그리드 페이지로 이동합니다.",
+        clipKey: "nav_blog3",
+        reply: "네, 기술 아카이브 3열 그리드 화면으로 이동할게요.",
         action: { type: "navigate", target: "blog-three-columns.html" }
       };
     }
     if (/백서\s*상세|백서\s*전문|암호학\s*백서|방산법\s*해설/.test(lower)) {
       return {
-        reply: "2026년 12월 10일 방위산업기술 보호법 시행과 SHA-256 해시 체인 및 Ed25519 전자서명 아키텍처를 다룬 기술 백서 상세 페이지로 이동합니다.",
+        clipKey: "nav_blog_single",
+        reply: "방위산업기술 보호법 대응과 암호학 해시 체인 봉인을 다룬 기술 백서 상세 페이지로 이동할게요.",
         action: { type: "navigate", target: "blog-single.html" }
       };
     }
     if (/백서|블로그|인사이트|규제\s*브리핑/.test(lower)) {
       return {
-        reply: "액사이드의 기술 백서 및 방산 규제 브리핑 페이지로 이동합니다.",
+        clipKey: "nav_blog",
+        reply: "액사이드의 기술 백서와 방산 규제 브리핑 페이지로 안내해 드릴게요.",
         action: { type: "navigate", target: "blog-standard.html" }
       };
     }
     if (/문의\s*페이지|도입\s*문의|상담\s*페이지|오시는\s*길|지도\s*보여/.test(lower)) {
       return {
-        reply: "1시간 현장 설치 데모와 6주 파일럿을 신청하실 수 있는 도입문의 페이지로 이동합니다.",
+        clipKey: "nav_contact",
+        reply: "1시간 현장 설치 데모와 파일럿 실증을 신청하실 수 있는 도입문의 페이지로 이동할게요.",
         action: { type: "navigate", target: "contact.html" }
       };
     }
 
     // D. In-Page UI Controls (Pricing Switch, FAQ Accordions, Sliders, Scroll, Theme, Form)
-    if (/연간\s*갱신|원청\s*구독|1년차\s*도입|초기\s*도입|요금\s*스위치|요금\s*전환|요금\s*바꿔/.test(lower)) {
+    if (/연간\s*갱신|원청\s*구독|1년차\s*도입|초기\s*도입|요금\s*스위치|요금제\s*비교\s*스위치|요금\s*전환|요금\s*바꿔/.test(lower)) {
       return {
-        reply: "요금제 비교 스위치를 전환하여 1년차 일체형 도입 비용과 연간 갱신 및 원청 검증 노드 구독 요금을 비교해 드립니다.",
+        clipKey: "pricing_toggle",
+        reply: "요금제 비교 스위치를 전환해 드렸어요! 1년차 도입 비용과 연간 갱신 요금을 한눈에 비교해 보세요.",
         action: { type: "toggle_pricing", target: "#pricing" }
       };
     }
     if (/요금|가격|비용|얼마|구독료|플랜/.test(lower)) {
       return {
-        reply: "액사이드는 표준 Field Vault 패키지 기준 1년차 도입 9,000만 원, 2·3년차 연간 갱신 6,600만 원으로 3년 누적 2.2억 원의 투명한 요금 체계를 제공하며, 원청 검증 노드는 연 3,600만 원에 구독하실 수 있습니다. 요금제 섹션으로 안내해 드릴게요.",
+        clipKey: "pricing_info",
+        reply: "표준 Field Vault 패키지는 1년차 9,000만 원, 2·3년차 연 6,600만 원으로 이용하실 수 있고요, 원청 검증 노드는 연 3,600만 원이에요. 요금제 섹션으로 바로 안내해 드릴게요.",
         action: {
           type: document.querySelector("#pricing") ? "scroll" : "navigate",
           target: document.querySelector("#pricing") ? "#pricing" : "index.html#pricing"
@@ -304,7 +430,8 @@
         idx = map[numMatch[1]] || 1;
       }
       return {
-        reply: `자주 묻는 핵심 질문 ${idx}번 항목을 펼쳐서 보여드립니다.`,
+        clipKey: `faq_${idx}`,
+        reply: `자주 묻는 질문 ${idx}번 항목을 펼쳐서 보여드릴게요.`,
         action: {
           type: document.querySelector(".section-faqs") ? "open_faq" : "navigate",
           target: document.querySelector(".section-faqs") ? String(idx) : "index.html"
@@ -313,7 +440,8 @@
     }
     if (/팀|임원|리더십|안수진|황영배|박해선/.test(lower)) {
       return {
-        reply: "허상훈 대표이사, KAIST 뇌인지과학 연구원 안수진 CTO, 충북대 산업인공지능학과 황영배 교수, 아이브이알시스템즈 박해선 멘토가 함께하는 리더십 섹션으로 안내합니다.",
+        clipKey: "team",
+        reply: "허상훈 대표님과 KAIST 안수진 CTO, 충북대 황영배 교수님이 함께하시는 리더십 섹션으로 안내해 드릴게요.",
         action: {
           type: document.querySelector(".section-team") ? "scroll" : "navigate",
           target: document.querySelector(".section-team") ? ".section-team" : "about.html"
@@ -322,7 +450,8 @@
     }
     if (/특허|수상|연혁|pct/.test(lower)) {
       return {
-        reply: "대한민국 등록특허 제10-2973709호와 PCT 국제출원, 아주산업 1호 공급계약 및 신한카드 AX연구소 공동연구 이력이 담긴 섹션으로 이동합니다.",
+        clipKey: "awards",
+        reply: "대한민국 등록특허와 PCT 국제출원, 그리고 1호 공급계약 이력이 담긴 섹션으로 이동할게요.",
         action: {
           type: document.querySelector(".section-awards") ? "scroll" : "navigate",
           target: document.querySelector(".section-awards") ? ".section-awards" : "index.html"
@@ -331,7 +460,8 @@
     }
     if (/후기|추천사|고객\s*목소리|조난식/.test(lower)) {
       return {
-        reply: "아주산업 조난식 대표님과 방산 체계업체 품질보증 수석, 금융 AX연구소 연구원분들의 실제 도입 후기 섹션으로 안내합니다.",
+        clipKey: "testimonials",
+        reply: "아주산업 조난식 대표님과 방산 품질보증 수석님의 생생한 도입 후기 섹션으로 안내해 드릴게요.",
         action: {
           type: document.querySelector(".section-testimonials") ? "scroll" : "navigate",
           target: document.querySelector(".section-testimonials") ? ".section-testimonials" : "index.html"
@@ -340,7 +470,8 @@
     }
     if (/통계|실측\s*숫자|성능|벤치마크|0\.161|96\.7/.test(lower)) {
       return {
-        reply: "인터넷을 물리적으로 차단한 환경에서 실측한 첫 글자 응답속도 0.161초, VRAM 14.8GB, NVIDIA B200 DPO 감사 선호 정확도 96.7%, 외부 패킷 전송 0 Byte 벤치마크 섹션으로 안내합니다.",
+        clipKey: "stats",
+        reply: "인터넷을 완전히 차단한 노트북에서 직접 측정한 0.161초 응답속도와, 96.7% 정확도 성적표를 보여드릴게요.",
         action: {
           type: document.querySelector(".section-benefits") ? "scroll" : "navigate",
           target: document.querySelector(".section-benefits") ? ".section-benefits" : "index.html"
@@ -349,31 +480,36 @@
     }
     if (/다음\s*슬라이드|오른쪽\s*슬라이드|넘겨/.test(lower)) {
       return {
-        reply: "다음 슬라이드로 전환합니다.",
+        clipKey: "slide_next",
+        reply: "네, 다음 슬라이드로 넘겨드릴게요.",
         action: { type: "slide_next", target: "" }
       };
     }
     if (/이전\s*슬라이드|왼쪽\s*슬라이드/.test(lower)) {
       return {
-        reply: "이전 슬라이드로 전환합니다.",
+        clipKey: "slide_prev",
+        reply: "네, 이전 슬라이드로 돌아갈게요.",
         action: { type: "slide_prev", target: "" }
       };
     }
     if (/맨\s*위|최상단|탑으로|위로\s*올려/.test(lower)) {
       return {
-        reply: "페이지 최상단으로 부드럽게 이동합니다.",
+        clipKey: "scroll_top",
+        reply: "화면 맨 위로 부드럽게 올라갈게요.",
         action: { type: "scroll", target: "top" }
       };
     }
     if (/맨\s*아래|최하단|푸터/.test(lower)) {
       return {
-        reply: "페이지 하단 푸터 영역으로 이동합니다.",
+        clipKey: "scroll_bottom",
+        reply: "화면 맨 아래 푸터 영역으로 내려갈게요.",
         action: { type: "scroll", target: "footer" }
       };
     }
     if (/아래로|내려|스크롤/.test(lower)) {
       return {
-        reply: "화면을 아래로 스크롤합니다.",
+        clipKey: "scroll_down",
+        reply: "화면을 아래로 조금 내려드릴게요.",
         action: { type: "scroll", target: "down" }
       };
     }
@@ -386,13 +522,15 @@
       else if (/오렌지|주황/.test(lower)) colorIdx = 3;
       else if (/레드|빨강|기본/.test(lower)) colorIdx = 1;
       return {
-        reply: "홈페이지 포인트 테마 색상을 즉시 변경해 드렸습니다.",
+        clipKey: "theme",
+        reply: "방금 홈페이지 포인트 테마 색상을 산뜻하게 바꿔드렸어요!",
         action: { type: "change_theme", target: String(colorIdx) }
       };
     }
     if (/데모\s*신청|양식\s*작성|폼\s*작성|상담\s*신청|신청서/.test(lower)) {
       return {
-        reply: "1시간 현장 설치 데모 및 부품 여권 실증 신청 양식으로 이동하여 바로 작성하실 수 있도록 샘플 내용을 준비해 드렸습니다.",
+        clipKey: "demo_form",
+        reply: "1시간 현장 설치 데모 신청 양식으로 이동해서, 바로 접수하실 수 있게 기본 내용을 미리 채워두었어요.",
         action: {
           type: document.querySelector(".form-contact") ? "fill_contact" : "navigate",
           target: document.querySelector(".form-contact") ? ".form-contact" : "contact.html"
@@ -400,28 +538,46 @@
       };
     }
 
-    // E. Conversational Q&A about AXIDE / Cogni-OS / Defense Law / Greeting
-    if (/안녕|반가워|누구|소개해|뭐하는/.test(lower)) {
+    // E. Conversational Q&A about AXIDE / Cogni-OS / Defense Law / Pod / Mars / Greeting
+    if (/안녕|반가워|누구|소개해|뭐하는|아리아/.test(lower)) {
       return {
-        reply: "안녕하세요! 주식회사 액사이드의 AI 음성 비서 아리아입니다. 폐쇄망 소버린 AI 운영체제 코그니 오에스와 방산 부품 여권 안내부터, 원하시는 페이지 이동과 화면 제어까지 음성으로 도와드립니다. 무엇을 도와드릴까요?",
+        clipKey: "qa_intro",
+        reply: "안녕하세요! 저는 액사이드의 AI 매니저 아리아예요. 폐쇄망 AI Cogni-OS와 방산 부품 여권 안내부터, 원하시는 화면 이동까지 편하게 말씀만 해 주세요!",
         action: { type: "none", target: "" }
       };
     }
-    if (/방위산업|방산법|12월\s*10일|법률|유출/.test(lower)) {
+    if (/방위산업|방산법|12월\s*10일|법률|유출|보호법/.test(lower)) {
       return {
-        reply: "2026년 12월 10일 시행되는 개정 방위산업기술 보호법은 도면 외부 유출 시 징역 3년 이상 및 벌금 65억 원 이하 병과를 규정합니다. 액사이드의 코그니 오에스와 방산 부품 여권은 도면을 공장 밖으로 단 1바이트도 내보내지 않고 원청에 암호학적 증명만 제출하여 법적 리스크를 완벽히 해결합니다.",
+        clipKey: "qa_law",
+        reply: "2026년 12월 10일 시행되는 방위산업기술 보호법은 도면 유출 시 무거운 처벌을 규정하고 있는데요, 액사이드는 도면을 공장 밖으로 단 1바이트도 내보내지 않고 여권 증명만 전달해서 이 문제를 완벽히 해결해 드려요.",
         action: { type: "none", target: "" }
       };
     }
-    if (/래퍼|wrapper|오픈소스|차별점|경쟁력/.test(lower)) {
+    if (/래퍼|wrapper|오픈소스|차별점|경쟁력|deq|상수\s*메모리/.test(lower)) {
       return {
-        reply: "액사이드는 단순 오픈소스 언어모델 래퍼가 아닙니다. 등록특허 제10-2973709호 기반의 DEQ 상수 메모리 추론 코어, 3D 도면을 직접 계산하는 코그니크래프트 파서, 미수렴 시 거짓 환각 대신 판단 보류를 선언하는 안전장치, 그리고 Ed25519·SHA256 해시 체인 봉인이 결합된 6계층 소버린 AI 운영체제입니다.",
+        clipKey: "qa_wrapper",
+        reply: "액사이드는 단순한 오픈소스 래퍼가 아니에요. 특허받은 상수 메모리 추론 코어와 3D 도면 파서, 그리고 거짓 환각 대신 판단 보류를 선언하는 안전장치까지 갖춘 6계층 소버린 AI 운영체제랍니다.",
+        action: { type: "none", target: "" }
+      };
+    }
+    if (/파드|pod|컨테이너|국산\s*반도체|퓨리오사|리벨리온/.test(lower)) {
+      return {
+        clipKey: "qa_pod",
+        reply: "Cogni-Vault Pod는 국산 AI 반도체 서버와 이중 보안 게이트, 로봇팔 측정 모듈을 컨테이너 하나에 담은 자동화 공장 패키지예요. 현장에 꽂기만 하면 당일 바로 가동된답니다.",
+        action: { type: "none", target: "" }
+      };
+    }
+    if (/화성|우주|달\s*기지|극지|해상|비전|미래/.test(lower)) {
+      return {
+        clipKey: "qa_mars",
+        reply: "인터넷이 전혀 닿지 않는 극지나 해상, 나아가 달과 화성 기지에서도 지구 도움 없이 스스로 도면을 읽고 부품을 만들어 증명하는 것이 액사이드 Cogni-Vault Pod의 장기 비전이에요.",
         action: { type: "none", target: "" }
       };
     }
     if (/연락처|전화번호|이메일|주소|위치|어디/.test(lower)) {
       return {
-        reply: "주식회사 액사이드 본사는 대전광역시 유성구 관들1길 47, 대전 방산혁신클러스터에 위치하고 있습니다. 직통 전화는 010-6689-3508이며, 공식 이메일은 wwwhunycom@naver.com 입니다.",
+        clipKey: "qa_contact",
+        reply: "액사이드 본사는 대전 유성구 관들1길 47, 대전 방산혁신클러스터에 있어요. 직통 전화는 010-6689-3508번이니 언제든 편하게 연락해 주세요.",
         action: { type: "none", target: "" }
       };
     }
@@ -437,7 +593,7 @@
     const localMatch = matchLocalCommandAndKnowledge(userText);
     if (localMatch) {
       appendMessage("ai", localMatch.reply);
-      executeSiteAction(localMatch.action, localMatch.reply);
+      executeSiteAction(localMatch.action, localMatch.reply, localMatch.clipKey);
       return;
     }
 
@@ -456,19 +612,19 @@
         const data = await resp.json();
         if (data && data.reply && !data.fallback) {
           appendMessage("ai", data.reply);
-          executeSiteAction(data.action || { type: "none", target: "" }, data.reply);
+          executeSiteAction(data.action || { type: "none", target: "" }, data.reply, null);
           return;
         }
       }
     } catch (e) {
-      // Fallback to local intelligent response when static hosting is used
+      // Fallback to local studio-grade human female response when static hosting is used
     }
 
-    // 3. Intelligent Contextual Fallback Response
+    // 3. Intelligent Contextual Fallback Response (with Studio-Grade Human Female Audio)
     const fallbackReply =
-      "말씀하신 내용은 액사이드의 폐쇄망 소버린 AI 운영체제 코그니 오에스와 방산 부품 여권 솔루션에서 핵심적으로 지원하는 영역입니다. '아키텍처 보여줘', '부품 여권 페이지로 이동해줘', '아주산업 1호 계약 보여줘', 또는 '요금제 알려줘'라고 말씀해 주시면 해당 화면으로 즉시 안내해 드리겠습니다.";
+      "말씀하신 내용은 액사이드의 Cogni-OS와 방산 부품 여권에서 핵심으로 다루는 분야예요! '아키텍처 보여줘', '부품 여권으로 이동해줘', 또는 '요금제 알려줘'처럼 편하게 말씀해 주시면 바로 안내해 드릴게요.";
     appendMessage("ai", fallbackReply);
-    speakFemaleVoice(fallbackReply);
+    speakFemaleVoice(fallbackReply, null, "fallback");
   }
 
   /* --------------------------------------------------------------------------
@@ -488,9 +644,9 @@
     }, 2600);
   }
 
-  function executeSiteAction(action, replyText) {
+  function executeSiteAction(action, replyText, clipKey) {
     if (!action || !action.type || action.type === "none") {
-      speakFemaleVoice(replyText);
+      speakFemaleVoice(replyText, null, clipKey);
       return;
     }
 
@@ -498,7 +654,7 @@
     const target = action.target || "";
 
     if (type === "stop_speaking") {
-      if (synth) synth.cancel();
+      stopAllAudio();
       stopListening();
       setWidgetState("idle");
       return;
@@ -510,28 +666,36 @@
       const targetHash = parts[1] ? "#" + parts[1] : "";
       const curPage = getCurrentPage();
 
-      if (targetFile === curPage && targetHash) {
-        const el = document.querySelector(targetHash);
-        if (el) {
-          el.scrollIntoView({ behavior: "smooth", block: "start" });
-          highlightElement(el);
+      if (targetFile === curPage) {
+        if (targetHash) {
+          const el = document.querySelector(targetHash);
+          if (el) {
+            el.scrollIntoView({ behavior: "smooth", block: "start" });
+            highlightElement(el);
+          }
+        } else {
+          window.scrollTo({ top: 0, behavior: "smooth" });
         }
-        speakFemaleVoice(replyText);
+        speakFemaleVoice(replyText, null, clipKey);
         return;
       }
 
-      // Save reply to speak immediately after page transition
+      // Save reply & studio-grade clipKey to speak seamlessly right after page transition
       sessionStorage.setItem(STORAGE_KEY_PENDING, replyText);
+      if (clipKey) {
+        sessionStorage.setItem(STORAGE_KEY_PENDING_CLIP, clipKey);
+      } else {
+        sessionStorage.removeItem(STORAGE_KEY_PENDING_CLIP);
+      }
       sessionStorage.setItem(STORAGE_KEY_OPEN, "true");
-      speakFemaleVoice(replyText);
       setTimeout(() => {
         window.location.href = targetFile + targetHash;
-      }, 650);
+      }, 220);
       return;
     }
 
     if (type === "scroll") {
-      speakFemaleVoice(replyText);
+      speakFemaleVoice(replyText, null, clipKey);
       if (target === "top") {
         window.scrollTo({ top: 0, behavior: "smooth" });
       } else if (target === "down") {
@@ -547,7 +711,7 @@
     }
 
     if (type === "toggle_pricing") {
-      speakFemaleVoice(replyText);
+      speakFemaleVoice(replyText, null, clipKey);
       const pricingSec = document.querySelector("#pricing");
       if (pricingSec) {
         pricingSec.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -564,7 +728,7 @@
     }
 
     if (type === "open_faq") {
-      speakFemaleVoice(replyText);
+      speakFemaleVoice(replyText, null, clipKey);
       const idx = parseInt(target, 10) || 1;
       const faqCollapse =
         document.querySelector(`#collapse${idx}`) ||
@@ -583,7 +747,7 @@
     }
 
     if (type === "slide_next" || type === "slide_prev") {
-      speakFemaleVoice(replyText);
+      speakFemaleVoice(replyText, null, clipKey);
       const selector =
         type === "slide_next"
           ? ".nav-next-swiper, .progressbar-next, .testimonials-next"
@@ -594,13 +758,13 @@
     }
 
     if (type === "open_arch_modal") {
-      speakFemaleVoice(replyText);
+      speakFemaleVoice(replyText, null, clipKey);
       openArchModal(target || "assets/images/doc/cogni-os-reference-architecture.jpg");
       return;
     }
 
     if (type === "change_theme") {
-      speakFemaleVoice(replyText);
+      speakFemaleVoice(replyText, null, clipKey);
       const idx = target || "1";
       document.body.setAttribute("data-color-primary", "color-primary-" + idx);
       localStorage.setItem("selectedColorIndex", idx);
@@ -608,7 +772,7 @@
     }
 
     if (type === "fill_contact") {
-      speakFemaleVoice(replyText);
+      speakFemaleVoice(replyText, null, clipKey);
       const form = document.querySelector(".form-contact");
       if (form) {
         form.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -629,7 +793,7 @@
       return;
     }
 
-    speakFemaleVoice(replyText);
+    speakFemaleVoice(replyText, null, clipKey);
   }
 
   /* --------------------------------------------------------------------------
@@ -701,9 +865,8 @@
       if (inputEl) inputEl.focus();
       return;
     }
-    if (synth && isSpeaking) {
-      synth.cancel();
-      isSpeaking = false;
+    if (isSpeaking) {
+      stopAllAudio();
     }
     openVoicePanel();
     try {
@@ -740,7 +903,7 @@
       const saved = sessionStorage.getItem(STORAGE_KEY_HISTORY);
       if (saved) return saved;
     } catch (e) {}
-    return "안녕하세요! 반갑습니다~ 오늘 어떤 솔루션을 함께 둘러볼까요?";
+    return "안녕하세요, 반갑습니다! 액사이드의 AI 매니저 아리아예요. 오늘 어떤 솔루션을 함께 둘러볼까요?";
   }
 
   function saveLastHeadline(text) {
@@ -773,10 +936,6 @@
     if (el) el.textContent = msg;
   }
 
-  function updateVoiceBadgeText() {
-    // Kept for compatibility when voices finish loading
-  }
-
   function setWidgetState(state) {
     const widget = document.getElementById("axideVoiceWidget");
     const headerBtns = document.querySelectorAll(".axide-header-mic-btn");
@@ -791,7 +950,7 @@
     } else if (state === "thinking") {
       updateStatusText("생각하는 중 · 잠시만 기다려 주세요");
     } else {
-      updateStatusText("말하는 중 · 언제든 끼어들어도 돼요");
+      updateStatusText("구체를 누르거나 편하게 말씀해 주세요");
     }
   }
 
@@ -810,10 +969,7 @@
       sessionStorage.setItem(STORAGE_KEY_OPEN, "false");
     }
     stopListening();
-    if (synth && isSpeaking) {
-      synth.cancel();
-      isSpeaking = false;
-    }
+    stopAllAudio();
     setWidgetState("idle");
   }
 
@@ -842,8 +998,25 @@
       modal.querySelector(".arch-modal-close").addEventListener("click", () => {
         modal.classList.remove("show");
       });
+    } else {
+      const img = modal.querySelector(".arch-modal-body img");
+      if (img && imgSrc) img.setAttribute("src", imgSrc);
     }
     modal.classList.add("show");
+  }
+
+  function triggerGreetingAndListen() {
+    openVoicePanel();
+    const greet =
+      "안녕하세요, 반갑습니다! 액사이드의 AI 매니저 아리아예요. 오늘 어떤 솔루션을 함께 둘러볼까요? 편하게 말씀해 주세요.";
+    appendMessage("ai", greet);
+    speakFemaleVoice(
+      greet,
+      () => {
+        startListening();
+      },
+      "greet"
+    );
   }
 
   function injectUI() {
@@ -860,7 +1033,7 @@
       micBtn.type = "button";
       micBtn.className = "axide-header-mic-btn";
       micBtn.setAttribute("aria-label", "AI 음성 비서 호출");
-      micBtn.setAttribute("title", "AI 음성 대화 및 사이트 제어 (Gemini Live)");
+      micBtn.setAttribute("title", "AI 음성 대화 및 사이트 제어 (Gemini Live · 아리아)");
       micBtn.innerHTML = `
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M12 2C10.3431 2 9 3.34315 9 5V12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12V5C15 3.34315 13.6569 2 12 2Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
@@ -871,16 +1044,10 @@
       micBtn.addEventListener("click", function () {
         const panel = document.getElementById("axideVoicePanel");
         if (panel && !panel.classList.contains("open")) {
-          openVoicePanel();
-          const greet = "안녕하세요! 반갑습니다~ 오늘 어떤 솔루션을 함께 둘러볼까요?";
-          appendMessage("ai", greet);
-          speakFemaleVoice(greet, () => {
-            startListening();
-          });
+          triggerGreetingAndListen();
         } else {
-          if (synth && isSpeaking) {
-            synth.cancel();
-            isSpeaking = false;
+          if (isSpeaking) {
+            stopAllAudio();
             startListening();
           } else {
             toggleListening();
@@ -1013,7 +1180,7 @@
         <div class="sims-footer-row">
           <span class="sims-live-indicator">
             <i class="sims-green-dot"></i>
-            Gemini Live
+            Gemini Live · Aria HD
           </span>
           <span class="sims-barge-hint">말을 끊어도 돼요</span>
         </div>
@@ -1035,17 +1202,11 @@
     function handleOrbOrSphereClick() {
       const panel = document.getElementById("axideVoicePanel");
       if (!panel.classList.contains("open")) {
-        openVoicePanel();
-        const greet = "안녕하세요! 반갑습니다~ 오늘 어떤 솔루션을 함께 둘러볼까요?";
-        appendMessage("ai", greet);
-        speakFemaleVoice(greet, () => {
-          startListening();
-        });
+        triggerGreetingAndListen();
       } else {
         // Barge-in support: if speaking, interrupt immediately and start listening
-        if (synth && isSpeaking) {
-          synth.cancel();
-          isSpeaking = false;
+        if (isSpeaking) {
+          stopAllAudio();
           startListening();
         } else {
           toggleListening();
@@ -1061,9 +1222,8 @@
     });
 
     document.getElementById("axideVoiceMuteBtn").addEventListener("click", function () {
-      if (synth && isSpeaking) {
-        synth.cancel();
-        isSpeaking = false;
+      if (isSpeaking) {
+        stopAllAudio();
         setWidgetState(isListening ? "listening" : "idle");
       } else {
         closeVoicePanel();
@@ -1079,18 +1239,14 @@
         return;
       }
       input.value = "";
-      if (synth && isSpeaking) {
-        synth.cancel();
-        isSpeaking = false;
-      }
+      stopAllAudio();
       processUserCommand(val);
     });
 
     // Barge-in when typing in input while AI is speaking
     document.getElementById("axideVoiceInput").addEventListener("keydown", function () {
-      if (synth && isSpeaking) {
-        synth.cancel();
-        isSpeaking = false;
+      if (isSpeaking) {
+        stopAllAudio();
         setWidgetState("idle");
       }
     });
@@ -1098,10 +1254,7 @@
     widget.querySelectorAll(".sims-action-tile").forEach((tile) => {
       tile.addEventListener("click", function () {
         const cmd = this.getAttribute("data-cmd");
-        if (synth && isSpeaking) {
-          synth.cancel();
-          isSpeaking = false;
-        }
+        stopAllAudio();
         if (cmd) processUserCommand(cmd);
       });
     });
@@ -1144,12 +1297,14 @@
       openVoicePanel();
     }
     const pending = sessionStorage.getItem(STORAGE_KEY_PENDING);
+    const pendingClip = sessionStorage.getItem(STORAGE_KEY_PENDING_CLIP);
     if (pending) {
       sessionStorage.removeItem(STORAGE_KEY_PENDING);
+      sessionStorage.removeItem(STORAGE_KEY_PENDING_CLIP);
       setTimeout(() => {
         appendMessage("ai", pending);
-        speakFemaleVoice(pending);
-      }, 450);
+        speakFemaleVoice(pending, null, pendingClip || null);
+      }, 350);
     }
   }
 
