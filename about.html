@@ -23,7 +23,8 @@
 
     <link rel="stylesheet" href="assets/css/slick.css">
     <link rel="stylesheet" href="assets/css/slick.theme.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css?v=20261101v4">
 
     <!-- Favicon and Touch Icons  -->
     <link rel="shortcut icon" href="assets/images/logo/favicon.svg">
@@ -395,14 +396,14 @@
             </div>
             <div class="container">
                     <!-- Cogni-OS Reference Architecture v1.0 Showcase -->
-                    <div class="arch-blueprint-wrap effectFade fadeUp">
+                    <div id="cogni-os-architecture" class="arch-blueprint-wrap no-div" style="background: linear-gradient(160deg, #070b14 0%, #0d1424 52%, #060911 100%); color: #f8fafc; border-radius: 36px; border: 1px solid rgba(56, 189, 248, 0.28);">
                         <div class="arch-blueprint-header">
                             <div>
                                 <div class="arch-blueprint-badge">
                                     <span>●</span> COGNI-OS REFERENCE ARCHITECTURE v1.0 · ATOM TEAM
                                 </div>
-                                <h3 class="arch-blueprint-title">Cogni-OS 참조 아키텍처 (L0~L5 6계층 · ADAS · A2A 공급망)</h3>
-                                <p class="arch-blueprint-sub">ADAS 기반 자율 진화 및 원청↔공급업체 A2A(Agent-to-Agent) 방산·제조 공급망을 위한 계층형 에이전트 운영체제</p>
+                                <h3 class="arch-blueprint-title" style="color: #ffffff;">Cogni-OS 참조 아키텍처 (L0~L5 6계층 · ADAS 자율 진화 · A2A 공급망)</h3>
+                                <p class="arch-blueprint-sub" style="color: #94a3b8;">ADAS 기반 메타 에이전트 자율 진화 및 원청↔공급업체 A2A(Agent-to-Agent) 방산·제조 공급망을 위한 계층형 에이전트 운영체제</p>
                             </div>
                             <div class="arch-blueprint-meta">
                                 <span class="arch-meta-pill">버전: v1.0 (2026-10-31)</span>
@@ -411,9 +412,31 @@
                             </div>
                         </div>
                         <div class="arch-blueprint-frame">
-                            <a href="assets/images/doc/cogni-os-reference-architecture.jpg" target="_blank" title="클릭하여 원본 해상도로 보기">
-                                <img src="assets/images/doc/cogni-os-reference-architecture.jpg" alt="Cogni-OS 참조 아키텍처 — ADAS 기반 자율 진화 및 A2A 공급망을 위한 계층형 에이전트 운영체제">
+                            <a href="assets/images/doc/cogni-os-reference-architecture.jpg?v=20261101v4" target="_blank" title="클릭하여 전체 화면 고해상도로 확대 보기">
+                                <img src="assets/images/doc/cogni-os-reference-architecture.jpg?v=20261101v4" alt="Cogni-OS 참조 아키텍처 — ADAS 기반 자율 진화 및 A2A 공급망을 위한 계층형 에이전트 운영체제">
                             </a>
+                            <div class="arch-frame-hud-overlay">
+                                <div class="arch-hud-callout">
+                                    <span class="hud-code">L5 · SIGNED A2A GATEWAY</span>
+                                    <span class="hud-name">원청 ↔ 공급업체 암호학 A2A</span>
+                                    <span class="hud-desc">견적·발주·진행·납품·대금 6단계 서명 메시지 및 사람 승인 게이트</span>
+                                </div>
+                                <div class="arch-hud-callout hud-amber">
+                                    <span class="hud-code">L4 · ADAS EVOLUTION LOOP</span>
+                                    <span class="hud-name">메타 에이전트 & 홀드아웃 평가자</span>
+                                    <span class="hud-desc">기존 설계 로드 → 변이 생성 → 샌드박스 평가 → 아카이브 버전 저장</span>
+                                </div>
+                                <div class="arch-hud-callout hud-red">
+                                    <span class="hud-code">L0 · ZERO-COPY & DEQ CORE</span>
+                                    <span class="hud-name">NVMe → GPU 직결 & O(1) 메모리</span>
+                                    <span class="hud-desc">CPU/RAM 우회 프리페치 스트리머 및 고정점 수렴 z* 상수 메모리 추론</span>
+                                </div>
+                                <div class="arch-hud-callout hud-green">
+                                    <span class="hud-code">SHOP-FLOOR & PASSPORT</span>
+                                    <span class="hud-name">5축 CNC · 레이저 CMM · 부품여권</span>
+                                    <span class="hud-desc">설비 실시간 제어·계측 및 SHA-256 · Ed25519 티타늄 QR 부품여권 봉인</span>
+                                </div>
+                            </div>
                         </div>
                         <div class="arch-legend-bar">
                             <div class="arch-legend-items">

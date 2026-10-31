@@ -23,7 +23,8 @@
 
     <link rel="stylesheet" href="assets/css/slick.css">
     <link rel="stylesheet" href="assets/css/slick.theme.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css?v=20261101v4">
 
     <!-- Favicon and Touch Icons  -->
     <link rel="shortcut icon" href="assets/images/logo/favicon.svg">
@@ -313,6 +314,9 @@
                                     </div>
                                     <p class="effectFade fadeUp">오픈소스 가중치는 언어 처리 부품일 뿐입니다. 액사이드가 100% 자체 소유·특허 등록한 3층 소프트웨어와 6종 하드웨어 금고(Field Vault)가 공장 안의 봉인을 공급망 표준으로 연결합니다.</p>
                                 </div>
+                                <div class="services-image no-div">
+                                    <img src="assets/images/section/service-1.jpg" alt="Cogni-OS Core DEQ 폐쇄망 추론 엔진">
+                                </div>
                             </div>
                         </div>
                         <div class="col-xxl-6 col-lg-6">
@@ -395,19 +399,16 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="services-image effectFade fadeUp">
-                            <img src="assets/images/section/service-1.jpg" alt="Cogni-OS Core DEQ 폐쇄망 추론 엔진">
-                        </div>
                     </div>
                     <!-- Cogni-OS Reference Architecture v1.0 Showcase -->
-                    <div class="arch-blueprint-wrap effectFade fadeUp">
+                    <div id="cogni-os-architecture" class="arch-blueprint-wrap no-div" style="background: linear-gradient(160deg, #070b14 0%, #0d1424 52%, #060911 100%); color: #f8fafc; border-radius: 36px; border: 1px solid rgba(56, 189, 248, 0.28);">
                         <div class="arch-blueprint-header">
                             <div>
                                 <div class="arch-blueprint-badge">
                                     <span>●</span> COGNI-OS REFERENCE ARCHITECTURE v1.0 · ATOM TEAM
                                 </div>
-                                <h3 class="arch-blueprint-title">Cogni-OS 참조 아키텍처 (L0~L5 6계층 · ADAS · A2A 공급망)</h3>
-                                <p class="arch-blueprint-sub">ADAS 기반 자율 진화 및 원청↔공급업체 A2A(Agent-to-Agent) 방산·제조 공급망을 위한 계층형 에이전트 운영체제</p>
+                                <h3 class="arch-blueprint-title" style="color: #ffffff;">Cogni-OS 참조 아키텍처 (L0~L5 6계층 · ADAS 자율 진화 · A2A 공급망)</h3>
+                                <p class="arch-blueprint-sub" style="color: #94a3b8;">ADAS 기반 메타 에이전트 자율 진화 및 원청↔공급업체 A2A(Agent-to-Agent) 방산·제조 공급망을 위한 계층형 에이전트 운영체제</p>
                             </div>
                             <div class="arch-blueprint-meta">
                                 <span class="arch-meta-pill">버전: v1.0 (2026-10-31)</span>
@@ -416,9 +417,31 @@
                             </div>
                         </div>
                         <div class="arch-blueprint-frame">
-                            <a href="assets/images/doc/cogni-os-reference-architecture.jpg" target="_blank" title="클릭하여 원본 해상도로 보기">
-                                <img src="assets/images/doc/cogni-os-reference-architecture.jpg" alt="Cogni-OS 참조 아키텍처 — ADAS 기반 자율 진화 및 A2A 공급망을 위한 계층형 에이전트 운영체제">
+                            <a href="assets/images/doc/cogni-os-reference-architecture.jpg?v=20261101v4" target="_blank" title="클릭하여 전체 화면 고해상도로 확대 보기">
+                                <img src="assets/images/doc/cogni-os-reference-architecture.jpg?v=20261101v4" alt="Cogni-OS 참조 아키텍처 — ADAS 기반 자율 진화 및 A2A 공급망을 위한 계층형 에이전트 운영체제">
                             </a>
+                            <div class="arch-frame-hud-overlay">
+                                <div class="arch-hud-callout">
+                                    <span class="hud-code">L5 · SIGNED A2A GATEWAY</span>
+                                    <span class="hud-name">원청 ↔ 공급업체 암호학 A2A</span>
+                                    <span class="hud-desc">견적·발주·진행·납품·대금 6단계 서명 메시지 및 사람 승인 게이트</span>
+                                </div>
+                                <div class="arch-hud-callout hud-amber">
+                                    <span class="hud-code">L4 · ADAS EVOLUTION LOOP</span>
+                                    <span class="hud-name">메타 에이전트 & 홀드아웃 평가자</span>
+                                    <span class="hud-desc">기존 설계 로드 → 변이 생성 → 샌드박스 평가 → 아카이브 버전 저장</span>
+                                </div>
+                                <div class="arch-hud-callout hud-red">
+                                    <span class="hud-code">L0 · ZERO-COPY & DEQ CORE</span>
+                                    <span class="hud-name">NVMe → GPU 직결 & O(1) 메모리</span>
+                                    <span class="hud-desc">CPU/RAM 우회 프리페치 스트리머 및 고정점 수렴 z* 상수 메모리 추론</span>
+                                </div>
+                                <div class="arch-hud-callout hud-green">
+                                    <span class="hud-code">SHOP-FLOOR & PASSPORT</span>
+                                    <span class="hud-name">5축 CNC · 레이저 CMM · 부품여권</span>
+                                    <span class="hud-desc">설비 실시간 제어·계측 및 SHA-256 · Ed25519 티타늄 QR 부품여권 봉인</span>
+                                </div>
+                            </div>
                         </div>
                         <div class="arch-legend-bar">
                             <div class="arch-legend-items">
@@ -429,8 +452,176 @@
                                 <span class="arch-legend-item"><span class="arch-dot-a2a"></span> A2A 서명 메시지</span>
                                 <span class="arch-legend-item"><span class="arch-dot-lock">🔒</span> 사람 승인 (Human Gate)</span>
                             </div>
-                            <div class="text-neutral-400">※ 이미지를 클릭하면 전체 화면으로 확대됩니다</div>
+                            <div class="text-neutral-400">※ 상단 아키텍처 비주얼을 클릭하면 전체 화면으로 확대됩니다</div>
                         </div>
+
+                        <!-- 3-Column Enterprise System Architecture Blueprint Matrix -->
+                        <div class="arch-enterprise-matrix">
+                            <!-- Left Column: Prime Contractor & 6-Step A2A Loop -->
+                            <div class="arch-matrix-col">
+                                <div class="arch-col-header">
+                                    <span class="col-title">원청 Cogni-OS (체계기업)</span>
+                                    <span class="col-badge">A2A 원청 노드</span>
+                                </div>
+                                <div class="arch-stack-tier">
+                                    <div class="arch-tier-head">
+                                        <span class="arch-tier-name">원청 6계층 (L5~L0) & 5대 에이전트</span>
+                                    </div>
+                                    <div class="arch-chip-row">
+                                        <span class="arch-node-chip">구매 오케스트레이터</span>
+                                        <span class="arch-node-chip">공급업체 선정</span>
+                                        <span class="arch-node-chip">발주 에이전트</span>
+                                        <span class="arch-node-chip">입고 검사</span>
+                                        <span class="arch-node-chip">대금 지급</span>
+                                    </div>
+                                </div>
+                                <div class="arch-stack-tier tier-amber">
+                                    <div class="arch-tier-head">
+                                        <span class="arch-tier-name">①~⑥ 서명된 A2A 공급망 순환</span>
+                                        <span class="arch-tier-tag">반복 순환</span>
+                                    </div>
+                                    <div class="arch-chip-row">
+                                        <span class="arch-node-chip">① 견적요청 (도면·수량·납기)</span>
+                                        <span class="arch-node-chip">② 견적서 자동 회신</span>
+                                        <span class="arch-node-chip chip-gate">③ 발주서 🔒사람승인</span>
+                                        <span class="arch-node-chip">④ 진행보고 (공정 현황)</span>
+                                        <span class="arch-node-chip chip-gate">⑤ 납품·세금계산서·부품여권 🔒</span>
+                                        <span class="arch-node-chip chip-gate">⑥ 대금·재발주 🔒</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Center Column: Supplier Cogni-OS L5 ~ L0 Stack -->
+                            <div class="arch-matrix-col col-center-stack">
+                                <div class="arch-col-header">
+                                    <span class="col-title">공급업체 Cogni-OS (부품 공장 6계층 코어)</span>
+                                    <span class="col-badge">L5 → L0 FULL-STACK</span>
+                                </div>
+                                <div class="arch-stack-tier">
+                                    <div class="arch-tier-head">
+                                        <span class="arch-tier-name">L5 · 인터페이스 계층</span>
+                                        <span class="arch-tier-tag">Signed Gateway</span>
+                                    </div>
+                                    <div class="arch-chip-row">
+                                        <span class="arch-node-chip">✉️ A2A 게이트웨이 (서명된 메시지)</span>
+                                        <span class="arch-node-chip">📋 작업 요청 접수</span>
+                                        <span class="arch-node-chip chip-gate">👤 사람 승인 콘솔</span>
+                                    </div>
+                                </div>
+                                <div class="arch-stack-tier tier-amber">
+                                    <div class="arch-tier-head">
+                                        <span class="arch-tier-name">L4 · 진화 계층 — ADAS (메타 에이전트 & 평가자)</span>
+                                        <span class="arch-tier-tag">Self-Evolution</span>
+                                    </div>
+                                    <div class="arch-chip-row">
+                                        <span class="arch-node-chip chip-evol">📂 기존 설계 불러오기</span>
+                                        <span class="arch-node-chip chip-evol">🧬 새 에이전트 생성 / 변이</span>
+                                        <span class="arch-node-chip chip-evol">🎯 평가 (샌드박스 · 홀드아웃)</span>
+                                        <span class="arch-node-chip chip-evol">🗄️ 아카이브 버전 저장</span>
+                                        <span class="arch-node-chip chip-verify">📊 평가자 (성능 로그 검증)</span>
+                                    </div>
+                                </div>
+                                <div class="arch-stack-tier">
+                                    <div class="arch-tier-head">
+                                        <span class="arch-tier-name">L3 · 오케스트레이션 계층 — 실행 계층</span>
+                                        <span class="arch-tier-tag">Runtime Control</span>
+                                    </div>
+                                    <div class="arch-chip-row">
+                                        <span class="arch-node-chip">작업 계획기</span>
+                                        <span class="arch-node-chip">스케줄러</span>
+                                        <span class="arch-node-chip">상태 머신</span>
+                                        <span class="arch-node-chip">이벤트 버스</span>
+                                    </div>
+                                </div>
+                                <div class="arch-stack-tier">
+                                    <div class="arch-tier-head">
+                                        <span class="arch-tier-name">L2 · 에이전트 실행 계층 (8종 전문 에이전트)</span>
+                                        <span class="arch-tier-tag">8 Agents</span>
+                                    </div>
+                                    <div class="arch-chip-row">
+                                        <span class="arch-node-chip">도면 해석</span>
+                                        <span class="arch-node-chip">CAD</span>
+                                        <span class="arch-node-chip">가공 경로</span>
+                                        <span class="arch-node-chip chip-gate">기계 제어 🔒</span>
+                                        <span class="arch-node-chip chip-verify">검사 ✅</span>
+                                        <span class="arch-node-chip chip-verify">부품여권 QR</span>
+                                        <span class="arch-node-chip">물류</span>
+                                        <span class="arch-node-chip chip-gate">청구 🔒</span>
+                                    </div>
+                                </div>
+                                <div class="arch-stack-tier">
+                                    <div class="arch-tier-head">
+                                        <span class="arch-tier-name">L1 · 도구 / 드라이버 계층 (9종 인터페이스)</span>
+                                        <span class="arch-tier-tag">Hardware & API</span>
+                                    </div>
+                                    <div class="arch-chip-row">
+                                        <span class="arch-node-chip">DXF/PDF 파서</span>
+                                        <span class="arch-node-chip">CAD API</span>
+                                        <span class="arch-node-chip">G-code/AM 슬라이서</span>
+                                        <span class="arch-node-chip">CNC 드라이버</span>
+                                        <span class="arch-node-chip">AM 프린터 드라이버</span>
+                                        <span class="arch-node-chip">CMM/비전 드라이버</span>
+                                        <span class="arch-node-chip">ERP · 전자세금계산서 · SMTP</span>
+                                    </div>
+                                </div>
+                                <div class="arch-stack-tier tier-red">
+                                    <div class="arch-tier-head">
+                                        <span class="arch-tier-name">L0 · 메모리 및 연산 계층 (CPU/RAM 우회 없음)</span>
+                                        <span class="arch-tier-tag">NVMe → GPU 직결</span>
+                                    </div>
+                                    <div class="arch-chip-row">
+                                        <span class="arch-node-chip">에이전트 아카이브 (NVMe SSD · 벡터 인덱스)</span>
+                                        <span class="arch-node-chip chip-evol">⚡ 모듈 스트리머 (프리페치 · 이중 버퍼)</span>
+                                        <span class="arch-node-chip chip-verify">🧠 DEQ 추론 코어 (VRAM 상주 f_θ · 고정점 z* · O(1) 메모리)</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Right Column: Governance, Shop-Floor & Part Passport -->
+                            <div class="arch-matrix-col">
+                                <div class="arch-col-header">
+                                    <span class="col-title">거버넌스 & 물리적 제조 현장</span>
+                                    <span class="col-badge">SHA-256 · 현장</span>
+                                </div>
+                                <div class="arch-stack-tier tier-red">
+                                    <div class="arch-tier-head">
+                                        <span class="arch-tier-name">거버넌스 (전 계층 관통)</span>
+                                    </div>
+                                    <div class="arch-chip-row">
+                                        <span class="arch-node-chip chip-gate">🛡️ 승인 게이트</span>
+                                        <span class="arch-node-chip chip-verify">📜 감사 원장 (SHA-256)</span>
+                                        <span class="arch-node-chip">⚙️ 정책 및 권한</span>
+                                        <span class="arch-node-chip">🔄 버전 관리 · 롤백</span>
+                                    </div>
+                                </div>
+                                <div class="arch-stack-tier">
+                                    <div class="arch-tier-head">
+                                        <span class="arch-tier-name">물리적 제조 현장 & 외부 서비스</span>
+                                    </div>
+                                    <div class="arch-chip-row">
+                                        <span class="arch-node-chip">CNC 공작기계</span>
+                                        <span class="arch-node-chip">금속 3D 프린터</span>
+                                        <span class="arch-node-chip">CMM · 3D 스캐너</span>
+                                        <span class="arch-node-chip">포장 · 출하</span>
+                                        <span class="arch-node-chip">전자세금계산서 · SMTP · ERP</span>
+                                    </div>
+                                </div>
+                                <div class="arch-stack-tier tier-green">
+                                    <div class="arch-tier-head">
+                                        <span class="arch-tier-name">방산 부품여권 (QR 암호학 봉인)</span>
+                                    </div>
+                                    <div class="arch-chip-row">
+                                        <span class="arch-node-chip chip-verify">도면 버전</span>
+                                        <span class="arch-node-chip chip-verify">모델 해시</span>
+                                        <span class="arch-node-chip chip-verify">재료 로트</span>
+                                        <span class="arch-node-chip chip-verify">공정 이력</span>
+                                        <span class="arch-node-chip chip-verify">검사 보고서</span>
+                                        <span class="arch-node-chip chip-verify">디지털 서명</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="arch-grid-cards">
                             <div class="arch-domain-card">
                                 <div class="card-head">
