@@ -11614,13 +11614,15 @@ footer .footer-content .footer-logo.axide-footer-brand {
   display: block;
 }
 
-.preload-logo img {
-  width: 68px;
-  height: 68px;
-  border-radius: 0;
-  object-fit: contain;
-  box-shadow: none;
-  filter: drop-shadow(0 0 24px rgba(56, 189, 248, 0.45));
+.preload,
+.preload-container,
+.preload-logo {
+  display: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
 }
 
 @media (max-width: 575px) {
