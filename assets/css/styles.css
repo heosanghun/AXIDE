@@ -10604,4 +10604,606 @@ footer .footer-image {
 
 #trail, .cursor-trail { display: none !important; visibility: hidden !important; pointer-events: none !important; }
 
+/* ==========================================================================
+   18. AXIDE Cogni-Voice AI (Aria) — Luxury Header Mic, Right-Edge Voice Orb & HUD
+   ========================================================================== */
+.tf-header .header-inner {
+  max-width: 1080px;
+}
+.tf-header.header2 .header-inner {
+  max-width: 1100px;
+}
+
+/* Right-Most Header Luxury Microphone Button */
+.axide-header-mic-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px 9px 13px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 55%, #27151c 100%);
+  border: 1px solid rgba(253, 58, 37, 0.5);
+  color: #ffffff;
+  font-family: "Pretendard Variable", "Pretendard", "Plus Jakarta Sans", sans-serif;
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  white-space: nowrap;
+  cursor: pointer;
+  flex-shrink: 0;
+  box-shadow:
+    0 6px 20px rgba(15, 23, 42, 0.22),
+    0 0 18px rgba(253, 58, 37, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  transition: all 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+  overflow: hidden;
+}
+.axide-header-mic-btn:hover {
+  transform: translateY(-2px);
+  border-color: #fd3a25;
+  box-shadow:
+    0 10px 26px rgba(15, 23, 42, 0.32),
+    0 0 26px rgba(253, 58, 37, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+.axide-header-mic-btn .mic-pulse-ring {
+  position: absolute;
+  left: 9px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(253, 58, 37, 0.45) 0%, rgba(56, 189, 248, 0) 72%);
+  animation: axideMicPulse 2.4s infinite ease-in-out;
+  pointer-events: none;
+}
+.axide-header-mic-btn svg {
+  width: 17px;
+  height: 17px;
+  color: #ff6b57;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+.axide-header-mic-btn .mic-label {
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(90deg, #ffffff 0%, #ffd8d1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.axide-header-mic-btn[data-state="listening"] {
+  background: linear-gradient(135deg, #991b1b 0%, #fd3a25 100%);
+  border-color: #ffffff;
+  box-shadow: 0 0 28px rgba(253, 58, 37, 0.78);
+}
+.axide-header-mic-btn[data-state="listening"] svg {
+  color: #ffffff;
+  transform: scale(1.12);
+}
+.axide-header-mic-btn[data-state="speaking"] {
+  border-color: #38bdf8;
+  box-shadow: 0 0 26px rgba(56, 189, 248, 0.62);
+}
+.axide-header-mic-btn[data-state="speaking"] svg {
+  color: #38bdf8;
+}
+@media (max-width: 575px) {
+  .axide-header-mic-btn {
+    padding: 9px 11px;
+  }
+}
+
+/* Floating Right-Side Luxury Voice Dock & Orb */
+.axide-voice-widget {
+  position: fixed;
+  right: 26px;
+  bottom: 98px;
+  z-index: 9990;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 14px;
+  font-family: "Pretendard Variable", "Pretendard", "Plus Jakarta Sans", sans-serif;
+  pointer-events: none;
+}
+.axide-voice-widget > * {
+  pointer-events: auto;
+}
+
+.axide-voice-orb {
+  position: relative;
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.28);
+  background:
+    radial-gradient(circle at 30% 25%, rgba(253, 58, 37, 0.55) 0%, rgba(15, 23, 42, 0.96) 64%),
+    linear-gradient(145deg, #0b1120 0%, #1e1b4b 100%);
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 18px 42px rgba(7, 11, 22, 0.58),
+    0 0 28px rgba(253, 58, 37, 0.36),
+    inset 0 1px 2px rgba(255, 255, 255, 0.35);
+  transition: all 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.axide-voice-orb:hover {
+  transform: translateY(-4px) scale(1.04);
+  border-color: rgba(253, 58, 37, 0.88);
+  box-shadow:
+    0 22px 48px rgba(7, 11, 22, 0.68),
+    0 0 38px rgba(253, 58, 37, 0.58),
+    inset 0 1px 2px rgba(255, 255, 255, 0.45);
+}
+.axide-voice-orb .orb-glow-ring {
+  position: absolute;
+  inset: -7px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(253, 58, 37, 0.45);
+  animation: axideOrbRing 2.8s infinite cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+.axide-voice-orb .orb-pulse-ring {
+  position: absolute;
+  inset: -14px;
+  border-radius: 50%;
+  border: 1px solid rgba(56, 189, 248, 0.28);
+  animation: axideOrbRing 2.8s infinite 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+.axide-voice-orb .orb-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.axide-voice-orb .orb-mic-svg {
+  width: 24px;
+  height: 24px;
+  color: #ffffff;
+  filter: drop-shadow(0 2px 8px rgba(253, 58, 37, 0.65));
+  transition: transform 0.25s ease;
+}
+.axide-voice-orb .orb-eq {
+  display: none;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 3px;
+  height: 18px;
+}
+.axide-voice-orb .orb-eq i {
+  display: block;
+  width: 3px;
+  height: 6px;
+  border-radius: 3px;
+  background: linear-gradient(180deg, #38bdf8 0%, #fd3a25 100%);
+  animation: axideEqBar 0.65s infinite ease-in-out alternate;
+}
+.axide-voice-orb .orb-eq i:nth-child(2) { animation-delay: 0.15s; }
+.axide-voice-orb .orb-eq i:nth-child(3) { animation-delay: 0.3s; }
+.axide-voice-orb .orb-eq i:nth-child(4) { animation-delay: 0.45s; }
+
+.axide-voice-orb .orb-badge {
+  position: absolute;
+  bottom: -9px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #fd3a25 0%, #e11d48 100%);
+  color: #ffffff;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(253, 58, 37, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+/* Orb States: Listening / Speaking / Thinking */
+.axide-voice-widget[data-state="listening"] .axide-voice-orb {
+  background: radial-gradient(circle at 30% 25%, #fd3a25 0%, #7f1d1d 70%);
+  border-color: #ffffff;
+  box-shadow: 0 0 42px rgba(253, 58, 37, 0.85);
+}
+.axide-voice-widget[data-state="listening"] .axide-voice-orb .orb-mic-svg,
+.axide-voice-widget[data-state="speaking"] .axide-voice-orb .orb-mic-svg {
+  display: none;
+}
+.axide-voice-widget[data-state="listening"] .axide-voice-orb .orb-eq,
+.axide-voice-widget[data-state="speaking"] .axide-voice-orb .orb-eq {
+  display: flex;
+}
+.axide-voice-widget[data-state="speaking"] .axide-voice-orb {
+  border-color: #38bdf8;
+  box-shadow:
+    0 18px 42px rgba(7, 11, 22, 0.65),
+    0 0 38px rgba(56, 189, 248, 0.65);
+}
+
+/* Glassmorphic HUD Panel */
+.axide-voice-panel {
+  width: 396px;
+  max-width: calc(100vw - 32px);
+  border-radius: 26px;
+  background: linear-gradient(160deg, rgba(11, 17, 32, 0.96) 0%, rgba(18, 25, 43, 0.95) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow:
+    0 28px 70px rgba(2, 6, 23, 0.72),
+    0 0 0 1px rgba(253, 58, 37, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(28px);
+  color: #f8fafc;
+  overflow: hidden;
+  display: none;
+  flex-direction: column;
+  transform-origin: bottom right;
+  animation: axidePanelIn 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.axide-voice-panel.open {
+  display: flex;
+}
+
+.voice-panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 18px;
+  background: linear-gradient(90deg, rgba(253, 58, 37, 0.15) 0%, rgba(56, 189, 248, 0.09) 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+}
+.voice-avatar-orb {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #fd3a25 0%, #38bdf8 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 18px rgba(253, 58, 37, 0.45);
+  flex-shrink: 0;
+}
+.voice-avatar-orb .eq-bars {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 14px;
+}
+.voice-avatar-orb .eq-bars span {
+  display: block;
+  width: 2.5px;
+  height: 6px;
+  border-radius: 2px;
+  background: #ffffff;
+}
+.axide-voice-widget[data-state="speaking"] .voice-avatar-orb .eq-bars span,
+.axide-voice-widget[data-state="listening"] .voice-avatar-orb .eq-bars span {
+  animation: axideEqBar 0.6s infinite ease-in-out alternate;
+}
+.voice-avatar-orb .eq-bars span:nth-child(2) { animation-delay: 0.12s; }
+.voice-avatar-orb .eq-bars span:nth-child(3) { animation-delay: 0.24s; }
+.voice-avatar-orb .eq-bars span:nth-child(4) { animation-delay: 0.36s; }
+.voice-avatar-orb .eq-bars span:nth-child(5) { animation-delay: 0.48s; }
+
+.voice-title-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.voice-name {
+  font-size: 14.5px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+.voice-domain-pill {
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 700;
+  background: rgba(56, 189, 248, 0.18);
+  border: 1px solid rgba(56, 189, 248, 0.42);
+  color: #7dd3fc;
+}
+.voice-sub {
+  font-size: 11.5px;
+  color: #94a3b8;
+  margin-top: 2px;
+}
+.voice-head-btn {
+  width: 31px;
+  height: 31px;
+  border-radius: 9px;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  background: rgba(255, 255, 255, 0.05);
+  color: #cbd5e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.voice-head-btn:hover {
+  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+}
+
+.voice-current-page {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  background: rgba(15, 23, 42, 0.78);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 12px;
+  color: #cbd5e1;
+}
+.voice-current-page strong {
+  color: #38bdf8;
+  font-weight: 700;
+}
+.voice-current-page .dot-live {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 8px #22c55e;
+  flex-shrink: 0;
+}
+
+.voice-messages {
+  padding: 14px 16px 10px;
+  max-height: 245px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.axide-voice-msg {
+  display: flex;
+  flex-direction: column;
+  max-width: 89%;
+}
+.axide-voice-msg.msg-ai {
+  align-self: flex-start;
+}
+.axide-voice-msg.msg-user {
+  align-self: flex-end;
+  align-items: flex-end;
+}
+.axide-voice-msg .msg-meta {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #94a3b8;
+  margin-bottom: 3px;
+  padding: 0 4px;
+}
+.axide-voice-msg .msg-bubble {
+  padding: 10px 14px;
+  border-radius: 15px;
+  font-size: 13px;
+  line-height: 1.58;
+  letter-spacing: -0.01em;
+  word-break: keep-all;
+}
+.axide-voice-msg.msg-ai .msg-bubble {
+  background: rgba(30, 41, 59, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  color: #f1f5f9;
+  border-bottom-left-radius: 4px;
+}
+.axide-voice-msg.msg-user .msg-bubble {
+  background: linear-gradient(135deg, #fd3a25 0%, #e11d48 100%);
+  color: #ffffff;
+  font-weight: 600;
+  border-bottom-right-radius: 4px;
+  box-shadow: 0 6px 18px rgba(253, 58, 37, 0.28);
+}
+
+.voice-quick-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 6px 16px 11px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+.voice-chip {
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  color: #cbd5e1;
+  font-size: 11.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.voice-chip:hover {
+  background: rgba(253, 58, 37, 0.18);
+  border-color: rgba(253, 58, 37, 0.55);
+  color: #ffffff;
+}
+
+.voice-status-bar {
+  padding: 8px 16px;
+  background: rgba(15, 23, 42, 0.85);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #94a3b8;
+  text-align: center;
+}
+.axide-voice-widget[data-state="listening"] .voice-status-bar {
+  color: #ff8575;
+  background: rgba(127, 29, 29, 0.35);
+}
+.axide-voice-widget[data-state="speaking"] .voice-status-bar {
+  color: #7dd3fc;
+  background: rgba(12, 74, 110, 0.35);
+}
+
+.voice-input-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 14px;
+  background: rgba(9, 13, 24, 0.94);
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
+}
+.voice-mic-Trigger {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  border: 1px solid rgba(253, 58, 37, 0.5);
+  background: linear-gradient(135deg, rgba(253, 58, 37, 0.25) 0%, rgba(253, 58, 37, 0.1) 100%);
+  color: #ff6b57;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.22s ease;
+}
+.voice-mic-Trigger:hover,
+.axide-voice-widget[data-state="listening"] .voice-mic-Trigger {
+  background: #fd3a25;
+  color: #ffffff;
+  box-shadow: 0 0 18px rgba(253, 58, 37, 0.65);
+}
+#axideVoiceInput {
+  flex: 1;
+  height: 40px;
+  padding: 0 13px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  font-size: 13px;
+  outline: none;
+}
+#axideVoiceInput::placeholder {
+  color: #64748b;
+}
+#axideVoiceInput:focus {
+  border-color: rgba(56, 189, 248, 0.6);
+  background: rgba(255, 255, 255, 0.08);
+}
+.voice-send-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  border: none;
+  background: rgba(56, 189, 248, 0.18);
+  color: #38bdf8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+.voice-send-btn:hover {
+  background: #38bdf8;
+  color: #0f172a;
+}
+
+/* Fullscreen Architecture Zoom Lightbox triggered by Voice/Click */
+.axide-arch-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.28s ease;
+}
+.axide-arch-modal.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+.axide-arch-modal .arch-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.88);
+  backdrop-filter: blur(16px);
+}
+.axide-arch-modal .arch-modal-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1460px;
+  width: 100%;
+  border-radius: 24px;
+  background: #0b1120;
+  border: 1px solid rgba(56, 189, 248, 0.38);
+  padding: 18px 20px;
+  box-shadow: 0 32px 90px rgba(0, 0, 0, 0.8);
+}
+.axide-arch-modal .arch-modal-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  padding: 0 4px;
+}
+.axide-arch-modal .arch-modal-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: #f8fafc;
+}
+.axide-arch-modal .arch-modal-close {
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: #fd3a25;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.axide-arch-modal .arch-modal-body img {
+  width: 100%;
+  max-height: 82vh;
+  object-fit: contain;
+  border-radius: 14px;
+}
+
+@keyframes axideMicPulse {
+  0%, 100% { transform: scale(0.95); opacity: 0.65; }
+  50% { transform: scale(1.35); opacity: 1; }
+}
+@keyframes axideOrbRing {
+  0% { transform: scale(0.92); opacity: 0.75; }
+  100% { transform: scale(1.28); opacity: 0; }
+}
+@keyframes axideEqBar {
+  0% { height: 4px; }
+  100% { height: 16px; }
+}
+@keyframes axidePanelIn {
+  from { opacity: 0; transform: translateY(14px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (max-width: 767px) {
+  .axide-voice-widget {
+    right: 16px;
+    bottom: 84px;
+  }
+  .axide-voice-orb {
+    width: 58px;
+    height: 58px;
+  }
+}
+
 /*# sourceMappingURL=styles.css.map */
