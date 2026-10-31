@@ -650,7 +650,7 @@
     recognition.onstart = function () {
       isListening = true;
       setWidgetState("listening");
-      updateStatusText("듣고 있습니다... 말씀해 주세요 (예: '부품 여권 페이지로 이동해줘')");
+      updateStatusText("듣고 있는 중 · 편하게 말씀해 주세요");
     };
 
     recognition.onresult = function (event) {
@@ -679,9 +679,9 @@
       isListening = false;
       setWidgetState("idle");
       if (event.error === "not-allowed") {
-        updateStatusText("마이크 권한을 허용해 주시거나 아래 입력창에 명령어를 입력해 주세요.");
+        updateStatusText("마이크 권한 필요 · 아래 입력창에 말씀해 주세요");
       } else {
-        updateStatusText("마이크 버튼을 누르거나 아래에 질문을 입력해 주세요.");
+        updateStatusText("대기 중 · 구체를 누르거나 말씀해 주세요");
       }
     };
 
@@ -696,7 +696,7 @@
   function startListening() {
     if (!recognition) {
       openVoicePanel();
-      updateStatusText("이 브라우저는 음성 인식을 지원하지 않습니다. 아래 채팅창에 입력해 주세요.");
+      updateStatusText("음성 입력 미지원 · 아래 입력창을 이용해 주세요");
       const inputEl = document.getElementById("axideVoiceInput");
       if (inputEl) inputEl.focus();
       return;
@@ -726,56 +726,46 @@
     if (isListening) {
       stopListening();
       setWidgetState("idle");
-      updateStatusText("음성 대기가 중지되었습니다. 마이크를 눌러 다시 말씀하세요.");
+      updateStatusText("대기 중 · 구체를 누르거나 말씀해 주세요");
     } else {
       startListening();
     }
   }
 
   /* --------------------------------------------------------------------------
-   * 5. Build Luxury Header Right Mic Button, Floating Right Orb & HUD Panel
+   * 5. Build Luxury SIMS-Style Spatial/Sovereign AI Voice HUD & Orb
    * -------------------------------------------------------------------------- */
-  function loadHistory() {
+  function loadLastHeadline() {
     try {
-      const raw = sessionStorage.getItem(STORAGE_KEY_HISTORY);
-      if (raw) return JSON.parse(raw);
+      const saved = sessionStorage.getItem(STORAGE_KEY_HISTORY);
+      if (saved) return saved;
     } catch (e) {}
-    return [
-      {
-        role: "ai",
-        text: "안녕하세요! 주식회사 액사이드(axide.ai)의 AI 음성 비서 '아리아'입니다. 오른쪽 마이크를 누르고 \"참조 아키텍처 보여줘\", \"부품 여권 페이지로 이동해줘\", \"요금제 비교해줘\"처럼 편하게 말씀해 주세요."
-      }
-    ];
+    return "안녕하세요! 반갑습니다~ 오늘 어떤 솔루션을 함께 둘러볼까요?";
   }
 
-  function saveHistory(list) {
+  function saveLastHeadline(text) {
     try {
-      sessionStorage.setItem(STORAGE_KEY_HISTORY, JSON.stringify(list.slice(-16)));
+      sessionStorage.setItem(STORAGE_KEY_HISTORY, text);
     } catch (e) {}
   }
 
   function appendMessage(role, text) {
-    const history = loadHistory();
-    history.push({ role, text });
-    saveHistory(history);
-    renderMessages();
-  }
-
-  function renderMessages() {
-    const container = document.getElementById("axideVoiceMessages");
-    if (!container) return;
-    const history = loadHistory();
-    container.innerHTML = history
-      .map((item) => {
-        const cls = item.role === "user" ? "msg-user" : "msg-ai";
-        const badge = item.role === "user" ? "고객님" : "아리아 (AXIDE AI)";
-        return `<div class="axide-voice-msg ${cls}">
-          <div class="msg-meta">${badge}</div>
-          <div class="msg-bubble">${item.text}</div>
-        </div>`;
-      })
-      .join("");
-    container.scrollTop = container.scrollHeight;
+    if (role === "ai") {
+      saveLastHeadline(text);
+      const headlineEl = document.getElementById("axideLiveHeadline");
+      if (headlineEl) {
+        headlineEl.style.opacity = "0";
+        setTimeout(() => {
+          headlineEl.textContent = text;
+          headlineEl.style.opacity = "1";
+        }, 120);
+      }
+    } else if (role === "user") {
+      const statusEl = document.getElementById("axideVoiceStatus");
+      if (statusEl) {
+        statusEl.textContent = `“${text}”`;
+      }
+    }
   }
 
   function updateStatusText(msg) {
@@ -784,10 +774,7 @@
   }
 
   function updateVoiceBadgeText() {
-    const el = document.getElementById("axideVoiceModelBadge");
-    if (!el) return;
-    const vName = selectedVoice ? selectedVoice.name.replace(/Microsoft |Online \(Natural\) - |Korean \(Korea\)/g, "").trim() : "Korean Neural";
-    el.textContent = `Gemini Flash · ${vName || "여성 뉴럴 보이스"}`;
+    // Kept for compatibility when voices finish loading
   }
 
   function setWidgetState(state) {
@@ -798,13 +785,13 @@
     }
     headerBtns.forEach((b) => b.setAttribute("data-state", state));
     if (state === "listening") {
-      updateStatusText("🎙️ 듣고 있습니다... 페이지 이동이나 질문을 말씀해 주세요");
+      updateStatusText("듣고 있는 중 · 편하게 말씀해 주세요");
     } else if (state === "speaking") {
-      updateStatusText("🔊 아리아가 자연스러운 여성 음성으로 안내 중입니다...");
+      updateStatusText("말하는 중 · 언제든 끼어들어도 돼요");
     } else if (state === "thinking") {
-      updateStatusText("⚡ Gemini Flash 추론 코어가 답변을 생성 중입니다...");
+      updateStatusText("생각하는 중 · 잠시만 기다려 주세요");
     } else {
-      updateStatusText("마이크를 누르고 말씀하시거나 빠른 명령 버튼을 클릭해 보세요");
+      updateStatusText("말하는 중 · 언제든 끼어들어도 돼요");
     }
   }
 
@@ -840,7 +827,7 @@
         <div class="arch-modal-backdrop"></div>
         <div class="arch-modal-content">
           <div class="arch-modal-top">
-            <div class="arch-modal-title">Cogni-OS 참조 아키텍처 v1.0 (L0~L5 · ADAS · A2A 공급망 전체 도면)</div>
+            <div class="arch-modal-title">Cogni-OS 참조 아키텍처 v1.0 (L0~L5 · ADAS · A2A 공급망)</div>
             <button type="button" class="arch-modal-close" aria-label="닫기">&times; 닫기</button>
           </div>
           <div class="arch-modal-body">
@@ -860,7 +847,7 @@
   }
 
   function injectUI() {
-    // 1. Inject Right-Most Luxury Mic Button into .tf-header .header-inner
+    // 1. Inject Right-Most Minimal Luxury Mic Button into .tf-header .header-inner
     const headerInner = document.querySelector(".tf-header .header-inner");
     if (headerInner && !headerInner.querySelector(".axide-header-mic-btn")) {
       const rightWrap = document.createElement("div");
@@ -872,24 +859,32 @@
       const micBtn = document.createElement("button");
       micBtn.type = "button";
       micBtn.className = "axide-header-mic-btn";
-      micBtn.setAttribute("aria-label", "AI 음성 비서 아리아 호출");
-      micBtn.setAttribute("title", "AI 음성 비서 (클릭하여 음성 대화 및 페이지 제어)");
+      micBtn.setAttribute("aria-label", "AI 음성 비서 호출");
+      micBtn.setAttribute("title", "AI 음성 대화 및 사이트 제어 (Gemini Live)");
       micBtn.innerHTML = `
-        <span class="mic-pulse-ring"></span>
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 2C10.3431 2 9 3.34315 9 5V12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12V5C15 3.34315 13.6569 2 12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M19 10V12C19 15.866 15.866 19 12 19C8.13401 19 5 15.866 5 12V10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M12 19V22M8 22H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M12 2C10.3431 2 9 3.34315 9 5V12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12V5C15 3.34315 13.6569 2 12 2Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M19 10V12C19 15.866 15.866 19 12 19C8.13401 19 5 15.866 5 12V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M12 19V22M8 22H16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-        <span class="mic-label d-none d-xl-inline">AI 음성비서</span>
       `;
       micBtn.addEventListener("click", function () {
         const panel = document.getElementById("axideVoicePanel");
         if (panel && !panel.classList.contains("open")) {
           openVoicePanel();
-          startListening();
+          const greet = "안녕하세요! 반갑습니다~ 오늘 어떤 솔루션을 함께 둘러볼까요?";
+          appendMessage("ai", greet);
+          speakFemaleVoice(greet, () => {
+            startListening();
+          });
         } else {
-          toggleListening();
+          if (synth && isSpeaking) {
+            synth.cancel();
+            isSpeaking = false;
+            startListening();
+          } else {
+            toggleListening();
+          }
         }
       });
 
@@ -903,11 +898,10 @@
       headerInner.appendChild(rightWrap);
     }
 
-    // 2. Inject Floating Right-Edge Voice Dock & HUD Panel
+    // 2. Inject Floating Right-Edge SIMS-Style Spatial AI HUD & Minimal Cyan-Violet Mic Button
     if (document.getElementById("axideVoiceWidget")) return;
 
-    const curPage = getCurrentPage();
-    const curLabel = PAGE_LABELS[curPage] || curPage;
+    const initialHeadline = loadLastHeadline();
 
     const widget = document.createElement("div");
     widget.id = "axideVoiceWidget";
@@ -915,124 +909,198 @@
     widget.setAttribute("data-state", "idle");
     widget.innerHTML = `
       <div class="axide-voice-panel" id="axideVoicePanel">
-        <div class="voice-panel-head">
-          <div class="d-flex align-items-center gap-12">
-            <div class="voice-avatar-orb">
-              <div class="eq-bars">
-                <span></span><span></span><span></span><span></span><span></span>
-              </div>
-            </div>
-            <div>
-              <div class="voice-title-row">
-                <span class="voice-name">AXIDE 아리아 (Aria)</span>
-                <span class="voice-domain-pill">axide.ai</span>
-              </div>
-              <div class="voice-sub" id="axideVoiceModelBadge">Gemini Flash · 한국어 여성 뉴럴 보이스</div>
-            </div>
+        <!-- Top Minimal Header -->
+        <div class="sims-top-bar">
+          <div class="sims-brand-group">
+            <span class="sims-brand-main">AXIDE</span>
+            <span class="sims-brand-sub">SOVEREIGN AI</span>
           </div>
-          <div class="d-flex align-items-center gap-8">
-            <button type="button" class="voice-head-btn" id="axideVoiceMuteBtn" title="음성 읽기 중지">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M11 5L6 9H2V15H6L11 19V5Z" stroke="currentColor" stroke-width="2"/><path d="M23 9L17 15M17 9L23 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <div class="sims-win-controls">
+            <button type="button" class="sims-win-btn" id="axideVoiceMuteBtn" title="음성 일시 중지 / 최소화" aria-label="최소화">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
             </button>
-            <button type="button" class="voice-head-btn" id="axideVoiceCloseBtn" title="패널 닫기">&times;</button>
+            <button type="button" class="sims-win-btn" id="axideVoiceCloseBtn" title="닫기" aria-label="닫기">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </button>
           </div>
         </div>
 
-        <div class="voice-current-page">
-          <span class="dot-live"></span>
-          <span>현재 페이지: <strong>${curLabel}</strong></span>
+        <!-- Centerpiece 3D Iridescent Sphere with 4 Concentric Ripple Rings -->
+        <div class="sims-sphere-stage" id="axideSphereTrigger" title="클릭하여 말하기 / 끼어들기">
+          <span class="sims-ring sims-ring-4"></span>
+          <span class="sims-ring sims-ring-3"></span>
+          <span class="sims-ring sims-ring-2"></span>
+          <span class="sims-ring sims-ring-1"></span>
+          <div class="sims-core-sphere">
+            <span class="sims-sphere-shine"></span>
+          </div>
         </div>
 
-        <div class="voice-messages" id="axideVoiceMessages"></div>
-
-        <div class="voice-quick-chips">
-          <button type="button" class="voice-chip" data-cmd="참조 아키텍처 보여줘">📐 참조 아키텍처 보기</button>
-          <button type="button" class="voice-chip" data-cmd="아키텍처 크게 확대해줘">🔍 아키텍처 전체화면</button>
-          <button type="button" class="voice-chip" data-cmd="부품 여권 페이지로 이동해줘">🛡️ 부품 여권 페이지</button>
-          <button type="button" class="voice-chip" data-cmd="아주산업 1호 계약 상세 보여줘">📑 아주산업 1.1억 실측</button>
-          <button type="button" class="voice-chip" data-cmd="요금제 비교 스위치 전환해줘">💳 요금제 비교·전환</button>
-          <button type="button" class="voice-chip" data-cmd="회사소개 페이지로 이동해줘">🏢 액사이드 회사소개</button>
-          <button type="button" class="voice-chip" data-cmd="FAQ 1번 열어줘">❓ 래퍼 차별점 FAQ</button>
-          <button type="button" class="voice-chip" data-cmd="데모 신청 양식 작성해줘">✍️ 현장 데모 신청</button>
+        <!-- Status Subtitle -->
+        <div class="sims-status-line" id="axideVoiceStatus">
+          말하는 중 · 언제든 끼어들어도 돼요
         </div>
 
-        <div class="voice-status-bar" id="axideVoiceStatus">
-          마이크를 누르고 말씀하시거나 빠른 명령 버튼을 클릭해 보세요
-        </div>
+        <!-- Centered Live Hero Prompt -->
+        <div class="sims-hero-text" id="axideLiveHeadline">${initialHeadline}</div>
 
-        <form class="voice-input-bar" id="axideVoiceForm">
-          <button type="button" class="voice-mic-Trigger" id="axidePanelMicBtn" title="클릭하고 음성으로 말하기">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-              <path d="M12 2C10.3431 2 9 3.34315 9 5V12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12V5C15 3.34315 13.6569 2 12 2Z" stroke="currentColor" stroke-width="2"/>
-              <path d="M19 10V12C19 15.866 15.866 19 12 19C8.13401 19 5 15.866 5 12V10M12 19V22M8 22H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <!-- 3x2 Grid of 6 Minimal Dark Glass Action Tiles -->
+        <div class="sims-action-grid">
+          <button type="button" class="sims-action-tile" data-cmd="참조 아키텍처 보여줘">
+            <svg viewBox="0 0 24 24" fill="none">
+              <rect x="7" y="3" width="10" height="7" rx="1.5" stroke="currentColor" stroke-width="1.7"/>
+              <path d="M12 10V17M12 17L9 14M12 17L15 14" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M5 20H19" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
             </svg>
+            <span>아키텍처</span>
           </button>
-          <input type="text" id="axideVoiceInput" placeholder="말씀하시거나 명령 입력 (예: 부품 여권으로 이동)" autocomplete="off">
-          <button type="submit" class="voice-send-btn" aria-label="전송">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-              <path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <button type="button" class="sims-action-tile" data-cmd="부품 여권 페이지로 이동해줘">
+            <svg viewBox="0 0 24 24" fill="none">
+              <circle cx="6" cy="18" r="2.2" stroke="currentColor" stroke-width="1.7"/>
+              <path d="M8 18H12C14.2091 18 16 16.2091 16 14V10C16 7.79086 17.7909 6 20 6H21" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+              <path d="M18 3L21 6L18 9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>이동</span>
+          </button>
+          <button type="button" class="sims-action-tile" data-cmd="요금제 비교 스위치 전환해줘">
+            <svg viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="5" width="18" height="14" rx="2.5" stroke="currentColor" stroke-width="1.7"/>
+              <path d="M10.5 9.5L14 12L10.5 14.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>테마 전환</span>
+          </button>
+          <button type="button" class="sims-action-tile" data-cmd="아키텍처 크게 확대해줘">
+            <svg viewBox="0 0 24 24" fill="none">
+              <rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.7"/>
+              <path d="M12 4V20M4 12H20" stroke="currentColor" stroke-width="1.7"/>
+            </svg>
+            <span>공간 분할</span>
+          </button>
+          <button type="button" class="sims-action-tile" data-cmd="아주산업 1호 계약 상세 보여줘">
+            <svg viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.7"/>
+              <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+              <path d="M12 3V7M12 17V21M3 12H7M17 12H21" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+            </svg>
+            <span>정밀 선택</span>
+          </button>
+          <button type="button" class="sims-action-tile" data-cmd="회사소개 페이지로 이동해줘">
+            <svg viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.7"/>
+              <ellipse cx="12" cy="12" rx="3.6" ry="8" stroke="currentColor" stroke-width="1.7"/>
+              <path d="M4.5 9.5H19.5M4.5 14.5H19.5" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+            <span>월드 모델</span>
+          </button>
+        </div>
+
+        <!-- Sleek Pill Input Bar with Up-Arrow Gradient Button -->
+        <form class="sims-input-pill" id="axideVoiceForm">
+          <input type="text" id="axideVoiceInput" placeholder="말하거나 입력하세요 · 예) 부품 여권 보여줘" autocomplete="off">
+          <button type="submit" class="sims-send-circle" aria-label="전송">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path d="M12 19V5M12 5L6 11M12 5L18 11" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
         </form>
+
+        <!-- Bottom Footer Row -->
+        <div class="sims-footer-row">
+          <span class="sims-live-indicator">
+            <i class="sims-green-dot"></i>
+            Gemini Live
+          </span>
+          <span class="sims-barge-hint">말을 끊어도 돼요</span>
+        </div>
       </div>
 
+      <!-- Bottom-Right Minimal Dark Obsidian & Cyan-Violet Rim Glow Mic Orb -->
       <button type="button" class="axide-voice-orb" id="axideFloatingOrb" aria-label="AXIDE AI 음성 비서 열기">
-        <span class="orb-glow-ring"></span>
-        <span class="orb-pulse-ring"></span>
-        <span class="orb-inner">
-          <svg class="orb-mic-svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M12 2C10.3431 2 9 3.34315 9 5V12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12V5C15 3.34315 13.6569 2 12 2Z" stroke="currentColor" stroke-width="2.2"/>
-            <path d="M19 10V12C19 15.866 15.866 19 12 19C8.13401 19 5 15.866 5 12V10M12 19V22M8 22H16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-          </svg>
-          <span class="orb-eq">
-            <i></i><i></i><i></i><i></i>
-          </span>
-        </span>
-        <span class="orb-badge">AI 음성제어</span>
+        <svg class="orb-mic-svg" width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2C10.3431 2 9 3.34315 9 5V12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12V5C15 3.34315 13.6569 2 12 2Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M19 10V12C19 15.866 15.866 19 12 19C8.13401 19 5 15.866 5 12V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M12 19V22M8 22H16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
       </button>
     `;
 
     document.body.appendChild(widget);
-    renderMessages();
-    updateVoiceBadgeText();
 
     // Event bindings
-    document.getElementById("axideFloatingOrb").addEventListener("click", function () {
+    function handleOrbOrSphereClick() {
       const panel = document.getElementById("axideVoicePanel");
       if (!panel.classList.contains("open")) {
         openVoicePanel();
-        startListening();
+        const greet = "안녕하세요! 반갑습니다~ 오늘 어떤 솔루션을 함께 둘러볼까요?";
+        appendMessage("ai", greet);
+        speakFemaleVoice(greet, () => {
+          startListening();
+        });
       } else {
-        toggleListening();
+        // Barge-in support: if speaking, interrupt immediately and start listening
+        if (synth && isSpeaking) {
+          synth.cancel();
+          isSpeaking = false;
+          startListening();
+        } else {
+          toggleListening();
+        }
       }
-    });
+    }
 
-    document.getElementById("axidePanelMicBtn").addEventListener("click", function () {
-      toggleListening();
-    });
+    document.getElementById("axideFloatingOrb").addEventListener("click", handleOrbOrSphereClick);
+    document.getElementById("axideSphereTrigger").addEventListener("click", handleOrbOrSphereClick);
 
     document.getElementById("axideVoiceCloseBtn").addEventListener("click", function () {
       closeVoicePanel();
     });
 
     document.getElementById("axideVoiceMuteBtn").addEventListener("click", function () {
-      if (synth) synth.cancel();
-      isSpeaking = false;
-      setWidgetState(isListening ? "listening" : "idle");
+      if (synth && isSpeaking) {
+        synth.cancel();
+        isSpeaking = false;
+        setWidgetState(isListening ? "listening" : "idle");
+      } else {
+        closeVoicePanel();
+      }
     });
 
     document.getElementById("axideVoiceForm").addEventListener("submit", function (e) {
       e.preventDefault();
       const input = document.getElementById("axideVoiceInput");
       const val = input.value.trim();
-      if (!val) return;
+      if (!val) {
+        handleOrbOrSphereClick();
+        return;
+      }
       input.value = "";
+      if (synth && isSpeaking) {
+        synth.cancel();
+        isSpeaking = false;
+      }
       processUserCommand(val);
     });
 
-    widget.querySelectorAll(".voice-chip").forEach((chip) => {
-      chip.addEventListener("click", function () {
+    // Barge-in when typing in input while AI is speaking
+    document.getElementById("axideVoiceInput").addEventListener("keydown", function () {
+      if (synth && isSpeaking) {
+        synth.cancel();
+        isSpeaking = false;
+        setWidgetState("idle");
+      }
+    });
+
+    widget.querySelectorAll(".sims-action-tile").forEach((tile) => {
+      tile.addEventListener("click", function () {
         const cmd = this.getAttribute("data-cmd");
+        if (synth && isSpeaking) {
+          synth.cancel();
+          isSpeaking = false;
+        }
         if (cmd) processUserCommand(cmd);
       });
     });
@@ -1053,6 +1121,7 @@
     if (pending) {
       sessionStorage.removeItem(STORAGE_KEY_PENDING);
       setTimeout(() => {
+        appendMessage("ai", pending);
         speakFemaleVoice(pending);
       }, 450);
     }

@@ -10811,7 +10811,7 @@ footer .footer-image {
 #trail, .cursor-trail { display: none !important; visibility: hidden !important; pointer-events: none !important; }
 
 /* ==========================================================================
-   18. AXIDE Cogni-Voice AI (Aria) — Luxury Header Mic, Right-Edge Voice Orb & HUD
+   18. AXIDE Sovereign Voice AI — Luxury Dark Spatial UI (SIMS Style)
    ========================================================================== */
 .tf-header .header-inner {
   max-width: 1080px;
@@ -10820,505 +10820,469 @@ footer .footer-image {
   max-width: 1100px;
 }
 
-/* Right-Most Header Luxury Microphone Button */
+/* Right-Most Header Minimal Obsidian & Cyan-Violet Rim Mic Button */
 .axide-header-mic-btn {
   position: relative;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1.5px solid transparent;
+  background:
+    linear-gradient(145deg, #090d18, #0f1526) padding-box,
+    linear-gradient(135deg, rgba(56, 189, 248, 0.75) 0%, rgba(139, 92, 246, 0.75) 100%) border-box;
+  color: #7dd3fc;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 9px 16px 9px 13px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 55%, #27151c 100%);
-  border: 1px solid rgba(253, 58, 37, 0.5);
-  color: #ffffff;
-  font-family: "Pretendard Variable", "Pretendard", "Plus Jakarta Sans", sans-serif;
-  font-size: 13.5px;
-  font-weight: 700;
-  letter-spacing: -0.015em;
-  white-space: nowrap;
+  justify-content: center;
   cursor: pointer;
   flex-shrink: 0;
   box-shadow:
-    0 6px 20px rgba(15, 23, 42, 0.22),
-    0 0 18px rgba(253, 58, 37, 0.22),
-    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+    0 6px 18px rgba(2, 6, 23, 0.45),
+    0 0 18px rgba(56, 189, 248, 0.22),
+    0 0 24px rgba(139, 92, 246, 0.16);
   transition: all 0.28s cubic-bezier(0.22, 1, 0.36, 1);
-  overflow: hidden;
 }
 .axide-header-mic-btn:hover {
-  transform: translateY(-2px);
-  border-color: #fd3a25;
+  transform: translateY(-2px) scale(1.04);
+  color: #bae6fd;
   box-shadow:
-    0 10px 26px rgba(15, 23, 42, 0.32),
-    0 0 26px rgba(253, 58, 37, 0.45),
-    inset 0 1px 0 rgba(255, 255, 255, 0.35);
-}
-.axide-header-mic-btn .mic-pulse-ring {
-  position: absolute;
-  left: 9px;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(253, 58, 37, 0.45) 0%, rgba(56, 189, 248, 0) 72%);
-  animation: axideMicPulse 2.4s infinite ease-in-out;
-  pointer-events: none;
+    0 10px 24px rgba(2, 6, 23, 0.6),
+    0 0 24px rgba(56, 189, 248, 0.42),
+    0 0 32px rgba(139, 92, 246, 0.32);
 }
 .axide-header-mic-btn svg {
-  width: 17px;
-  height: 17px;
-  color: #ff6b57;
-  flex-shrink: 0;
-  position: relative;
-  z-index: 1;
-  transition: transform 0.25s ease, color 0.25s ease;
+  width: 18px;
+  height: 18px;
+  color: currentColor;
+  transition: transform 0.25s ease;
 }
-.axide-header-mic-btn .mic-label {
-  position: relative;
-  z-index: 1;
-  background: linear-gradient(90deg, #ffffff 0%, #ffd8d1 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.axide-header-mic-btn[data-state="listening"] {
-  background: linear-gradient(135deg, #991b1b 0%, #fd3a25 100%);
-  border-color: #ffffff;
-  box-shadow: 0 0 28px rgba(253, 58, 37, 0.78);
+.axide-header-mic-btn[data-state="listening"],
+.axide-header-mic-btn[data-state="speaking"] {
+  background:
+    linear-gradient(145deg, #0d1326, #171c36) padding-box,
+    linear-gradient(135deg, #38bdf8 0%, #a855f7 100%) border-box;
+  color: #ffffff;
+  box-shadow:
+    0 0 26px rgba(56, 189, 248, 0.55),
+    0 0 36px rgba(168, 85, 247, 0.45);
 }
 .axide-header-mic-btn[data-state="listening"] svg {
-  color: #ffffff;
-  transform: scale(1.12);
-}
-.axide-header-mic-btn[data-state="speaking"] {
-  border-color: #38bdf8;
-  box-shadow: 0 0 26px rgba(56, 189, 248, 0.62);
-}
-.axide-header-mic-btn[data-state="speaking"] svg {
-  color: #38bdf8;
-}
-@media (max-width: 575px) {
-  .axide-header-mic-btn {
-    padding: 9px 11px;
-  }
+  transform: scale(1.1);
 }
 
-/* Floating Right-Side Luxury Voice Dock & Orb */
+/* Floating Right-Side Voice Widget Container */
 .axide-voice-widget {
   position: fixed;
   right: 26px;
-  bottom: 98px;
-  z-index: 9990;
+  bottom: 28px;
+  z-index: 9995;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 14px;
-  font-family: "Pretendard Variable", "Pretendard", "Plus Jakarta Sans", sans-serif;
+  gap: 16px;
+  font-family: "Pretendard Variable", "Pretendard", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
   pointer-events: none;
 }
 .axide-voice-widget > * {
   pointer-events: auto;
 }
 
+/* Bottom-Right Minimal Dark Obsidian & Cyan-Violet Rim Glow Mic Orb */
 .axide-voice-orb {
   position: relative;
-  width: 66px;
-  height: 66px;
+  width: 58px;
+  height: 58px;
   border-radius: 50%;
-  border: 1.5px solid rgba(255, 255, 255, 0.28);
+  border: 1.5px solid transparent;
   background:
-    radial-gradient(circle at 30% 25%, rgba(253, 58, 37, 0.55) 0%, rgba(15, 23, 42, 0.96) 64%),
-    linear-gradient(145deg, #0b1120 0%, #1e1b4b 100%);
-  color: #ffffff;
+    radial-gradient(circle at 50% 35%, #111827 0%, #070a12 100%) padding-box,
+    linear-gradient(135deg, rgba(56, 189, 248, 0.72) 0%, rgba(168, 85, 247, 0.72) 55%, rgba(56, 189, 248, 0.5) 100%) border-box;
+  color: #7dd3fc;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow:
-    0 18px 42px rgba(7, 11, 22, 0.58),
-    0 0 28px rgba(253, 58, 37, 0.36),
-    inset 0 1px 2px rgba(255, 255, 255, 0.35);
-  transition: all 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+    0 14px 36px rgba(0, 0, 0, 0.78),
+    0 0 24px rgba(56, 189, 248, 0.25),
+    0 0 38px rgba(139, 92, 246, 0.22),
+    inset 0 1px 1px rgba(255, 255, 255, 0.12);
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.axide-voice-orb::before {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  border: 1px solid rgba(99, 102, 241, 0.22);
+  pointer-events: none;
+  transition: all 0.3s ease;
 }
 .axide-voice-orb:hover {
-  transform: translateY(-4px) scale(1.04);
-  border-color: rgba(253, 58, 37, 0.88);
+  transform: translateY(-3px) scale(1.04);
+  color: #e0f2fe;
   box-shadow:
-    0 22px 48px rgba(7, 11, 22, 0.68),
-    0 0 38px rgba(253, 58, 37, 0.58),
-    inset 0 1px 2px rgba(255, 255, 255, 0.45);
-}
-.axide-voice-orb .orb-glow-ring {
-  position: absolute;
-  inset: -7px;
-  border-radius: 50%;
-  border: 1.5px solid rgba(253, 58, 37, 0.45);
-  animation: axideOrbRing 2.8s infinite cubic-bezier(0.22, 1, 0.36, 1);
-  pointer-events: none;
-}
-.axide-voice-orb .orb-pulse-ring {
-  position: absolute;
-  inset: -14px;
-  border-radius: 50%;
-  border: 1px solid rgba(56, 189, 248, 0.28);
-  animation: axideOrbRing 2.8s infinite 0.9s cubic-bezier(0.22, 1, 0.36, 1);
-  pointer-events: none;
-}
-.axide-voice-orb .orb-inner {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    0 18px 42px rgba(0, 0, 0, 0.85),
+    0 0 30px rgba(56, 189, 248, 0.45),
+    0 0 46px rgba(168, 85, 247, 0.35);
 }
 .axide-voice-orb .orb-mic-svg {
-  width: 24px;
-  height: 24px;
-  color: #ffffff;
-  filter: drop-shadow(0 2px 8px rgba(253, 58, 37, 0.65));
+  width: 22px;
+  height: 22px;
+  color: currentColor;
+  filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.35));
   transition: transform 0.25s ease;
 }
-.axide-voice-orb .orb-eq {
-  display: none;
-  align-items: flex-end;
-  justify-content: center;
-  gap: 3px;
-  height: 18px;
-}
-.axide-voice-orb .orb-eq i {
-  display: block;
-  width: 3px;
-  height: 6px;
-  border-radius: 3px;
-  background: linear-gradient(180deg, #38bdf8 0%, #fd3a25 100%);
-  animation: axideEqBar 0.65s infinite ease-in-out alternate;
-}
-.axide-voice-orb .orb-eq i:nth-child(2) { animation-delay: 0.15s; }
-.axide-voice-orb .orb-eq i:nth-child(3) { animation-delay: 0.3s; }
-.axide-voice-orb .orb-eq i:nth-child(4) { animation-delay: 0.45s; }
-
-.axide-voice-orb .orb-badge {
-  position: absolute;
-  bottom: -9px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 2px 9px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, #fd3a25 0%, #e11d48 100%);
-  color: #ffffff;
-  font-size: 10.5px;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  white-space: nowrap;
-  box-shadow: 0 4px 12px rgba(253, 58, 37, 0.45);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-}
-
-/* Orb States: Listening / Speaking / Thinking */
-.axide-voice-widget[data-state="listening"] .axide-voice-orb {
-  background: radial-gradient(circle at 30% 25%, #fd3a25 0%, #7f1d1d 70%);
-  border-color: #ffffff;
-  box-shadow: 0 0 42px rgba(253, 58, 37, 0.85);
-}
-.axide-voice-widget[data-state="listening"] .axide-voice-orb .orb-mic-svg,
-.axide-voice-widget[data-state="speaking"] .axide-voice-orb .orb-mic-svg {
-  display: none;
-}
-.axide-voice-widget[data-state="listening"] .axide-voice-orb .orb-eq,
-.axide-voice-widget[data-state="speaking"] .axide-voice-orb .orb-eq {
-  display: flex;
-}
+.axide-voice-widget[data-state="listening"] .axide-voice-orb,
 .axide-voice-widget[data-state="speaking"] .axide-voice-orb {
-  border-color: #38bdf8;
+  background:
+    radial-gradient(circle at 50% 35%, #161e33 0%, #090c16 100%) padding-box,
+    linear-gradient(135deg, #38bdf8 0%, #a855f7 100%) border-box;
+  color: #ffffff;
   box-shadow:
-    0 18px 42px rgba(7, 11, 22, 0.65),
-    0 0 38px rgba(56, 189, 248, 0.65);
+    0 18px 44px rgba(0, 0, 0, 0.85),
+    0 0 32px rgba(56, 189, 248, 0.52),
+    0 0 52px rgba(168, 85, 247, 0.42);
+}
+.axide-voice-widget[data-state="listening"] .axide-voice-orb::before,
+.axide-voice-widget[data-state="speaking"] .axide-voice-orb::before {
+  inset: -8px;
+  border-color: rgba(56, 189, 248, 0.42);
+  animation: simsRingPulse 2.2s infinite ease-in-out;
 }
 
-/* Glassmorphic HUD Panel */
+/* Luxury SIMS-Style Spatial AI Panel */
 .axide-voice-panel {
-  width: 396px;
+  width: 364px;
   max-width: calc(100vw - 32px);
-  border-radius: 26px;
-  background: linear-gradient(160deg, rgba(11, 17, 32, 0.96) 0%, rgba(18, 25, 43, 0.95) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  padding: 20px 20px 16px;
+  border-radius: 28px;
+  background: linear-gradient(180deg, #090b13 0%, #070910 100%);
+  border: 1px solid rgba(139, 92, 246, 0.34);
   box-shadow:
-    0 28px 70px rgba(2, 6, 23, 0.72),
-    0 0 0 1px rgba(253, 58, 37, 0.18),
-    inset 0 1px 0 rgba(255, 255, 255, 0.16);
-  backdrop-filter: blur(28px);
+    0 30px 80px rgba(0, 0, 0, 0.88),
+    0 0 36px rgba(99, 102, 241, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
   color: #f8fafc;
   overflow: hidden;
   display: none;
   flex-direction: column;
   transform-origin: bottom right;
-  animation: axidePanelIn 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+  animation: axidePanelIn 0.26s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .axide-voice-panel.open {
   display: flex;
 }
 
-.voice-panel-head {
+/* Top Brand & Window Control Bar */
+.sims-top-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 15px 18px;
-  background: linear-gradient(90deg, rgba(253, 58, 37, 0.15) 0%, rgba(56, 189, 248, 0.09) 100%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+  margin-bottom: 10px;
+  padding: 0 2px;
 }
-.voice-avatar-orb {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #fd3a25 0%, #38bdf8 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 0 18px rgba(253, 58, 37, 0.45);
-  flex-shrink: 0;
+.sims-brand-group {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 9px;
 }
-.voice-avatar-orb .eq-bars {
-  display: flex;
-  align-items: center;
-  gap: 2px;
-  height: 14px;
-}
-.voice-avatar-orb .eq-bars span {
-  display: block;
-  width: 2.5px;
-  height: 6px;
-  border-radius: 2px;
-  background: #ffffff;
-}
-.axide-voice-widget[data-state="speaking"] .voice-avatar-orb .eq-bars span,
-.axide-voice-widget[data-state="listening"] .voice-avatar-orb .eq-bars span {
-  animation: axideEqBar 0.6s infinite ease-in-out alternate;
-}
-.voice-avatar-orb .eq-bars span:nth-child(2) { animation-delay: 0.12s; }
-.voice-avatar-orb .eq-bars span:nth-child(3) { animation-delay: 0.24s; }
-.voice-avatar-orb .eq-bars span:nth-child(4) { animation-delay: 0.36s; }
-.voice-avatar-orb .eq-bars span:nth-child(5) { animation-delay: 0.48s; }
-
-.voice-title-row {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-}
-.voice-name {
-  font-size: 14.5px;
-  font-weight: 800;
+.sims-brand-main {
+  font-size: 13.5px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
   color: #ffffff;
-  letter-spacing: -0.02em;
+  text-transform: uppercase;
 }
-.voice-domain-pill {
-  padding: 2px 8px;
-  border-radius: 999px;
+.sims-brand-sub {
   font-size: 10.5px;
-  font-weight: 700;
-  background: rgba(56, 189, 248, 0.18);
-  border: 1px solid rgba(56, 189, 248, 0.42);
-  color: #7dd3fc;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: #64748b;
+  text-transform: uppercase;
 }
-.voice-sub {
-  font-size: 11.5px;
-  color: #94a3b8;
-  margin-top: 2px;
-}
-.voice-head-btn {
-  width: 31px;
-  height: 31px;
-  border-radius: 9px;
-  border: 1px solid rgba(255, 255, 255, 0.11);
-  background: rgba(255, 255, 255, 0.05);
-  color: #cbd5e1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  line-height: 1;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-.voice-head-btn:hover {
-  background: rgba(255, 255, 255, 0.14);
-  color: #ffffff;
-}
-
-.voice-current-page {
-  display: flex;
+.sims-win-controls {
+  display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 18px;
-  background: rgba(15, 23, 42, 0.78);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  font-size: 12px;
-  color: #cbd5e1;
 }
-.voice-current-page strong {
-  color: #38bdf8;
-  font-weight: 700;
-}
-.voice-current-page .dot-live {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #22c55e;
-  box-shadow: 0 0 8px #22c55e;
-  flex-shrink: 0;
-}
-
-.voice-messages {
-  padding: 14px 16px 10px;
-  max-height: 245px;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.axide-voice-msg {
-  display: flex;
-  flex-direction: column;
-  max-width: 89%;
-}
-.axide-voice-msg.msg-ai {
-  align-self: flex-start;
-}
-.axide-voice-msg.msg-user {
-  align-self: flex-end;
-  align-items: flex-end;
-}
-.axide-voice-msg .msg-meta {
-  font-size: 10.5px;
-  font-weight: 700;
+.sims-win-btn {
+  width: 26px;
+  height: 26px;
+  border: none;
+  background: transparent;
   color: #94a3b8;
-  margin-bottom: 3px;
-  padding: 0 4px;
-}
-.axide-voice-msg .msg-bubble {
-  padding: 10px 14px;
-  border-radius: 15px;
-  font-size: 13px;
-  line-height: 1.58;
-  letter-spacing: -0.01em;
-  word-break: keep-all;
-}
-.axide-voice-msg.msg-ai .msg-bubble {
-  background: rgba(30, 41, 59, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  color: #f1f5f9;
-  border-bottom-left-radius: 4px;
-}
-.axide-voice-msg.msg-user .msg-bubble {
-  background: linear-gradient(135deg, #fd3a25 0%, #e11d48 100%);
-  color: #ffffff;
-  font-weight: 600;
-  border-bottom-right-radius: 4px;
-  box-shadow: 0 6px 18px rgba(253, 58, 37, 0.28);
-}
-
-.voice-quick-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  padding: 6px 16px 11px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-.voice-chip {
-  padding: 5px 10px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.11);
-  color: #cbd5e1;
-  font-size: 11.5px;
-  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: color 0.2s ease, background 0.2s ease;
 }
-.voice-chip:hover {
-  background: rgba(253, 58, 37, 0.18);
-  border-color: rgba(253, 58, 37, 0.55);
+.sims-win-btn:hover {
   color: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
 }
 
-.voice-status-bar {
-  padding: 8px 16px;
-  background: rgba(15, 23, 42, 0.85);
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  font-size: 11.5px;
-  font-weight: 600;
-  color: #94a3b8;
+/* Centerpiece 3D Glowing Sphere & 4 Concentric Rings */
+.sims-sphere-stage {
+  position: relative;
+  width: 172px;
+  height: 172px;
+  margin: 4px auto 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+}
+.sims-ring {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.sims-ring-1 {
+  width: 102px;
+  height: 102px;
+  border: 1.2px solid rgba(165, 180, 252, 0.34);
+  box-shadow: 0 0 16px rgba(139, 92, 246, 0.18);
+}
+.sims-ring-2 {
+  width: 124px;
+  height: 124px;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+}
+.sims-ring-3 {
+  width: 146px;
+  height: 146px;
+  border: 1px solid rgba(148, 163, 184, 0.15);
+}
+.sims-ring-4 {
+  width: 168px;
+  height: 168px;
+  border: 1px solid rgba(148, 163, 184, 0.09);
+}
+
+.sims-core-sphere {
+  position: relative;
+  z-index: 2;
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+  background:
+    radial-gradient(circle at 36% 30%, rgba(255, 255, 255, 0.96) 0%, rgba(224, 231, 255, 0.84) 16%, rgba(165, 180, 252, 0.42) 38%, rgba(129, 140, 248, 0) 64%),
+    conic-gradient(from 135deg at 46% 46%, #5b5ef4 0deg, #9d66f5 95deg, #c7d2fe 150deg, #7c86f8 225deg, #4338ca 315deg, #5b5ef4 360deg);
+  box-shadow:
+    inset -10px -12px 22px rgba(24, 21, 68, 0.82),
+    inset 6px 6px 16px rgba(255, 255, 255, 0.46),
+    0 0 32px rgba(139, 92, 246, 0.45),
+    0 0 62px rgba(99, 102, 241, 0.22);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+  animation: simsSphereFloat 4.2s infinite ease-in-out;
+}
+.sims-sphere-stage:hover .sims-core-sphere {
+  transform: scale(1.05);
+  box-shadow:
+    inset -10px -12px 22px rgba(24, 21, 68, 0.82),
+    inset 6px 6px 18px rgba(255, 255, 255, 0.55),
+    0 0 40px rgba(139, 92, 246, 0.62),
+    0 0 74px rgba(56, 189, 248, 0.28);
+}
+
+/* Active Speaking / Listening Animations on Sphere & Rings */
+.axide-voice-widget[data-state="speaking"] .sims-core-sphere,
+.axide-voice-widget[data-state="listening"] .sims-core-sphere {
+  animation: simsSpherePulse 1.6s infinite ease-in-out;
+  box-shadow:
+    inset -10px -12px 22px rgba(24, 21, 68, 0.78),
+    inset 6px 6px 18px rgba(255, 255, 255, 0.6),
+    0 0 42px rgba(165, 180, 252, 0.68),
+    0 0 78px rgba(99, 102, 241, 0.38);
+}
+.axide-voice-widget[data-state="speaking"] .sims-ring-1,
+.axide-voice-widget[data-state="listening"] .sims-ring-1 {
+  border-color: rgba(165, 180, 252, 0.52);
+  animation: simsRingWave 1.8s infinite ease-in-out;
+}
+.axide-voice-widget[data-state="speaking"] .sims-ring-2,
+.axide-voice-widget[data-state="listening"] .sims-ring-2 {
+  border-color: rgba(165, 180, 252, 0.36);
+  animation: simsRingWave 1.8s infinite 0.2s ease-in-out;
+}
+.axide-voice-widget[data-state="speaking"] .sims-ring-3,
+.axide-voice-widget[data-state="listening"] .sims-ring-3 {
+  border-color: rgba(148, 163, 184, 0.24);
+  animation: simsRingWave 1.8s infinite 0.4s ease-in-out;
+}
+.axide-voice-widget[data-state="speaking"] .sims-ring-4,
+.axide-voice-widget[data-state="listening"] .sims-ring-4 {
+  border-color: rgba(148, 163, 184, 0.14);
+  animation: simsRingWave 1.8s infinite 0.6s ease-in-out;
+}
+
+/* Status Line & Centered Hero Prompt */
+.sims-status-line {
   text-align: center;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #a5b4fc;
+  letter-spacing: -0.01em;
+  margin-bottom: 10px;
+  min-height: 19px;
 }
-.axide-voice-widget[data-state="listening"] .voice-status-bar {
-  color: #ff8575;
-  background: rgba(127, 29, 29, 0.35);
-}
-.axide-voice-widget[data-state="speaking"] .voice-status-bar {
-  color: #7dd3fc;
-  background: rgba(12, 74, 110, 0.35);
+.sims-hero-text {
+  text-align: center;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.48;
+  color: #ffffff;
+  letter-spacing: -0.025em;
+  word-break: keep-all;
+  margin: 0 auto 20px;
+  padding: 0 6px;
+  min-height: 50px;
+  max-height: 102px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  transition: opacity 0.15s ease;
 }
 
-.voice-input-bar {
+/* 3x2 Dark Glass Action Grid */
+.sims-action-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 9px;
+  margin-bottom: 16px;
+}
+.sims-action-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  height: 68px;
+  padding: 10px 6px;
+  border-radius: 15px;
+  background: rgba(15, 19, 30, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #f1f5f9;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.sims-action-tile svg {
+  width: 19px;
+  height: 19px;
+  color: #38bdf8;
+  flex-shrink: 0;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+.sims-action-tile span {
+  font-size: 12px;
+  font-weight: 600;
+  color: #e2e8f0;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+.sims-action-tile:hover {
+  background: rgba(24, 31, 48, 0.96);
+  border-color: rgba(56, 189, 248, 0.38);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
+}
+.sims-action-tile:hover svg {
+  color: #7dd3fc;
+  transform: scale(1.08);
+}
+
+/* Sleek Pill Input Bar with Up-Arrow Gradient Button */
+.sims-input-pill {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 11px 14px;
-  background: rgba(9, 13, 24, 0.94);
-  border-top: 1px solid rgba(255, 255, 255, 0.09);
+  height: 48px;
+  padding: 0 7px 0 18px;
+  border-radius: 999px;
+  background: rgba(14, 18, 28, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 14px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
-.voice-mic-Trigger {
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
-  border: 1px solid rgba(253, 58, 37, 0.5);
-  background: linear-gradient(135deg, rgba(253, 58, 37, 0.25) 0%, rgba(253, 58, 37, 0.1) 100%);
-  color: #ff6b57;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  flex-shrink: 0;
-  transition: all 0.22s ease;
-}
-.voice-mic-Trigger:hover,
-.axide-voice-widget[data-state="listening"] .voice-mic-Trigger {
-  background: #fd3a25;
-  color: #ffffff;
-  box-shadow: 0 0 18px rgba(253, 58, 37, 0.65);
+.sims-input-pill:focus-within {
+  border-color: rgba(129, 140, 248, 0.55);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.14);
 }
 #axideVoiceInput {
   flex: 1;
-  height: 40px;
-  padding: 0 13px;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.05);
+  height: 100%;
+  padding: 0;
+  border: none !important;
+  background: transparent !important;
   color: #ffffff;
   font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
   outline: none;
+  box-shadow: none !important;
 }
 #axideVoiceInput::placeholder {
-  color: #64748b;
+  color: #94a3b8;
+  font-weight: 500;
 }
-#axideVoiceInput:focus {
-  border-color: rgba(56, 189, 248, 0.6);
-  background: rgba(255, 255, 255, 0.08);
-}
-.voice-send-btn {
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
+.sims-send-circle {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
   border: none;
-  background: rgba(56, 189, 248, 0.18);
-  color: #38bdf8;
+  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 55%, #a855f7 100%);
+  color: #080a11;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   flex-shrink: 0;
-  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
+  transition: transform 0.2s ease, filter 0.2s ease;
 }
-.voice-send-btn:hover {
-  background: #38bdf8;
-  color: #0f172a;
+.sims-send-circle:hover {
+  transform: scale(1.06);
+  filter: brightness(1.1);
+}
+
+/* Bottom Footer Row */
+.sims-footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4px;
+  font-size: 11.5px;
+  font-weight: 500;
+  color: #64748b;
+}
+.sims-live-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #64748b;
+}
+.sims-green-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.85);
+  display: inline-block;
+}
+.sims-barge-hint {
+  color: #64748b;
+  font-size: 11.5px;
 }
 
 /* Fullscreen Architecture Zoom Lightbox triggered by Voice/Click */
@@ -11371,7 +11335,7 @@ footer .footer-image {
   padding: 6px 14px;
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  background: #fd3a25;
+  background: rgba(56, 189, 248, 0.2);
   color: #ffffff;
   font-size: 13px;
   font-weight: 700;
@@ -11384,17 +11348,21 @@ footer .footer-image {
   border-radius: 14px;
 }
 
-@keyframes axideMicPulse {
-  0%, 100% { transform: scale(0.95); opacity: 0.65; }
-  50% { transform: scale(1.35); opacity: 1; }
+@keyframes simsSphereFloat {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-2px) scale(1.02); }
 }
-@keyframes axideOrbRing {
-  0% { transform: scale(0.92); opacity: 0.75; }
-  100% { transform: scale(1.28); opacity: 0; }
+@keyframes simsSpherePulse {
+  0%, 100% { transform: scale(0.97); }
+  50% { transform: scale(1.06); }
 }
-@keyframes axideEqBar {
-  0% { height: 4px; }
-  100% { height: 16px; }
+@keyframes simsRingWave {
+  0%, 100% { transform: scale(0.98); opacity: 0.75; }
+  50% { transform: scale(1.04); opacity: 1; }
+}
+@keyframes simsRingPulse {
+  0%, 100% { transform: scale(0.96); opacity: 0.5; }
+  50% { transform: scale(1.08); opacity: 0.95; }
 }
 @keyframes axidePanelIn {
   from { opacity: 0; transform: translateY(14px) scale(0.96); }
@@ -11404,11 +11372,11 @@ footer .footer-image {
 @media (max-width: 767px) {
   .axide-voice-widget {
     right: 16px;
-    bottom: 84px;
+    bottom: 20px;
   }
   .axide-voice-orb {
-    width: 58px;
-    height: 58px;
+    width: 54px;
+    height: 54px;
   }
 }
 
