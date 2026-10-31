@@ -10375,4 +10375,6 @@ footer .footer-image {
   pointer-events: none;
 }
 
+#trail, .cursor-trail { display: none !important; visibility: hidden !important; pointer-events: none !important; }
+
 /*# sourceMappingURL=styles.css.map */
