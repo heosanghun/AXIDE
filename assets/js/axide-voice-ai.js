@@ -1079,7 +1079,7 @@
         <!-- Top Minimal Header -->
         <div class="sims-top-bar">
           <div class="sims-brand-group">
-            <img src="assets/images/logo/axide-emblem.png" alt="AXIDE" class="sims-brand-emblem">
+            <img src="assets/images/logo/axide-emblem.png?v=20261101v10" alt="AXIDE" class="sims-brand-emblem">
             <span class="sims-brand-main">AXIDE</span>
             <span class="sims-brand-sub">SOVEREIGN AI</span>
           </div>
