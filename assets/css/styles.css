@@ -1252,19 +1252,22 @@ h6,
 }
 
 .text-gradient-2 {
-  background: linear-gradient(360deg, rgba(41, 44, 46, 0) 0%, #292C2E 100%);
+  background: linear-gradient(135deg, #18181B 0%, #3F444A 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-stroke: 0px transparent;
   -webkit-text-fill-color: transparent;
+  padding-bottom: 6px;
 }
 
 .text-gradient-3 {
   background: linear-gradient(95.5deg, #61666A 1.91%, #292C2E 43.92%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-stroke: 0px transparent;
   -webkit-text-fill-color: transparent;
   padding-bottom: 7px;
-  margin-bottom: -7px;
+  margin-bottom: 0;
 }
 
 @keyframes bghover {
@@ -4815,7 +4818,9 @@ button.animate-btn::after,
 }
 
 .section-about-us .heading-section {
-  margin-bottom: -17px;
+  margin-bottom: 52px;
+  position: relative;
+  z-index: 5;
 }
 .section-about-us .col-left {
   display: flex;
@@ -10033,6 +10038,21 @@ p,
 .section-about-us {
   min-height: auto;
 }
+.section-about-us .heading-section {
+  margin-bottom: 52px !important;
+  position: relative;
+  z-index: 5;
+}
+.section-about-us .heading-section .heading-title {
+  line-height: 1.34 !important;
+  padding-bottom: 8px !important;
+  margin-bottom: 0 !important;
+}
+@media (max-width: 767px) {
+  .section-about-us .heading-section {
+    margin-bottom: 32px !important;
+  }
+}
 .section-about-us .col-left {
   height: 100%;
   display: flex;
@@ -10652,7 +10672,7 @@ p,
 /* 10. Tools Section Hub Spacing & Layer Balance */
 @media (min-width: 768px) {
   .tool-wrap .tool-image-box {
-    margin: -36px 0 -28px;
+    margin: 16px 0 8px;
   }
 }
 
