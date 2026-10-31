@@ -15,7 +15,7 @@
   const PAGE_LABELS = {
     "index.html": "메인 홈 (방산 폐쇄망 AI 표준)",
     "index-v2.html": "홈 02 (소버린 AI 모션 비디오)",
-    "about.html": "회사소개 (주식회사 액사이드)",
+    "about.html": "회사소개 (AXIDE(법인 설립 준비 중))",
     "service.html": "솔루션 (Cogni-OS 아키텍처 & 하드웨어)",
     "service-single.html": "방산 부품 여권 (Part Passport v1) 상세",
     "work.html": "실증사례 (공급계약 & 5단계 진화 로드맵)",
