@@ -1273,6 +1273,13 @@
       });
     });
 
+    document.querySelectorAll(".physical-ai-card").forEach((card) => {
+      card.addEventListener("click", function () {
+        const src = this.getAttribute("data-zoom-src");
+        if (src) openArchModal(src);
+      });
+    });
+
     // Interactive 8-Infographic Master Deck switcher
     document.querySelectorAll(".axide-deck-card").forEach((card) => {
       card.addEventListener("click", function () {
