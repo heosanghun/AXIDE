@@ -11412,15 +11412,14 @@ footer .footer-image {
 
 .axide-emblem-jewel {
   position: relative;
-  width: 39px;
-  height: 39px;
-  border-radius: 11px;
-  padding: 1.5px;
-  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 52%, #fd3a25 100%);
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  padding: 0;
+  background: transparent;
   box-shadow:
-    0 6px 18px rgba(7, 10, 18, 0.28),
-    0 0 16px rgba(56, 189, 248, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+    0 6px 16px rgba(37, 99, 235, 0.24),
+    0 2px 5px rgba(15, 23, 42, 0.12);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -11432,7 +11431,7 @@ footer .footer-image {
   width: 100%;
   height: 100%;
   max-height: none !important;
-  border-radius: 9.5px;
+  border-radius: 10px;
   object-fit: cover;
   display: block;
 }
@@ -11452,8 +11451,8 @@ footer .footer-image {
   font-family: "Plus Jakarta Sans", "Pretendard Variable", "Urbanist", sans-serif;
   font-size: 20px;
   font-weight: 800;
-  letter-spacing: 0.09em;
-  background: linear-gradient(135deg, #070a12 0%, #1e293b 60%, #0f172a 100%);
+  letter-spacing: 0.08em;
+  background: linear-gradient(135deg, #090d16 0%, #1e293b 65%, #0f172a 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-transform: uppercase;
@@ -11468,8 +11467,8 @@ footer .footer-image {
   width: 4.5px;
   height: 4.5px;
   border-radius: 50%;
-  background: #fd3a25;
-  box-shadow: 0 0 8px rgba(253, 58, 37, 0.75);
+  background: #ff3b26;
+  box-shadow: 0 0 6px rgba(255, 59, 38, 0.65);
   display: inline-block;
   margin-top: 3px;
 }
@@ -11479,22 +11478,22 @@ footer .footer-image {
   justify-content: center;
   padding: 2.5px 6.5px;
   border-radius: 999px;
-  background: linear-gradient(135deg, #090d18 0%, #171c36 100%);
-  border: 1px solid rgba(56, 189, 248, 0.55);
-  color: #7dd3fc;
+  background: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);
+  border: none;
+  color: #ffffff;
   font-family: "Plus Jakarta Sans", "Pretendard Variable", sans-serif;
   font-size: 9.5px;
   font-weight: 800;
   letter-spacing: 0.08em;
   line-height: 1;
-  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.2);
+  box-shadow: 0 3px 10px rgba(37, 99, 235, 0.25);
 }
 .axide-brand-sub {
   margin-top: 3.5px;
   font-family: "Plus Jakarta Sans", "Pretendard Variable", sans-serif;
   font-size: 8px;
   font-weight: 700;
-  letter-spacing: 0.17em;
+  letter-spacing: 0.16em;
   color: #64748b;
   text-transform: uppercase;
   white-space: nowrap;
@@ -11514,15 +11513,14 @@ footer .footer-content .footer-logo.axide-footer-brand {
 }
 .axide-footer-emblem {
   position: relative;
-  width: 68px;
-  height: 68px;
-  border-radius: 19px;
-  padding: 2px;
-  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 52%, #fd3a25 100%);
+  width: 64px;
+  height: 64px;
+  border-radius: 17px;
+  padding: 0;
+  background: transparent;
   box-shadow:
-    0 16px 38px rgba(7, 10, 18, 0.32),
-    0 0 28px rgba(56, 189, 248, 0.26),
-    0 0 42px rgba(129, 140, 248, 0.18);
+    0 14px 32px rgba(37, 99, 235, 0.28),
+    0 4px 12px rgba(15, 23, 42, 0.16);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -11531,9 +11529,8 @@ footer .footer-content .footer-logo.axide-footer-brand {
 .footer-logo.axide-footer-brand:hover .axide-footer-emblem {
   transform: translateY(-3px) scale(1.04);
   box-shadow:
-    0 20px 44px rgba(7, 10, 18, 0.42),
-    0 0 36px rgba(56, 189, 248, 0.42),
-    0 0 54px rgba(253, 58, 37, 0.24);
+    0 18px 38px rgba(37, 99, 235, 0.38),
+    0 6px 16px rgba(6, 182, 212, 0.25);
 }
 .axide-footer-emblem img {
   width: 100%;
