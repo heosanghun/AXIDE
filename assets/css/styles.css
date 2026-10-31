@@ -10985,8 +10985,17 @@ footer .footer-image {
 }
 .sims-brand-group {
   display: inline-flex;
-  align-items: baseline;
-  gap: 9px;
+  align-items: center;
+  gap: 8px;
+}
+.sims-brand-emblem {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  object-fit: cover;
+  border: 1px solid rgba(56, 189, 248, 0.45);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.25);
+  flex-shrink: 0;
 }
 .sims-brand-main {
   font-size: 13.5px;
@@ -11377,6 +11386,235 @@ footer .footer-image {
   .axide-voice-orb {
     width: 54px;
     height: 54px;
+  }
+}
+
+/* ==========================================================================
+   19. AXIDE Luxury 3D Brand Identity & Emblem System
+   ========================================================================== */
+.tf-header .logo-site.axide-luxury-brand,
+.offcanvas-menu .logo-site.axide-luxury-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.tf-header .logo-site.axide-luxury-brand:hover,
+.offcanvas-menu .logo-site.axide-luxury-brand:hover {
+  transform: translateY(-1px);
+}
+
+.axide-emblem-jewel {
+  position: relative;
+  width: 39px;
+  height: 39px;
+  border-radius: 11px;
+  padding: 1.5px;
+  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 52%, #fd3a25 100%);
+  box-shadow:
+    0 6px 18px rgba(7, 10, 18, 0.28),
+    0 0 16px rgba(56, 189, 248, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.tf-header .logo-site.axide-luxury-brand .axide-emblem-jewel img,
+.offcanvas-menu .logo-site.axide-luxury-brand .axide-emblem-jewel img {
+  width: 100%;
+  height: 100%;
+  max-height: none !important;
+  border-radius: 9.5px;
+  object-fit: cover;
+  display: block;
+}
+
+.axide-brand-copy {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1;
+}
+.axide-brand-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.axide-brand-word {
+  font-family: "Plus Jakarta Sans", "Pretendard Variable", "Urbanist", sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  background: linear-gradient(135deg, #070a12 0%, #1e293b 60%, #0f172a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+}
+.offcanvas-menu .axide-brand-word,
+.tf-header.header2 .axide-brand-word {
+  background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.axide-brand-dot {
+  width: 4.5px;
+  height: 4.5px;
+  border-radius: 50%;
+  background: #fd3a25;
+  box-shadow: 0 0 8px rgba(253, 58, 37, 0.75);
+  display: inline-block;
+  margin-top: 3px;
+}
+.axide-brand-ai {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5px 6.5px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #090d18 0%, #171c36 100%);
+  border: 1px solid rgba(56, 189, 248, 0.55);
+  color: #7dd3fc;
+  font-family: "Plus Jakarta Sans", "Pretendard Variable", sans-serif;
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.2);
+}
+.axide-brand-sub {
+  margin-top: 3.5px;
+  font-family: "Plus Jakarta Sans", "Pretendard Variable", sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.17em;
+  color: #64748b;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.offcanvas-menu .axide-brand-sub {
+  color: #94a3b8;
+}
+
+/* Footer Grand 3D Sovereign Crest Lockup */
+footer .footer-content .footer-logo.axide-footer-brand {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 11px;
+  text-decoration: none;
+  margin-bottom: 24px;
+}
+.axide-footer-emblem {
+  position: relative;
+  width: 68px;
+  height: 68px;
+  border-radius: 19px;
+  padding: 2px;
+  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 52%, #fd3a25 100%);
+  box-shadow:
+    0 16px 38px rgba(7, 10, 18, 0.32),
+    0 0 28px rgba(56, 189, 248, 0.26),
+    0 0 42px rgba(129, 140, 248, 0.18);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.32s ease;
+}
+.footer-logo.axide-footer-brand:hover .axide-footer-emblem {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow:
+    0 20px 44px rgba(7, 10, 18, 0.42),
+    0 0 36px rgba(56, 189, 248, 0.42),
+    0 0 54px rgba(253, 58, 37, 0.24);
+}
+.axide-footer-emblem img {
+  width: 100%;
+  height: 100%;
+  border-radius: 17px;
+  object-fit: cover;
+  display: block;
+}
+.axide-footer-word-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.axide-footer-word {
+  font-family: "Plus Jakarta Sans", "Pretendard Variable", sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  background: linear-gradient(135deg, #070a12 0%, #1e293b 65%, #0f172a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.axide-footer-tag {
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: #090d18;
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  color: #bae6fd;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  box-shadow: 0 6px 16px rgba(7, 10, 18, 0.18);
+}
+
+/* Centerpiece 6-Hardware & 3-Layer Stack Vault Emblem Showcase */
+.features-center {
+  position: relative;
+  width: 214px !important;
+  height: 214px !important;
+  border-radius: 42px !important;
+  padding: 3px;
+  background:
+    linear-gradient(145deg, #080b14, #0d1222) padding-box,
+    linear-gradient(135deg, rgba(56, 189, 248, 0.85) 0%, rgba(129, 140, 248, 0.75) 52%, rgba(253, 58, 37, 0.8) 100%) border-box !important;
+  border: 2px solid transparent !important;
+  box-shadow:
+    0 26px 64px rgba(5, 8, 18, 0.52),
+    0 0 42px rgba(56, 189, 248, 0.26),
+    0 0 68px rgba(129, 140, 248, 0.22),
+    inset 0 1px 1px rgba(255, 255, 255, 0.25) !important;
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.features-center:hover {
+  transform: translateY(-4px) scale(1.03);
+}
+.features-center img {
+  width: 100%;
+  height: 100%;
+  border-radius: 38px;
+  object-fit: cover;
+  display: block;
+}
+
+.preload-logo img {
+  width: 68px;
+  height: 68px;
+  border-radius: 18px;
+  object-fit: cover;
+  box-shadow: 0 0 32px rgba(56, 189, 248, 0.45);
+}
+
+@media (max-width: 575px) {
+  .axide-emblem-jewel {
+    width: 34px;
+    height: 34px;
+    border-radius: 9.5px;
+  }
+  .axide-brand-word {
+    font-size: 17.5px;
+  }
+  .axide-brand-sub {
+    font-size: 7px;
+    letter-spacing: 0.12em;
   }
 }
 
