@@ -10,7 +10,7 @@
   const STORAGE_KEY_OPEN = "axide_voice_panel_open_v1";
   const STORAGE_KEY_PENDING = "axide_voice_pending_utterance_v1";
   const STORAGE_KEY_PENDING_CLIP = "axide_voice_pending_clip_v1";
-  const AUDIO_VERSION = "20261101v9";
+  const AUDIO_VERSION = "20261101v12";
 
   const PAGE_LABELS = {
     "index.html": "메인 홈 (방산 폐쇄망 AI 표준)",
@@ -577,7 +577,7 @@
     if (/연락처|전화번호|이메일|주소|위치|어디/.test(lower)) {
       return {
         clipKey: "qa_contact",
-        reply: "액사이드 본사는 대전 유성구 관들1길 47, 대전 방산혁신클러스터에 있어요. 직통 전화는 010-6689-3508번이니 언제든 편하게 연락해 주세요.",
+        reply: "액사이드 본사는 대전 유성구 관들1길 47, 대전 방산혁신클러스터에 있어요! 공식 이메일이나 도입문의 게시판을 통해 신청해 주시면 당일 바로 안내해 드릴게요!",
         action: { type: "none", target: "" }
       };
     }
