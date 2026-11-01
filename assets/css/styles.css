@@ -8554,11 +8554,65 @@ button.animate-btn::after,
 }
 .benefits-progress-inner .benefits-progress-item .progress-line {
   height: 40px;
-  width: 0%;
-  background-color: var(--neutral-100);
+  width: 97%;
+  background: linear-gradient(90deg, #4338ca 0%, #6366f1 52%, #a855f7 100%);
   position: relative;
   border-radius: 12px;
-  box-shadow: 0px -4px 0px 0px rgba(0, 0, 0, 0.0509803922) inset, 0px 4px 0px 0px rgba(255, 255, 255, 0.6) inset, 0px 7.77px 16px 0px rgba(0, 0, 0, 0.0588235294), 0px 3px 3px 0px rgba(0, 0, 0, 0.1019607843);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding-left: 16px;
+  box-shadow: 0px -4px 0px 0px rgba(0, 0, 0, 0.14) inset, 0px 3px 0px 0px rgba(255, 255, 255, 0.35) inset, 0px 8px 18px 0px rgba(79, 70, 229, 0.28);
+}
+.benefits-progress-inner .benefits-progress-item .progress-line::after {
+  content: attr(data-progress) "% VERIFIED";
+  font-size: 12px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.96);
+  letter-spacing: 0.04em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.28);
+  white-space: nowrap;
+}
+.benefits-progress-inner .benefits-progress-item:nth-child(1) .progress-line {
+  background: linear-gradient(90deg, #4338ca 0%, #6366f1 52%, #a855f7 100%);
+  box-shadow: 0px -4px 0px 0px rgba(0, 0, 0, 0.14) inset, 0px 3px 0px 0px rgba(255, 255, 255, 0.35) inset, 0px 8px 18px 0px rgba(99, 102, 241, 0.32);
+}
+.benefits-progress-inner .benefits-progress-item:nth-child(1) .progress-line::after {
+  content: "96.7% DPO 정확도";
+}
+.benefits-progress-inner .benefits-progress-item:nth-child(1) .progress-text .icon {
+  color: #6366f1;
+}
+.benefits-progress-inner .benefits-progress-item:nth-child(2) .progress-line {
+  background: linear-gradient(90deg, #0369a1 0%, #0ea5e9 52%, #38bdf8 100%);
+  box-shadow: 0px -4px 0px 0px rgba(0, 0, 0, 0.14) inset, 0px 3px 0px 0px rgba(255, 255, 255, 0.35) inset, 0px 8px 18px 0px rgba(14, 165, 233, 0.32);
+}
+.benefits-progress-inner .benefits-progress-item:nth-child(2) .progress-line::after {
+  content: "0.161s (합격선 5초 대비 31×)";
+}
+.benefits-progress-inner .benefits-progress-item:nth-child(2) .progress-text .icon {
+  color: #0ea5e9;
+}
+.benefits-progress-inner .benefits-progress-item:nth-child(3) .progress-line {
+  background: linear-gradient(90deg, #047857 0%, #10b981 52%, #2dd4bf 100%);
+  box-shadow: 0px -4px 0px 0px rgba(0, 0, 0, 0.14) inset, 0px 3px 0px 0px rgba(255, 255, 255, 0.35) inset, 0px 8px 18px 0px rgba(16, 185, 129, 0.32);
+}
+.benefits-progress-inner .benefits-progress-item:nth-child(3) .progress-line::after {
+  content: "100% 통과 · 외부전송 0 Byte";
+}
+.benefits-progress-inner .benefits-progress-item:nth-child(3) .progress-text .icon {
+  color: #10b981;
+}
+.benefits-progress-inner .benefits-progress-item:nth-child(4) .progress-line {
+  width: 73%;
+  background: linear-gradient(90deg, #1d4ed8 0%, #3b82f6 52%, #60a5fa 100%);
+  box-shadow: 0px -4px 0px 0px rgba(0, 0, 0, 0.14) inset, 0px 3px 0px 0px rgba(255, 255, 255, 0.35) inset, 0px 8px 18px 0px rgba(59, 130, 246, 0.32);
+}
+.benefits-progress-inner .benefits-progress-item:nth-child(4) .progress-line::after {
+  content: "73% GPM · 14.8GB VRAM";
+}
+.benefits-progress-inner .benefits-progress-item:nth-child(4) .progress-text .icon {
+  color: #2563eb;
 }
 .benefits-progress-inner .benefits-progress-item .progress-text {
   display: flex;
@@ -8604,8 +8658,8 @@ button.animate-btn::after,
   transform: translateY(-50%);
   height: 29px;
   border-radius: 8px;
-  background-color: var(--neutral-100);
-  box-shadow: 0px -2px 0px 0px rgba(0, 0, 0, 0.0509803922) inset, 0px 2px 0px 0px rgba(255, 255, 255, 0.6) inset, 0px 7.77px 16px 0px rgba(0, 0, 0, 0.0588235294), 0px 3px 3px 0px rgba(0, 0, 0, 0.1019607843);
+  background: linear-gradient(90deg, #6366f1 0%, #0ea5e9 50%, #10b981 100%);
+  box-shadow: 0px -2px 0px 0px rgba(0, 0, 0, 0.14) inset, 0px 2px 0px 0px rgba(255, 255, 255, 0.35) inset, 0px 7.77px 16px 0px rgba(14, 165, 233, 0.25);
 }
 .benefits-step-inner .step-item {
   position: relative;
