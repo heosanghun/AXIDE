@@ -13976,4 +13976,205 @@ footer .footer-content .footer-logo.axide-footer-brand {
   }
 }
 
+/* ==========================================================================
+   AXIDE Precision Pure-Light Micro-Animation VFX System (.axide-live-vfx)
+   Non-intrusive, screen-blended volumetric light & optical motion layers
+   ========================================================================== */
+.story-figure-Stage.has-live-vfx,
+.physical-ai-thumb.has-live-vfx,
+.bio-visual-stage.has-live-vfx,
+.bio-cinema-visual.has-live-vfx,
+.visual-img-wrap.has-live-vfx {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle breathing Ken-Burns micro-motion on dark 3D artworks */
+.has-live-vfx > img {
+  animation: axideSubtleBreath 9s ease-in-out infinite alternate;
+  will-change: transform;
+}
+@keyframes axideSubtleBreath {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.018); }
+}
+
+.axide-live-vfx {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
+  mix-blend-mode: screen;
+}
+
+/* Minimalist Top-Left Live Motion Indicator Pill */
+.axide-live-pill {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 4;
+  pointer-events: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(7, 11, 20, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(56, 189, 248, 0.32);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #e2e8f0;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+.axide-live-pill .live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #34d399;
+  box-shadow: 0 0 8px 2px rgba(52, 211, 153, 0.85);
+  animation: axideLiveDotPulse 1.8s ease-in-out infinite;
+}
+@keyframes axideLiveDotPulse {
+  0%, 100% { transform: scale(0.9); opacity: 0.75; }
+  50% { transform: scale(1.25); opacity: 1; }
+}
+
+/* Universal Pure-Light Building Blocks */
+.vfx-aura {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: axideAuraPulse 3.2s ease-in-out infinite;
+}
+.vfx-aura-cyan {
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.42) 0%, rgba(14, 165, 233, 0.14) 48%, transparent 72%);
+}
+.vfx-aura-emerald {
+  background: radial-gradient(circle, rgba(52, 211, 153, 0.48) 0%, rgba(16, 185, 129, 0.16) 48%, transparent 72%);
+}
+.vfx-aura-gold {
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.46) 0%, rgba(245, 158, 11, 0.16) 48%, transparent 72%);
+}
+.vfx-aura-rose {
+  background: radial-gradient(circle, rgba(251, 113, 133, 0.52) 0%, rgba(244, 63, 94, 0.18) 48%, transparent 72%);
+}
+.vfx-aura-purple {
+  background: radial-gradient(circle, rgba(192, 132, 252, 0.44) 0%, rgba(139, 92, 246, 0.15) 48%, transparent 72%);
+}
+@keyframes axideAuraPulse {
+  0%, 100% { transform: scale(0.88); opacity: 0.45; }
+  50% { transform: scale(1.14); opacity: 0.95; }
+}
+
+/* Subtle Laser Scan Line within a bounded zone */
+.vfx-scan-zone {
+  position: absolute;
+  overflow: hidden;
+  border-radius: 24px;
+}
+.vfx-scan-beam {
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, rgba(56, 189, 248, 0.85) 25%, #ffffff 50%, rgba(56, 189, 248, 0.85) 75%, transparent 100%);
+  box-shadow: 0 0 12px 2px rgba(56, 189, 248, 0.75), 0 0 24px 5px rgba(14, 165, 233, 0.38);
+  animation: axideZoneScanY 3.4s ease-in-out infinite;
+}
+.vfx-scan-beam.beam-gold {
+  background: linear-gradient(90deg, transparent 0%, rgba(251, 191, 36, 0.85) 25%, #fffbeb 50%, rgba(251, 191, 36, 0.85) 75%, transparent 100%);
+  box-shadow: 0 0 12px 2px rgba(251, 191, 36, 0.75), 0 0 24px 5px rgba(245, 158, 11, 0.38);
+}
+.vfx-scan-beam.beam-emerald {
+  background: linear-gradient(90deg, transparent 0%, rgba(52, 211, 153, 0.85) 25%, #ecfdf5 50%, rgba(52, 211, 153, 0.85) 75%, transparent 100%);
+  box-shadow: 0 0 12px 2px rgba(52, 211, 153, 0.75), 0 0 24px 5px rgba(16, 185, 129, 0.38);
+}
+@keyframes axideZoneScanY {
+  0%, 100% { top: 8%; opacity: 0.2; }
+  15%, 85% { opacity: 0.9; }
+  50% { top: 88%; opacity: 0.95; }
+}
+
+/* Horizontal Light Glint / Piano Sweep */
+.vfx-sweep-x {
+  position: absolute;
+  overflow: hidden;
+  border-radius: 16px;
+}
+.vfx-sweep-x::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 28%;
+  background: linear-gradient(90deg, transparent 0%, rgba(56, 189, 248, 0.38) 45%, rgba(255, 255, 255, 0.65) 50%, rgba(251, 191, 36, 0.38) 55%, transparent 100%);
+  filter: blur(4px);
+  animation: axideSweepX 3.6s ease-in-out infinite;
+}
+@keyframes axideSweepX {
+  0% { left: -32%; opacity: 0; }
+  20% { opacity: 0.9; }
+  80% { opacity: 0.9; }
+  100% { left: 104%; opacity: 0; }
+}
+
+/* Optical Data Comet Track */
+.vfx-comet-track {
+  position: absolute;
+  height: 3px;
+  overflow: visible;
+  transform-origin: left center;
+}
+.vfx-comet-dot {
+  position: absolute;
+  top: -2px;
+  width: 56px;
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent 0%, rgba(56, 189, 248, 0.85) 65%, #ffffff 100%);
+  box-shadow: 0 0 12px 3px rgba(56, 189, 248, 0.8);
+  animation: axideCometFly 2.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+.vfx-comet-dot.comet-gold {
+  background: linear-gradient(90deg, transparent 0%, rgba(251, 191, 36, 0.9) 65%, #ffffff 100%);
+  box-shadow: 0 0 12px 3px rgba(251, 191, 36, 0.85);
+}
+.vfx-comet-dot.comet-emerald {
+  background: linear-gradient(90deg, transparent 0%, rgba(52, 211, 153, 0.9) 65%, #ffffff 100%);
+  box-shadow: 0 0 12px 3px rgba(52, 211, 153, 0.85);
+}
+@keyframes axideCometFly {
+  0% { left: -10%; opacity: 0; transform: scaleX(0.6); }
+  15% { opacity: 1; transform: scaleX(1); }
+  85% { opacity: 1; transform: scaleX(1); }
+  100% { left: 96%; opacity: 0; transform: scaleX(0.5); }
+}
+
+/* Floating Photon Motes */
+.vfx-mote {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 10px 3px rgba(56, 189, 248, 0.9);
+  animation: axideMoteRise 3.2s ease-in-out infinite;
+}
+.vfx-mote.mote-gold {
+  box-shadow: 0 0 10px 3px rgba(251, 191, 36, 0.95);
+}
+.vfx-mote.mote-emerald {
+  box-shadow: 0 0 10px 3px rgba(52, 211, 153, 0.95);
+}
+@keyframes axideMoteRise {
+  0% { transform: translateY(14px) scale(0.5); opacity: 0; }
+  35% { opacity: 0.95; }
+  75% { opacity: 0.85; }
+  100% { transform: translateY(-28px) scale(1.1); opacity: 0; }
+}
+
 /*# sourceMappingURL=styles.css.map */
