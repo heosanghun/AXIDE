@@ -63,7 +63,7 @@ export async function onRequestPost(context) {
       );
     }
 
-    // 1. Try Gemini 2.5 Native Audio TTS with high-tension smiling 20s Korean female direction
+    // 1. Try Gemini 2.5 Native Audio TTS with intellectual, composed Korean female news anchor direction
     const apiKey =
       context.env.Gemini ||
       context.env.GEMINI_API_KEY ||
@@ -74,7 +74,7 @@ export async function onRequestPost(context) {
         "gemini-2.5-flash-preview-tts",
         "gemini-2.5-pro-preview-tts"
       ];
-      const prompt = `밝고 텐션이 높으며 미소가 가득한 20대 한국 여성 매니저의 생동감 넘치고 다정한 목소리로 다음 문장을 읽어주세요: ${text}`;
+      const prompt = `차분하고 지적이며 깊은 신뢰감을 주는 대한민국 대표 메인 뉴스 여성 아나운서의 품격 있고 또렷한 중저음 목소리로 다음 문장을 브리핑하듯 읽어주세요: ${text}`;
 
       for (const model of ttsModels) {
         const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${encodeURIComponent(apiKey)}`;
@@ -88,7 +88,7 @@ export async function onRequestPost(context) {
               speechConfig: {
                 voiceConfig: {
                   prebuiltVoiceConfig: {
-                    voiceName: "Kore"
+                    voiceName: "Aoede"
                   }
                 }
               }

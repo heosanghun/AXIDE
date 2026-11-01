@@ -6,11 +6,11 @@
 (function () {
   "use strict";
 
-  const STORAGE_KEY_HISTORY = "axide_voice_history_v1";
+  const STORAGE_KEY_HISTORY = "axide_voice_history_v2";
   const STORAGE_KEY_OPEN = "axide_voice_panel_open_v1";
   const STORAGE_KEY_PENDING = "axide_voice_pending_utterance_v1";
   const STORAGE_KEY_PENDING_CLIP = "axide_voice_pending_clip_v1";
-  const AUDIO_VERSION = "20261101v12";
+  const AUDIO_VERSION = "20261102v47";
 
   const PAGE_LABELS = {
     "index.html": "메인 홈 (방산 폐쇄망 AI 표준)",
@@ -75,11 +75,10 @@
     const nonRoboticKo = koVoices.filter((v) => !/Heami/i.test(v.name));
 
     const priorityPatterns = [
-      /Seraphina.*Natural/i,
       /SunHi.*Natural/i,
       /SunHi/i,
+      /Seraphina.*Natural/i,
       /SeoHyeon.*Natural/i,
-      /InJoon.*Natural/i,
       /Yuna/i,
       /Sora/i,
       /Google.*한국/i,
@@ -215,9 +214,9 @@
     if (selectedVoice) {
       utterance.voice = selectedVoice;
     }
-    // Keep natural 1.0 pitch/rate so browser fallback never sounds artificially warped
-    utterance.pitch = 1.0;
-    utterance.rate = 1.0;
+    // Composed, intellectual female news anchor pitch & pacing for browser fallback
+    utterance.pitch = 0.94;
+    utterance.rate = 0.98;
     utterance.volume = 1.0;
 
     utterance.onstart = function () {
@@ -292,7 +291,7 @@
     if (/멈춰|그만|조용|음소거|닫아|종료/.test(q)) {
       return {
         clipKey: "stop",
-        reply: "네, 안내를 잠시 멈출게요. 필요하실 때 언제든 저를 다시 불러주세요.",
+        reply: "네, 브리핑을 잠시 멈추겠습니다. 필요하실 때 언제든 다시 호출해 주십시오.",
         action: { type: "stop_speaking", target: "" }
       };
     }
@@ -302,13 +301,13 @@
       if (/크게|확대|모달|전체\s*화면|공간\s*분할/.test(q)) {
         return {
           clipKey: "arch_zoom",
-          reply: "네! Cogni-OS 참조 아키텍처를 전체 화면으로 크게 띄워드릴게요. 원청에서 부품 공장까지 이어지는 6단계 공급망과, 스스로 진화하는 ADAS 구조를 한눈에 보실 수 있어요.",
+          reply: "Cogni-OS 참조 아키텍처를 전체 화면으로 확대하여 표시합니다. 원청에서 협력사 공장까지 이어지는 6단계 공급망과, 자율 진화하는 ADAS 구조를 한눈에 확인하실 수 있습니다.",
           action: { type: "open_arch_modal", target: "assets/images/doc/cogni-os-reference-architecture.jpg" }
         };
       }
       return {
         clipKey: "arch_scroll",
-        reply: "Cogni-OS 참조 아키텍처 쪽으로 안내해 드릴게요. NVMe에서 GPU로 바로 연결되는 추론 코어부터, 원청과 공장을 잇는 공급망까지 한눈에 확인해 보세요.",
+        reply: "Cogni-OS 참조 아키텍처 섹션으로 안내해 드리겠습니다. NVMe에서 GPU로 직결되는 상수 메모리 추론 코어와 공급망 검증 구조를 확인해 보십시오.",
         action: {
           type: document.querySelector(".arch-blueprint-wrap") ? "scroll" : "navigate",
           target: document.querySelector(".arch-blueprint-wrap") ? ".arch-blueprint-wrap" : "index.html#services"
@@ -320,98 +319,98 @@
     if (/홈\s*2|버전\s*2|비디오\s*홈|모션\s*홈|v2/.test(lower)) {
       return {
         clipKey: "nav_home2",
-        reply: "네, 소버린 AI 모션 영상이 담긴 홈 버전 2 페이지로 바로 이동할게요!",
+        reply: "소버린 AI 시네마 모션이 적용된 홈 버전 2 페이지로 이동합니다.",
         action: { type: "navigate", target: "index-v2.html" }
       };
     }
     if (/(메인|홈으로|첫\s*페이지|홈\s*페이지|홈\s*1)/.test(lower) && !/홈페이지에서/.test(lower)) {
       return {
         clipKey: "nav_home1",
-        reply: "네, 액사이드 메인 홈 화면으로 바로 이동할게요.",
+        reply: "액사이드 메인 홈 화면으로 이동합니다.",
         action: { type: "navigate", target: "index.html" }
       };
     }
     if (/회사\s*소개|액사이드\s*소개|기업\s*소개|창업\s*미션|허상훈\s*대표|대표이사\s*소개|어바웃|월드\s*모델/.test(lower)) {
       return {
         clipKey: "nav_about",
-        reply: "허상훈 대표님과 KAIST, 충북대 산업 AI 연구진이 함께하는 회사소개 페이지로 안내해 드릴게요.",
+        reply: "허상훈 대표와 KAIST, 충북대학교 산업인공지능 연구진이 함께하는 액사이드 회사소개 페이지로 안내해 드리겠습니다.",
         action: { type: "navigate", target: "about.html" }
       };
     }
     if (/창업\s*스토리|스토리\s*페이지|한글\s*퍼즐|한글\s*사랑|두\s*개의\s*두뇌|50번째\s*전화/.test(lower)) {
       return {
-        clipKey: null,
-        reply: "2012년 한글 입체 퍼즐 발명과 문화체육관광부 장관 표창에서 출발해, 폐쇄망 소버린 AI와 방산 부품 여권으로 이어진 허상훈 대표님의 창업 스토리 페이지로 바로 안내해 드릴게요!",
+        clipKey: "nav_story",
+        reply: "2012년 한글 입체 퍼즐 발명과 문화체육관광부 장관 표창에서 출발해, 폐쇄망 소버린 AI와 방산 부품 여권으로 이어진 허상훈 대표의 창업 스토리 페이지로 안내해 드리겠습니다.",
         action: { type: "navigate", target: "story.html" }
       };
     }
     if (/부품\s*여권|파트\s*패스포트|필드\s*볼트|하드웨어\s*상세|동글|솔루션\s*상세/.test(lower)) {
       return {
         clipKey: "nav_passport",
-        reply: "방산 부품 여권과 Field Vault 하드웨어 상세 페이지로 이동할게요! 도면 유출 걱정 없이 단 1초 만에 무결성을 증명하는 구조를 보실 수 있어요.",
+        reply: "방산 부품 여권과 Field Vault 하드웨어 상세 페이지로 이동합니다. 도면 외부 유출 없이 단 3초 만에 무결성을 입증하는 암호학 봉인 구조를 확인하실 수 있습니다.",
         action: { type: "navigate", target: "service-single.html" }
       };
     }
     if (/솔루션|제품\s*소개|모듈|서비스\s*페이지/.test(lower)) {
       return {
         clipKey: "nav_service",
-        reply: "Cogni-OS의 핵심 아키텍처와 4대 모듈이 정리된 솔루션 페이지로 바로 안내해 드릴게요.",
+        reply: "Cogni-OS의 4대 핵심 계층과 Field Vault 하드웨어 사양이 수록된 솔루션 페이지로 안내해 드리겠습니다.",
         action: { type: "navigate", target: "service.html" }
       };
     }
     if (/아주산업|1호\s*계약|일호\s*계약|도면\s*복원|도면\s*296|3d\s*복원|성적표\s*상세|정밀\s*선택/.test(lower)) {
       return {
         clipKey: "nav_ajou",
-        reply: "아주산업 1.1억 원 1호 공급계약과, 2D 도면을 3D 모델로 복원한 실증 페이지로 이동할게요!",
+        reply: "아주산업 1.1억 원 1호 정식 공급계약과, 2차원 삼각법 도면을 3차원 솔리드 모델로 복원한 실증 상세 페이지로 이동합니다.",
         action: { type: "navigate", target: "work-single.html" }
       };
     }
     if (/실증\s*사례|실증사례|도입\s*사례|레퍼런스|로드맵|5단계|오단계|로보티즈/.test(lower)) {
       return {
         clipKey: "nav_work",
-        reply: "아주산업 공급계약부터 부품 여권 파일럿, 신한카드 공동연구, 그리고 로보티즈 로봇팔 로드맵까지 담긴 실증사례 페이지로 안내해 드릴게요.",
+        reply: "아주산업 1호 정식 공급계약부터 부품 여권 파일럿, 금융권 감사 실증, 그리고 5단계 피지컬 AI 로드맵이 수록된 실증사례 페이지로 안내해 드리겠습니다.",
         action: { type: "navigate", target: "work.html" }
       };
     }
     if (/2열|2단|이열/.test(lower) && /백서|블로그|아카이브/.test(lower)) {
       return {
         clipKey: "nav_blog2",
-        reply: "네, 기술 아카이브 2열 그리드 화면으로 이동할게요.",
+        reply: "글로벌 방산 및 사이버보안 규제 해설 2열 아카이브 페이지로 이동합니다.",
         action: { type: "navigate", target: "blog-two-columns.html" }
       };
     }
     if (/3열|3단|삼열/.test(lower) && /백서|블로그|아카이브/.test(lower)) {
       return {
         clipKey: "nav_blog3",
-        reply: "네, 기술 아카이브 3열 그리드 화면으로 이동할게요.",
+        reply: "Part Passport JSON 스키마 및 아키텍처 3열 아카이브 페이지로 이동합니다.",
         action: { type: "navigate", target: "blog-three-columns.html" }
       };
     }
     if (/백서\s*상세|백서\s*전문|암호학\s*백서|방산법\s*해설/.test(lower)) {
       return {
         clipKey: "nav_blog_single",
-        reply: "방위산업기술 보호법 대응과 암호학 해시 체인 봉인을 다룬 기술 백서 상세 페이지로 이동할게요.",
+        reply: "DEQ 상수 메모리 추론과 암호학 해시 체인 감사 봉인을 다룬 기술 백서 상세 페이지로 안내해 드리겠습니다.",
         action: { type: "navigate", target: "blog-single.html" }
       };
     }
     if (/백서|블로그|인사이트|규제\s*브리핑/.test(lower)) {
       return {
         clipKey: "nav_blog",
-        reply: "액사이드의 기술 백서와 방산 규제 브리핑 페이지로 안내해 드릴게요.",
+        reply: "2026년 방위산업기술 보호법 대응 전략과 기술 백서 페이지로 안내해 드리겠습니다.",
         action: { type: "navigate", target: "blog-standard.html" }
       };
     }
     if (/바이오|무질서\s*단백질|idp|idt|네이처|nature|에일리|알렉스|브론스타인|간암|간섬유화|사이언티스트|co-scientist|세포\s*시뮬레이션|신물질|equiphase/.test(lower)) {
       return {
         clipKey: "nav_bio",
-        reply: "네이처 바이오테크놀로지 등재 연구진(에일리 마르크스 박사, 알렉스 브론스타인 교수)과 함께하는 무질서 단백질 공동연구와 폐쇄망 ADAS 간암·세포 시뮬레이션·신물질 AI 테마관으로 바로 안내해 드릴게요!",
+        reply: "네이처 바이오테크놀로지 등재 연구진 및 국가과학자 김광수 교수와 교신 중인 무질서 단백질 다중 평형 연구와, 폐쇄망 신물질 AI 연구 테마관으로 안내해 드리겠습니다.",
         action: { type: "navigate", target: "bio-research.html" }
       };
     }
     if (/문의\s*페이지|도입\s*문의|상담\s*페이지|오시는\s*길|지도\s*보여/.test(lower)) {
       return {
         clipKey: "nav_contact",
-        reply: "1시간 현장 설치 데모와 파일럿 실증을 신청하실 수 있는 도입문의 페이지로 이동할게요.",
+        reply: "1시간 현장 설치 데모와 파일럿 실증을 신청하실 수 있는 도입문의 페이지로 안내해 드리겠습니다.",
         action: { type: "navigate", target: "contact.html" }
       };
     }
@@ -420,14 +419,14 @@
     if (/연간\s*갱신|원청\s*구독|1년차\s*도입|초기\s*도입|요금\s*스위치|요금제\s*비교\s*스위치|요금\s*전환|요금\s*바꿔/.test(lower)) {
       return {
         clipKey: "pricing_toggle",
-        reply: "요금제 비교 스위치를 전환해 드렸어요! 1년차 도입 비용과 연간 갱신 요금을 한눈에 비교해 보세요.",
+        reply: "요금제 비교 스위치를 전환하였습니다. 1년차 초기 도입 비용과 연간 갱신 요금을 비교해 보실 수 있습니다.",
         action: { type: "toggle_pricing", target: "#pricing" }
       };
     }
     if (/요금|가격|비용|얼마|구독료|플랜/.test(lower)) {
       return {
         clipKey: "pricing_info",
-        reply: "표준 Field Vault 패키지는 1년차 9,000만 원, 2·3년차 연 6,600만 원으로 이용하실 수 있고요, 원청 검증 노드는 연 3,600만 원이에요. 요금제 섹션으로 바로 안내해 드릴게요.",
+        reply: "표준 Field Vault 패키지는 1년차 9,000만 원, 2·3년차 연 6,600만 원으로 구성되어 있으며, 원청 검증 노드는 연 3,600만 원입니다. 요금제 섹션으로 안내해 드리겠습니다.",
         action: {
           type: document.querySelector("#pricing") ? "scroll" : "navigate",
           target: document.querySelector("#pricing") ? "#pricing" : "index.html#pricing"
@@ -443,7 +442,7 @@
       }
       return {
         clipKey: `faq_${idx}`,
-        reply: `자주 묻는 질문 ${idx}번 항목을 펼쳐서 보여드릴게요.`,
+        reply: `자주 묻는 질문 ${idx}번 항목의 상세 답변을 표시합니다.`,
         action: {
           type: document.querySelector(".section-faqs") ? "open_faq" : "navigate",
           target: document.querySelector(".section-faqs") ? String(idx) : "index.html"
@@ -453,7 +452,7 @@
     if (/팀|임원|리더십|안수진|황영배|박해선|키모브|atp|설치/.test(lower)) {
       return {
         clipKey: "team",
-        reply: "허상훈 대표님과 KAIST 안수진 CTO, 충북대 황영배 교수님, 주식회사 키모브 이사 박해선 기술멘토, 그리고 Field ATP 및 1시간 설치 & ATP 검수 전문가로 구성된 리더십 섹션으로 안내해 드릴게요.",
+        reply: "허상훈 대표와 KAIST 안수진 CTO, 충북대학교 황영배 교수, 그리고 현장 ATP 전문가로 구성된 리더십 섹션으로 안내해 드리겠습니다.",
         action: {
           type: document.querySelector(".section-team") ? "scroll" : "navigate",
           target: document.querySelector(".section-team") ? ".section-team" : "about.html"
@@ -463,7 +462,7 @@
     if (/특허|수상|연혁|pct/.test(lower)) {
       return {
         clipKey: "awards",
-        reply: "대한민국 등록특허와 PCT 국제출원, 그리고 1호 공급계약 이력이 담긴 섹션으로 이동할게요.",
+        reply: "대한민국 등록특허와 PCT 국제출원, 그리고 1호 정식 공급계약 이력이 수록된 섹션으로 이동합니다.",
         action: {
           type: document.querySelector(".section-awards") ? "scroll" : "navigate",
           target: document.querySelector(".section-awards") ? ".section-awards" : "index.html"
@@ -473,7 +472,7 @@
     if (/후기|추천사|고객\s*목소리|조난식/.test(lower)) {
       return {
         clipKey: "testimonials",
-        reply: "아주산업 조난식 대표님과 방산 품질보증 수석님의 생생한 도입 후기 섹션으로 안내해 드릴게요.",
+        reply: "아주산업 조난식 대표와 방산 품질보증 수석의 현장 도입 검증 후기 섹션으로 안내해 드리겠습니다.",
         action: {
           type: document.querySelector(".section-testimonials") ? "scroll" : "navigate",
           target: document.querySelector(".section-testimonials") ? ".section-testimonials" : "index.html"
@@ -483,7 +482,7 @@
     if (/통계|실측\s*숫자|성능|벤치마크|0\.161|96\.7/.test(lower)) {
       return {
         clipKey: "stats",
-        reply: "인터넷을 완전히 차단한 노트북에서 직접 측정한 0.161초 응답속도와, 96.7% 정확도 성적표를 보여드릴게요.",
+        reply: "물리적 폐쇄망 환경에서 직접 측정한 0.161초 첫 토큰 응답속도와, 96.7% 선호 정확도 실측 지표를 안내해 드리겠습니다.",
         action: {
           type: document.querySelector(".section-benefits") ? "scroll" : "navigate",
           target: document.querySelector(".section-benefits") ? ".section-benefits" : "index.html"
@@ -493,35 +492,35 @@
     if (/다음\s*슬라이드|오른쪽\s*슬라이드|넘겨/.test(lower)) {
       return {
         clipKey: "slide_next",
-        reply: "네, 다음 슬라이드로 넘겨드릴게요.",
+        reply: "다음 슬라이드로 이동합니다.",
         action: { type: "slide_next", target: "" }
       };
     }
     if (/이전\s*슬라이드|왼쪽\s*슬라이드/.test(lower)) {
       return {
         clipKey: "slide_prev",
-        reply: "네, 이전 슬라이드로 돌아갈게요.",
+        reply: "이전 슬라이드로 이동합니다.",
         action: { type: "slide_prev", target: "" }
       };
     }
     if (/맨\s*위|최상단|탑으로|위로\s*올려/.test(lower)) {
       return {
         clipKey: "scroll_top",
-        reply: "화면 맨 위로 부드럽게 올라갈게요.",
+        reply: "화면 최상단으로 이동합니다.",
         action: { type: "scroll", target: "top" }
       };
     }
     if (/맨\s*아래|최하단|푸터/.test(lower)) {
       return {
         clipKey: "scroll_bottom",
-        reply: "화면 맨 아래 푸터 영역으로 내려갈게요.",
+        reply: "화면 최하단 푸터 영역으로 이동합니다.",
         action: { type: "scroll", target: "footer" }
       };
     }
     if (/아래로|내려|스크롤/.test(lower)) {
       return {
         clipKey: "scroll_down",
-        reply: "화면을 아래로 조금 내려드릴게요.",
+        reply: "화면을 아래로 스크롤합니다.",
         action: { type: "scroll", target: "down" }
       };
     }
@@ -535,14 +534,14 @@
       else if (/레드|빨강|기본/.test(lower)) colorIdx = 1;
       return {
         clipKey: "theme",
-        reply: "방금 홈페이지 포인트 테마 색상을 산뜻하게 바꿔드렸어요!",
+        reply: "홈페이지 포인트 테마 색상을 전환하였습니다.",
         action: { type: "change_theme", target: String(colorIdx) }
       };
     }
     if (/데모\s*신청|양식\s*작성|폼\s*작성|상담\s*신청|신청서/.test(lower)) {
       return {
         clipKey: "demo_form",
-        reply: "1시간 현장 설치 데모 신청 양식으로 이동해서, 바로 접수하실 수 있게 기본 내용을 미리 채워두었어요.",
+        reply: "1시간 현장 설치 데모 신청 양식으로 이동하여, 즉시 접수하실 수 있도록 기본 신청 항목을 미리 입력해 두었습니다.",
         action: {
           type: document.querySelector(".form-contact") ? "fill_contact" : "navigate",
           target: document.querySelector(".form-contact") ? ".form-contact" : "contact.html"
@@ -554,42 +553,42 @@
     if (/안녕|반가워|누구|소개해|뭐하는|아리아/.test(lower)) {
       return {
         clipKey: "qa_intro",
-        reply: "안녕하세요! 저는 액사이드의 AI 매니저 아리아예요. 폐쇄망 AI Cogni-OS와 방산 부품 여권 안내부터, 원하시는 화면 이동까지 편하게 말씀만 해 주세요!",
+        reply: "안녕하십니까. 저는 액사이드의 수석 AI 아나운서 아리아입니다. 폐쇄망 AI 운영체제 Cogni-OS와 방산 부품 여권 브리핑부터 페이지 이동까지 정확하게 안내해 드리겠습니다.",
         action: { type: "none", target: "" }
       };
     }
     if (/방위산업|방산법|12월\s*10일|법률|유출|보호법/.test(lower)) {
       return {
         clipKey: "qa_law",
-        reply: "2026년 12월 10일 시행되는 방위산업기술 보호법은 도면 유출 시 무거운 처벌을 규정하고 있는데요, 액사이드는 도면을 공장 밖으로 단 1바이트도 내보내지 않고 여권 증명만 전달해서 이 문제를 완벽히 해결해 드려요.",
+        reply: "2026년 12월 10일 시행되는 개정 방위산업기술 보호법은 도면 유출 시 엄중한 처벌과 공급망 검증을 규정하고 있습니다. 액사이드는 원본 도면을 공장 밖으로 단 1바이트도 반출하지 않고 암호학 부품 여권만 전달하여 법적 리스크를 원천 해결합니다.",
         action: { type: "none", target: "" }
       };
     }
     if (/래퍼|wrapper|오픈소스|차별점|경쟁력|deq|상수\s*메모리/.test(lower)) {
       return {
         clipKey: "qa_wrapper",
-        reply: "액사이드는 단순한 오픈소스 래퍼가 아니에요. 특허받은 상수 메모리 추론 코어와 3D 도면 파서, 그리고 거짓 환각 대신 판단 보류를 선언하는 안전장치까지 갖춘 6계층 소버린 AI 운영체제랍니다.",
+        reply: "액사이드는 단순한 오픈소스 래퍼가 아닙니다. 등록특허 기반의 DEQ 상수 메모리 추론 코어와 3차원 도면 파서, 그리고 환각 대신 판단 보류를 선언하는 6계층 소버린 AI 운영체제입니다.",
         action: { type: "none", target: "" }
       };
     }
     if (/파드|pod|컨테이너|국산\s*반도체|퓨리오사|리벨리온/.test(lower)) {
       return {
         clipKey: "qa_pod",
-        reply: "Cogni-Vault Pod는 국산 AI 반도체 서버와 이중 보안 게이트, 로봇팔 측정 모듈을 컨테이너 하나에 담은 자동화 공장 패키지예요. 현장에 꽂기만 하면 당일 바로 가동된답니다.",
+        reply: "Cogni-Vault Pod는 국산 AI 반도체 서버와 이중 보안 게이트, 로봇팔 측정 모듈을 단일 컨테이너에 통합한 자율 제조 패키지입니다. 현장 반입 즉시 별도의 클라우드 연결 없이 독립 가동됩니다.",
         action: { type: "none", target: "" }
       };
     }
     if (/화성|우주|달\s*기지|극지|해상|비전|미래/.test(lower)) {
       return {
         clipKey: "qa_mars",
-        reply: "인터넷이 전혀 닿지 않는 극지나 해상, 나아가 달과 화성 기지에서도 지구 도움 없이 스스로 도면을 읽고 부품을 만들어 증명하는 것이 액사이드 Cogni-Vault Pod의 장기 비전이에요.",
+        reply: "통신과 인터넷이 완전히 단절된 극지와 해상, 나아가 달과 화성 기지에서도 외부 지원 없이 스스로 도면을 해독하고 부품을 가공하여 무결성을 증명하는 것이 액사이드의 장기 비전입니다.",
         action: { type: "none", target: "" }
       };
     }
     if (/연락처|전화번호|이메일|주소|위치|어디/.test(lower)) {
       return {
-        clipKey: null,
-        reply: "액사이드 본사 거점은 대전 방산혁신클러스터에 있어요! 공식 이메일이나 도입문의 게시판을 통해 신청해 주시면 당일 바로 안내해 드릴게요!",
+        clipKey: "qa_contact",
+        reply: "액사이드 본사 거점은 대전 방산혁신클러스터에 위치하고 있습니다. 공식 이메일 또는 도입문의 페이지를 통해 신청해 주시면 신속하게 기술 브리핑과 현장 데모를 지원해 드리겠습니다.",
         action: { type: "none", target: "" }
       };
     }
@@ -632,9 +631,9 @@
       // Fallback to local studio-grade human female response when static hosting is used
     }
 
-    // 3. Intelligent Contextual Fallback Response (with Studio-Grade Human Female Audio)
+    // 3. Intelligent Contextual Fallback Response (with Studio-Grade Female Announcer Audio)
     const fallbackReply =
-      "말씀하신 내용은 액사이드의 Cogni-OS와 방산 부품 여권에서 핵심으로 다루는 분야예요! '아키텍처 보여줘', '부품 여권으로 이동해줘', 또는 '요금제 알려줘'처럼 편하게 말씀해 주시면 바로 안내해 드릴게요.";
+      "말씀하신 주제는 액사이드의 Cogni-OS 및 방산 부품 여권 아키텍처와 밀접하게 연결되어 있습니다. 상단 메뉴 버튼을 선택하시거나 아키텍처, 부품 여권, 바이오 연구, 요금제 등 원하시는 키워드를 말씀해 주시면 즉시 브리핑해 드리겠습니다.";
     appendMessage("ai", fallbackReply);
     speakFemaleVoice(fallbackReply, null, "fallback");
   }
@@ -915,7 +914,7 @@
       const saved = sessionStorage.getItem(STORAGE_KEY_HISTORY);
       if (saved) return saved;
     } catch (e) {}
-    return "안녕하세요, 반갑습니다! 액사이드의 AI 매니저 아리아예요. 오늘 어떤 솔루션을 함께 둘러볼까요?";
+    return "안녕하십니까. 소버린 AI 기업 액사이드의 수석 브리핑 아나운서 아리아입니다. 오늘 어떤 솔루션과 실증 데이터를 안내해 드릴까요?";
   }
 
   function saveLastHeadline(text) {
@@ -1020,7 +1019,7 @@
   function triggerGreetingAndListen() {
     openVoicePanel();
     const greet =
-      "안녕하세요, 반갑습니다! 액사이드의 AI 매니저 아리아예요. 오늘 어떤 솔루션을 함께 둘러볼까요? 편하게 말씀해 주세요.";
+      "안녕하십니까. 소버린 AI 기업 액사이드의 수석 브리핑 아나운서 아리아입니다. 오늘 어떤 솔루션과 실증 데이터를 안내해 드릴까요?";
     appendMessage("ai", greet);
     speakFemaleVoice(
       greet,
