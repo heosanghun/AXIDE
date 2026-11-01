@@ -10111,17 +10111,28 @@ p,
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
+  padding: 44px 24px 0;
+  gap: 18px;
 }
 .section-about-us .col-left .sub {
   max-width: 100%;
   flex-wrap: wrap;
   text-align: center;
 }
+.section-about-us .col-left .title {
+  margin-bottom: 18px;
+}
 .section-about-us .col-left img {
-  margin-top: 24px;
-  max-height: 360px;
+  margin-top: 4px;
+  flex: 1 1 auto;
+  width: calc(100% + 48px);
+  margin-left: -24px;
+  margin-right: -24px;
+  max-height: none;
+  min-height: 360px;
   object-fit: cover;
+  object-position: center;
 }
 .section-about-us .review-box .desc {
   margin-bottom: 36px;
