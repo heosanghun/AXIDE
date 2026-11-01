@@ -8828,7 +8828,7 @@ button.animate-btn::after,
 }
 .team-item .sub {
   color: var(--neutral-400);
-  margin-bottom: 36px;
+  margin-bottom: 0;
 }
 .team-item.style-1 {
   text-align: start;
