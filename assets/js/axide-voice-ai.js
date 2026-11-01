@@ -1,6 +1,6 @@
 /**
  * AXIDE Cogni-Voice AI (아리아 · Aria)
- * Real Studio-Grade Neural Korean Female Voice (Seraphina HD + Gemini Live Aoede) + Full Website Controller
+ * Real Studio-Grade Neural Korean Female Voice (Seraphina HD + AXIDE Live Aria HD) + Full Website Controller
  * Domain: https://axide.ai | https://heosanghun.github.io/AXIDE/
  */
 (function () {
@@ -16,6 +16,8 @@
     "index.html": "메인 홈 (방산 폐쇄망 AI 표준)",
     "index-v2.html": "홈 02 (소버린 AI 모션 비디오)",
     "about.html": "회사소개 (AXIDE(법인 설립 준비 중))",
+    "story.html": "창업 스토리 (한글 퍼즐에서 소버린 AI까지)",
+    "bio-research.html": "바이오·신물질 연구 (Nature Biotech & 국가과학자 교신)",
     "service.html": "솔루션 (Cogni-OS 아키텍처 & 하드웨어)",
     "service-single.html": "방산 부품 여권 (Part Passport v1) 상세",
     "work.html": "실증사례 (공급계약 & 5단계 진화 로드맵)",
@@ -336,14 +338,19 @@
         action: { type: "navigate", target: "about.html" }
       };
     }
+    if (/창업\s*스토리|스토리\s*페이지|한글\s*퍼즐|한글\s*사랑|두\s*개의\s*두뇌|50번째\s*전화/.test(lower)) {
+      return {
+        clipKey: null,
+        reply: "2012년 한글 입체 퍼즐 발명과 문화체육관광부 장관 표창에서 출발해, 폐쇄망 소버린 AI와 방산 부품 여권으로 이어진 허상훈 대표님의 창업 스토리 페이지로 바로 안내해 드릴게요!",
+        action: { type: "navigate", target: "story.html" }
+      };
+    }
     if (/부품\s*여권|파트\s*패스포트|필드\s*볼트|하드웨어\s*상세|동글|솔루션\s*상세/.test(lower)) {
-      if (/이동|열어|가자|가줘|보여줘|페이지/.test(lower) || curPage !== "service-single.html") {
-        return {
-          clipKey: "nav_passport",
-          reply: "방산 부품 여권과 Field Vault 하드웨어 상세 페이지로 이동할게요! 도면 유출 걱정 없이 단 1초 만에 무결성을 증명하는 구조를 보실 수 있어요.",
-          action: { type: "navigate", target: "service-single.html" }
-        };
-      }
+      return {
+        clipKey: "nav_passport",
+        reply: "방산 부품 여권과 Field Vault 하드웨어 상세 페이지로 이동할게요! 도면 유출 걱정 없이 단 1초 만에 무결성을 증명하는 구조를 보실 수 있어요.",
+        action: { type: "navigate", target: "service-single.html" }
+      };
     }
     if (/솔루션|제품\s*소개|모듈|서비스\s*페이지/.test(lower)) {
       return {
@@ -359,14 +366,12 @@
         action: { type: "navigate", target: "work-single.html" }
       };
     }
-    if (/실증\s*사례|도입\s*사례|레퍼런스|로드맵|5단계|오단계|로보티즈/.test(lower)) {
-      if (/이동|페이지|열어|가줘|보여줘/.test(lower) && curPage !== "work.html") {
-        return {
-          clipKey: "nav_work",
-          reply: "아주산업 공급계약부터 부품 여권 파일럿, 신한카드 공동연구, 그리고 로보티즈 로봇팔 로드맵까지 담긴 실증사례 페이지로 안내해 드릴게요.",
-          action: { type: "navigate", target: "work.html" }
-        };
-      }
+    if (/실증\s*사례|실증사례|도입\s*사례|레퍼런스|로드맵|5단계|오단계|로보티즈/.test(lower)) {
+      return {
+        clipKey: "nav_work",
+        reply: "아주산업 공급계약부터 부품 여권 파일럿, 신한카드 공동연구, 그리고 로보티즈 로봇팔 로드맵까지 담긴 실증사례 페이지로 안내해 드릴게요.",
+        action: { type: "navigate", target: "work.html" }
+      };
     }
     if (/2열|2단|이열/.test(lower) && /백서|블로그|아카이브/.test(lower)) {
       return {
@@ -1040,7 +1045,7 @@
       micBtn.type = "button";
       micBtn.className = "axide-header-mic-btn";
       micBtn.setAttribute("aria-label", "AI 음성 비서 호출");
-      micBtn.setAttribute("title", "AI 음성 대화 및 사이트 제어 (Gemini Live · 아리아)");
+      micBtn.setAttribute("title", "AI 음성 대화 및 사이트 제어 (AXIDE Live · Aria HD)");
       micBtn.innerHTML = `
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M12 2C10.3431 2 9 3.34315 9 5V12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12V5C15 3.34315 13.6569 2 12 2Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1125,51 +1130,51 @@
 
         <!-- 3x2 Grid of 6 Minimal Dark Glass Action Tiles -->
         <div class="sims-action-grid">
-          <button type="button" class="sims-action-tile" data-cmd="참조 아키텍처 보여줘">
-            <svg viewBox="0 0 24 24" fill="none">
-              <rect x="7" y="3" width="10" height="7" rx="1.5" stroke="currentColor" stroke-width="1.7"/>
-              <path d="M12 10V17M12 17L9 14M12 17L15 14" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M5 20H19" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-            </svg>
-            <span>아키텍처</span>
-          </button>
-          <button type="button" class="sims-action-tile" data-cmd="부품 여권 페이지로 이동해줘">
-            <svg viewBox="0 0 24 24" fill="none">
-              <circle cx="6" cy="18" r="2.2" stroke="currentColor" stroke-width="1.7"/>
-              <path d="M8 18H12C14.2091 18 16 16.2091 16 14V10C16 7.79086 17.7909 6 20 6H21" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-              <path d="M18 3L21 6L18 9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <span>이동</span>
-          </button>
-          <button type="button" class="sims-action-tile" data-cmd="요금제 비교 스위치 전환해줘">
-            <svg viewBox="0 0 24 24" fill="none">
-              <rect x="3" y="5" width="18" height="14" rx="2.5" stroke="currentColor" stroke-width="1.7"/>
-              <path d="M10.5 9.5L14 12L10.5 14.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <span>테마 전환</span>
-          </button>
-          <button type="button" class="sims-action-tile" data-cmd="아키텍처 크게 확대해줘">
-            <svg viewBox="0 0 24 24" fill="none">
-              <rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.7"/>
-              <path d="M12 4V20M4 12H20" stroke="currentColor" stroke-width="1.7"/>
-            </svg>
-            <span>공간 분할</span>
-          </button>
-          <button type="button" class="sims-action-tile" data-cmd="아주산업 1호 계약 상세 보여줘">
-            <svg viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.7"/>
-              <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
-              <path d="M12 3V7M12 17V21M3 12H7M17 12H21" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-            </svg>
-            <span>정밀 선택</span>
-          </button>
           <button type="button" class="sims-action-tile" data-cmd="회사소개 페이지로 이동해줘">
             <svg viewBox="0 0 24 24" fill="none">
               <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.7"/>
               <ellipse cx="12" cy="12" rx="3.6" ry="8" stroke="currentColor" stroke-width="1.7"/>
               <path d="M4.5 9.5H19.5M4.5 14.5H19.5" stroke="currentColor" stroke-width="1.5"/>
             </svg>
-            <span>월드 모델</span>
+            <span>회사소개</span>
+          </button>
+          <button type="button" class="sims-action-tile" data-cmd="창업 스토리 페이지로 이동해줘">
+            <svg viewBox="0 0 24 24" fill="none">
+              <circle cx="6" cy="18" r="2.2" stroke="currentColor" stroke-width="1.7"/>
+              <path d="M8 18H12C14.2091 18 16 16.2091 16 14V10C16 7.79086 17.7909 6 20 6H21" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+              <path d="M18 3L21 6L18 9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>창업 스토리</span>
+          </button>
+          <button type="button" class="sims-action-tile" data-cmd="바이오 신물질 연구 페이지로 이동해줘">
+            <svg viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.7"/>
+              <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+              <path d="M12 3V7M12 17V21M3 12H7M17 12H21" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+            </svg>
+            <span>바이오·신물질</span>
+          </button>
+          <button type="button" class="sims-action-tile" data-cmd="솔루션 페이지로 이동해줘">
+            <svg viewBox="0 0 24 24" fill="none">
+              <rect x="7" y="3" width="10" height="7" rx="1.5" stroke="currentColor" stroke-width="1.7"/>
+              <path d="M12 10V17M12 17L9 14M12 17L15 14" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M5 20H19" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+            </svg>
+            <span>솔루션</span>
+          </button>
+          <button type="button" class="sims-action-tile" data-cmd="실증사례 페이지로 이동해줘">
+            <svg viewBox="0 0 24 24" fill="none">
+              <rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.7"/>
+              <path d="M12 4V20M4 12H20" stroke="currentColor" stroke-width="1.7"/>
+            </svg>
+            <span>실증사례</span>
+          </button>
+          <button type="button" class="sims-action-tile" data-cmd="기술 백서 페이지로 이동해줘">
+            <svg viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="5" width="18" height="14" rx="2.5" stroke="currentColor" stroke-width="1.7"/>
+              <path d="M10.5 9.5L14 12L10.5 14.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>기술·규제 백서</span>
           </button>
         </div>
 
@@ -1187,7 +1192,7 @@
         <div class="sims-footer-row">
           <span class="sims-live-indicator">
             <i class="sims-green-dot"></i>
-            Gemini Live · Aria HD
+            AXIDE Live · Aria HD
           </span>
           <span class="sims-barge-hint">말을 끊어도 돼요</span>
         </div>
