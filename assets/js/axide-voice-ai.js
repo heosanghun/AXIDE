@@ -413,7 +413,7 @@
     if (/바이오|무질서\s*단백질|idp|idt|네이처|nature|에일리|알렉스|브론스타인|간암|간섬유화|사이언티스트|co-scientist|세포\s*시뮬레이션|신물질|equiphase/.test(lower)) {
       return {
         clipKey: "nav_bio",
-        reply: "네이처 바이오테크놀로지 등재 연구진 및 국가과학자 김광수 교수와 교신 중인 무질서 단백질 다중 평형 연구와, 폐쇄망 신물질 AI 연구 테마관으로 안내해 드리겠습니다.",
+        reply: "네이처 바이오테크놀로지 등재 연구진 및 국가과학자 김** 특훈교수 연구진과 교신 중인 무질서 단백질 다중 평형 연구와, 폐쇄망 신물질 AI 연구 테마관으로 안내해 드리겠습니다.",
         action: { type: "navigate", target: "bio-research.html" }
       };
     }
