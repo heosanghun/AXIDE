@@ -438,10 +438,10 @@
         }
       };
     }
-    if (/팀|임원|리더십|안수진|황영배|박해선|키모브|아이브이알/.test(lower)) {
+    if (/팀|임원|리더십|안수진|황영배|박해선|키모브|atp|설치/.test(lower)) {
       return {
         clipKey: "team",
-        reply: "허상훈 대표님과 KAIST 안수진 CTO, 충북대 황영배 교수님, 주식회사 키모브 이사 박해선 기술멘토, 그리고 해군 잠수함 폐쇄망 납품 레퍼런스 협력업체인 아이브이알이 함께하는 리더십 및 파트너 섹션으로 안내해 드릴게요.",
+        reply: "허상훈 대표님과 KAIST 안수진 CTO, 충북대 황영배 교수님, 주식회사 키모브 이사 박해선 기술멘토, 그리고 Field ATP 및 1시간 설치 & ATP 검수 전문가로 구성된 리더십 섹션으로 안내해 드릴게요.",
         action: {
           type: document.querySelector(".section-team") ? "scroll" : "navigate",
           target: document.querySelector(".section-team") ? ".section-team" : "about.html"
