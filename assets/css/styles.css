@@ -9836,12 +9836,45 @@ footer .footer-content .text {
 footer .footer-bottom {
   position: relative;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
-  padding: 40px 0;
+  justify-content: center;
+  gap: 14px 28px;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px 24px 38px;
+  text-align: center;
 }
 footer .footer-bottom > * {
+  width: auto;
+}
+footer .footer-bottom .footer-links {
+  order: 1;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px 28px !important;
+  margin: 0;
+  padding: 0;
+}
+footer .footer-bottom .action-go-top {
+  order: 2;
+  justify-content: center !important;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.06);
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  transition: all 0.2s ease;
+}
+footer .footer-bottom .action-go-top:hover {
+  background: rgba(15, 23, 42, 0.12);
+  transform: translateY(-2px);
+}
+footer .footer-bottom .coppy-rights {
+  order: 3;
+  flex: 0 0 100%;
   width: 100%;
+  margin: 2px 0 0;
+  text-align: center;
 }
 footer .footer-bottom::before {
   position: absolute;
@@ -9856,6 +9889,7 @@ footer .footer-bottom::before {
   footer .footer-bottom {
     flex-wrap: wrap;
     gap: 12px;
+    padding: 26px 16px 32px;
   }
   footer .footer-bottom > * {
     justify-content: center !important;
