@@ -1,0 +1,188 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 920" width="1600" height="920" style="background:#060a12;font-family:'Pretendard','Noto Sans KR','Malgun Gothic',-apple-system,sans-serif;">
+  <defs>
+    <linearGradient id="bgGrad3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#050911"/>
+      <stop offset="50%" stop-color="#0a1222"/>
+      <stop offset="100%" stop-color="#04070e"/>
+    </linearGradient>
+    <linearGradient id="cardDark3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0c182c" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#060d19" stop-opacity="0.98"/>
+    </linearGradient>
+    <pattern id="cadGrid3" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#38bdf8" stroke-width="0.6" stroke-opacity="0.07"/>
+    </pattern>
+    <marker id="arrCyan3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#38bdf8"/>
+    </marker>
+    <marker id="arrGreen3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#10b981"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="920" fill="url(#bgGrad3)"/>
+  <rect width="1600" height="920" fill="url(#cadGrid3)"/>
+  <rect x="16" y="16" width="1568" height="888" rx="18" fill="none" stroke="#38bdf8" stroke-opacity="0.28" stroke-width="1.5"/>
+
+  <!-- Top Header Banner -->
+  <rect x="32" y="28" width="1536" height="68" rx="12" fill="#0b1528" stroke="#38bdf8" stroke-opacity="0.35"/>
+  <circle cx="58" cy="52" r="6" fill="#38bdf8"/>
+  <text x="74" y="57" fill="#38bdf8" font-size="13" font-weight="800" letter-spacing="1.5">AXIDE SOVEREIGN AI · ARCHITECTURE BLUEPRINT 03 / 04</text>
+  <text x="52" y="82" fill="#f8fafc" font-size="21" font-weight="800">도면은 공장 열쇠로만 열립니다 — 하드웨어 키(HSM) 귀속 암호화 &amp; 폐쇄망 RAM 인메모리 해독·즉시 소거</text>
+  <rect x="1220" y="42" width="330" height="40" rx="8" fill="#060d1a" stroke="#f59e0b" stroke-opacity="0.5"/>
+  <text x="1385" y="67" fill="#fcd34d" font-size="13" font-weight="800" text-anchor="middle">자물쇠는 원청에 · 물리 열쇠는 공장에</text>
+
+  <!-- ==================== 3-COLUMN CRYPTOGRAPHIC LIFECYCLE ==================== -->
+
+  <!-- STAGE 1: PRIME CONTRACTOR (원청 도면 봉인) -->
+  <rect x="32" y="114" width="486" height="546" rx="16" fill="url(#cardDark3)" stroke="#38bdf8" stroke-opacity="0.55" stroke-width="1.5"/>
+  <rect x="32" y="114" width="486" height="52" rx="16" fill="#0284c7" fill-opacity="0.22"/>
+  <text x="275" y="146" fill="#ffffff" font-size="18" font-weight="800" text-anchor="middle">STAGE 1 · 원청 (지정 공장 공개키로 도면 봉인)</text>
+
+  <!-- Step 1 Card -->
+  <g transform="translate(54, 186)">
+    <rect width="442" height="142" rx="12" fill="#091426" stroke="#38bdf8" stroke-opacity="0.45"/>
+    <rect x="18" y="18" width="40" height="40" rx="8" fill="#0284c7" fill-opacity="0.3" stroke="#38bdf8"/>
+    <text x="38" y="44" fill="#38bdf8" font-size="16" font-weight="800" text-anchor="middle">①</text>
+    <text x="72" y="34" fill="#38bdf8" font-size="15.5" font-weight="800">공장이 사전에 등록한 ‘열린 자물쇠(공개키)’</text>
+    <text x="72" y="56" fill="#ffffff" font-size="13.5" font-weight="700">원청 발주 시스템에 협력사 서버 고유 공개키 등록</text>
+    <text x="72" y="82" fill="#cbd5e1" font-size="12.5">• 각 협력사 공장 서버의 물리 보안 동글(HSM)마다 고유 키 쌍 생성</text>
+    <text x="72" y="104" fill="#cbd5e1" font-size="12.5">• 공개키(자물쇠)만 원청에 등록되고, 개인키(열쇠)는 공장 밖 반출 불가</text>
+    <text x="72" y="126" fill="#7dd3fc" font-size="11.5" font-weight="700">Algorithm: Ed25519 / X25519 + AES-256-GCM Hardware Binding</text>
+  </g>
+
+  <!-- Step 2 Card -->
+  <g transform="translate(54, 346)">
+    <rect width="442" height="154" rx="12" fill="#091426" stroke="#f59e0b" stroke-opacity="0.55"/>
+    <rect x="18" y="18" width="40" height="40" rx="8" fill="#d97706" fill-opacity="0.3" stroke="#f59e0b"/>
+    <text x="38" y="44" fill="#fbbf24" font-size="16" font-weight="800" text-anchor="middle">②</text>
+    <text x="72" y="34" fill="#fcd34d" font-size="15.5" font-weight="800">원청은 ‘봉인 전송’ 버튼 한 번으로 잠그고 전달</text>
+    <text x="72" y="56" fill="#ffffff" font-size="13.5" font-weight="700">복잡한 암호 설정 없이 원클릭 자동 암호화 패키징</text>
+    <text x="72" y="82" fill="#cbd5e1" font-size="12.5">• STEP · DWG · PDF 도면 원본과 작업지시서를 즉시 암호화(.axvault)</text>
+    <text x="72" y="104" fill="#cbd5e1" font-size="12.5">• 도면 원본의 SHA-256 지문(Hash)과 원청 전자서명을 헤더에 결합</text>
+    <rect x="72" y="116" width="350" height="26" rx="6" fill="#271b09" stroke="#f59e0b" stroke-opacity="0.5"/>
+    <text x="247" y="134" fill="#fcd34d" font-size="11.5" font-weight="800" text-anchor="middle">🔒 지정된 협력사 공장 서버 외에는 전 세계 어디서도 열람 불가</text>
+  </g>
+
+  <!-- Bottom note inside Stage 1 -->
+  <rect x="54" y="518" width="442" height="120" rx="12" fill="#06101e" stroke="#38bdf8" stroke-opacity="0.35"/>
+  <text x="275" y="548" fill="#7dd3fc" font-size="14" font-weight="800" text-anchor="middle">원청 보안 담당자 이점 (Prime Contractor Benefit)</text>
+  <text x="74" y="576" fill="#cbd5e1" font-size="12.5">✓ 협력사 이메일 오발송·외부 웹하드 해킹 시에도 도면 유출 피해 0%</text>
+  <text x="74" y="600" fill="#cbd5e1" font-size="12.5">✓ 2차·3차 협력사로의 무단 재하청 도면 전달 원천 차단</text>
+  <text x="74" y="624" fill="#6ee7b7" font-size="12.5" font-weight="700">✓ 방위산업기술 보호법상 ‘합리적 보호조치 이행’ 완벽 입증</text>
+
+  <!-- Arrow Stage 1 -> Stage 2 -->
+  <line x1="518" y1="380" x2="552" y2="380" stroke="#38bdf8" stroke-width="3" marker-end="url(#arrCyan3)"/>
+
+  <!-- STAGE 2: TRANSIT & OFFICE PC (메일·사무실 구간) -->
+  <rect x="556" y="114" width="488" height="546" rx="16" fill="url(#cardDark3)" stroke="#f43f5e" stroke-opacity="0.55" stroke-width="1.5"/>
+  <rect x="556" y="114" width="488" height="52" rx="16" fill="#e11d48" fill-opacity="0.2"/>
+  <text x="800" y="146" fill="#fda4af" font-size="18" font-weight="800" text-anchor="middle">STAGE 2 · 메일 · 사무실 구간 (중간 탈취 완전 무력화)</text>
+
+  <!-- Step 3 Card -->
+  <g transform="translate(578, 186)">
+    <rect width="444" height="154" rx="12" fill="#1a0f16" stroke="#f43f5e" stroke-opacity="0.6"/>
+    <rect x="18" y="18" width="40" height="40" rx="8" fill="#e11d48" fill-opacity="0.3" stroke="#f43f5e"/>
+    <text x="38" y="44" fill="#fda4af" font-size="16" font-weight="800" text-anchor="middle">③</text>
+    <text x="72" y="34" fill="#fda4af" font-size="15.5" font-weight="800">중간에서는 아무도 못 엶 (암호문 상태 유지)</text>
+    <text x="72" y="56" fill="#ffffff" font-size="13.5" font-weight="700">이메일 서버 · 사무실 인터넷 PC · 이동 구간 열람 불가</text>
+    <text x="72" y="82" fill="#fecdd3" font-size="12.5">• 사무실 인터넷 PC에서 파일을 더블클릭해도 열쇠(동글)가 없어 차단</text>
+    <text x="72" y="104" fill="#fecdd3" font-size="12.5">• 외부 해커가 네트워크 패킷이나 메일함을 탈취해도 해독 불가능</text>
+    <rect x="72" y="116" width="350" height="26" rx="6" fill="#2d0c16" stroke="#f43f5e" stroke-opacity="0.6"/>
+    <text x="247" y="134" fill="#fda4af" font-size="11.5" font-weight="800" text-anchor="middle">🚫 물리적 HSM 개인키 미보유 시 복호화 연산 원천 거부</text>
+  </g>
+
+  <!-- Step 5 & 6 Card (Quarantine & Wipe) -->
+  <g transform="translate(578, 358)">
+    <rect width="444" height="142" rx="12" fill="#091426" stroke="#38bdf8" stroke-opacity="0.45"/>
+    <rect x="18" y="18" width="40" height="40" rx="8" fill="#0284c7" fill-opacity="0.3" stroke="#38bdf8"/>
+    <text x="38" y="44" fill="#38bdf8" font-size="16" font-weight="800" text-anchor="middle">⑤</text>
+    <text x="72" y="34" fill="#38bdf8" font-size="15.5" font-weight="800">검역 통과 후 반입 &amp; 사무실 사본 즉시 삭제</text>
+    <text x="72" y="56" fill="#ffffff" font-size="13.5" font-weight="700">공장 반입과 동시에 외부 접점 흔적 완전 제거</text>
+    <text x="72" y="82" fill="#cbd5e1" font-size="12.5">• ⑤ 원청 서명 진위 확인 및 악성코드 정밀 검역 통과</text>
+    <text x="72" y="104" fill="#cbd5e1" font-size="12.5">• ⑥ 푸른 단방향 게이트로 반입 완료 즉시 사무실 PC 사본 영구 파기</text>
+    <text x="72" y="126" fill="#6ee7b7" font-size="11.5" font-weight="700">✓ 인터넷 연결 PC에는 암호화된 임시 파일조차 남지 않음</text>
+  </g>
+
+  <!-- Security Status Box -->
+  <rect x="578" y="518" width="444" height="120" rx="12" fill="#06101e" stroke="#f43f5e" stroke-opacity="0.4"/>
+  <text x="800" y="548" fill="#fda4af" font-size="14" font-weight="800" text-anchor="middle">기존 수기/이메일 방식 vs AXIDE 하드웨어 키 봉인</text>
+  <text x="598" y="576" fill="#94a3b8" font-size="12.5">• 기존 방식: 일반 PDF/DWG 첨부 발송 → 사무실 PC 해킹 시 즉시 유출</text>
+  <text x="598" y="600" fill="#ffffff" font-size="12.5" font-weight="700">• AXIDE 방식: 공장 서버 HSM 동글 결합 없이는 파일 열람 자체 불가</text>
+  <text x="598" y="624" fill="#34d399" font-size="12.5" font-weight="700">→ “파일이 지나가는 길(네트워크)이 털려도 도면 기밀은 100% 안전”</text>
+
+  <!-- Arrow Stage 2 -> Stage 3 -->
+  <line x1="1044" y1="380" x2="1078" y2="380" stroke="#10b981" stroke-width="3" marker-end="url(#arrGreen3)"/>
+
+  <!-- STAGE 3: AIR-GAPPED FACTORY SERVER (공장 폐쇄망 서버) -->
+  <rect x="1082" y="114" width="486" height="546" rx="16" fill="url(#cardDark3)" stroke="#10b981" stroke-opacity="0.7" stroke-width="2"/>
+  <rect x="1082" y="114" width="486" height="52" rx="16" fill="#10b981" fill-opacity="0.22"/>
+  <text x="1325" y="146" fill="#34d399" font-size="18" font-weight="800" text-anchor="middle">STAGE 3 · 공장 폐쇄망 서버 (인메모리 해독 · 소거)</text>
+
+  <!-- Step 4 Card -->
+  <g transform="translate(1104, 186)">
+    <rect width="442" height="162" rx="12" fill="#061b15" stroke="#10b981" stroke-opacity="0.65"/>
+    <rect x="18" y="18" width="40" height="40" rx="8" fill="#059669" fill-opacity="0.3" stroke="#10b981"/>
+    <text x="38" y="44" fill="#34d399" font-size="16" font-weight="800" text-anchor="middle">④</text>
+    <text x="72" y="34" fill="#34d399" font-size="15.5" font-weight="800">공장 서버에서만 열림 &amp; 작업 후 메모리 즉시 소거</text>
+    <text x="72" y="56" fill="#ffffff" font-size="13.5" font-weight="700">물리 보안 동글(HSM) 결합 + 디스크 평문 저장 0 Byte</text>
+    <text x="72" y="82" fill="#cbd5e1" font-size="12.5">• 서버에 꽂힌 물리 보안 동글(열쇠)과 마더보드 ID가 일치해야 복호화</text>
+    <text x="72" y="104" fill="#cbd5e1" font-size="12.5">• 디스크(SSD)에 평문 도면을 쓰지 않고 GPU/RAM 메모리 위에서만 처리</text>
+    <rect x="72" y="118" width="350" height="28" rx="6" fill="#042f2e" stroke="#10b981" stroke-opacity="0.7"/>
+    <text x="247" y="137" fill="#6ee7b7" font-size="11.5" font-weight="800" text-anchor="middle">⚡ 가공·검수 완료 즉시 RAM 제로화(Zero-ization) 완전 휘발</text>
+  </g>
+
+  <!-- Step 7 Card -->
+  <g transform="translate(1104, 366)">
+    <rect width="442" height="134" rx="12" fill="#091426" stroke="#f59e0b" stroke-opacity="0.55"/>
+    <rect x="18" y="18" width="40" height="40" rx="8" fill="#d97706" fill-opacity="0.3" stroke="#f59e0b"/>
+    <text x="38" y="44" fill="#fbbf24" font-size="16" font-weight="800" text-anchor="middle">⑦</text>
+    <text x="72" y="34" fill="#fcd34d" font-size="15.5" font-weight="800">열람 · 가공 · 소거 전 과정 SHA-256 감사 기록</text>
+    <text x="72" y="56" fill="#ffffff" font-size="13.5" font-weight="700">“몇 시에 열어서 어떤 부품을 가공하고 지웠는지” 영구 봉인</text>
+    <text x="72" y="82" fill="#cbd5e1" font-size="12.5">• 도면 복호화 시각 · 작업자 승인 · CNC 가공 로그 · RAM 소거 시각 기록</text>
+    <text x="72" y="104" fill="#cbd5e1" font-size="12.5">• 부품 여권(Part Passport)에 보안 감사 증적이 함께 묶여 원청에 증명됨</text>
+  </g>
+
+  <!-- Hardware Key Spec Box -->
+  <rect x="1104" y="518" width="442" height="120" rx="12" fill="#06101e" stroke="#10b981" stroke-opacity="0.5"/>
+  <text x="1325" y="548" fill="#34d399" font-size="14" font-weight="800" text-anchor="middle">물리적 하드웨어 귀속 (Hardware Root of Trust)</text>
+  <text x="1124" y="576" fill="#cbd5e1" font-size="12.5">• USB 보안 동글 분실·탈취 시에도 지정 공장 서버 본체 없이는 작동 불가</text>
+  <text x="1124" y="600" fill="#cbd5e1" font-size="12.5">• 비인가 USB 연결 또는 케이스 개방 감지 시 복호화 세션 즉시 잠금</text>
+  <text x="1124" y="624" fill="#6ee7b7" font-size="12.5" font-weight="700">• 오프라인 1회용 활성화 코드 및 분기별 서명 검증 모듈 업데이트 지원</text>
+
+  <!-- ==================== 3 PILLAR SUMMARY CARDS AT BOTTOM ==================== -->
+  <g transform="translate(32, 680)">
+    <rect width="486" height="150" rx="14" fill="#17120a" stroke="#f59e0b" stroke-opacity="0.65" stroke-width="1.5"/>
+    <rect x="24" y="24" width="56" height="56" rx="12" fill="#d97706" fill-opacity="0.25" stroke="#f59e0b"/>
+    <text x="52" y="60" fill="#fbbf24" font-size="26" text-anchor="middle">🔒</text>
+    <text x="98" y="46" fill="#fcd34d" font-size="18" font-weight="800">자물쇠는 원청에, 열쇠는 공장에</text>
+    <text x="98" y="74" fill="#e2e8f0" font-size="13.5">원청은 공장의 공개키(열린 자물쇠)로 도면을 잠그고,</text>
+    <text x="98" y="96" fill="#e2e8f0" font-size="13.5">오직 공장 서버 내부의 물리 보안 동글(열쇠)만이</text>
+    <text x="98" y="118" fill="#fcd34d" font-size="13.5" font-weight="700">폐쇄망 메모리 위에서 도면을 해독할 수 있습니다.</text>
+  </g>
+
+  <g transform="translate(556, 680)">
+    <rect width="488" height="150" rx="14" fill="#09182b" stroke="#38bdf8" stroke-opacity="0.65" stroke-width="1.5"/>
+    <rect x="24" y="24" width="56" height="56" rx="12" fill="#0284c7" fill-opacity="0.25" stroke="#38bdf8"/>
+    <text x="52" y="60" fill="#38bdf8" font-size="26" text-anchor="middle">⚡</text>
+    <text x="98" y="46" fill="#38bdf8" font-size="18" font-weight="800">원청 할 일은 ‘봉인 전송’ 버튼 한 번</text>
+    <text x="98" y="74" fill="#e2e8f0" font-size="13.5">복잡한 보안 프로그램 설치나 암호 교환 절차 없이,</text>
+    <text x="98" y="96" fill="#e2e8f0" font-size="13.5">발주 화면에서 ‘봉인 전송’ 한 번이면 협력사 전용 암호화</text>
+    <text x="98" y="118" fill="#7dd3fc" font-size="13.5" font-weight="700">패키지가 생성되어 전달 구간 탈취를 원천 무력화합니다.</text>
+  </g>
+
+  <g transform="translate(1082, 680)">
+    <rect width="486" height="150" rx="14" fill="#061b15" stroke="#10b981" stroke-opacity="0.65" stroke-width="1.5"/>
+    <rect x="24" y="24" width="56" height="56" rx="12" fill="#059669" fill-opacity="0.25" stroke="#10b981"/>
+    <text x="52" y="60" fill="#34d399" font-size="26" text-anchor="middle">📜</text>
+    <text x="98" y="46" fill="#34d399" font-size="18" font-weight="800">안 남기고 지우되, 기록은 영구히 남는다</text>
+    <text x="98" y="74" fill="#e2e8f0" font-size="13.5">가공이 끝나면 메모리(RAM) 속 평문 도면은 즉시 소거되어</text>
+    <text x="98" y="96" fill="#e2e8f0" font-size="13.5">파일 흔적이 남지 않지만, 열람·가공·소거 감사 로그는</text>
+    <text x="98" y="118" fill="#6ee7b7" font-size="13.5" font-weight="700">SHA-256 해시 체인에 영구 보존되어 결백을 증명합니다.</text>
+  </g>
+
+  <!-- Bottom Engineering Title Block -->
+  <rect x="32" y="846" width="1536" height="44" rx="10" fill="#091222" stroke="#38bdf8" stroke-opacity="0.3"/>
+  <text x="52" y="873" fill="#cbd5e1" font-size="12.5" font-weight="700">암호학 표준: X25519 키 교환 · AES-256-GCM 도면 암호화 · Ed25519 전자서명 · SHA-256 해시 체인 · 하드웨어 USB 보안 동글(HSM) 바인딩</text>
+  <text x="1548" y="873" fill="#94a3b8" font-size="12" font-weight="700" text-anchor="end">DOC: HSM-BLUEPRINT-SEAL-V2 · REV 2.0 · SHEET 3 / 4</text>
+</svg>

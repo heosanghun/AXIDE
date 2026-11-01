@@ -11909,18 +11909,106 @@ footer .footer-content .footer-logo.axide-footer-brand {
   border-radius: 9px;
   display: block;
 }
+.axide-deck-card .deck-card-badge {
+  padding: 2px 6px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #38bdf8;
+  text-transform: uppercase;
+}
+.axide-deck-card .deck-card-badge.badge-amber { color: #fbbf24; }
+.axide-deck-card .deck-card-badge.badge-red { color: #fb7185; }
+.axide-deck-card .deck-card-badge.badge-green { color: #34d399; }
 .axide-deck-card .deck-card-label {
-  padding: 0 4px;
-  font-size: 12px;
-  font-weight: 700;
-  color: #e2e8f0;
+  padding: 0 6px;
+  font-size: 13px;
+  font-weight: 800;
+  color: #f8fafc;
   letter-spacing: -0.02em;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.axide-deck-card .deck-card-sub {
+  padding: 0 6px 4px;
+  font-size: 11.5px;
+  color: #94a3b8;
+  line-height: 1.38;
+}
 .axide-deck-card.active .deck-card-label {
   color: #38bdf8;
+}
+.axide-hw-proof-strip {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(56, 189, 248, 0.16);
+}
+.axide-hw-proof-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+@media (max-width: 991px) {
+  .axide-hw-proof-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 575px) {
+  .axide-hw-proof-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.axide-hw-proof-card {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 9px 11px;
+  border-radius: 12px;
+  background: rgba(15, 23, 42, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  text-decoration: none;
+  transition: all 0.22s ease;
+}
+.axide-hw-proof-card:hover {
+  border-color: rgba(56, 189, 248, 0.48);
+  background: rgba(15, 23, 42, 0.96);
+  transform: translateY(-2px);
+}
+.axide-hw-proof-card img {
+  width: 64px;
+  height: 46px;
+  border-radius: 7px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+.axide-hw-proof-meta {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.axide-hw-proof-tag {
+  font-size: 10px;
+  font-weight: 800;
+  color: #38bdf8;
+  letter-spacing: 0.04em;
+}
+.axide-hw-proof-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: #f1f5f9;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.axide-hw-proof-desc {
+  font-size: 11px;
+  color: #94a3b8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* ==========================================================================

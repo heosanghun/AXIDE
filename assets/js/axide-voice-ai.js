@@ -1293,6 +1293,16 @@
       });
     });
 
+    document.querySelectorAll(".axide-hw-proof-card").forEach((card) => {
+      card.addEventListener("click", function (e) {
+        const href = this.getAttribute("href");
+        if (href && (href.indexOf(".jpg") !== -1 || href.indexOf(".png") !== -1 || href.indexOf(".svg") !== -1)) {
+          e.preventDefault();
+          openArchModal(href);
+        }
+      });
+    });
+
     // Interactive 8-Infographic Master Deck switcher
     document.querySelectorAll(".axide-deck-card").forEach((card) => {
       card.addEventListener("click", function () {
