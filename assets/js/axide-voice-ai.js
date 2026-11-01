@@ -6,11 +6,11 @@
 (function () {
   "use strict";
 
-  const STORAGE_KEY_HISTORY = "axide_voice_history_v2";
+  const STORAGE_KEY_HISTORY = "axide_voice_history_v3";
   const STORAGE_KEY_OPEN = "axide_voice_panel_open_v1";
   const STORAGE_KEY_PENDING = "axide_voice_pending_utterance_v1";
   const STORAGE_KEY_PENDING_CLIP = "axide_voice_pending_clip_v1";
-  const AUDIO_VERSION = "20261102v47";
+  const AUDIO_VERSION = "20261102v48";
 
   const PAGE_LABELS = {
     "index.html": "메인 홈 (방산 폐쇄망 AI 표준)",
@@ -911,8 +911,10 @@
    * -------------------------------------------------------------------------- */
   function loadLastHeadline() {
     try {
+      sessionStorage.removeItem("axide_voice_history_v1");
+      sessionStorage.removeItem("axide_voice_history_v2");
       const saved = sessionStorage.getItem(STORAGE_KEY_HISTORY);
-      if (saved) return saved;
+      if (saved && !/드릴게요|둘러볼까요|아리아예요/.test(saved)) return saved;
     } catch (e) {}
     return "안녕하십니까. 소버린 AI 기업 액사이드의 수석 브리핑 아나운서 아리아입니다. 오늘 어떤 솔루션과 실증 데이터를 안내해 드릴까요?";
   }
