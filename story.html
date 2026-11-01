@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko-KR" lang="ko-KR"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko-KR" lang="ko-KR">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <title>창업 스토리 & 아키텍처 | AXIDE(법인 설립 준비 중) — 한글 퍼즐에서 공장용 AI 운영체계까지</title>
+    <meta name="author" content="AXIDE(법인 설립 준비 중)">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description"
+        content="AI를 밖에서 빌려 쓰지 말고, 조각내고 증류해서 공장 안으로 들여보내자. 2011년 한글 모듈 가구(문체부장관 표창)와 12년 항공정비 3D 시스템, 카너먼의 두 개의 두뇌 박사논문이 만나 폐쇄망 제조 AI 운영체계 Cogni-OS와 방산 부품 여권이 되기까지의 창업 스토리와 전체 시스템 아키텍처.">
+
+    <!-- font -->
+    <link rel="stylesheet" href="assets/fonts/fonts.css">
+    <link rel="stylesheet" href="assets/icon/icomoon/style.css">
+    <!-- css -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+
+    <link rel="stylesheet" href="assets/css/slick.css">
+    <link rel="stylesheet" href="assets/css/slick.theme.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css?v=20261101v19">
+
+    <!-- Favicon and Touch Icons  -->
+    <link rel="shortcut icon" href="assets/images/logo/favicon.svg?v=20261101v19">
+    <link rel="apple-touch-icon-precomposed" href="assets/images/logo/favicon.svg?v=20261101v19">
+</head>
+
+<body class="counter-scroll">
+    <!-- Scroll Top -->
+    <button id="goTop">
+        <span class="border-progress"></span>
+        <span class="ic-wrap">
+            <span class="icon icon-long-arrow-alt-up-solid"></span>
+        </span>
+    </button>
+    <!-- /Scroll Top -->
+
+    <!-- #wrapper -->
+    <main id="wrapper">
+
+        <!-- Header -->
+        <header class="tf-header header1">
+            <div class="header-inner">
+                <a href="index.html" class="logo-site axide-luxury-brand">
+                    <span class="axide-emblem-jewel">
+                        <img src="assets/images/logo/axide-emblem.png?v=20261101v19" alt="AXIDE 3D Sovereign AI Emblem">
+                    </span>
+                    <span class="axide-brand-copy">
+                        <span class="axide-brand-row">
+                            <span class="axide-brand-word">AXIDE</span>
+                            <span class="axide-brand-dot"></span>
+                            <span class="axide-brand-ai">AI</span>
+                        </span>
+                        <span class="axide-brand-sub">SOVEREIGN AI · COGNI-OS</span>
+                    </span>
+                </a>
+                <div class="box-navigation">
+                    <ul class="nav-menu-main">
+                        <li class="menu-item has-child">
+                            <a href="index.html" class="item-link link1">홈</a>
+                            <ul class="sub-menu">
+                                <li class="sub-menu-item">
+                                    <a href="index.html" class="item-link link1">홈 01 — 방산 폐쇄망 AI 표준</a>
+                                </li>
+                                <li class="sub-menu-item">
+                                    <a href="index-v2.html" class="item-link link1">홈 02 — 소버린 AI 모션</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="menu-item">
+                            <a href="about.html" class="item-link link1">회사소개</a>
+                        </li>
+                        <li class="menu-item has-child">
+                            <a href="story.html" class="item-link link1 active">창업 스토리</a>
+                            <ul class="sub-menu">
+                                <li class="sub-menu-item">
+                                    <a href="story.html#story-prologue" class="item-link link1 active">한 줄 약속 & 작동 흐름</a>
+                                </li>
+                                <li class="sub-menu-item">
+                                    <a href="story.html#act-origin" class="item-link link1">Act 1. 한글 퍼즐과 두 개의 두뇌</a>
+                                </li>
+                                <li class="sub-menu-item">
+                                    <a href="story.html#act-architecture" class="item-link link1">Act 2. 4대 핵심 기술 & 6계층 OS</a>
+                                </li>
+                                <li class="sub-menu-item">
+                                    <a href="story.html#act-passport" class="item-link link1">Act 3. 부품 여권 & 수익 모델</a>
+                                </li>
+                                <li class="sub-menu-item">
+                                    <a href="story.html#act-journey" class="item-link link1">Act 4. 50번째 전화 & 대전의 중심축</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="menu-item has-child">
+                            <a href="service.html" class="item-link link1">솔루션</a>
+                            <ul class="sub-menu">
+                                <li class="sub-menu-item">
+                                    <a href="service.html" class="item-link link1">Cogni-OS 3층 아키텍처 & 하드웨어</a>
+                                </li>
+                                <li class="sub-menu-item">
+                                    <a href="service-single.html" class="item-link link1">방산 부품 여권 (Part Passport v1)</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="menu-item has-child">
+                            <a href="work.html" class="item-link link1">실증사례</a>
+                            <ul class="sub-menu">
+                                <li class="sub-menu-item">
+                                    <a href="work.html" class="item-link link1">공급계약 & 5단계 진화 로드맵</a>
+                                </li>
+                                <li class="sub-menu-item">
+                                    <a href="work-single.html" class="item-link link1">아주산업 1호 계약 & 도면 복원 실측</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="menu-item has-child">
+                            <a href="blog-standard.html" class="item-link link1">기술·규제 백서</a>
+                            <ul class="sub-menu">
+                                <li class="sub-menu-item">
+                                    <a href="blog-standard.html" class="item-link link1">기술 백서 & 규제 브리핑</a>
+                                </li>
+                                <li class="sub-menu-item">
+                                    <a href="blog-two-columns.html" class="item-link link1">기술 아카이브 (2열)</a>
+                                </li>
+                                <li class="sub-menu-item">
+                                    <a href="blog-three-columns.html" class="item-link link1">기술 아카이브 (3열)</a>
+                                </li>
+                                <li class="sub-menu-item">
+                                    <a href="blog-single.html" class="item-link link1">DEQ 상수 메모리 & 감사 봉인 상세</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="menu-item">
+                            <a href="contact.html" class="item-link link1">도입문의</a>
+                        </li>
+                    </ul>
+                </div>
+                <a href="contact.html" class="tf-btn d-lg-flex d-none">
+                    1시간 현장 데모 신청
+                </a>
+                <a href="#" class="tf-btn style-1 open-mb-menu mobile-menu d-lg-none d-flex">
+                    <i class="icon icon-grip-lines-solid"></i>
+                </a>
+            </div>
+        </header>
+        <!-- /Header -->
+
+        <!-- Hero Banner -->
+        <div class="section-hero v1">
+            <div class="hero-image"></div>
+            <div class="container">
+                <div class="content-wrap text-center">
+                    <div class="sub-tag d-inline-flex align-items-center gap-8 mb-16 px-3 py-2 rounded-pill" style="background: rgba(56, 189, 248, 0.12); border: 1px solid rgba(56, 189, 248, 0.35);">
+                        <span class="dot" style="width: 8px; height: 8px; border-radius: 50%; background: #38bdf8; display: inline-block;"></span>
+                        <span class="text-caption fw-bold" style="color: #0284c7;">FOUNDER'S STORY & SYSTEM ARCHITECTURE DOSSIER</span>
+                    </div>
+                    <div class="title text-display-2 effectFade fadeRotateX">
+                        <span class="title1 fw-semibold text-gradient-1">“AI를 밖에서 빌려 쓰지 말고,</span>
+                        <br>
+                        <div class="title2 d-flex gap-20 justify-content-center flex-wrap">
+                            <span class="fw-semibold text-gradient-1">조각내고 증류해 공장 안으로”</span>
+                        </div>
+                    </div>
+                    <p class="text effectFade fadeUp" style="max-width: 880px; margin: 20px auto 32px;">
+                        2011년 문화체육관광부장관 표창을 받은 <strong>‘한글 자·모 모듈 결합 가구’</strong>에서 <strong>항공정비 교육훈련 3D 시스템 개발 12년</strong>, 그리고 <strong>카너먼의 두 개의 두뇌(System 1 · System 2) 박사학위논문</strong>까지.<br>
+                        15년간 흩어져 있던 삶의 조각들이 <strong>‘AXIDE(천체가 회전하는 중심축)’</strong>라는 이름 아래 대한민국 제조업의 폐쇄망 AI 운영체계 <strong>Cogni-OS</strong>와 <strong>방산 부품 여권</strong>으로 맞춰진 이야기를 공개합니다.
+                    </p>
+                    <div class="d-flex gap-16 justify-content-center flex-wrap effectFade fadeUp">
+                        <a href="#story-prologue" class="tf-btn">
+                            스토리 & 도해 정독하기
+                        </a>
+                        <a href="assets/images/story/axide-reference-story.pdf" target="_blank" class="tf-btn style-2">
+                            원본 레퍼런스 자료(PDF) 열람
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Hero Banner -->
+
+        <!-- Sticky Chapter Bar -->
+        <div class="container">
+            <nav class="story-chapter-bar" aria-label="창업 스토리 챕터 내비게이션">
+                <a href="#story-prologue" class="story-chapter-link active">
+                    <span class="chap-num">PROLOGUE</span> 한 줄 약속 & 작동 흐름
+                </a>
+                <a href="#act-origin" class="story-chapter-link">
+                    <span class="chap-num">ACT 1</span> 한글 퍼즐과 두 개의 두뇌
+                </a>
+                <a href="#act-architecture" class="story-chapter-link">
+                    <span class="chap-num">ACT 2</span> 4대 핵심 기술 & 6계층 OS
+                </a>
+                <a href="#act-passport" class="story-chapter-link">
+                    <span class="chap-num">ACT 3</span> 부품 여권 & 수익 모델
+                </a>
+                <a href="#act-journey" class="story-chapter-link">
+                    <span class="chap-num">ACT 4</span> 50번째 전화 & 위기 극복
+                </a>
+                <a href="#act-vision" class="story-chapter-link">
+                    <span class="chap-num">EPILOGUE</span> 대전의 중심축 · 3막 비전
+                </a>
+            </nav>
+        </div>
+
+        <!-- Main Story Container -->
+        <section class="flat-spacing pt-0">
+            <div class="container">
+
+                <!-- =========================================================
+                     PROLOGUE: 회사의 한 줄 약속 & Cogni-OS 작동 흐름 (image01.png)
+                     ========================================================= -->
+                <div id="story-prologue" class="story-shell-dark">
+                    <div class="row align-items-center mb-32">
+                        <div class="col-lg-8">
+                            <span class="story-act-badge">PROLOGUE · OUR ONE-LINE PROMISE</span>
+                            <h2 class="story-headline">“도면은 공장 밖으로 나가지 않고,<br>부품은 여권을 들고 올라옵니다.”</h2>
+                            <p class="story-lead mb-0">
+                                <strong>Cogni-OS</strong>는 <strong>“도면만 넣으면 분석·감수, 3D 모델링, 정밀 가공 데이터까지 이어 주는 공장용 AI 운영체계”</strong>입니다. 인터넷 연결 없이 <strong>GPU 한 장짜리 서버</strong>에서 돌아가며, 모든 과정이 위·변조할 수 없는 암호학적 기록으로 남습니다.
+                            </p>
+                        </div>
+                        <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
+                            <div class="d-inline-flex flex-column align-items-lg-end gap-2">
+                                <span class="badge bg-info text-dark fw-bold px-3 py-2 rounded-pill">외부 인터넷 포트 0 · 32GB/48GB 단일 GPU</span>
+                                <span class="badge bg-warning text-dark fw-bold px-3 py-2 rounded-pill">시제품(MVP) 계약 기준 검수 100% 통과</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Original Image 01 Showcase -->
+                    <div class="story-figure-card mb-28">
+                        <div class="story-figure-Stage" onclick="openStoryLightbox('assets/images/story/image01.png', '도면은 공장 안에, 부품은 여권을 들고 — 폐쇄망 에어갭 공장과 대한민국 원청 간 부품 여권 검증 체계', true)">
+                            <img src="assets/images/story/image01.png" alt="도면은 공장 안에, 부품은 여권을 들고 — AXIDE Cogni-OS 핵심 비전 일러스트">
+                            <span class="story-zoom-pill">🔍 원본 고해상도 확대 보기</span>
+                        </div>
+                        <div class="story-figure-body">
+                            <div>
+                                <span class="story-figure-tag">ORIGINAL REFERENCE VISUAL 01 · SOVEREIGN FACTORY DOME</span>
+                                <h3 class="story-figure-title">도면은 공장 안에 봉인되고, 부품만 암호화 여권(VERIFIED)을 들고 원청으로 올라갑니다</h3>
+                                <p class="story-figure-desc">
+                                    클라우드 연결이 원천 차단된 에어갭(폐쇄망) 정밀가공 공장 내부에서 도면 판독·3D 모델링·가공·측정이 완결되며, 입고 시 원청 품질·보안팀은 협력사 내부망을 들여다보지 않고도 부품 여권 하나로 <strong>“이 부품이 정본 도면대로, 유출 없이 가공되었다”</strong>는 사실을 즉시 검증합니다.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5-Step Operational Flow -->
+                    <div class="mt-4">
+                        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-12">
+                            <h5 class="text-white fw-bold mb-0">⚡ Cogni-OS 현장 5단계 작동 흐름 (스마트글라스 음성 질의 + 산업용 태블릿 결과 확인)</h5>
+                            <span class="text-caption" style="color: #38bdf8;">※ 현재 ①~③과 ⑤ 상용 구현 완료 · ④ 가공 장비 연동은 금산 330평 테스트베드에서 확장 중</span>
+                        </div>
+                        <div class="story-flow-steps">
+                            <div class="story-flow-step">
+                                <span class="step-num">STEP 01 · 도면 투입</span>
+                                <h6>2D / 3D 도면 입력</h6>
+                                <p>폐쇄망 서버에 2D 기계제도 도면(DXF·PDF) 및 3D 원본 도면을 외부 반출 없이 로컬 투입합니다.</p>
+                            </div>
+                            <div class="story-flow-step">
+                                <span class="step-num">STEP 02 · AI 감수</span>
+                                <h6>형상·치수·공차 분석</h6>
+                                <p>AI가 기하공차·치수·누락 요소를 결정론적으로 분석하고 설계 감수 의견을 즉시 제시합니다.</p>
+                            </div>
+                            <div class="story-flow-step">
+                                <span class="step-num">STEP 03 · 3D 모델링</span>
+                                <h6>STEP / STL 자동 생성·편집</h6>
+                                <p>도면을 바탕으로 3D 정밀 모델(STEP·STL)과 단면도를 자동 생성·편집해 태블릿과 글라스에 띄웁니다.</p>
+                            </div>
+                            <div class="story-flow-step">
+                                <span class="step-num">STEP 04 · 장비 연결</span>
+                                <h6>CNC · 금속 3D 프린팅 연결</h6>
+                                <p>검증된 3D 형상을 CNC 가공 경로(G-code) 및 금속 적층제조(AM) 슬라이서 데이터로 직결합니다.</p>
+                            </div>
+                            <div class="story-flow-step">
+                                <span class="step-num">STEP 05 · 감사 봉인</span>
+                                <h6>전 과정 Tech-Audit 봉인</h6>
+                                <p>어떤 도면에 어떤 모델이 어떤 답을 냈는지 Ed25519 전자서명과 SHA-256 해시 체인으로 봉인합니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- =========================================================
+                     ACT 1: 창업을 하게 된 계기와 준비 과정 (한글 퍼즐 & 두 개의 두뇌)
+                     ========================================================= -->
+                <div id="act-origin" class="story-shell-dark">
+                    <span class="story-act-badge badge-amber">ACT 1 · ORIGIN OF AXIDE (2011 ~ 2026)</span>
+                    <h2 class="story-headline">군 정비훈련장비 12년의 모순에서,<br>15년 전 ‘한글 퍼즐 가구’와 ‘두 개의 두뇌’가 답이 되다</h2>
+                    <p class="story-lead">
+                        아무도 베낄 수 없는 출발점이 있습니다. 문화체육관광부장관 표창을 받은 <strong>한글 조형 디자인(2011~2012)</strong> → <strong>KUH-1 수리온 등 항공정비 교육훈련 3D 시스템 개발 12년</strong> → <strong>충북대 산업인공지능학과 박사과정 연구</strong>로 이어진 15년의 한 줄기가 <strong>‘모듈 결합’</strong>과 <strong>‘두 개의 두뇌’</strong>라는 기술 철학으로 모였습니다.
+                    </p>
+
+                    <div class="row g-4 align-items-stretch mb-32">
+                        <div class="col-lg-6">
+                            <div class="story-narrative-panel">
+                                <h4>① 모순의 발견 — 가장 정밀하고 중요한 현장일수록 AI를 쓸 수 없는 역설</h4>
+                                <p>
+                                    군 정비훈련장비(KUH-1 수리온 등)를 12년간 개발하며 다룬 도면과 정비 교범은 군사 보안 때문에 절대 밖으로 나갈 수 없었고, 교육 시스템도 인터넷과 완전히 분리된 폐쇄망 안에서 돌아가야 했습니다.
+                                </p>
+                                <p>
+                                    그런데 요즘 AI는 대부분 인터넷 너머 클라우드에 질문을 보내야만 답을 줍니다. <strong>가장 정밀하고 중요한 현장 — 방산 협력사, 정밀가공 공장, 금융기관 — 일수록 보안 때문에 AI를 쓸 수 없는 모순</strong>이었습니다. 그렇다고 중소 공장 안에 수천만 원짜리 대형 GPU를 여러 장 들이는 것은 현실적으로 불가능한 이야기였습니다.
+                                </p>
+                                <div class="story-quote-box">
+                                    <p>“AI를 밖에서 빌려 쓰지 말고, 조각내고 증류해서 공장 안으로 들여보내자.”</p>
+                                    <cite>— 허상훈 대표, 창업의 출발점이 된 한 문장</cite>
+                                </div>
+                                <h4 class="mt-4">② 한글 퍼즐 가구(2011)와 박사논문 ‘두 개의 두뇌’의 결합</h4>
+                                <p>
+                                    그때 떠오른 것이 15년 전 홍익대 석사논문(2011)으로 만들고 2012년 문화체육관광부장관 표창(<strong>‘한글 뿌리 깊은 나무’</strong>)을 받았던 <strong>한글 자·모 모듈 결합 놀이가구</strong>였습니다. 한글이 몇 개의 자음·모음 조각으로 모든 글자를 만들 듯, <strong>거대한 AI도 조각(모듈)으로 나눠 두었다가 필요한 조각만 미리 꺼내 결합하면 GPU 한 장으로도 큰 모델을 돌릴 수 있다</strong>는 생각이었습니다.
+                                </p>
+                                <p>
+                                    여기에 노벨경제학상 수상자 다니엘 카너먼의 이중 프로세스 이론(빠른 두뇌 System 1 · 느린 두뇌 System 2)을 다중 에이전트 토론과 지식 증류로 구현한 박사논문의 결론이 더해졌습니다. <strong>큰 두뇌가 천천히 배운 지혜를 작은 두뇌에 증류해 넣으면, 공장 안의 작은 장비도 빠르고 똑똑하게 전문가처럼 일할 수 있습니다.</strong>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="story-figure-card">
+                                <div class="story-figure-Stage" onclick="openStoryLightbox('assets/images/story/story-hangul-module-ai.jpg', '15년의 설계 철학: 2011 한글 자·모 모듈 결합 가구 → 12년 수리온 항공정비 3D 시스템 → 소형 GPU 가중치 모듈 스트리밍', true)">
+                                    <img src="assets/images/story/story-hangul-module-ai.jpg" alt="한글 모듈 가구에서 항공정비 3D 시스템과 AI 가중치 모듈 스트리밍으로 이어진 15년의 철학">
+                                    <span class="story-zoom-pill">🔍 스토리 아트워크 확대</span>
+                                </div>
+                                <div class="story-figure-body">
+                                    <div>
+                                        <span class="story-figure-tag">CUSTOM STORY ILLUSTRATION 01 · 15-YEAR HERITAGE</span>
+                                        <h3 class="story-figure-title">한글 자·모 모듈 가구(2011) → 항공정비 3D 시스템(12년) → AI 모듈 스트리밍(2026)</h3>
+                                        <p class="story-figure-desc">
+                                            아이들이 한글 조각을 끼우고 빼며 놀던 모듈 가구의 조립 원리가 12년간 도면을 3D로 옮기던 항공정비 훈련 시스템 경험을 거쳐, 오늘날 32GB 단일 GPU 안에서 가중치 조각을 실시간 결합하는 Cogni-OS의 핵심 아키텍처로 완성되었습니다.
+                                        </p>
+                                    </div>
+                                    <div class="mt-3 pt-3" style="border-top: 1px solid rgba(148, 163, 184, 0.18);">
+                                        <div class="row g-2 text-caption" style="color: #94a3b8;">
+                                            <div class="col-6">• <strong class="text-white">설계 원천:</strong> 홍익대 석사논문(2011) · 문체부장관 표창(2012)</div>
+                                            <div class="col-6">• <strong class="text-white">학술 검증:</strong> 국내 학술지(KCI) 2편 게재 · 국제(SCI) 1편 심사 중</div>
+                                            <div class="col-6">• <strong class="text-white">현장 경력:</strong> KUH-1 수리온 등 3D 정비훈련 시스템 12년</div>
+                                            <div class="col-6">• <strong class="text-white">지식재산:</strong> 특허 제10-2973709호 · PCT/KR2026/011625</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Startup Preparation Milestones -->
+                    <h5 class="text-white fw-bold mb-12">📌 연구실에서 첫 계약금 입금까지 — 창업 준비 및 실증 타임라인</h5>
+                    <div class="story-milestone-grid">
+                        <div class="story-milestone-item">
+                            <div class="story-milestone-date">2025. 07. 01 ~ 2026. 06. 01</div>
+                            <div class="story-milestone-title">개인사업자 ‘모두이룸’ 개업 & 핵심 특허 등록</div>
+                            <p class="story-milestone-desc">박사과정에서 핵심 기술을 연구하며 2025년 7월 1일 ‘모두이룸’을 개업하고, 2026년 6월 1일 등록특허 제10-2973709호 등록 및 PCT 국제출원, 기술보증기금 기술임치를 완료했습니다.</p>
+                        </div>
+                        <div class="story-milestone-item">
+                            <div class="story-milestone-date">2026. 08. 03 ~ 2026. 10. 29</div>
+                            <div class="story-milestone-title">50곳 방문 끝 아주산업 1.1억 계약 & 계약금 선입금</div>
+                            <p class="story-milestone-desc">대전 일대 제조기업 약 50곳에 직접 전화하고 찾아다닌 끝에 정밀가공 기업 아주산업과 1억 1천만 원 공급계약을 맺고, 10월 29일 첫 계약금 1,000만 원이 선입금되었습니다.</p>
+                        </div>
+                        <div class="story-milestone-item">
+                            <div class="story-milestone-date">2026. 11. 01 ~ 2027. 01</div>
+                            <div class="story-milestone-title">MVP 검수 100% 통과 · 3라운드 진출 & 법인 AXIDE</div>
+                            <p class="story-milestone-desc">모두의 창업 시제품(MVP) 검수 100% 통과 및 3라운드 진출에 이어, 2027년 1월 설립 법인명을 AXIDE(액사이드)로 확정하고 인근 공장 2곳(LOI 8곳 중)과 11월 추가 계약을 진행 중입니다.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- =========================================================
+                     ACT 2: 한글 퍼즐과 이중 프로세스에서 나온 4대 핵심 기술 & 6계층 OS
+                     (image03.png, image04.png, image05.png, image06.png, story-dual-brain-audit.jpg, image02.png)
+                     ========================================================= -->
+                <div id="act-architecture" class="story-shell-dark">
+                    <span class="story-act-badge">ACT 2 · 4 CORE TECHNOLOGIES & 6-LAYER COGNI-OS ARCHITECTURE</span>
+                    <h2 class="story-headline">한글 퍼즐과 이중 프로세스에서 탄생한<br>4대 핵심 기술과 6계층 에이전트 운영체제</h2>
+                    <p class="story-lead">
+                        소형 GPU 한 장(32GB/48GB VRAM)과 외부 인터넷 0의 폐쇄망 안에서 거대 모델의 지능과 속도를 동시에 구현하기 위해, AXIDE는 <strong>① 심층 평형(DEQ) 사고 엔진</strong>, <strong>② NVMe 직통 예측형 가중치 모듈 스트리밍</strong>, <strong>③ 자율 설계 에이전트 아카이브(ADAS)</strong>, <strong>④ 이중 프로세스(System 1·2) 운영체제 루프</strong>의 4대 핵심 기술을 결합했습니다. <span style="color: #38bdf8;">(각 도해를 클릭하면 원본 고해상도로 확대됩니다.)</span>
+                    </p>
+
+                    <!-- 2x2 Grid of Original Diagrams: image03, image04, image05, image06 -->
+                    <div class="row g-4 mb-32">
+                        <!-- Tech 1: image03.png -->
+                        <div class="col-lg-6">
+                            <div class="story-figure-card">
+                                <div class="story-figure-Stage stage-light" onclick="openStoryLightbox('assets/images/story/image03.png', '핵심 기술 ① 1. 메모리 — 심층 평형 모델 (DEQ)', false)">
+                                    <img src="assets/images/story/image03.png" alt="1. 메모리 — 심층 평형 모델: 한 블록을 반복해 답에 수렴하므로 깊어져도 메모리가 늘지 않는다">
+                                    <span class="story-zoom-pill">🔍 원본 도해 확대</span>
+                                </div>
+                                <div class="story-figure-body">
+                                    <div>
+                                        <span class="story-figure-tag">CORE TECHNOLOGY 01 · DEEP EQUILIBRIUM MODEL (DEQ)</span>
+                                        <h3 class="story-figure-title">① 평형(DEQ) 사고 엔진 — 메모리를 늘리지 않고 깊이 생각하다</h3>
+                                        <p class="story-figure-desc">
+                                            기존 딥러닝이 층(1층~12층)을 쌓을수록 깊이만큼 메모리가 폭증하는 것과 달리, 한 블록을 반복 적용해 답이 더 이상 변하지 않는 <strong>‘고정점($z^*$)’</strong>을 찾는 방식으로 메모리 상한을 고정(`O(1)`)합니다. 고정점에서 정확한 답을 읽어 내는 ‘디코딩’ 난제의 해결 방법을 찾아 현재 검증 중이며, 2년차 업그레이드 엔진으로 준비 중입니다.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tech 2: image04.png -->
+                        <div class="col-lg-6">
+                            <div class="story-figure-card">
+                                <div class="story-figure-Stage stage-light" onclick="openStoryLightbox('assets/images/story/image04.png', '핵심 기술 ② 2. 속도 — NVMe 직통 전송 (예측형 가중치 모듈 스트리밍)', false)">
+                                    <img src="assets/images/story/image04.png" alt="2. 속도 — NVMe 직통 전송: 저장장치에서 GPU 메모리로 중간 경유 없이 바로 보낸다">
+                                    <span class="story-zoom-pill">🔍 원본 도해 확대</span>
+                                </div>
+                                <div class="story-figure-body">
+                                    <div>
+                                        <span class="story-figure-tag">CORE TECHNOLOGY 02 · PREDICTIVE NVMe-TO-GPU STREAMING</span>
+                                        <h3 class="story-figure-title">② 예측형 가중치 모듈 스트리밍 — 공간과 속도 두 마리 토끼를 잡다</h3>
+                                        <p class="story-figure-desc">
+                                            큰 AI 모델의 가중치를 조각(모듈)으로 나눠 NVMe SSD(지하 서고)에 두고, 다음 출력에 필요한 조각을 미리 예측해 시스템 메모리(중간 창고) 경유 없이 <strong>PCIe 직통 통로로 GPU 메모리(작업 책상)에 이중 버퍼로 선적재</strong>합니다. 애플 실리콘(Mac)에서 시연된 SSD 스트리밍 방식(Edge0)을 NVIDIA CUDA 환경에 이식해 <strong>32GB VRAM GPU 한 장</strong>으로 고성능 모델을 돌립니다.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tech 3: image05.png -->
+                        <div class="col-lg-6">
+                            <div class="story-figure-card">
+                                <div class="story-figure-Stage stage-light" onclick="openStoryLightbox('assets/images/story/image05.png', '핵심 기술 ③ 3. ADAS — 에이전트 자동 설계 (자율 설계 에이전트 아카이브)', false)">
+                                    <img src="assets/images/story/image05.png" alt="3. ADAS — 에이전트 자동 설계: 메타 에이전트가 에이전트를 설계·평가·저장하며 세대마다 성능을 높인다">
+                                    <span class="story-zoom-pill">🔍 원본 도해 확대</span>
+                                </div>
+                                <div class="story-figure-body">
+                                    <div>
+                                        <span class="story-figure-tag">CORE TECHNOLOGY 03 · ADAS SELF-EVOLVING AGENT ARCHIVE</span>
+                                        <h3 class="story-figure-title">③ 자율 설계 에이전트 아카이브 — 자음·모음처럼 조합하며 스스로 진화하다</h3>
+                                        <p class="story-figure-desc">
+                                            메타 에이전트가 하위 에이전트(작업 모듈)를 <strong>① 검색 → ② 생성·변형 → ③ 격리 환경 평가(학습에 쓰지 않은 별도 검증 문항 사용) → ④ 아카이브 저장</strong>하며 세대마다 성능을 높입니다(1세대 71점 → 2세대 85점 → 3세대 92점). 새 임무가 도착하면 아카이브에서 최적 설계를 즉시 회수해 결합하므로, 쓸수록 공장 안에서 스스로 발전합니다.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tech 4: image06.png -->
+                        <div class="col-lg-6">
+                            <div class="story-figure-card">
+                                <div class="story-figure-Stage stage-light" onclick="openStoryLightbox('assets/images/story/image06.png', '핵심 기술 ④ 4. OS — Cogni-OS 운영체제 구조 및 두 개의 루프', false)">
+                                    <img src="assets/images/story/image06.png" alt="4. OS — Cogni-OS 운영체제 구조: 일반 컴퓨터 운영체제와의 대응 관계 및 실행 루프와 진화 루프">
+                                    <span class="story-zoom-pill">🔍 원본 도해 확대</span>
+                                </div>
+                                <div class="story-figure-body">
+                                    <div>
+                                        <span class="story-figure-tag">CORE TECHNOLOGY 04 · DUAL-PROCESS OS & TWO LOOPS</span>
+                                        <h3 class="story-figure-title">④ 이중 프로세스 운영체제 구조 — 실행 루프(오늘)와 진화 루프(내일)</h3>
+                                        <p class="story-figure-desc">
+                                            일반 컴퓨터 OS의 구성요소를 AI 에이전트용으로 재설계했습니다. 치수·공차처럼 즉답이 필요한 일은 <strong>빠른 System 1(결정론적 도면 파서·스마트글라스 3줄 요약)</strong>이 처리하고, 확신이 낮거나 근거가 부족한 질문은 <strong>느린 System 2(심층 검토 → ‘판단 보류’ → 사람 확인)</strong>로 넘깁니다. 사람 확인을 거쳐 확정된 판단은 가장 질 좋은 <strong>‘증류’</strong> 자료가 되어, 오늘 느린 두뇌가 고민한 문제를 내일은 빠른 두뇌가 즉답합니다.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dual Brain Custom Visual + Master 6-Layer Architecture (image02.png) -->
+                    <div class="row g-4 mb-24">
+                        <div class="col-lg-12">
+                            <div class="story-figure-card">
+                                <div class="story-figure-Stage stage-light" onclick="openStoryLightbox('assets/images/story/image02.png', '5. Cogni-OS 전체 시스템 아키텍처 — 6계층 에이전트 운영체제 · 자가 진화 루프 · 기업 간 에이전트 연동 (제조 도메인)', false)">
+                                    <img src="assets/images/story/image02.png" alt="5. Cogni-OS 전체 시스템 아키텍처 — 원청 Cogni-OS, 공장 Cogni-OS 1~6계층, 통제, 생산 현장 및 부품 여권">
+                                    <span class="story-zoom-pill">🔍 전체 시스템 아키텍처 원본 확대</span>
+                                </div>
+                                <div class="story-figure-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-lg-8">
+                                            <span class="story-figure-tag">MASTER BLUEPRINT · ORIGINAL REFERENCE VISUAL 02 (REV 1.0 · 아톰팀)</span>
+                                            <h3 class="story-figure-title">5. Cogni-OS 전체 시스템 아키텍처 — 6계층 에이전트 운영체제 · 자가 진화 루프 · 기업 간 연동</h3>
+                                            <p class="story-figure-desc">
+                                                <strong>원청 Cogni-OS</strong>(① 견적 요청 → ② 견적서 → ③ 발주서[🔒] → ④ 수주 확인·진행 보고 → ⑤ 납품+전자세금계산서+부품 여권[🔒] → ⑥ 검수·대금 지급·재발주[🔒])와 <strong>공장 Cogni-OS 6계층</strong>(1계층 메모리와 연산 · 2계층 도구 연결부 · 3계층 에이전트 실행부 · 4계층 실행 평면 오케스트레이터 · 5계층 진화 평면 ADAS · 6계층 인터페이스), 전 계층을 관통하는 <strong>통제(승인 관문·감사 기록·권한 정책·버전 되돌리기)</strong>, 그리고 <strong>생산 현장(CNC 가공기·금속 3D 프린터·3차원 측정기·포장 물류)</strong>까지 하나로 묶은 제조 도메인 표준 청사진입니다.
+                                            </p>
+                                        </div>
+                                        <div class="col-lg-4 mt-3 mt-lg-0">
+                                            <div class="p-3 rounded-4" style="background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.25);">
+                                                <div class="fw-bold text-white mb-2" style="font-size: 14px;">🔐 핵심 설계 원칙 요약</div>
+                                                <ul class="list-unstyled mb-0 text-caption" style="color: #cbd5e1; line-height: 1.75;">
+                                                    <li>• <strong>1계층:</strong> 중간 창고(RAM) 경유 없는 SSD→GPU 직통 선반입</li>
+                                                    <li>• <strong>3계층:</strong> 장비 제어·출하·청구 단계 필수 <strong>사람 승인(🔒)</strong></li>
+                                                    <li>• <strong>5계층:</strong> 학습 문항과 분리된 별도 검증 문항 평가기</li>
+                                                    <li>• <strong>산출물:</strong> 도면 버전·설계 해시·소재 로트·공정·검사 봉인 여권</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- =========================================================
+                     ACT 3: 공장 안의 봉인을, 공장 사이로 — 부품 여권 & 폐쇄망 비즈니스 모델
+                     (image07.png, image08.png)
+                     ========================================================= -->
+                <div id="act-passport" class="story-shell-dark">
+                    <span class="story-act-badge badge-emerald">ACT 3 · PART PASSPORT & AIR-GAPPED APPLIANCE MODEL</span>
+                    <h2 class="story-headline">공장 안의 봉인을, 공장 사이로 —<br>‘방산 부품 여권’과 폐쇄망 전용 AI 장비 수익 모델</h2>
+                    <p class="story-lead">
+                        2026년 5월 국회를 통과해 12월 시행되는 <strong>방위산업기술 보호법 개정</strong>으로 해외 유출 처벌이 <strong>‘3년 이상 징역, 최대 65억 원 벌금’</strong>으로 무거워진 지금, Cogni-OS의 암호학적 기록 봉인은 협력사와 원청 모두의 방패가 됩니다.
+                    </p>
+
+                    <!-- Side-by-side Original Visuals: image07.png & image08.png -->
+                    <div class="row g-4 mb-32">
+                        <div class="col-lg-6">
+                            <div class="story-figure-card">
+                                <div class="story-figure-Stage stage-light" onclick="openStoryLightbox('assets/images/story/image07.png', '공장 안의 봉인을, 공장 사이로 — 부품 여권 (Part Passport)', false)">
+                                    <img src="assets/images/story/image07.png" alt="공장 안의 봉인을, 공장 사이로 — 부품 여권: 2차 가공사 → 1차 협력사 → 원청 품질·보안팀">
+                                    <span class="story-zoom-pill">🔍 부품 여권 도해 확대</span>
+                                </div>
+                                <div class="story-figure-body">
+                                    <div>
+                                        <span class="story-figure-tag">ORIGINAL REFERENCE VISUAL 07 · SUPPLY CHAIN TRUST</span>
+                                        <h3 class="story-figure-title">공장 안의 봉인을, 공장 사이로 — 부품 여권 (Part Passport)</h3>
+                                        <p class="story-figure-desc">
+                                            원청이 봉인해 내려보낸 도면을 <strong>2차 가공사(1호 고객)</strong>의 Cogni-OS가 읽고 가공·측정 기록을 해시 체인으로 묶어 ‘여권’을 발급합니다. <strong>1차 협력사</strong>가 조립·검사 기록을 덧붙여 올리면, <strong>원청 품질·보안팀</strong>은 입고 시 여권 한 장(① 도면 지문, ② AI 모델·입력 기록, ③ 측정값, ④ 망 격리 증명·전자서명)만 확인해 도면 유출 없는 정밀 제조를 즉시 검증합니다.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="story-figure-card">
+                                <div class="story-figure-Stage stage-light" onclick="openStoryLightbox('assets/images/story/image08.png', '데이터 외부 유출 ZERO! 인터넷 없이 작동하는 폐쇄망 전용 AI 장비', false)">
+                                    <img src="assets/images/story/image08.png" alt="데이터 외부 유출 ZERO! 인터넷 없이 작동하는 폐쇄망 전용 AI 장비 — CAPEX 하드웨어 & OPEX 월간 모듈 구독">
+                                    <span class="story-zoom-pill">🔍 비즈니스 모델 도해 확대</span>
+                                </div>
+                                <div class="story-figure-body">
+                                    <div>
+                                        <span class="story-figure-tag">ORIGINAL REFERENCE VISUAL 08 · CAPEX + OPEX APPLIANCE</span>
+                                        <h3 class="story-figure-title">데이터 외부 유출 ZERO! 인터넷 없이 작동하는 폐쇄망 전용 AI 장비</h3>
+                                        <p class="story-figure-desc">
+                                            <strong>[제품·사업 모델]</strong> 서버·노트북·태블릿·스마트글라스·보안 USB 동글·전용 공유기를 한 세트로 납품(<strong>대당 약 8천만~1억 원 CAPEX</strong>)하고, 2년차부터 <strong>모델 갱신·유지관리 구독료(OPEX: 월 갱신 1회용 활성화 코드 및 분기별 서명 검증 USB 반입)</strong>를, 원청에는 <strong>여권 검증 소프트웨어 구독료</strong>를 받는 세 갈래 수익 구조입니다.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5 Differentiators + DAPA Subsidy Synergy -->
+                    <div class="row g-4">
+                        <div class="col-lg-7">
+                            <div class="story-narrative-panel">
+                                <h4>🏆 AXIDE 창업 아이템이 가진 5대 강점과 차별점</h4>
+                                <p><strong>첫째, ‘공간과 속도’ 두 마리 토끼를 GPU 한 장으로 잡았습니다.</strong> 가중치를 조각내 필요한 것만 SSD에서 미리 꺼내 오는 ‘조각내기’와 큰 두뇌의 지혜를 작은 두뇌에 옮겨 담는 박사논문의 ‘증류’로 32GB GPU 한 장, 인터넷 0으로 돌아가며 중소 공장이 감당할 수 있는 가격이 됩니다.</p>
+                                <p><strong>둘째, 도면에서 부품까지 이어지는 ‘제조 전용 운영체계’입니다.</strong> 일반 AI가 대화에 그친다면, Cogni-OS는 도면 분석·감수 → 3D 모델링 → 정밀 가공 데이터까지 공장의 실제 일을 처리합니다.</p>
+                                <p><strong>셋째, 답이 아니라 ‘증명’을 팝니다.</strong> 모를 때는 그럴듯한 거짓 대신 ‘모른다(판단 보류)’고 말하고 사람에게 확인을 넘기며, 모든 추론을 암호학적으로 봉인해 개정 방위산업기술 보호법 시대에 협력사와 원청 모두의 방패가 됩니다.</p>
+                                <p><strong>넷째, 이미 팔렸고 돈을 받았습니다.</strong> 아주산업과 1억 1천만 원 계약을 맺고 10월 29일 계약금이 입금됐으며, 같은 지역 공장 2곳과 추가 계약을 진행 중입니다.</p>
+                                <p class="mb-0"><strong>다섯째, 아무도 베낄 수 없는 15년의 출발점이 있습니다.</strong> 장관 표창 한글 조형 디자인 → 12년 항공정비 3D 시스템 개발 → 산업AI 박사과정 연구와 KAIST 박사 CTO의 기술 검증 체계가 하나로 모였습니다.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="story-narrative-panel" style="border-color: rgba(52, 211, 153, 0.35); background: linear-gradient(160deg, rgba(6, 78, 59, 0.28) 0%, rgba(15, 23, 42, 0.9) 100%);">
+                                <span class="story-act-badge badge-emerald mb-2">POLICY & ECOSYSTEM SYNERGY</span>
+                                <h4>방위사업청 기술보호체계 구축 지원사업(50~80%) 연계 제안</h4>
+                                <p>
+                                    방위사업청은 2017년부터 방산 중소·중견기업과 협력업체의 기술보호체계 구축 비용을 <strong>기업 규모에 따라 50~80%(신규 최대 1억 원)</strong>까지 지원하고 있습니다.
+                                </p>
+                                <p>
+                                    이 지원 대상에 <strong>‘폐쇄망 AI 기록·봉인 장비(Cogni-OS)’</strong>가 인정되면, 방산 협력사는 9천만 원대 장비를 <strong>자부담 수천만 원</strong>으로 도입할 수 있습니다.
+                                </p>
+                                <p class="mb-0">
+                                    정부 예산은 일회성 소모가 아니라 실제 <strong>‘위·변조 불가 증명 데이터’</strong>로 남고, 방산 원청(체계업체)은 협력사 기술보호 수준을 <strong>‘부품 여권’</strong>으로 즉시 확인하게 됩니다.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- =========================================================
+                     ACT 4: 50번째 전화와 첫 도장, 2026년 9월의 멈춤, 그리고 기름 묻은 장갑의 보람
+                     (story-dual-brain-audit.jpg, story-field-craftsman-hud.jpg)
+                     ========================================================= -->
+                <div id="act-journey" class="story-shell-dark">
+                    <span class="story-act-badge badge-amber">ACT 4 · TRUE STORIES FROM THE FIELD & LAB</span>
+                    <h2 class="story-headline">50번째 전화 끝에 찍힌 첫 도장,<br>2026년 9월의 멈춤, 그리고 기름 묻은 장갑의 교관</h2>
+                    <p class="story-lead">
+                        연구실의 논문이 실제 공장의 계약서와 입금 내역으로 바뀌기까지, 가장 뜨거웠던 세 번의 사건과 가장 크게 흔들렸던 위기의 순간이 AXIDE를 단단하게 만들었습니다.
+                    </p>
+
+                    <!-- Two Cinematic Story Cards: Dual Brain Audit (Sept 2026 Crisis) & Field Craftsman HUD (100% ATP Pass) -->
+                    <div class="row g-4 mb-32">
+                        <div class="col-lg-6">
+                            <div class="story-figure-card">
+                                <div class="story-figure-Stage" onclick="openStoryLightbox('assets/images/story/story-dual-brain-audit.jpg', '2026년 9월의 멈춤과 감사 원칙: 빠른 두뇌(System 1)와 느린 두뇌(System 2), 그리고 지휘·감사·실행 AI 분리', true)">
+                                    <img src="assets/images/story/story-dual-brain-audit.jpg" alt="2026년 9월 차세대 엔진 실험 중단과 감사 원칙 확립 — System 1과 System 2 이중 프로세스 검증">
+                                    <span class="story-zoom-pill">🔍 스토리 아트워크 확대</span>
+                                </div>
+                                <div class="story-figure-body">
+                                    <div>
+                                        <span class="story-figure-tag">TURNING POINT · SEPTEMBER 2026 AUDIT CRISIS</span>
+                                        <h3 class="story-figure-title">“증명을 파는 회사라면 우리부터 증명해야 한다” — 2026년 9월의 멈춤</h3>
+                                        <p class="story-figure-desc">
+                                            2026년 9월, 차세대 엔진(DEQ) 실험에서 속도를 내다 보니 검증이 덜 된 결과가 섞였고, KAIST 박사 CTO가 이를 발견해 <strong>“모든 실험을 멈추고 처음부터 감사하자”</strong>고 했습니다. 몇 달간 쌓아 온 결과를 스스로 내려놓아야 했던 가장 흔들렸던 시기였지만, 논문에서 연구한 이론 그대로였습니다 — <strong>빠른 두뇌(System 1)만으로 달리면 실수가 생기고, 느린 두뇌(System 2)가 멈춰 세워야 바로잡힙니다.</strong> 지도교수님께 무엇이 잘못됐는지 있는 그대로 보고했고, 연구와 제품을 철저히 분리하여 <strong>‘지휘하는 AI · 감사하는 AI · 실행하는 AI’</strong> 3중 감사 체계를 확립했습니다.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="story-figure-card">
+                                <div class="story-figure-Stage" onclick="openStoryLightbox('assets/images/story/story-field-craftsman-hud.jpg', '기름 묻은 장갑을 낀 작업자도 키보드 없이 말로 묻고 눈앞에서 답을 보는 현장 교관 — 시제품 검수 100% 통과', true)">
+                                    <img src="assets/images/story/story-field-craftsman-hud.jpg" alt="기름 묻은 장갑을 낀 정밀가공 작업자가 스마트글라스와 태블릿으로 도면 판독 결과를 확인하는 장면">
+                                    <span class="story-zoom-pill">🔍 스토리 아트워크 확대</span>
+                                </div>
+                                <div class="story-figure-body">
+                                    <div>
+                                        <span class="story-figure-tag">GREATEST REWARD · 100% ATP PASS & HANDS-FREE INSTRUCTOR</span>
+                                        <h3 class="story-figure-title">기름 묻은 장갑을 낀 작업자가 키보드 없이 말로 묻고 눈앞에서 답을 보다</h3>
+                                        <p class="story-figure-desc">
+                                            모두의 창업 지원금으로 만든 시제품이 계약서 기준 검수를 <strong>100% 통과</strong>했을 때, 인터넷이 완전히 끊긴 상태에서 서버가 만든 답이 태블릿과 스마트글라스에 그대로 뜨는 장면을 처음 봤습니다. 정비훈련장비를 만들던 시절 <strong>“학생 옆에서 바로 답해 주는 교관이 있으면 좋겠다”</strong>고 꿈꿨던 바로 그 모습이었습니다. 기름 묻은 장갑을 낀 작업자도 키보드 없이 말로 묻고 눈앞에서 답을 보는 장면이었습니다.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3 Narrative Episode Cards -->
+                    <div class="row g-4">
+                        <div class="col-lg-4">
+                            <div class="story-narrative-panel">
+                                <span class="story-act-badge mb-2">EPISODE 01 · 첫 도장의 기억</span>
+                                <h4>50곳의 거절 끝에 만난<br>“도면이 안 나간다면 써 보겠다”</h4>
+                                <p class="mb-0">
+                                    대전 일대 50곳 가까운 제조회사에 전화하면서 대부분 “AI는 아직 우리와 상관없다”는 답을 들었습니다. 그러다 머리카락보다 얇게 금속을 깎는 정밀가공 회사 <strong>아주산업 조난식 대표님</strong>이 <strong>“도면이 밖으로 안 나간다면 써 보겠다”</strong>며 1억 1천만 원 계약서에 도장을 찍어 주셨습니다. 그날 처음으로 이 일이 진짜 사업이 됐다고 느꼈습니다.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="story-narrative-panel">
+                                <span class="story-act-badge badge-amber mb-2">EPISODE 02 · 웃픈 연구실 일화</span>
+                                <h4>밤새 일하던 AI가 해킹으로 오인받아 탄생한 ‘서버 예절 규칙’</h4>
+                                <p class="mb-0">
+                                    밤새 쉬지 않고 일하도록 맡겨 둔 AI 에이전트들이 연구실 서버에 너무 자주 접속하는 바람에, 보안 서버가 이를 <strong>해킹 공격(DDoS)으로 오인해 작업 PC 접속을 차단</strong>해 버린 웃픈 일화가 있습니다. 담당자분께 전화로 사정을 설명해 차단을 풀었고, 그 뒤 AI 에이전트들에게 <strong>‘서버 접속 예절 규칙(Rate & Courtesy Policy)’</strong>을 따로 만들어 지키게 했습니다.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="story-narrative-panel">
+                                <span class="story-act-badge badge-emerald mb-2">EPISODE 03 · 10월 29일의 통장</span>
+                                <h4>“한 번 팔린 것이 아니라,<br>또 팔린다”는 확신</h4>
+                                <p class="mb-0">
+                                    2026년 10월 29일, 아주산업으로부터 <strong>첫 계약금 1,000만 원</strong>이 실제 통장에 들어온 순간을 잊을 수 없습니다. 계약서의 도장이 실제 돈으로 바뀐 첫 순간이었습니다. 그리고 첫 고객이 있는 동네의 다른 공장 두 곳이 <strong>2·3호 계약</strong>을 하겠다고 했을 때, 한 번 팔린 우연이 아니라 <strong>“현장에서 또 팔리는 진짜 제품”</strong>임을 확인했습니다.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- =========================================================
+                     EPILOGUE: 궁극적 목표 [1막 방산 · 2막 로봇 · 3막 수출] & 왜 'AXIDE'이고 왜 '대전'인가
+                     (story-daejeon-axis-global.jpg)
+                     ========================================================= -->
+                <div id="act-vision" class="story-shell-dark mb-0">
+                    <span class="story-act-badge badge-purple">EPILOGUE · THE CELESTIAL AXIS (AXIDE) & 3-ACT GLOBAL ROADMAP</span>
+                    <h2 class="story-headline">별들이 회전하는 중심축 ‘AXIDE’,<br>그리고 대전 성심당에서 배운 ‘사랑의 중력’으로 세계로</h2>
+                    <p class="story-lead">
+                        컴퓨터마다 윈도우가 깔려 있듯, 앞으로는 공장마다 자기만의 AI가 들어가 도면을 읽고, 설계를 검토하고, 가공 기계를 움직이게 될 것입니다. 도면을 <strong>‘읽는’</strong> AI에서 시작해, 부품을 <strong>‘측정’</strong>하고, 공장 안에서 <strong>‘자라고’</strong>, 결국 로봇 부품까지 <strong>‘만드는’</strong> AI로 단계적으로 키워 가겠습니다.
+                    </p>
+
+                    <!-- Celestial Axis Visual Showcase -->
+                    <div class="story-figure-card mb-32">
+                        <div class="story-figure-Stage" onclick="openStoryLightbox('assets/images/story/story-daejeon-axis-global.jpg', '대전이라는 중심축(AXIDE)에서 세계로 — 1막 방산 · 2막 휴머노이드 로봇 · 3막 EU 디지털 제품 여권 수출 표준', true)">
+                            <img src="assets/images/story/story-daejeon-axis-global.jpg" alt="AXIDE 중심축 비전 — 대전에서 출발해 1막 방산, 2막 로봇, 3막 글로벌 수출 여권으로 확장되는 궤도">
+                            <span class="story-zoom-pill">🔍 비전 아트워크 확대</span>
+                        </div>
+                        <div class="story-figure-body">
+                            <div>
+                                <span class="story-figure-tag">CUSTOM STORY ILLUSTRATION 04 · DAEJEON TO THE WORLD</span>
+                                <h3 class="story-figure-title">중세 천문학에서 ‘천체가 회전하는 중심축’을 뜻하는 이름, AXIDE</h3>
+                                <p class="story-figure-desc">
+                                    한글이 누구나 쉽게 글자를 조합하게 해 준 것처럼, 중소 제조기업 누구나 AI 조각을 조립해 대기업 못지않은 지능을 갖게 하는 것 — 기술은 공장 안에 지키고 지능만 들여보내는 방식으로, 대전에서 세계로 나가는 AI 제조업의 1등 기업이 되는 것이 목표입니다.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3-Act Grand Roadmap -->
+                    <div class="row g-4 mb-32">
+                        <div class="col-lg-4">
+                            <div class="story-act-pillar">
+                                <span class="act-tag">1막 · 방산 (2026. 12~)</span>
+                                <h5>방위산업기술 보호법 시행 & 방산 협력사 파일럿</h5>
+                                <p>
+                                    12월 개정 방위산업기술 보호법 시행과 함께 방산 협력사부터 시작합니다. <strong>원청 1곳과 협력사 3곳이 부품 여권을 주고받는 파일럿</strong>으로, “도면은 공장 밖으로 나가지 않고, 부품은 여권을 들고 올라온다”는 것을 현장에서 증명하겠습니다.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="story-act-pillar">
+                                <span class="act-tag" style="background: rgba(245, 158, 11, 0.16); color: #fbbf24;">2막 · 로봇 (2028~)</span>
+                                <h5>휴머노이드 연 3만 대 양산 & 로봇 정밀 부품 여권</h5>
+                                <p>
+                                    현대자동차그룹은 2028년부터 연 3만 대 규모의 휴머노이드 양산을 계획하고 있고, 1차 협력사 약 200곳이 관련 사업계획을 준비 중입니다. <strong>액추에이터·감속기·하우징처럼 수많은 정밀 부품이 오가는 로봇 공급망</strong>에서도 도면대로 만들어졌음을 증명하는 여권 표준이 됩니다.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="story-act-pillar">
+                                <span class="act-tag" style="background: rgba(16, 185, 129, 0.16); color: #34d399;">3막 · 수출 (2026~2027. 02~)</span>
+                                <h5>EU 디지털 제품 여권(DPP) & 배터리 여권 호환</h5>
+                                <p>
+                                    EU는 2026년부터 디지털 제품 여권(DPP)을 단계적으로 도입하고, 2027년 2월부터 배터리 여권을 의무화합니다. <strong>부품 여권의 데이터 구조를 EU 표준과 호환되게 설계</strong>해, 대한민국 중소 제조기업의 글로벌 수출 여권까지 맡겠습니다.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Founder's Final Philosophy Essay: AXIDE & Sungsimdang -->
+                    <div class="p-4 p-lg-5 rounded-4" style="background: linear-gradient(135deg, rgba(30, 27, 75, 0.72) 0%, rgba(15, 23, 42, 0.94) 100%); border: 1px solid rgba(168, 85, 247, 0.36);">
+                        <div class="row align-items-center g-4">
+                            <div class="col-lg-8">
+                                <span class="story-act-badge badge-purple mb-2">FOUNDER'S CREDO · 나에게 이번 도전이 갖는 의미</span>
+                                <h3 class="text-white fw-bold mb-3" style="font-size: 26px; line-height: 1.38;">
+                                    “별들이 서로 끌어당기는 힘이 중력이라면,<br>사람이 서로 끌어당기는 힘은 사랑이라고 생각합니다.”
+                                </h3>
+                                <p class="text-body-2" style="color: #e2e8f0; line-height: 1.85; margin-bottom: 14px;">
+                                    15년 전, 저는 아이들이 한글 조각을 끼우고 빼며 놀 수 있는 가구를 디자인했습니다. 그때는 그 조각들이 언젠가 AI가 될 줄 몰랐습니다. 이번 도전은 그 조각들이 — <strong>디자인, 3D 시스템, AI 연구가 — 마침내 하나의 제품으로 맞춰지는 순간</strong>입니다. 중세 천문학에서 <strong>‘천체가 회전하는 중심축’</strong>을 뜻하는 <strong>AXIDE</strong>라는 이름처럼, 흩어져 있던 제 삶의 조각들이 이 창업이라는 축을 중심으로 처음 한 자리에 모여 균형을 이루고 있습니다.
+                                </p>
+                                <p class="text-body-2" style="color: #e2e8f0; line-height: 1.85; margin-bottom: 14px;">
+                                    그리고 이번 도전은 증명입니다. <strong>세종대왕의 조합 원리와 카너먼의 두 개의 두뇌가 21세기 AI의 해답이 될 수 있다는 것</strong>, 1인으로 시작한 회사도 진짜 계약을 맺고 계약금을 받을 수 있다는 것을 보여 드리고 싶습니다.
+                                </p>
+                                <p class="text-body-2" style="color: #e2e8f0; line-height: 1.85; margin-bottom: 0;">
+                                    마지막으로, <strong>서울이 아니라 대전에서도 세계에 통하는 회사를 만들 수 있다는 것</strong>입니다. 저는 그 답을 대전의 <strong>성심당</strong>에서 배웠습니다. 성심당은 서울로 떠나지 않고 대전에 남아, 매일 남은 빵을 이웃과 나누며 ‘돕는 마음’을 지켜 왔습니다. 그런데도 전국의 사람들이 빵 한 봉지를 사러 기꺼이 대전까지 찾아옵니다. 사람들을 대전으로 끌어당긴 힘은 광고가 아니라 사랑이었다고 생각합니다. <strong>AXIDE도 그런 회사가 되고 싶습니다. 기술은 공장 안에 지키고 지능만 들여보내는 정직한 기술로 중소 공장의 곁을 돕고, 그 마음이 쌓여 사람들이 먼저 대전을 찾아오게 만드는 회사. 대전이라는 축에서 출발해 세계에 통하는 기술을 만들어, 그것을 끝까지 증명해 보이겠습니다.</strong>
+                                </p>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="p-4 rounded-4 text-center" style="background: rgba(7, 11, 20, 0.85); border: 1px solid rgba(56, 189, 248, 0.3);">
+                                    <img src="assets/images/logo/axide-emblem.png?v=20261101v19" alt="AXIDE Emblem" style="width: 84px; height: 84px; object-fit: contain; margin-bottom: 16px;">
+                                    <h5 class="text-white fw-bold mb-1">허상훈 (Sang-Hoon Heo)</h5>
+                                    <p class="text-caption mb-3" style="color: #38bdf8;">AXIDE(법인 설립 준비 중) 대표 · 창업자</p>
+                                    <div class="text-start text-caption mb-4" style="color: #cbd5e1; line-height: 1.75;">
+                                        • 홍익대 석사 (2011, 한글 모듈 결합 가구)<br>
+                                        • 문화체육관광부장관 표창 (2012)<br>
+                                        • 항공정비 교육훈련 3D 시스템 개발 12년<br>
+                                        • 충북대 산업인공지능학과 박사과정<br>
+                                        • 특허 제10-2973709호 · PCT 발명자
+                                    </div>
+                                    <a href="contact.html" class="tf-btn w-100 mb-2">
+                                        방산 부품 여권 시범사업·도입 문의
+                                    </a>
+                                    <a href="assets/images/story/axide-reference-story.pdf" target="_blank" class="tf-btn style-2 w-100">
+                                        창업 스토리 원문 PDF 다운로드
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Lightbox Modal for Story Images -->
+        <div id="storyLightboxModal" class="story-lightbox-backdrop" onclick="if(event.target===this) closeStoryLightbox()">
+            <div class="story-lightbox-inner">
+                <div class="story-lightbox-top">
+                    <h5 id="storyLightboxTitle" class="story-lightbox-title">원본 이미지 확대 보기</h5>
+                    <button type="button" class="story-lightbox-close" onclick="closeStoryLightbox()">닫기 ✕</button>
+                </div>
+                <div id="storyLightboxBody" class="story-lightbox-body">
+                    <img id="storyLightboxImg" src="" alt="확대 이미지">
+                </div>
+            </div>
+        </div>
+
+        <!-- footer -->
+        <footer>
+            <div class="footer-image">
+                <img class="effectFade fadeUp" src="assets/images/logo/logo-footer.png" alt="AXIDE Watermark">
+            </div>
+            <div class="container">
+                <div class="footer-content">
+                    <a href="index.html" class="footer-logo axide-footer-brand">
+                        <span class="axide-footer-emblem">
+                            <img src="assets/images/logo/axide-emblem.png?v=20261101v19" alt="AXIDE Sovereign AI 3D Emblem">
+                        </span>
+                        <span class="axide-footer-word-row">
+                            <span class="axide-footer-word">AXIDE</span>
+                            <span class="axide-brand-dot"></span>
+                            <span class="axide-brand-ai">AI</span>
+                        </span>
+                        <span class="axide-footer-tag">SOVEREIGN DEFENSE AI · COGNI-OS</span>
+                    </a>
+                    <div class="title h6 fw-semibold">증명을 파는 회사 <br> AXIDE(법인 설립 준비 중)</div>
+                    <div class="text">대전 방산혁신클러스터 · 대표 허상훈 · wwwhunycom@naver.com</div>
+                    <div class="tf-social-1 justify-content-center">
+                        <a href="story.html" class="text-body-1 fw-semibold">
+                            창업 스토리 & 아키텍처
+                            <div class="social-item">
+                                <i class="icon icon-arrow-top-right"></i>
+                            </div>
+                        </a>
+                        <a href="service.html" class="text-body-1 fw-semibold">
+                            Cogni-OS 3층 구조
+                            <div class="social-item">
+                                <i class="icon icon-arrow-top-right"></i>
+                            </div>
+                        </a>
+                        <a href="service-single.html" class="text-body-1 fw-semibold">
+                            방산 부품 여권 v1
+                            <div class="social-item">
+                                <i class="icon icon-arrow-top-right"></i>
+                            </div>
+                        </a>
+                        <a href="work-single.html" class="text-body-1 fw-semibold">
+                            아주산업 1호 계약
+                            <div class="social-item">
+                                <i class="icon icon-arrow-top-right"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <ul class="footer-links d-flex gap-24 align-items-center">
+                        <li>
+                            <a href="about.html" class="fw-semibold link-underline link1">회사소개</a>
+                        </li>
+                        <li>
+                            <a href="story.html" class="fw-semibold link-underline link1">창업 스토리</a>
+                        </li>
+                        <li>
+                            <a href="service.html" class="fw-semibold link-underline link1">솔루션</a>
+                        </li>
+                        <li>
+                            <a href="work.html" class="fw-semibold link-underline link1">실증사례</a>
+                        </li>
+                        <li>
+                            <a href="contact.html" class="fw-semibold link-underline link1">도입문의</a>
+                        </li>
+                    </ul>
+                    <p class="text-secondary coppy-rights text-center">© 2026 AXIDE(법인 설립 준비 중). All Rights Reserved. | 특허 제10-2973709호 · PCT/KR2026/011625</p>
+                    <a href="#" class="action-go-top d-flex gap-8 align-items-center justify-content-end link1">
+                        <span class="fw-semibold">맨 위로</span>
+                        <i class="icon icon-long-arrow-alt-up-solid fs-20"></i>
+                    </a>
+                </div>
+            </div>
+        </footer>
+        <!-- /footer -->
+    </main>
+    <!-- /wrapper -->
+
+    <!-- Mobile Menu -->
+    <div class="offcanvas-menu">
+        <div class="offcanvas-content">
+            <div class="container h-100">
+                <div class="offcanvas-content_wrapin">
+                    <div class="canvas_head">
+                        <a href="index.html" class="logo-site axide-luxury-brand">
+                            <span class="axide-emblem-jewel">
+                                <img src="assets/images/logo/axide-emblem.png?v=20261101v19" alt="AXIDE 3D Sovereign AI Emblem">
+                            </span>
+                            <span class="axide-brand-copy">
+                                <span class="axide-brand-row">
+                                    <span class="axide-brand-word">AXIDE</span>
+                                    <span class="axide-brand-dot"></span>
+                                    <span class="axide-brand-ai">AI</span>
+                                </span>
+                                <span class="axide-brand-sub">SOVEREIGN AI · COGNI-OS</span>
+                            </span>
+                        </a>
+                        <div class="btn-mobile-menu close-mb-menu text-caption link">
+                            <i class="icon icon-close"></i>
+                            닫기
+                        </div>
+                    </div>
+                    <div class="canvas_center">
+                        <ul class="nav-ul-mb" id="mobile-menu">
+                            <li>
+                                <div class="item">
+                                    <div class="has-sub-menu">
+                                        <a href="#dropdown-menu-index" class="mb-menu-link text-display-1 collapsed" data-bs-toggle="collapse"
+                                            aria-expanded="false" aria-controls="dropdown-menu-index">
+                                            <span class="text">홈</span>
+                                        </a>
+                                        <div id="dropdown-menu-index" class="collapse" data-bs-parent="#mobile-menu">
+                                            <ul class="sub-nav-menu">
+                                                <li><a href="index.html" class="sub-nav-link text-white">홈 01 — 방산 폐쇄망 AI 표준</a></li>
+                                                <li><a href="index-v2.html" class="sub-nav-link text-white">홈 02 — 소버린 AI 모션</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item">
+                                    <a href="about.html" class="mb-menu-link text-display-1">
+                                        <span class="text">회사소개</span>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item">
+                                    <a href="story.html" class="mb-menu-link text-display-1">
+                                        <span class="text">창업 스토리</span>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item">
+                                    <div class="has-sub-menu">
+                                        <a href="#dropdown-menu-1" class="mb-menu-link text-display-1 collapsed" data-bs-toggle="collapse"
+                                            aria-expanded="false" aria-controls="dropdown-menu-1">
+                                            <span class="text">실증사례</span>
+                                        </a>
+                                        <div id="dropdown-menu-1" class="collapse" data-bs-parent="#mobile-menu">
+                                            <ul class="sub-nav-menu">
+                                                <li><a href="work.html" class="sub-nav-link text-white">공급계약 & 5단계 진화 로드맵</a></li>
+                                                <li><a href="work-single.html" class="sub-nav-link text-white">아주산업 1호 계약 & 도면 복원 실측</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item">
+                                    <div class="has-sub-menu">
+                                        <a href="#dropdown-menu-2" class="mb-menu-link text-display-1 collapsed" data-bs-toggle="collapse"
+                                            aria-expanded="false" aria-controls="dropdown-menu-2">
+                                            <span class="text">솔루션</span>
+                                        </a>
+                                        <div id="dropdown-menu-2" class="collapse" data-bs-parent="#mobile-menu">
+                                            <ul class="sub-nav-menu">
+                                                <li><a href="service.html" class="sub-nav-link text-white">Cogni-OS 3층 아키텍처 & 하드웨어</a></li>
+                                                <li><a href="service-single.html" class="sub-nav-link text-white">방산 부품 여권 (Part Passport v1)</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item">
+                                    <div class="has-sub-menu">
+                                        <a href="#dropdown-menu-3" class="mb-menu-link text-display-1 collapsed" data-bs-toggle="collapse"
+                                            aria-expanded="false" aria-controls="dropdown-menu-3">
+                                            <span class="text">기술·규제 백서</span>
+                                        </a>
+                                        <div id="dropdown-menu-3" class="collapse" data-bs-parent="#mobile-menu">
+                                            <ul class="sub-nav-menu">
+                                                <li><a href="blog-standard.html" class="sub-nav-link text-white">기술 백서 & 규제 브리핑</a></li>
+                                                <li><a href="blog-two-columns.html" class="sub-nav-link text-white">기술 아카이브 (2열)</a></li>
+                                                <li><a href="blog-three-columns.html" class="sub-nav-link text-white">기술 아카이브 (3열)</a></li>
+                                                <li><a href="blog-single.html" class="sub-nav-link text-white">DEQ 상수 메모리 & 감사 봉인 상세</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item">
+                                    <a href="contact.html" class="mb-menu-link text-display-1">
+                                        <span class="text">도입문의</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="canvas_foot">
+                        <div class="left">
+                            <a href="mailto:wwwhunycom@naver.com" class="text-caption text-neutral-200">wwwhunycom@naver.com</a>
+                            <p class="text-caption text-neutral-200">
+                                DAEJEON <span class="clock"></span>
+                            </p>
+                        </div>
+                        <div class="right">
+                            <a href="story.html" class="tf-link-icon text-caption text-neutral-200">
+                                <i class="icon icon-arrow-top-right"></i>
+                                FOUNDER STORY
+                            </a>
+                            <a href="service-single.html" class="tf-link-icon text-caption text-neutral-200">
+                                <i class="icon icon-arrow-top-right"></i>
+                                PART PASSPORT
+                            </a>
+                            <a href="contact.html" class="tf-link-icon text-caption text-neutral-200"><i class="icon icon-arrow-top-right"></i>FIELD DEMO</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Mobile Menu -->
+
+    <!-- Left Bar -->
+    <div class="tf-left-bar">
+        <a class="btn-setting-color" data-bs-toggle="offcanvas" href="#settingColorMenu">
+            <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.0015 7.50004C11.1115 7.50004 10.2415 7.76396 9.50144 8.25843C8.76142 8.7529 8.18464 9.4557 7.84405 10.278C7.50346 11.1002 7.41434 12.005 7.58797 12.8779C7.76161 13.7509 8.19019 14.5527 8.81953 15.182C9.44886 15.8114 10.2507 16.2399 11.1236 16.4136C11.9965 16.5872 12.9013 16.4981 13.7236 16.1575C14.5458 15.8169 15.2487 15.2401 15.7431 14.5001C16.2376 13.7601 16.5015 12.8901 16.5015 12C16.5003 10.8069 16.0258 9.66308 15.1821 8.81943C14.3385 7.97579 13.1946 7.50128 12.0015 7.50004ZM12.0015 15C11.4082 15 10.8281 14.8241 10.3348 14.4945C9.84145 14.1648 9.45693 13.6963 9.22987 13.1481C9.00281 12.5999 8.9434 11.9967 9.05915 11.4148C9.17491 10.8328 9.46063 10.2983 9.88019 9.87872C10.2997 9.45916 10.8343 9.17344 11.4162 9.05769C11.9982 9.94193 12.6014 9.00134 13.1496 9.2284C13.6977 9.45547 14.1663 9.83998 14.4959 10.3333C14.8256 10.8267 15.0015 11.4067 15.0015 12C15.0015 12.7957 14.6854 13.5588 14.1228 14.1214C13.5602 14.684 12.7972 15 12.0015 15Z" fill="#fff"/>
+            </svg>
+        </a>
+    </div>
+    <!-- /Left Bar -->
+
+    <!-- Setting Color -->
+    <div class="offcanvas offcanvas-end offcanvas-color" id="settingColorMenu">
+        <div class="offcanvas-content">
+            <span class="icon-close-popup" data-bs-dismiss="offcanvas">
+                <i class="icon-close"></i>
+            </span>
+            <div class="canvas-header">
+                <h3 class="fw-semibold text-white">테마 및 커서 설정</h3>
+            </div>
+            <div class="canvas-body">
+                <h6 class="title fw-semibold text-white">브랜드 강조 색상</h6>
+                <div class="settings-color list-choose mb-24">
+                    <button type="button" class="choose-item link-no-action active"></button>
+                    <button type="button" class="choose-item link-no-action"></button>
+                    <button type="button" class="choose-item link-no-action"></button>
+                    <button type="button" class="choose-item link-no-action"></button>
+                    <button type="button" class="choose-item link-no-action"></button>
+                    <button type="button" class="choose-item link-no-action"></button>
+                    <button type="button" class="choose-item link-no-action"></button>
+                    <button type="button" class="choose-item link-no-action"></button>
+                </div>
+                <h6 class="title fw-semibold text-white">인터랙티브 커서 궤적</h6>
+                <div>
+                    <input type="checkbox" id="cursor" class="tf-switch-check style-small">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Setting Color -->
+
+    <!-- Javascript -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.nice-select.min.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/slick.min.js"></script>
+    <script src="assets/js/countto.js"></script>
+    <script src="assets/js/carousel.js"></script>
+    <script src="assets/js/infinityslide.js"></script>
+    <script src="assets/js/ScrollSmooth.js"></script>
+    <script src="assets/js/gsap.min.js"></script>
+    <script src="assets/js/ScrollTrigger.min.js"></script>
+    <script src="assets/js/ScrollToPlugin.min.js"></script>
+    <script src="assets/js/gsapAnimation.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/axide-voice-ai.js?v=20261101v19"></script>
+    <script>
+        function openStoryLightbox(src, title, isDarkBg) {
+            var modal = document.getElementById('storyLightboxModal');
+            var img = document.getElementById('storyLightboxImg');
+            var titleEl = document.getElementById('storyLightboxTitle');
+            var bodyEl = document.getElementById('storyLightboxBody');
+            if (!modal || !img) return;
+            img.src = src;
+            if (titleEl) titleEl.textContent = title || '원본 이미지 확대 보기';
+            if (bodyEl) {
+                if (isDarkBg) bodyEl.classList.add('dark-bg');
+                else bodyEl.classList.remove('dark-bg');
+            }
+            modal.classList.add('open');
+        }
+        function closeStoryLightbox() {
+            var modal = document.getElementById('storyLightboxModal');
+            if (modal) modal.classList.remove('open');
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeStoryLightbox();
+        });
+    </script>
+</body>
+
+</html>
