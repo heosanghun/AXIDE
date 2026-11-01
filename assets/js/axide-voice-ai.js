@@ -141,8 +141,17 @@
 
   function playHtmlAudioSrc(src, onEndCallback, onErrorFallback) {
     stopAllAudio();
+    if (localStorage.getItem("axide_voice_muted") === "true") {
+      setWidgetState("idle");
+      if (onEndCallback) onEndCallback();
+      return;
+    }
     const audio = new Audio(src);
     audio.preload = "auto";
+    const savedRate = parseFloat(localStorage.getItem("axide_voice_rate") || "1.0");
+    if (!isNaN(savedRate) && savedRate >= 0.8 && savedRate <= 1.3) {
+      audio.playbackRate = savedRate;
+    }
     currentAudio = audio;
     isSpeaking = true;
     setWidgetState("speaking");
@@ -215,9 +224,10 @@
       utterance.voice = selectedVoice;
     }
     // Composed, intellectual female news anchor pitch & pacing for browser fallback
+    const savedRate = parseFloat(localStorage.getItem("axide_voice_rate") || "1.0");
     utterance.pitch = 0.94;
-    utterance.rate = 0.98;
-    utterance.volume = 1.0;
+    utterance.rate = 0.98 * (isNaN(savedRate) ? 1.0 : savedRate);
+    utterance.volume = localStorage.getItem("axide_voice_muted") === "true" ? 0 : 1.0;
 
     utterance.onstart = function () {
       isSpeaking = true;
@@ -302,7 +312,7 @@
         return {
           clipKey: "arch_zoom",
           reply: "Cogni-OS 참조 아키텍처를 전체 화면으로 확대하여 표시합니다. 원청에서 협력사 공장까지 이어지는 6단계 공급망과, 자율 진화하는 ADAS 구조를 한눈에 확인하실 수 있습니다.",
-          action: { type: "open_arch_modal", target: "assets/images/doc/cogni-os-reference-architecture.jpg" }
+          action: { type: "open_arch_modal", target: "assets/images/doc/arch-blueprint-1-layered-os.svg?v=20261102v50" }
         };
       }
       return {
@@ -1335,6 +1345,283 @@
         appendMessage("ai", pending);
         speakFemaleVoice(pending, null, pendingClip || null);
       }, 350);
+    }
+
+    initSovereignCommandCenter();
+  }
+
+  function initSovereignCommandCenter() {
+    let menu = document.getElementById("settingColorMenu");
+    if (!menu) {
+      const leftBar = document.createElement("div");
+      leftBar.className = "tf-left-bar";
+      leftBar.innerHTML = `<a class="btn-setting-color" data-bs-toggle="offcanvas" href="#settingColorMenu"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 15a3 3 0 100-6 3 3 0 000 6z" stroke="#38bdf8" stroke-width="2"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9c.26.604.852.997 1.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z" stroke="#fff" stroke-width="1.6"/></svg></a>`;
+      document.body.appendChild(leftBar);
+      menu = document.createElement("div");
+      menu.className = "offcanvas offcanvas-end offcanvas-color";
+      menu.id = "settingColorMenu";
+      document.body.appendChild(menu);
+    }
+
+    const savedMode = localStorage.getItem("axide_display_mode") || "standard";
+    const savedScale = localStorage.getItem("axide_font_scale") || "100";
+    const savedLowMotion = localStorage.getItem("axide_low_motion") === "true";
+    const savedAccent = localStorage.getItem("axide_accent") || "cyan";
+    const savedRate = localStorage.getItem("axide_voice_rate") || "1.0";
+    const savedMuted = localStorage.getItem("axide_voice_muted") === "true";
+
+    function applyEnvironmentSettings() {
+      const m = localStorage.getItem("axide_display_mode") || "standard";
+      const s = localStorage.getItem("axide_font_scale") || "100";
+      const lm = localStorage.getItem("axide_low_motion") === "true";
+      const ac = localStorage.getItem("axide_accent") || "cyan";
+
+      document.body.classList.remove("axide-mode-eyecare", "axide-mode-contrast");
+      if (m === "eyecare") document.body.classList.add("axide-mode-eyecare");
+      if (m === "contrast") document.body.classList.add("axide-mode-contrast");
+
+      document.documentElement.classList.remove("axide-scale-md", "axide-scale-lg");
+      if (s === "105") document.documentElement.classList.add("axide-scale-md");
+      if (s === "110") document.documentElement.classList.add("axide-scale-lg");
+
+      document.body.classList.toggle("axide-low-motion", lm);
+      document.body.setAttribute("data-axide-accent", ac);
+    }
+
+    applyEnvironmentSettings();
+
+    menu.innerHTML = `
+      <div class="offcanvas-content">
+        <span class="icon-close-popup" data-bs-dismiss="offcanvas" title="닫기">
+          <i class="icon-close">✕</i>
+        </span>
+        <div class="axide-ctrl-header">
+          <div class="axide-ctrl-badge"><span></span> SOVEREIGN WORKSPACE CONTROL v2.0</div>
+          <h3 class="axide-ctrl-title">AXIDE 브리핑 &amp; 워크스페이스 환경 설정</h3>
+          <p class="axide-ctrl-sub">임원 브리핑 음성 제어, 백서·도면 가독성 배율, 디스플레이 모드 및 핵심 기술 문서를 한곳에서 제어합니다.</p>
+        </div>
+        <div class="canvas-body">
+          <!-- 1. AI Announcer Voice & Briefing Control -->
+          <div class="axide-ctrl-section">
+            <div class="axide-ctrl-sec-head">
+              <h6 class="axide-ctrl-sec-title">🎙️ AI 수석 아나운서 (Aria HD) 브리핑 제어</h6>
+              <span class="axide-ctrl-sec-tag">24kHz Broadcast</span>
+            </div>
+            <button type="button" class="axide-aria-launch-btn" id="axideCtrlLaunchBriefing">
+              <span>▶</span> AXIDE 핵심 비전 · 기술 요약 브리핑 즉시 듣기
+            </button>
+            <div class="mb-2">
+              <span class="axide-ctrl-row-sub mb-1">아나운서 브리핑 낭독 속도</span>
+              <div class="axide-ctrl-btn-group" id="axideCtrlVoiceRateGroup">
+                <button type="button" class="axide-ctrl-seg-btn ${savedRate === "0.94" ? "active" : ""}" data-rate="0.94">0.94x 차분하게</button>
+                <button type="button" class="axide-ctrl-seg-btn ${savedRate === "1.0" ? "active" : ""}" data-rate="1.0">1.0x 정석(기본)</button>
+                <button type="button" class="axide-ctrl-seg-btn ${savedRate === "1.12" ? "active" : ""}" data-rate="1.12">1.12x 빠르게</button>
+              </div>
+            </div>
+            <div class="axide-ctrl-row">
+              <div>
+                <span class="axide-ctrl-row-label">음성 브리핑 음소거 (텍스트 전용 모드)</span>
+                <span class="axide-ctrl-row-sub">회의 중 소리 없이 자막으로만 브리핑을 확인할 때 켭니다</span>
+              </div>
+              <input type="checkbox" id="axideCtrlVoiceMute" class="tf-switch-check style-small" ${savedMuted ? "checked" : ""}>
+            </div>
+          </div>
+
+          <!-- 2. Display & Whitepaper Readability Control -->
+          <div class="axide-ctrl-section">
+            <div class="axide-ctrl-sec-head">
+              <h6 class="axide-ctrl-sec-title">🖥️ 열람 디스플레이 &amp; 백서 가독성 설정</h6>
+              <span class="axide-ctrl-sec-tag">Readability</span>
+            </div>
+            <div class="mb-2">
+              <span class="axide-ctrl-row-sub mb-1">화면 색온도 · 명암비 프리셋</span>
+              <div class="axide-ctrl-btn-group" id="axideCtrlDisplayModeGroup">
+                <button type="button" class="axide-ctrl-seg-btn ${savedMode === "standard" ? "active" : ""}" data-mode="standard">다크 옵시디언</button>
+                <button type="button" class="axide-ctrl-seg-btn ${savedMode === "eyecare" ? "active" : ""}" data-mode="eyecare">아이케어(백서용)</button>
+                <button type="button" class="axide-ctrl-seg-btn ${savedMode === "contrast" ? "active" : ""}" data-mode="contrast">고대비(발표용)</button>
+              </div>
+            </div>
+            <div class="mb-2">
+              <span class="axide-ctrl-row-sub mb-1">백서 · 수식 · 아키텍처 본문 글자 크기</span>
+              <div class="axide-ctrl-btn-group" id="axideCtrlFontScaleGroup">
+                <button type="button" class="axide-ctrl-seg-btn ${savedScale === "100" ? "active" : ""}" data-scale="100">100% 표준</button>
+                <button type="button" class="axide-ctrl-seg-btn ${savedScale === "105" ? "active" : ""}" data-scale="105">105% 확대</button>
+                <button type="button" class="axide-ctrl-seg-btn ${savedScale === "110" ? "active" : ""}" data-scale="110">110% 임원용</button>
+              </div>
+            </div>
+            <div class="axide-ctrl-row">
+              <div>
+                <span class="axide-ctrl-row-label">GPU 절전 · 정적 문서 열람 모드</span>
+                <span class="axide-ctrl-row-sub">3D 루프 광선·스캔 애니메이션을 일시 정지합니다</span>
+              </div>
+              <input type="checkbox" id="axideCtrlLowMotion" class="tf-switch-check style-small" ${savedLowMotion ? "checked" : ""}>
+            </div>
+          </div>
+
+          <!-- 3. Enterprise Domain Accent Signature -->
+          <div class="axide-ctrl-section">
+            <div class="axide-ctrl-sec-head">
+              <h6 class="axide-ctrl-sec-title">🎨 산업 도메인 액센트 시그니처</h6>
+              <span class="axide-ctrl-sec-tag">Domain Theme</span>
+            </div>
+            <div class="axide-accent-grid" id="axideCtrlAccentGroup">
+              <button type="button" class="axide-accent-chip ${savedAccent === "cyan" ? "active" : ""}" data-accent="cyan">
+                <i style="background:#38bdf8;box-shadow:0 0 8px #38bdf8;"></i> Cogni-OS 시안 (방산 기본)
+              </button>
+              <button type="button" class="axide-accent-chip ${savedAccent === "emerald" ? "active" : ""}" data-accent="emerald">
+                <i style="background:#10b981;box-shadow:0 0 8px #10b981;"></i> Passport 에메랄드 (바이오)
+              </button>
+              <button type="button" class="axide-accent-chip ${savedAccent === "amber" ? "active" : ""}" data-accent="amber">
+                <i style="background:#f59e0b;box-shadow:0 0 8px #f59e0b;"></i> Field Vault 앰버 (제조·ATP)
+              </button>
+              <button type="button" class="axide-accent-chip ${savedAccent === "crimson" ? "active" : ""}" data-accent="crimson">
+                <i style="background:#FD3A25;box-shadow:0 0 8px #FD3A25;"></i> Defense 크림슨 (보안 감사)
+              </button>
+            </div>
+          </div>
+
+          <!-- 4. Cogni-OS Live Verified Telemetry -->
+          <div class="axide-ctrl-section">
+            <div class="axide-ctrl-sec-head">
+              <h6 class="axide-ctrl-sec-title">🛡️ Cogni-OS v1.0 공인 실측 텔레메트리</h6>
+              <span class="axide-ctrl-sec-tag" style="color:#34d399;background:rgba(16,185,129,0.14);">VERIFIED</span>
+            </div>
+            <div class="axide-telemetry-grid">
+              <div class="axide-telemetry-box">
+                <span class="axide-telemetry-k">망분리 · 외부 통신 포트</span>
+                <span class="axide-telemetry-v">0 Byte (완전 폐쇄망)</span>
+              </div>
+              <div class="axide-telemetry-box">
+                <span class="axide-telemetry-k">DEQ 상수 메모리 · 지연</span>
+                <span class="axide-telemetry-v">14.8GB · TTFT 0.161s</span>
+              </div>
+              <div class="axide-telemetry-box">
+                <span class="axide-telemetry-k">부품 여권 암호학 봉인</span>
+                <span class="axide-telemetry-v">Ed25519 · SHA-256</span>
+              </div>
+              <div class="axide-telemetry-box">
+                <span class="axide-telemetry-k">방위산업기술 보호법 개정</span>
+                <span class="axide-telemetry-v" style="color:#fbbf24;">2026.12.10 시행 대응</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. Executive Quick Navigation & PDF Print -->
+          <div class="axide-ctrl-section mb-0">
+            <div class="axide-ctrl-sec-head">
+              <h6 class="axide-ctrl-sec-title">⚡ 이그제큐티브 핵심 문서 바로가기</h6>
+              <span class="axide-ctrl-sec-tag">Quick Access</span>
+            </div>
+            <div class="axide-quick-links">
+              <a href="index.html#cogni-os-architecture" class="axide-quick-link">📐 L0~L5 아키텍처 도면</a>
+              <a href="bio-research.html" class="axide-quick-link">🧬 Nature Biotech 공동연구</a>
+              <a href="story.html" class="axide-quick-link">📖 15년 창업 스토리</a>
+              <a href="blog-single.html" class="axide-quick-link">📄 기술·규제 마스터 백서</a>
+              <button type="button" class="axide-quick-link" id="axideCtrlPrintBtn">🖨️ 현재 페이지 인쇄/PDF</button>
+              <button type="button" class="axide-quick-link" id="axideCtrlResetBtn">🔄 환경 설정 초기화</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+
+    // Bind events
+    const launchBtn = document.getElementById("axideCtrlLaunchBriefing");
+    if (launchBtn) {
+      launchBtn.addEventListener("click", function () {
+        localStorage.setItem("axide_voice_muted", "false");
+        const muteChk = document.getElementById("axideCtrlVoiceMute");
+        if (muteChk) muteChk.checked = false;
+        const closeBtn = menu.querySelector("[data-bs-dismiss='offcanvas']");
+        if (closeBtn) closeBtn.click();
+        openVoicePanel();
+        const introMsg = "안녕하십니까. 액사이드 수석 브리핑 아나운서 아리아입니다. 도면은 공장 안에 봉인하고, 부품은 암호화 여권을 들고 올라오는 폐쇄망 소버린 AI 운영체제, 코그니 OS의 핵심 아키텍처와 실증 성과를 안내해 드리겠습니다.";
+        appendMessage("ai", introMsg);
+        speakFemaleVoice(introMsg, null, "welcome");
+      });
+    }
+
+    menu.querySelectorAll("#axideCtrlVoiceRateGroup .axide-ctrl-seg-btn").forEach((btn) => {
+      btn.addEventListener("click", function () {
+        const r = this.getAttribute("data-rate") || "1.0";
+        localStorage.setItem("axide_voice_rate", r);
+        menu.querySelectorAll("#axideCtrlVoiceRateGroup .axide-ctrl-seg-btn").forEach((b) => b.classList.remove("active"));
+        this.classList.add("active");
+        if (currentAudio) {
+          currentAudio.playbackRate = parseFloat(r);
+        }
+      });
+    });
+
+    const muteSwitch = document.getElementById("axideCtrlVoiceMute");
+    if (muteSwitch) {
+      muteSwitch.addEventListener("change", function () {
+        localStorage.setItem("axide_voice_muted", this.checked ? "true" : "false");
+        if (this.checked) {
+          stopAllAudio();
+        }
+      });
+    }
+
+    menu.querySelectorAll("#axideCtrlDisplayModeGroup .axide-ctrl-seg-btn").forEach((btn) => {
+      btn.addEventListener("click", function () {
+        const m = this.getAttribute("data-mode") || "standard";
+        localStorage.setItem("axide_display_mode", m);
+        menu.querySelectorAll("#axideCtrlDisplayModeGroup .axide-ctrl-seg-btn").forEach((b) => b.classList.remove("active"));
+        this.classList.add("active");
+        applyEnvironmentSettings();
+      });
+    });
+
+    menu.querySelectorAll("#axideCtrlFontScaleGroup .axide-ctrl-seg-btn").forEach((btn) => {
+      btn.addEventListener("click", function () {
+        const s = this.getAttribute("data-scale") || "100";
+        localStorage.setItem("axide_font_scale", s);
+        menu.querySelectorAll("#axideCtrlFontScaleGroup .axide-ctrl-seg-btn").forEach((b) => b.classList.remove("active"));
+        this.classList.add("active");
+        applyEnvironmentSettings();
+      });
+    });
+
+    const lowMotionSwitch = document.getElementById("axideCtrlLowMotion");
+    if (lowMotionSwitch) {
+      lowMotionSwitch.addEventListener("change", function () {
+        localStorage.setItem("axide_low_motion", this.checked ? "true" : "false");
+        applyEnvironmentSettings();
+      });
+    }
+
+    menu.querySelectorAll("#axideCtrlAccentGroup .axide-accent-chip").forEach((chip) => {
+      chip.addEventListener("click", function () {
+        const ac = this.getAttribute("data-accent") || "cyan";
+        localStorage.setItem("axide_accent", ac);
+        menu.querySelectorAll("#axideCtrlAccentGroup .axide-accent-chip").forEach((c) => c.classList.remove("active"));
+        this.classList.add("active");
+        applyEnvironmentSettings();
+      });
+    });
+
+    const printBtn = document.getElementById("axideCtrlPrintBtn");
+    if (printBtn) {
+      printBtn.addEventListener("click", function () {
+        const closeBtn = menu.querySelector("[data-bs-dismiss='offcanvas']");
+        if (closeBtn) closeBtn.click();
+        setTimeout(() => window.print(), 280);
+      });
+    }
+
+    const resetBtn = document.getElementById("axideCtrlResetBtn");
+    if (resetBtn) {
+      resetBtn.addEventListener("click", function () {
+        localStorage.removeItem("axide_display_mode");
+        localStorage.removeItem("axide_font_scale");
+        localStorage.removeItem("axide_low_motion");
+        localStorage.removeItem("axide_accent");
+        localStorage.removeItem("axide_voice_rate");
+        localStorage.removeItem("axide_voice_muted");
+        applyEnvironmentSettings();
+        initSovereignCommandCenter();
+      });
     }
   }
 
