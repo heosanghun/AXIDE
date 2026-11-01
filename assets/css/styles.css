@@ -10006,30 +10006,64 @@ p,
   flex-shrink: 0;
 }
 .menu-item .sub-menu {
-  min-width: 248px;
-  padding: 12px 8px;
-  border-radius: 16px;
-  z-index: 120;
-  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.22);
+  min-width: 268px;
+  padding: 10px;
+  border-radius: 18px;
+  z-index: 999;
+  background: #ffffff !important;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-top: 2.5px solid #0ea5e9;
+  box-shadow:
+    0 22px 48px rgba(15, 23, 42, 0.18),
+    0 4px 12px rgba(15, 23, 42, 0.08);
+}
+.menu-item .sub-menu::before {
+  content: "";
+  position: absolute;
+  top: -24px;
+  left: 0;
+  right: 0;
+  height: 24px;
+  background: transparent;
+}
+.menu-item .sub-menu .sub-menu-item + .sub-menu-item {
+  margin-top: 3px;
 }
 .menu-item .sub-menu .sub-menu-item a,
 .menu-item .sub-menu .sub-menu-link {
   display: flex;
   align-items: center;
-  padding: 9px 16px;
-  border-radius: 10px;
-  font-size: 15px;
+  gap: 9px;
+  padding: 10px 14px;
+  border-radius: 11px;
+  font-size: 14.5px;
   line-height: 1.4;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.85);
+  font-weight: 700;
+  color: #0f172a !important;
+  background: transparent;
   white-space: nowrap;
-  transition: all 0.25s ease;
+  transition: all 0.2s ease;
+}
+.menu-item .sub-menu .sub-menu-item a::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #cbd5e1;
+  margin-left: auto;
+  transition: all 0.2s ease;
 }
 .menu-item .sub-menu .sub-menu-item a:hover,
 .menu-item .sub-menu .sub-menu-item a.active,
 .menu-item .sub-menu .sub-menu-link:hover {
-  color: var(--brand);
-  background: rgba(255, 255, 255, 0.07);
+  color: #0284c7 !important;
+  background: linear-gradient(90deg, rgba(14, 165, 233, 0.12) 0%, rgba(56, 189, 248, 0.05) 100%) !important;
+  transform: translateX(2px);
+}
+.menu-item .sub-menu .sub-menu-item a:hover::after,
+.menu-item .sub-menu .sub-menu-item a.active::after {
+  background: #0ea5e9;
+  box-shadow: 0 0 8px rgba(14, 165, 233, 0.6);
 }
 
 /* 3. Hero Banner & Page Title Layer Balance & Contrast */
