@@ -6417,8 +6417,10 @@ button.animate-btn::after,
 }
 .section-tools > img {
   position: absolute;
-  box-shadow: 4.29817px 18.6254px 28.6545px rgba(0, 0, 0, 0.1);
-  border-radius: 11px;
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 24px;
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.16));
 }
 .section-tools .img-1 {
   top: 22%;
@@ -6796,8 +6798,12 @@ button.animate-btn::after,
 }
 .tool-wrap .img-item {
   position: absolute;
-  box-shadow: 0px -3px 0px 0px #E9E9E9 inset, 0px 1px 0px 0px rgba(255, 255, 255, 0.6980392157) inset, 0px 3px 3px 0px rgba(0, 0, 0, 0.1411764706);
-  border-radius: 8px;
+  width: 104px;
+  height: auto;
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 24px;
+  filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.18));
   z-index: 2;
 }
 .tool-wrap .img-item-1 {
@@ -6830,13 +6836,20 @@ button.animate-btn::after,
   position: absolute;
   top: 51%;
   left: 50%;
+  width: 216px;
   transform: translate(-50%, -50%);
-  box-shadow: 0px 2.76726px 2.21381px rgba(0, 0, 0, 0.1197), 0px 3px 3px rgba(0, 0, 0, 0.14), 0px 100px 80px rgba(0, 0, 0, 0.15), 0px 41.7776px 33.4221px rgba(0, 0, 0, 0.1503), 0px 22.3363px 17.869px rgba(0, 0, 0, 0.1417), 0px 12.5216px 10.0172px rgba(0, 0, 0, 0.135), 0px 6.6501px 5.32008px rgba(0, 0, 0, 0.1283), 0px 2.76726px 2.21381px rgba(0, 0, 0, 0.1197);
-  border-radius: 8px;
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 22px;
+  filter: drop-shadow(0 18px 36px rgba(0, 0, 0, 0.24));
   z-index: 2;
 }
 .tool-wrap .image-center img {
   width: 100%;
+  height: auto;
+  display: block;
+  background: transparent !important;
+  border-radius: 22px;
 }
 .tool-wrap .line-1 {
   position: absolute;
