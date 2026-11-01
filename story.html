@@ -673,7 +673,32 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
+                        <!-- Interactive Collapse/Expand Trigger for Detailed Hangul Archive (Somoo 14 Characters, Creative Convergence, Spatial Elements & Reports) -->
+                        <div class="mt-3">
+                            <button type="button" id="hangulDeepArchiveToggleBtn" onclick="toggleHangulDeepArchive()" aria-expanded="false" aria-controls="hangulDeepArchiveCollapse" style="width: 100%; background: linear-gradient(135deg, rgba(15, 23, 42, 0.94) 0%, rgba(30, 41, 59, 0.88) 100%); border: 1px solid rgba(56, 189, 248, 0.42); border-radius: 16px; padding: 18px 24px; color: #f8fafc; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; cursor: pointer; transition: all 0.25s ease; box-shadow: 0 10px 28px rgba(2, 6, 23, 0.45);">
+                                <div class="d-flex align-items-center gap-3 text-start flex-wrap">
+                                    <span style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 10px; background: rgba(56, 189, 248, 0.16); border: 1px solid rgba(56, 189, 248, 0.4); color: #38bdf8; font-size: 18px; font-weight: 800;" id="hangulDeepArchiveIcon">＋</span>
+                                    <div>
+                                        <div style="font-size: 16px; font-weight: 800; color: #ffffff;" id="hangulDeepArchiveTitle">
+                                            한글 캐릭터 ‘소모오’ 14종 · 한글창조융합(세종악보·ㄱㄷㅁ 공간요소) · 전시 결과보고서 상세 아카이브 펼쳐보기
+                                        </div>
+                                        <div style="font-size: 12.5px; color: #94a3b8; margin-top: 2px;">
+                                            클릭하면 3D 자음 캐릭터 ‘소모오’, 피아노 7옥타브·세종악보·3D 공간요소(ㄱ·ㄷ·ㅁ) 원본 도해 및 2011~2013년 전시 결과보고서(17종)가 펼쳐집니다
+                                        </div>
+                                    </div>
+                                </div>
+                                <span id="hangulDeepArchiveBadge" style="background: rgba(56, 189, 248, 0.18); border: 1px solid rgba(56, 189, 248, 0.45); color: #38bdf8; font-size: 12.5px; font-weight: 800; padding: 8px 16px; border-radius: 999px; white-space: nowrap;">
+                                    상세 아카이브 펼치기 ▼
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Collapsible Detailed Archive Container (Hidden by Default) -->
+                    <div id="hangulDeepArchiveCollapse" style="display: none; margin-top: 24px; padding-top: 24px; border-top: 1px dashed rgba(56, 189, 248, 0.3);">
+                        <div class="row g-4 mb-36">
                             <!-- User Uploaded Character Artwork: Gieuk Workshop -->
                             <div class="col-lg-7">
                                 <div class="story-figure-card h-100">
@@ -722,11 +747,10 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- =====================================================
-                         PART 3: 한글사랑 대표 공식 배너 3종 (장관상 · 11대 언론 방송 · 뿌리깊은 한글나무 6색 컬렉션)
-                         ===================================================== -->
+                        <!-- =====================================================
+                             PART 3: 한글사랑 대표 공식 배너 3종 (장관상 · 11대 언론 방송 · 뿌리깊은 한글나무 6색 컬렉션)
+                             ===================================================== -->
                     <div class="mb-36">
                         <h4 class="text-white fw-bold mb-16" style="font-size: 20px;">🏅 한글사랑 대표 공식 프로필 배너 & 언론 방송 하이라이트 (클릭 시 원본 확대)</h4>
                         <div class="row g-4">
@@ -992,6 +1016,14 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+
+                        <!-- Bottom Collapse Button -->
+                        <div class="text-center mt-24">
+                            <button type="button" onclick="toggleHangulDeepArchive(true)" style="background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(56, 189, 248, 0.45); color: #38bdf8; font-size: 13px; font-weight: 800; padding: 10px 24px; border-radius: 999px; cursor: pointer;">
+                                ▲ 한글 캐릭터 ‘소모오’ · 한글창조융합 · 상세 아카이브 접기
+                            </button>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -1883,6 +1915,32 @@
                 btnEl.style.background = 'rgba(251, 191, 36, 0.22)';
                 btnEl.style.borderColor = 'rgba(251, 191, 36, 0.55)';
                 btnEl.style.color = '#ffffff';
+            }
+        }
+
+        function toggleHangulDeepArchive(scrollBack) {
+            var panel = document.getElementById('hangulDeepArchiveCollapse');
+            var btn = document.getElementById('hangulDeepArchiveToggleBtn');
+            var badge = document.getElementById('hangulDeepArchiveBadge');
+            var icon = document.getElementById('hangulDeepArchiveIcon');
+            if (!panel) return;
+            var isHidden = panel.style.display === 'none' || panel.style.display === '';
+            if (isHidden) {
+                panel.style.display = 'block';
+                if (btn) btn.setAttribute('aria-expanded', 'true');
+                if (badge) badge.textContent = '상세 아카이브 접기 ▲';
+                if (icon) icon.textContent = '－';
+            } else {
+                panel.style.display = 'none';
+                if (btn) btn.setAttribute('aria-expanded', 'false');
+                if (badge) badge.textContent = '상세 아카이브 펼치기 ▼';
+                if (icon) icon.textContent = '＋';
+                if (scrollBack && btn) {
+                    btn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }
+            if (window.ScrollTrigger && typeof window.ScrollTrigger.refresh === 'function') {
+                setTimeout(function() { window.ScrollTrigger.refresh(); }, 60);
             }
         }
 
