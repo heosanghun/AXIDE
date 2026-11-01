@@ -13504,4 +13504,474 @@ footer .footer-content .footer-logo.axide-footer-brand {
   }
 }
 
+/* ==========================================================================
+   AXIDE Bio & Novel Materials AI Theme Stage (bio-research.html & Teaser)
+   ========================================================================== */
+.nav-menu-main {
+  gap: 18px !important;
+}
+.nav-menu-main > .menu-item > .item-link {
+  font-size: 15px;
+}
+@media (max-width: 1399px) {
+  .nav-menu-main {
+    gap: 14px !important;
+  }
+  .nav-menu-main > .menu-item > .item-link {
+    font-size: 14px;
+  }
+}
+
+.bio-hero-cinema-card {
+  background: linear-gradient(145deg, rgba(15, 23, 42, 0.96), rgba(6, 11, 22, 0.98));
+  border: 1px solid rgba(52, 211, 153, 0.28);
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+.bio-cinema-visual {
+  position: relative;
+  height: 100%;
+  min-height: 440px;
+  background: #040812;
+  cursor: zoom-in;
+  overflow: hidden;
+}
+.bio-cinema-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.bio-cinema-visual:hover img {
+  transform: scale(1.035);
+}
+.bio-visual-badges-top {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  z-index: 3;
+}
+.bio-glass-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  backdrop-filter: blur(12px);
+}
+.bio-glass-pill.pill-emerald {
+  background: rgba(6, 78, 59, 0.78);
+  border: 1px solid rgba(52, 211, 153, 0.55);
+  color: #6ee7b7;
+}
+.bio-glass-pill.pill-cyan {
+  background: rgba(12, 74, 110, 0.78);
+  border: 1px solid rgba(56, 189, 248, 0.55);
+  color: #7dd3fc;
+}
+.bio-glass-pill .pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #34d399;
+  box-shadow: 0 0 10px #34d399;
+}
+.bio-visual-hud-bottom {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  z-index: 3;
+}
+.bio-hud-metric {
+  padding: 10px 14px;
+  border-radius: 14px;
+  background: rgba(7, 11, 22, 0.84);
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  backdrop-filter: blur(12px);
+}
+.bio-hud-metric .m-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 800;
+  color: #94a3b8;
+  letter-spacing: 0.05em;
+  margin-bottom: 2px;
+}
+.bio-hud-metric .m-val {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 800;
+  color: #f8fafc;
+}
+.bio-cinema-info {
+  padding: 36px 34px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.bio-inst-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.bio-inst-chip {
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+}
+.bio-inst-chip .inst-k {
+  display: block;
+  font-size: 10px;
+  font-weight: 800;
+  color: #38bdf8;
+  letter-spacing: 0.04em;
+  margin-bottom: 2px;
+}
+.bio-inst-chip .inst-v {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.bio-evidence-vault {
+  padding: 34px;
+  border-radius: 26px;
+  background: rgba(15, 23, 42, 0.72);
+  border: 1px solid rgba(56, 189, 248, 0.24);
+}
+.bio-email-proof-card {
+  padding: 24px;
+  border-radius: 20px;
+  background: linear-gradient(160deg, rgba(15, 23, 42, 0.95), rgba(9, 14, 28, 0.98));
+  border: 1px solid rgba(52, 211, 153, 0.38);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.email-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 14px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.email-live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #34d399;
+  box-shadow: 0 0 10px #34d399;
+}
+.email-tag {
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 800;
+  color: #34d399;
+  background: rgba(16, 185, 129, 0.14);
+  border: 1px solid rgba(52, 211, 153, 0.35);
+}
+.email-quote-highlight {
+  padding: 16px;
+  border-radius: 14px;
+  background: rgba(6, 11, 22, 0.85);
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  margin-bottom: 14px;
+}
+.email-meta-lines {
+  font-size: 11.5px;
+  color: #94a3b8;
+  line-height: 1.55;
+  padding-bottom: 10px;
+  margin-bottom: 12px;
+  border-bottom: 1px dashed rgba(148, 163, 184, 0.2);
+}
+.email-meta-lines strong {
+  color: #e2e8f0;
+}
+.email-actual-message {
+  margin: 0;
+  padding-left: 12px;
+  border-left: 3px solid #34d399;
+  font-size: 13.5px;
+  line-height: 1.68;
+  color: #f8fafc;
+}
+.email-screenshot-thumb {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  cursor: zoom-in;
+  background: #ffffff;
+}
+.email-screenshot-thumb img {
+  width: 100%;
+  max-height: 170px;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+.thumb-zoom-bar {
+  padding: 7px 12px;
+  background: rgba(15, 23, 42, 0.95);
+  color: #38bdf8;
+  font-size: 11.5px;
+  font-weight: 700;
+  text-align: center;
+}
+.email-agenda-box {
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.email-agenda-box .agenda-title {
+  font-size: 12px;
+  font-weight: 800;
+  color: #34d399;
+  margin-bottom: 8px;
+}
+.email-agenda-box .agenda-list {
+  margin: 0;
+  padding-left: 16px;
+  font-size: 12px;
+  color: #cbd5e1;
+  line-height: 1.65;
+}
+.email-agenda-box .agenda-list li + li {
+  margin-top: 6px;
+}
+
+.bio-paper-card {
+  border-radius: 20px;
+  background: rgba(9, 14, 28, 0.92);
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.paper-journal-ribbon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+.paper-journal-ribbon.ribbon-nature {
+  background: linear-gradient(90deg, rgba(14, 165, 233, 0.24), rgba(15, 23, 42, 0.9));
+  color: #7dd3fc;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.3);
+}
+.paper-journal-ribbon.ribbon-axide {
+  background: linear-gradient(90deg, rgba(16, 185, 129, 0.24), rgba(15, 23, 42, 0.9));
+  color: #6ee7b7;
+  border-bottom: 1px solid rgba(52, 211, 153, 0.3);
+}
+.paper-pdf-link {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.12);
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  text-decoration: none;
+}
+.paper-pdf-link:hover {
+  background: #38bdf8;
+  color: #0f172a !important;
+}
+.paper-cover-frame {
+  height: 280px;
+  background: #f8fafc;
+  overflow: hidden;
+  cursor: zoom-in;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.paper-cover-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.4s ease;
+}
+.paper-cover-frame:hover img {
+  transform: scale(1.04);
+}
+.paper-card-body {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.bio-mini-btn {
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  color: #7dd3fc;
+  border-radius: 8px;
+  padding: 6px 11px;
+  font-size: 11.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.bio-mini-btn:hover {
+  background: #38bdf8;
+  color: #0f172a;
+}
+
+.bio-plot-card {
+  border-radius: 20px;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  overflow: hidden;
+  cursor: zoom-in;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+.bio-plot-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(56, 189, 248, 0.55);
+}
+.bio-plot-card .plot-img-box {
+  height: 230px;
+  background: #ffffff;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.bio-plot-card .plot-img-box img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.bio-plot-card .plot-body {
+  padding: 20px;
+}
+.plot-tag {
+  display: inline-block;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+.plot-tag.tag-cyan {
+  background: rgba(56, 189, 248, 0.14);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.35);
+}
+.plot-tag.tag-emerald {
+  background: rgba(16, 185, 129, 0.14);
+  color: #34d399;
+  border: 1px solid rgba(52, 211, 153, 0.35);
+}
+.plot-tag.tag-amber {
+  background: rgba(245, 158, 11, 0.14);
+  color: #fbbf24;
+  border: 1px solid rgba(251, 191, 36, 0.35);
+}
+
+.bio-Highlight-box {
+  padding: 16px;
+  border-radius: 14px;
+  background: rgba(6, 11, 22, 0.78);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+}
+.bio-Highlight-box .hl-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.bio-Highlight-box .hl-badge {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 3px 9px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 800;
+  background: rgba(148, 163, 184, 0.16);
+  color: #cbd5e1;
+}
+.bio-Highlight-box .hl-badge.badge-win {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34d399;
+  border: 1px solid rgba(52, 211, 153, 0.45);
+}
+.bio-Highlight-box .hl-desc {
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.adas-loop-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.adas-step-item {
+  padding: 14px;
+  border-radius: 14px;
+  background: rgba(6, 11, 22, 0.78);
+  border: 1px solid rgba(52, 211, 153, 0.24);
+}
+.adas-step-item .s-num {
+  display: block;
+  font-size: 10px;
+  font-weight: 800;
+  color: #34d399;
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+}
+.adas-step-item .s-title {
+  font-size: 13.5px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+.adas-step-item .s-desc {
+  font-size: 12px;
+  color: #cbd5e1;
+  line-height: 1.55;
+}
+
+.bio-confidence-manifesto {
+  padding: 44px;
+  border-radius: 30px;
+  background: linear-gradient(135deg, rgba(12, 24, 48, 0.96), rgba(6, 18, 32, 0.98));
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.55);
+}
+
+@media (max-width: 991px) {
+  .bio-visual-hud-bottom,
+  .bio-inst-grid,
+  .adas-loop-grid {
+    grid-template-columns: 1fr;
+  }
+  .bio-cinema-info,
+  .bio-evidence-vault,
+  .bio-confidence-manifesto {
+    padding: 24px;
+  }
+}
+
 /*# sourceMappingURL=styles.css.map */

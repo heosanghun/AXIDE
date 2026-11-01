@@ -39,6 +39,7 @@ export async function onRequestPost(context) {
 - 공급망 표준: 방산 부품 여권 (Part Passport Spec v1 — 도면 버전, 모델 해시, 재료 로트, 공정 이력, 검사 보고서, Ed25519·SHA256 디지털 서명 봉인)
 - 실측 및 계약 성과: 아주산업 1호 정식 공급계약(2026.8.3 체결, 군 항공 정밀가공, 1.1억 원 VAT 별도), LOI 8곳, TTFT 0.161초, VRAM 14.8GB, NVIDIA B200 SFT→DPO 선호 정확도 96.7%, 2026년 12월 10일 방위산업기술 보호법 개정 시행 대응.
 - 요금제: 표준 Field Vault 패키지 (1년차 도입 9,000만 원 / 2·3년차 연 6,600만 원, 3년 누적 2.2억 원), 원청 검증 노드 (연 3,600만 원 / 1호 풀옵션 1.1억 원).
+- 바이오·신물질 AI 공동연구 (bio-research.html): Nature Biotechnology(2026) 등재 연구진(Dr. Ailie Marx, Prof. Alex M. Bronstein 등)과 허상훈 대표(EquiPhase DEQ 논문 저자)가 진행 중인 무질서 단백질(IDP/IDT) 및 다중 안정 자유 에너지 지형 공동연구(에일리 박사 교신 이메일 공개, 바나흐 단일점 붕괴 N=1 극복 및 3.0% 희귀 상태 5/5 시드 복원), Nature(2026) 구글 AI Co-Scientist 간암·간섬유화 자율 표적 발굴(보리노스타트 TGF-beta 손상 91% 억제)을 물리적 완전 폐쇄망 ADAS 에이전트로 구현, 가상 세포 시뮬레이션(Virtual Cell) 및 초내열 합금·전고체 배터리 등 신물질 탐색.
 
 현재 페이지: ${currentPage}
 반드시 아래 JSON 형식으로만 응답하세요:
@@ -46,7 +47,7 @@ export async function onRequestPost(context) {
   "reply": "사용자에게 음성으로 들려줄 자연스러운 한국어 여성 보이스 답변",
   "action": {
     "type": "none | navigate | scroll | toggle_pricing | open_faq | slide_next | slide_prev | open_arch_modal | change_theme | fill_contact",
-    "target": "이동할 파일명(예: index.html, index-v2.html, about.html, service.html, service-single.html, work.html, work-single.html, blog-standard.html, blog-two-columns.html, blog-three-columns.html, blog-single.html, contact.html) 또는 스크롤/제어 대상 선택자"
+    "target": "이동할 파일명(예: index.html, index-v2.html, about.html, story.html, bio-research.html, service.html, service-single.html, work.html, work-single.html, blog-standard.html, blog-two-columns.html, blog-three-columns.html, blog-single.html, contact.html) 또는 스크롤/제어 대상 선택자"
   }
 }`;
 
