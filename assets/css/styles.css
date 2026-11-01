@@ -12022,38 +12022,51 @@ footer .footer-content .footer-logo.axide-footer-brand {
 /* ==========================================================================
    AXIDE Founder Story & Reference Architecture Showcase (story.html)
    ========================================================================== */
-.story-chapter-bar {
+.story-chapter-wrap {
+  max-width: 1380px;
+  width: 100%;
+  padding: 0 16px;
+  margin: 0 auto;
   position: sticky;
   top: 84px;
   z-index: 90;
+}
+.story-chapter-bar {
+  position: relative;
   margin: -28px auto 48px;
-  max-width: 1240px;
-  padding: 10px 16px;
+  max-width: 1348px;
+  width: 100%;
+  padding: 8px 12px;
   border-radius: 999px;
-  background: rgba(7, 11, 20, 0.88);
+  background: rgba(7, 11, 20, 0.92);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-  border: 1px solid rgba(56, 189, 248, 0.28);
+  border: 1px solid rgba(56, 189, 248, 0.32);
   box-shadow: 0 20px 48px rgba(2, 6, 23, 0.45);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 8px;
+  gap: 4px;
   overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
 }
 .story-chapter-bar::-webkit-scrollbar {
   height: 0;
+  display: none;
 }
 .story-chapter-link {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 9px 16px;
+  gap: 5px;
+  padding: 7px 10px;
   border-radius: 999px;
-  font-size: 13px;
+  font-size: clamp(11.5px, 0.84vw, 12.6px);
   font-weight: 700;
   color: #cbd5e1 !important;
   white-space: nowrap;
+  flex-shrink: 0;
+  border: 1px solid transparent;
   transition: all 0.25s ease;
   text-decoration: none;
 }
@@ -12061,13 +12074,13 @@ footer .footer-content .footer-logo.axide-footer-brand {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 2px 8px;
+  padding: 2px 6px;
   border-radius: 999px;
-  font-size: 10.5px;
+  font-size: 9.8px;
   font-weight: 800;
   background: rgba(56, 189, 248, 0.16);
   color: #38bdf8;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
 }
 .story-chapter-link:hover,
 .story-chapter-link.active {
