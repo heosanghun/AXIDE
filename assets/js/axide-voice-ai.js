@@ -312,7 +312,7 @@
         return {
           clipKey: "arch_zoom",
           reply: "Cogni-OS 참조 아키텍처를 전체 화면으로 확대하여 표시합니다. 원청에서 협력사 공장까지 이어지는 6단계 공급망과, 자율 진화하는 ADAS 구조를 한눈에 확인하실 수 있습니다.",
-          action: { type: "open_arch_modal", target: "assets/images/doc/arch-blueprint-1-layered-os.svg?v=20261102v50" }
+          action: { type: "open_arch_modal", target: "assets/images/doc/arch-blueprint-1-layered-os.svg?v=20261102v70" }
         };
       }
       return {

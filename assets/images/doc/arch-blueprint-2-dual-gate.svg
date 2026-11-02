@@ -1,202 +1,269 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 920" width="1600" height="920" style="background:#060a12;font-family:'Pretendard','Noto Sans KR','Malgun Gothic',-apple-system,sans-serif;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 940" width="1600" height="940" style="background:#07090e;font-family:'Pretendard','Noto Sans KR','Malgun Gothic',-apple-system,BlinkMacSystemFont,sans-serif;">
   <defs>
-    <linearGradient id="bgGrad2" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#050911"/>
-      <stop offset="50%" stop-color="#0a1222"/>
-      <stop offset="100%" stop-color="#04070e"/>
+    <linearGradient id="bgBase2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#06080d"/>
+      <stop offset="50%" stop-color="#0b101b"/>
+      <stop offset="100%" stop-color="#05070b"/>
     </linearGradient>
-    <linearGradient id="zoneAirgap" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#0a192f" stop-opacity="0.95"/>
-      <stop offset="100%" stop-color="#060d1a" stop-opacity="0.98"/>
+    <radialGradient id="ambientGlow2" cx="50%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.3"/>
+      <stop offset="65%" stop-color="#0f172a" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#06080d" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="panelObsidian2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#101622" stop-opacity="0.96"/>
+      <stop offset="100%" stop-color="#090d15" stop-opacity="0.98"/>
     </linearGradient>
-    <linearGradient id="gateBlue" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#07223b"/>
-      <stop offset="100%" stop-color="#0c3559"/>
+    <linearGradient id="headerMetal2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#161f30"/>
+      <stop offset="50%" stop-color="#1c273c"/>
+      <stop offset="100%" stop-color="#141c2b"/>
     </linearGradient>
-    <linearGradient id="gateGold" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#2c1d08"/>
-      <stop offset="100%" stop-color="#422a09"/>
+    <linearGradient id="headerGold2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#231d12"/>
+      <stop offset="100%" stop-color="#17130c"/>
     </linearGradient>
-    <pattern id="cadGrid2" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#38bdf8" stroke-width="0.6" stroke-opacity="0.07"/>
+    <linearGradient id="cardSlate2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#151d2c"/>
+      <stop offset="100%" stop-color="#0e1420"/>
+    </linearGradient>
+    <linearGradient id="cardGold2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1d1810"/>
+      <stop offset="100%" stop-color="#120f0a"/>
+    </linearGradient>
+    <linearGradient id="cardSeal2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#101e20"/>
+      <stop offset="100%" stop-color="#0a1315"/>
+    </linearGradient>
+    <filter id="dropShadow2" x="-4%" y="-4%" width="108%" height="108%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+    <pattern id="archGrid2" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#94a3b8" stroke-width="0.5" stroke-opacity="0.045"/>
+      <circle cx="0" cy="0" r="0.7" fill="#94a3b8" fill-opacity="0.12"/>
     </pattern>
-    <marker id="arrBlue2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
-      <path d="M 0 1 L 9 5 L 0 9 z" fill="#38bdf8"/>
+    <marker id="arrSteel2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#7dd3fc"/>
     </marker>
-    <marker id="arrGold2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
-      <path d="M 0 1 L 9 5 L 0 9 z" fill="#f59e0b"/>
+    <marker id="arrGold2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#d4af37"/>
     </marker>
+    <g id="iconBlock2">
+      <circle cx="6" cy="6" r="5" fill="none" stroke="#94a3b8" stroke-width="1.3"/>
+      <line x1="2.5" y1="2.5" x2="9.5" y2="9.5" stroke="#94a3b8" stroke-width="1.3"/>
+    </g>
+    <g id="iconCheck2">
+      <circle cx="5" cy="5" r="4.5" fill="#132a2e" stroke="#5eead4" stroke-width="1.1"/>
+      <path d="M 2.8 5.1 L 4.3 6.6 L 7.3 3.5" fill="none" stroke="#5eead4" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
   </defs>
 
-  <rect width="1600" height="920" fill="url(#bgGrad2)"/>
-  <rect width="1600" height="920" fill="url(#cadGrid2)"/>
-  <rect x="16" y="16" width="1568" height="888" rx="18" fill="none" stroke="#38bdf8" stroke-opacity="0.28" stroke-width="1.5"/>
+  <rect width="1600" height="940" fill="url(#bgBase2)"/>
+  <rect width="1600" height="940" fill="url(#ambientGlow2)"/>
+  <rect width="1600" height="940" fill="url(#archGrid2)"/>
+  <rect x="16" y="16" width="1568" height="908" rx="14" fill="none" stroke="#334155" stroke-opacity="0.55" stroke-width="1"/>
+  <rect x="20" y="20" width="1560" height="900" rx="12" fill="none" stroke="#1e293b" stroke-opacity="0.8" stroke-width="0.8"/>
 
   <!-- Top Header Banner -->
-  <rect x="32" y="28" width="1536" height="68" rx="12" fill="#0b1528" stroke="#38bdf8" stroke-opacity="0.35"/>
-  <circle cx="58" cy="52" r="6" fill="#f59e0b"/>
-  <text x="74" y="57" fill="#fbbf24" font-size="13" font-weight="800" letter-spacing="1.5">AXIDE SOVEREIGN AI · ARCHITECTURE BLUEPRINT 02 / 04</text>
-  <text x="52" y="82" fill="#f8fafc" font-size="21" font-weight="800">단방향 이중 게이트 &amp; 에어갭 스마트 팩토리 — “도면은 공장 안에, 부품은 여권을 들고”</text>
-  <rect x="1220" y="42" width="330" height="40" rx="8" fill="#060d1a" stroke="#10b981" stroke-opacity="0.5"/>
-  <text x="1385" y="67" fill="#34d399" font-size="13" font-weight="800" text-anchor="middle">물리적 망분리 · 도면 외부 유출 0 Byte</text>
+  <g filter="url(#dropShadow2)">
+    <rect x="30" y="28" width="1540" height="72" rx="10" fill="url(#panelObsidian2)" stroke="#334155" stroke-width="1"/>
+  </g>
+  <g transform="translate(48, 44)">
+    <polygon points="18,0 34,9 34,27 18,36 2,27 2,9" fill="#131c2e" stroke="#d4af37" stroke-width="1.4"/>
+    <polygon points="18,6 28,12 28,24 18,30 8,24 8,12" fill="none" stroke="#7dd3fc" stroke-width="1" stroke-opacity="0.8"/>
+    <circle cx="18" cy="18" r="3" fill="#d4af37"/>
+  </g>
+  <text x="96" y="53" fill="#94a3b8" font-size="11.5" font-weight="700" letter-spacing="2">AXIDE SOVEREIGN AI · ARCHITECTURE BLUEPRINT 02 / 04</text>
+  <text x="96" y="80" fill="#f8fafc" font-size="20" font-weight="800">단방향 이중 게이트 &amp; 에어갭 스마트 팩토리</text>
+  <line x1="484" y1="64" x2="484" y2="83" stroke="#475569" stroke-width="1.5"/>
+  <text x="498" y="79" fill="#f3e5ab" font-size="15.5" font-weight="700">“도면은 공장 안에, 부품은 여권을 들고”</text>
 
-  <!-- ==================== LEFT ZONE: AIR-GAPPED FACTORY (공장 폐쇄망 구역) ==================== -->
-  <rect x="32" y="114" width="600" height="640" rx="16" fill="url(#zoneAirgap)" stroke="#38bdf8" stroke-opacity="0.65" stroke-width="2"/>
-  <rect x="32" y="114" width="600" height="52" rx="16" fill="#0284c7" fill-opacity="0.22"/>
-  <text x="332" y="146" fill="#ffffff" font-size="18.5" font-weight="800" text-anchor="middle">🛡️ 공장 내부 폐쇄망 구역 (Air-Gapped Factory · 인터넷 연결 0)</text>
+  <rect x="1220" y="42" width="332" height="44" rx="7" fill="#0b101b" stroke="#475569" stroke-width="1"/>
+  <circle cx="1242" cy="64" r="4" fill="#5eead4"/>
+  <text x="1258" y="60" fill="#94a3b8" font-size="10" font-weight="700" letter-spacing="1">PHYSICAL NETWORK ISOLATION</text>
+  <text x="1258" y="75" fill="#f1f5f9" font-size="12.5" font-weight="700">물리적 망분리 · 도면 외부 유출 0 Byte</text>
+
+  <!-- ==================== LEFT ZONE: AIR-GAPPED FACTORY ==================== -->
+  <g filter="url(#dropShadow2)">
+    <rect x="30" y="114" width="600" height="656" rx="10" fill="url(#panelObsidian2)" stroke="#3b4f6b" stroke-width="1.3"/>
+    <path d="M 30 124 A 10 10 0 0 1 40 114 H 620 A 10 10 0 0 1 630 124 V 164 H 30 Z" fill="url(#headerMetal2)"/>
+    <line x1="30" y1="164" x2="630" y2="164" stroke="#3b4f6b" stroke-width="1"/>
+  </g>
+  <text x="330" y="135" fill="#7dd3fc" font-size="9.5" font-weight="700" letter-spacing="1.6" text-anchor="middle">AIR-GAPPED SECURE MANUFACTURING ZONE · ZERO INTERNET</text>
+  <text x="330" y="154" fill="#ffffff" font-size="16.5" font-weight="800" text-anchor="middle">공장 내부 폐쇄망 구역 (Air-Gapped Factory · 인터넷 연결 0)</text>
 
   <!-- Core Server Box -->
-  <g transform="translate(56, 184)">
-    <rect width="552" height="145" rx="12" fill="#0b192e" stroke="#38bdf8" stroke-opacity="0.55" stroke-width="1.5"/>
-    <rect x="18" y="18" width="118" height="108" rx="10" fill="#061020" stroke="#38bdf8" stroke-opacity="0.5"/>
-    <text x="77" y="52" fill="#38bdf8" font-size="13" font-weight="800" text-anchor="middle">Cogni-OS</text>
-    <text x="77" y="72" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">추론 서버</text>
-    <text x="77" y="94" fill="#34d399" font-size="11" font-weight="700" text-anchor="middle">RTX 6000 Ada</text>
-    <text x="77" y="112" fill="#94a3b8" font-size="10.5" text-anchor="middle">HSM 보안 동글 장착</text>
+  <g transform="translate(52, 182)">
+    <rect width="556" height="148" rx="8" fill="url(#cardSlate2)" stroke="#3b4f6b" stroke-width="1.2"/>
+    <rect x="16" y="16" width="120" height="116" rx="6" fill="#0b101b" stroke="#475569" stroke-width="1"/>
+    <rect x="16" y="16" width="120" height="3" rx="1.5" fill="#7dd3fc"/>
+    <text x="76" y="48" fill="#7dd3fc" font-size="13" font-weight="800" text-anchor="middle">Cogni-OS</text>
+    <text x="76" y="68" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">추론 서버</text>
+    <text x="76" y="92" fill="#5eead4" font-size="11" font-weight="700" text-anchor="middle">RTX 6000 Ada</text>
+    <text x="76" y="112" fill="#94a3b8" font-size="10.5" font-weight="600" text-anchor="middle">HSM 보안 동글 장착</text>
 
-    <text x="156" y="38" fill="#38bdf8" font-size="15.5" font-weight="800">폐쇄망 로컬 AI 두뇌 (Cogni-OS Appliance Server)</text>
-    <text x="156" y="64" fill="#e2e8f0" font-size="13">• 반입된 봉인 도면을 서버 내부 메모리(VRAM/RAM)에서만 해독</text>
-    <text x="156" y="88" fill="#e2e8f0" font-size="13">• STEP·DWG 3D 형상 복원 · 공차 추출 · G-code 가공 경로 생성</text>
-    <text x="156" y="112" fill="#6ee7b7" font-size="13" font-weight="700">• 가공·측정 완료 후 SHA-256 + Ed25519 부품 여권(QR) 봉인 발급</text>
+    <text x="154" y="36" fill="#f8fafc" font-size="15" font-weight="800">폐쇄망 로컬 AI 두뇌 (Cogni-OS Appliance Server)</text>
+    <text x="154" y="64" fill="#cbd5e1" font-size="12.5" font-weight="500">• 반입된 봉인 도면을 서버 내부 메모리(VRAM/RAM)에서만 해독</text>
+    <text x="154" y="88" fill="#cbd5e1" font-size="12.5" font-weight="500">• STEP·DWG 3D 형상 복원 · 공차 추출 · G-code 가공 경로 생성</text>
+    <text x="154" y="112" fill="#5eead4" font-size="12.5" font-weight="700">• 가공·측정 완료 후 SHA-256 + Ed25519 부품 여권(QR) 봉인 발급</text>
   </g>
 
   <!-- 4 Field Devices inside Air-Gapped Factory -->
-  <g transform="translate(56, 346)">
-    <rect width="266" height="122" rx="10" fill="#091426" stroke="#38bdf8" stroke-opacity="0.4"/>
-    <text x="20" y="30" fill="#7dd3fc" font-size="14" font-weight="800">① 현장 엔지니어 노트북</text>
-    <text x="20" y="54" fill="#cbd5e1" font-size="12.5">• 3D CAD/CAM 정밀 공정 검토</text>
-    <text x="20" y="76" fill="#cbd5e1" font-size="12.5">• 설비 제어 · 출하 사람 승인(🔒)</text>
-    <text x="20" y="98" fill="#94a3b8" font-size="11.5">※ 외부 USB 포트 물리 봉인</text>
+  <g transform="translate(52, 346)">
+    <rect width="270" height="124" rx="8" fill="url(#cardSlate2)" stroke="#293548" stroke-width="1"/>
+    <rect x="0" y="0" width="3" height="124" rx="1.5" fill="#7dd3fc"/>
+    <text x="20" y="30" fill="#f8fafc" font-size="13.5" font-weight="800">① 현장 엔지니어 노트북</text>
+    <text x="20" y="54" fill="#cbd5e1" font-size="12">• 3D CAD/CAM 정밀 공정 검토</text>
+    <text x="20" y="76" fill="#cbd5e1" font-size="12">• 설비 제어 · 출하 사람 승인 (Human Gate)</text>
+    <text x="20" y="100" fill="#94a3b8" font-size="11" font-weight="600">※ 외부 USB 포트 물리 봉인</text>
   </g>
-  <g transform="translate(342, 346)">
-    <rect width="266" height="122" rx="10" fill="#091426" stroke="#38bdf8" stroke-opacity="0.4"/>
-    <text x="20" y="30" fill="#7dd3fc" font-size="14" font-weight="800">② 러기드 태블릿 (탭 S11 울트라)</text>
-    <text x="20" y="54" fill="#cbd5e1" font-size="12.5">• 설비 옆 도면 3D 단면 · 공차 확인</text>
-    <text x="20" y="76" fill="#cbd5e1" font-size="12.5">• 4R-ATP 치수 측정값 즉시 대조</text>
-    <text x="20" y="98" fill="#94a3b8" font-size="11.5">※ 공장 내부 전용 폐쇄 Wi-Fi</text>
+  <g transform="translate(338, 346)">
+    <rect width="270" height="124" rx="8" fill="url(#cardSlate2)" stroke="#293548" stroke-width="1"/>
+    <rect x="0" y="0" width="3" height="124" rx="1.5" fill="#7dd3fc"/>
+    <text x="20" y="30" fill="#f8fafc" font-size="13.5" font-weight="800">② 러기드 태블릿 (탭 S11 울트라)</text>
+    <text x="20" y="54" fill="#cbd5e1" font-size="12">• 설비 옆 도면 3D 단면 · 공차 확인</text>
+    <text x="20" y="76" fill="#cbd5e1" font-size="12">• 4R-ATP 치수 측정값 즉시 대조</text>
+    <text x="20" y="100" fill="#94a3b8" font-size="11" font-weight="600">※ 공장 내부 전용 폐쇄 Wi-Fi</text>
   </g>
-  <g transform="translate(56, 484)">
-    <rect width="266" height="122" rx="10" fill="#091426" stroke="#38bdf8" stroke-opacity="0.4"/>
-    <text x="20" y="30" fill="#7dd3fc" font-size="14" font-weight="800">③ AR 스마트글라스 (3줄 HUD)</text>
-    <text x="20" y="54" fill="#cbd5e1" font-size="12.5">• 양손 작업 중 핵심 공차 3줄 표시</text>
-    <text x="20" y="76" fill="#cbd5e1" font-size="12.5">• 소음 환경 한국어 음성 질의응답</text>
-    <text x="20" y="98" fill="#94a3b8" font-size="11.5">※ 로컬 엣지 스트리밍 연동</text>
+  <g transform="translate(52, 484)">
+    <rect width="270" height="124" rx="8" fill="url(#cardSlate2)" stroke="#293548" stroke-width="1"/>
+    <rect x="0" y="0" width="3" height="124" rx="1.5" fill="#7dd3fc"/>
+    <text x="20" y="30" fill="#f8fafc" font-size="13.5" font-weight="800">③ AR 스마트글라스 (3줄 HUD)</text>
+    <text x="20" y="54" fill="#cbd5e1" font-size="12">• 양손 작업 중 핵심 공차 3줄 표시</text>
+    <text x="20" y="76" fill="#cbd5e1" font-size="12">• 소음 환경 한국어 음성 질의응답</text>
+    <text x="20" y="100" fill="#94a3b8" font-size="11" font-weight="600">※ 로컬 엣지 스트리밍 연동</text>
   </g>
-  <g transform="translate(342, 484)">
-    <rect width="266" height="122" rx="10" fill="#091426" stroke="#10b981" stroke-opacity="0.5"/>
-    <text x="20" y="30" fill="#34d399" font-size="14" font-weight="800">④ 5축 CNC · 레이저 CMM 직결</text>
-    <text x="20" y="54" fill="#cbd5e1" font-size="12.5">• 가공 스핀들 부하 실시간 수집</text>
-    <text x="20" y="76" fill="#cbd5e1" font-size="12.5">• 7대 핵심 치수 계측 → 여권 직결</text>
-    <text x="20" y="98" fill="#6ee7b7" font-size="11.5">※ 수기 성적서 입력 오류 0%</text>
+  <g transform="translate(338, 484)">
+    <rect width="270" height="124" rx="8" fill="url(#cardSeal2)" stroke="#285e61" stroke-width="1"/>
+    <rect x="0" y="0" width="3" height="124" rx="1.5" fill="#5eead4"/>
+    <text x="20" y="30" fill="#5eead4" font-size="13.5" font-weight="800">④ 5축 CNC · 레이저 CMM 직결</text>
+    <text x="20" y="54" fill="#cbd5e1" font-size="12">• 가공 스핀들 부하 실시간 수집</text>
+    <text x="20" y="76" fill="#cbd5e1" font-size="12">• 7대 핵심 치수 계측 → 여권 직결</text>
+    <text x="20" y="100" fill="#5eead4" font-size="11" font-weight="600">※ 수기 성적서 입력 오류 0%</text>
   </g>
 
   <!-- Core Promise Banner inside Factory -->
-  <rect x="56" y="624" width="552" height="108" rx="12" fill="#051329" stroke="#38bdf8" stroke-opacity="0.6" stroke-width="1.5"/>
-  <text x="332" y="660" fill="#38bdf8" font-size="13" font-weight="800" text-anchor="middle" letter-spacing="1">CORE SECURITY PRINCIPLE · 핵심 보안 원칙</text>
-  <text x="332" y="694" fill="#ffffff" font-size="22" font-weight="800" text-anchor="middle">“도면은 공장 안에, 부품은 여권을 들고”</text>
-  <text x="332" y="718" fill="#94a3b8" font-size="12.5" text-anchor="middle">원본 도면은 공장 밖으로 단 1바이트도 나가지 않으며, 오직 암호학적으로 봉인된 부품 여권만 반출됩니다</text>
+  <rect x="52" y="626" width="556" height="122" rx="8" fill="#0b101b" stroke="#3b4f6b" stroke-width="1.2"/>
+  <text x="330" y="656" fill="#7dd3fc" font-size="11.5" font-weight="700" text-anchor="middle" letter-spacing="1.5">CORE SECURITY PRINCIPLE · 핵심 보안 원칙</text>
+  <text x="330" y="692" fill="#ffffff" font-size="21" font-weight="800" text-anchor="middle">“도면은 공장 안에, 부품은 여권을 들고”</text>
+  <text x="330" y="722" fill="#94a3b8" font-size="12" font-weight="500" text-anchor="middle">원본 도면은 공장 밖으로 단 1바이트도 나가지 않으며, 오직 암호학적으로 봉인된 부품 여권만 반출됩니다</text>
 
-  <!-- ==================== CENTER ZONE: DUAL UNIDIRECTIONAL GATE (단방향 이중 게이트) ==================== -->
-  <rect x="652" y="114" width="320" height="640" rx="16" fill="#080e1a" stroke="#f59e0b" stroke-opacity="0.55" stroke-width="2"/>
-  <rect x="652" y="114" width="320" height="52" rx="16" fill="#f59e0b" fill-opacity="0.16"/>
-  <text x="812" y="146" fill="#fcd34d" font-size="17.5" font-weight="800" text-anchor="middle">⚡ 금빛·푸른 단방향 이중 게이트</text>
+  <!-- ==================== CENTER ZONE: DUAL UNIDIRECTIONAL GATE ==================== -->
+  <g filter="url(#dropShadow2)">
+    <rect x="648" y="114" width="324" height="656" rx="10" fill="url(#panelObsidian2)" stroke="#5c4922" stroke-width="1.3"/>
+    <path d="M 648 124 A 10 10 0 0 1 658 114 H 962 A 10 10 0 0 1 972 124 V 164 H 648 Z" fill="url(#headerGold2)"/>
+    <line x1="648" y1="164" x2="972" y2="164" stroke="#5c4922" stroke-width="1"/>
+  </g>
+  <text x="810" y="135" fill="#e5c158" font-size="9.5" font-weight="700" letter-spacing="1.5" text-anchor="middle">UNIDIRECTIONAL DUAL HARDWARE GATEWAY</text>
+  <text x="810" y="154" fill="#f3e5ab" font-size="16.5" font-weight="800" text-anchor="middle">금빛·푸른 단방향 이중 게이트</text>
 
-  <!-- GATE 1: BLUE INBOUND GATE (들어오는 길) -->
-  <g transform="translate(670, 186)">
-    <rect width="284" height="248" rx="12" fill="url(#gateBlue)" stroke="#38bdf8" stroke-width="2"/>
-    <rect x="16" y="16" width="252" height="32" rx="6" fill="#0284c7"/>
-    <text x="142" y="37" fill="#ffffff" font-size="14" font-weight="800" text-anchor="middle">◀ 푸른 게이트 (들어오는 길 · 반입)</text>
+  <!-- GATE 1: BLUE INBOUND GATE -->
+  <g transform="translate(666, 184)">
+    <rect width="288" height="262" rx="8" fill="url(#cardSlate2)" stroke="#3b4f6b" stroke-width="1.2"/>
+    <rect x="16" y="16" width="256" height="32" rx="5" fill="#131f33" stroke="#3b4f6b" stroke-width="1"/>
+    <text x="144" y="37" fill="#7dd3fc" font-size="13.5" font-weight="800" text-anchor="middle">◀ 푸른 게이트 (들어오는 길 · 반입)</text>
 
-    <text x="142" y="74" fill="#7dd3fc" font-size="14" font-weight="800" text-anchor="middle">암호화 봉인 도면 단방향 반입</text>
-    <line x1="254" y1="96" x2="30" y2="96" stroke="#38bdf8" stroke-width="4" marker-end="url(#arrBlue2)"/>
+    <text x="144" y="74" fill="#f8fafc" font-size="13.5" font-weight="800" text-anchor="middle">암호화 봉인 도면 단방향 반입</text>
+    <line x1="256" y1="96" x2="32" y2="96" stroke="#7dd3fc" stroke-width="3" marker-end="url(#arrSteel2)"/>
+    <circle cx="256" cy="96" r="3.5" fill="#7dd3fc"/>
 
-    <rect x="18" y="118" width="248" height="64" rx="8" fill="#041326" stroke="#38bdf8" stroke-opacity="0.45"/>
-    <text x="142" y="142" fill="#ffffff" font-size="12.5" font-weight="700" text-anchor="middle">✓ 원청 공개키 암호화 도면 (.axvault)</text>
-    <text x="142" y="164" fill="#6ee7b7" font-size="12.5" font-weight="700" text-anchor="middle">✓ 검역 통과 후 봉인 반입 (무결성 검증)</text>
+    <rect x="18" y="118" width="252" height="68" rx="6" fill="#0b101b" stroke="#293548" stroke-width="1"/>
+    <use href="#iconCheck2" x="30" y="133"/>
+    <text x="48" y="142" fill="#e2e8f0" font-size="12" font-weight="700">원청 공개키 암호화 도면 (.axvault)</text>
+    <use href="#iconCheck2" x="30" y="157"/>
+    <text x="48" y="166" fill="#5eead4" font-size="12" font-weight="700">검역 통과 후 봉인 반입 (무결성 검증)</text>
 
-    <rect x="18" y="192" width="248" height="40" rx="8" fill="#281019" stroke="#f43f5e" stroke-opacity="0.7"/>
-    <text x="142" y="217" fill="#fda4af" font-size="12" font-weight="800" text-anchor="middle">🚫 역방향(공장→외부) 전송 물리적 차단</text>
+    <rect x="18" y="198" width="252" height="44" rx="6" fill="#121620" stroke="#334155" stroke-width="1"/>
+    <use href="#iconBlock2" x="28" y="214"/>
+    <text x="150" y="225" fill="#cbd5e1" font-size="11.5" font-weight="700" text-anchor="middle">역방향(공장→외부) 전송 물리적 차단</text>
   </g>
 
-  <!-- GATE 2: GOLD OUTBOUND GATE (나가는 길) -->
-  <g transform="translate(670, 454)">
-    <rect width="284" height="280" rx="12" fill="url(#gateGold)" stroke="#f59e0b" stroke-width="2"/>
-    <rect x="16" y="16" width="252" height="32" rx="6" fill="#d97706"/>
-    <text x="142" y="37" fill="#ffffff" font-size="14" font-weight="800" text-anchor="middle">금빛 게이트 (나가는 길 · 반출) ▶</text>
+  <!-- GATE 2: GOLD OUTBOUND GATE -->
+  <g transform="translate(666, 464)">
+    <rect width="288" height="284" rx="8" fill="url(#cardGold2)" stroke="#785f27" stroke-width="1.2"/>
+    <rect x="16" y="16" width="256" height="32" rx="5" fill="#231c10" stroke="#785f27" stroke-width="1"/>
+    <text x="144" y="37" fill="#f3e5ab" font-size="13.5" font-weight="800" text-anchor="middle">금빛 게이트 (나가는 길 · 반출) ▶</text>
 
-    <text x="142" y="74" fill="#fcd34d" font-size="14" font-weight="800" text-anchor="middle">방산 부품 여권 전용 단방향 반출</text>
-    <line x1="30" y1="96" x2="254" y2="96" stroke="#f59e0b" stroke-width="4" marker-end="url(#arrGold2)"/>
+    <text x="144" y="74" fill="#f8fafc" font-size="13.5" font-weight="800" text-anchor="middle">방산 부품 여권 전용 단방향 반출</text>
+    <line x1="32" y1="96" x2="256" y2="96" stroke="#d4af37" stroke-width="3" marker-end="url(#arrGold2)"/>
+    <circle cx="32" cy="96" r="3.5" fill="#d4af37"/>
 
-    <rect x="18" y="118" width="248" height="66" rx="8" fill="#181004" stroke="#f59e0b" stroke-opacity="0.5"/>
-    <text x="142" y="142" fill="#fcd34d" font-size="12.5" font-weight="700" text-anchor="middle">✓ SHA-256 · Ed25519 부품 여권 (JSON/QR)</text>
-    <text x="142" y="164" fill="#e2e8f0" font-size="12" text-anchor="middle">✓ 합격 판정 해시 · 세금계산서 메타데이터만 통과</text>
+    <rect x="18" y="118" width="252" height="68" rx="6" fill="#0d0c09" stroke="#5c4922" stroke-width="1"/>
+    <use href="#iconCheck2" x="26" y="133"/>
+    <text x="42" y="142" fill="#f3e5ab" font-size="11.5" font-weight="700">SHA-256 · Ed25519 부품 여권 (JSON/QR)</text>
+    <use href="#iconCheck2" x="26" y="157"/>
+    <text x="42" y="166" fill="#cbd5e1" font-size="11.5" font-weight="600">합격 판정 해시 · 세금계산서 메타데이터만 통과</text>
 
-    <rect x="18" y="196" width="248" height="68" rx="8" fill="#281019" stroke="#f43f5e" stroke-opacity="0.8"/>
-    <text x="142" y="220" fill="#fda4af" font-size="12.5" font-weight="800" text-anchor="middle">🚫 도면 원본 · 3D CAD · G-code 반출 불가</text>
-    <text x="142" y="242" fill="#fecdd3" font-size="11.5" text-anchor="middle">하드웨어 화이트리스트 필터가 즉시 차단</text>
-    <text x="142" y="258" fill="#fb7185" font-size="11" font-weight="700" text-anchor="middle">※ 두 길은 물리적으로 분리된 별개 장비</text>
+    <rect x="18" y="198" width="252" height="68" rx="6" fill="#14120e" stroke="#4d3d1c" stroke-width="1"/>
+    <text x="144" y="220" fill="#e2e8f0" font-size="12" font-weight="800" text-anchor="middle">도면 원본 · 3D CAD · G-code 반출 불가</text>
+    <text x="144" y="241" fill="#94a3b8" font-size="11" font-weight="500" text-anchor="middle">하드웨어 화이트리스트 필터가 즉시 차단</text>
+    <text x="144" y="257" fill="#e5c158" font-size="10.5" font-weight="700" text-anchor="middle">※ 두 길은 물리적으로 분리된 별개 장비</text>
   </g>
 
-  <!-- ==================== RIGHT ZONE: OFFICE INTERNET ZONE (사무실 인터넷 구역) ==================== -->
-  <rect x="992" y="114" width="576" height="640" rx="16" fill="url(#zoneAirgap)" stroke="#38bdf8" stroke-opacity="0.45" stroke-width="1.5"/>
-  <rect x="992" y="114" width="576" height="52" rx="16" fill="#1e293b"/>
-  <text x="1280" y="146" fill="#e2e8f0" font-size="18" font-weight="800" text-anchor="middle">🌐 사무실 인터넷 구역 &amp; 원청 연동 (Office Internet Zone)</text>
+  <!-- ==================== RIGHT ZONE: OFFICE INTERNET ZONE ==================== -->
+  <g filter="url(#dropShadow2)">
+    <rect x="990" y="114" width="580" height="656" rx="10" fill="url(#panelObsidian2)" stroke="#2e3c54" stroke-width="1.2"/>
+    <path d="M 990 124 A 10 10 0 0 1 1000 114 H 1560 A 10 10 0 0 1 1570 124 V 164 H 990 Z" fill="url(#headerMetal2)"/>
+    <line x1="990" y1="164" x2="1570" y2="164" stroke="#334155" stroke-width="1"/>
+  </g>
+  <text x="1280" y="135" fill="#94a3b8" font-size="9.5" font-weight="700" letter-spacing="1.5" text-anchor="middle">EXTERNAL OFFICE &amp; PRIME CONTRACTOR LINK ZONE</text>
+  <text x="1280" y="154" fill="#f8fafc" font-size="16.5" font-weight="800" text-anchor="middle">사무실 인터넷 구역 &amp; 원청 연동 (Office Internet Zone)</text>
 
-  <!-- Step 1: Receive -->
-  <g transform="translate(1016, 186)">
-    <rect width="528" height="120" rx="12" fill="#0b1629" stroke="#38bdf8" stroke-opacity="0.4"/>
-    <rect x="18" y="18" width="44" height="44" rx="10" fill="#0284c7" fill-opacity="0.25" stroke="#38bdf8"/>
-    <text x="40" y="46" fill="#38bdf8" font-size="18" font-weight="800" text-anchor="middle">01</text>
-    <text x="78" y="36" fill="#ffffff" font-size="15.5" font-weight="800">원청 암호화 도면 수신 (수신 전용 PC)</text>
-    <text x="78" y="62" fill="#cbd5e1" font-size="13">• 원청이 공장 서버 공개키로 봉인한 도면 파일 수신</text>
-    <text x="78" y="84" fill="#7dd3fc" font-size="12.5" font-weight="700">• 사무실 PC에서는 열쇠(HSM 동글)가 없어 도면 열람 자체가 불가능</text>
-    <text x="78" y="104" fill="#94a3b8" font-size="11.5">→ 혹시 사무실 PC가 해킹되더라도 암호문 상태이므로 기밀 유출 0%</text>
+  <!-- Step 01 -->
+  <g transform="translate(1012, 184)">
+    <rect width="536" height="122" rx="8" fill="url(#cardSlate2)" stroke="#293548" stroke-width="1"/>
+    <rect x="18" y="18" width="42" height="42" rx="7" fill="#101929" stroke="#3b4f6b" stroke-width="1"/>
+    <text x="39" y="45" fill="#7dd3fc" font-size="16" font-weight="800" text-anchor="middle">01</text>
+    <text x="76" y="36" fill="#f8fafc" font-size="15" font-weight="800">원청 암호화 도면 수신 (수신 전용 PC)</text>
+    <text x="76" y="62" fill="#cbd5e1" font-size="12.5">• 원청이 공장 서버 공개키로 봉인한 도면 파일 수신</text>
+    <text x="76" y="84" fill="#7dd3fc" font-size="12" font-weight="700">• 사무실 PC에서는 열쇠(HSM 동글)가 없어 도면 열람 자체가 불가능</text>
+    <text x="76" y="104" fill="#94a3b8" font-size="11.5">→ 혹시 사무실 PC가 해킹되더라도 암호문 상태이므로 기밀 유출 0%</text>
   </g>
 
-  <!-- Step 2: Quarantine & Sealed Import -->
-  <g transform="translate(1016, 322)">
-    <rect width="528" height="120" rx="12" fill="#0b1629" stroke="#38bdf8" stroke-opacity="0.5"/>
-    <rect x="18" y="18" width="44" height="44" rx="10" fill="#0284c7" fill-opacity="0.25" stroke="#38bdf8"/>
-    <text x="40" y="46" fill="#38bdf8" font-size="18" font-weight="800" text-anchor="middle">02</text>
-    <text x="78" y="36" fill="#38bdf8" font-size="15.5" font-weight="800">악성코드 검역 통과 후 봉인 반입 (푸른 게이트 통과)</text>
-    <text x="78" y="62" fill="#cbd5e1" font-size="13">• 검역 전용 PC에서 전자서명 검증 및 악성코드 정밀 스캔 수행</text>
-    <text x="78" y="84" fill="#e2e8f0" font-size="13">• 검증된 봉인 파일만 푸른 단방향 게이트를 통해 공장 서버로 전달</text>
-    <text x="78" y="104" fill="#6ee7b7" font-size="12" font-weight="700">✓ 반입 완료 즉시 검역 PC 내 임시 사본 자동 영구 삭제</text>
+  <!-- Step 02 -->
+  <g transform="translate(1012, 322)">
+    <rect width="536" height="122" rx="8" fill="url(#cardSlate2)" stroke="#293548" stroke-width="1"/>
+    <rect x="18" y="18" width="42" height="42" rx="7" fill="#101929" stroke="#3b4f6b" stroke-width="1"/>
+    <text x="39" y="45" fill="#7dd3fc" font-size="16" font-weight="800" text-anchor="middle">02</text>
+    <text x="76" y="36" fill="#f8fafc" font-size="15" font-weight="800">악성코드 검역 통과 후 봉인 반입 (푸른 게이트 통과)</text>
+    <text x="76" y="62" fill="#cbd5e1" font-size="12.5">• 검역 전용 PC에서 전자서명 검증 및 악성코드 정밀 스캔 수행</text>
+    <text x="76" y="84" fill="#cbd5e1" font-size="12.5">• 검증된 봉인 파일만 푸른 단방향 게이트를 통해 공장 서버로 전달</text>
+    <text x="76" y="104" fill="#5eead4" font-size="12" font-weight="700">✓ 반입 완료 즉시 검역 PC 내 임시 사본 자동 영구 삭제</text>
   </g>
 
-  <!-- Step 3: Outbound Passport -->
-  <g transform="translate(1016, 458)">
-    <rect width="528" height="132" rx="12" fill="#17120a" stroke="#f59e0b" stroke-opacity="0.55"/>
-    <rect x="18" y="18" width="44" height="44" rx="10" fill="#d97706" fill-opacity="0.25" stroke="#f59e0b"/>
-    <text x="40" y="46" fill="#fbbf24" font-size="18" font-weight="800" text-anchor="middle">03</text>
-    <text x="78" y="36" fill="#fcd34d" font-size="15.5" font-weight="800">부품 여권 &amp; 세금계산서 반출 (금빛 게이트 통과)</text>
-    <text x="78" y="62" fill="#cbd5e1" font-size="13">• 금빛 단방향 게이트를 통해 반출된 부품 여권(Part Passport) 수신</text>
-    <text x="78" y="84" fill="#cbd5e1" font-size="13">• 실물 부품 출하와 동시에 원청 품질·보안팀으로 여권 및 세금계산서 발송</text>
-    <text x="78" y="108" fill="#34d399" font-size="12.5" font-weight="800">✓ 원청은 도면 반출 없이도 “정확한 도면·공차대로 가공됨”을 1초 만에 검증</text>
+  <!-- Step 03 -->
+  <g transform="translate(1012, 460)">
+    <rect width="536" height="132" rx="8" fill="url(#cardGold2)" stroke="#5c4922" stroke-width="1"/>
+    <rect x="18" y="18" width="42" height="42" rx="7" fill="#231c10" stroke="#785f27" stroke-width="1"/>
+    <text x="39" y="45" fill="#e5c158" font-size="16" font-weight="800" text-anchor="middle">03</text>
+    <text x="76" y="36" fill="#f3e5ab" font-size="15" font-weight="800">부품 여권 &amp; 세금계산서 반출 (금빛 게이트 통과)</text>
+    <text x="76" y="62" fill="#cbd5e1" font-size="12.5">• 금빛 단방향 게이트를 통해 반출된 부품 여권(Part Passport) 수신</text>
+    <text x="76" y="84" fill="#cbd5e1" font-size="12.5">• 실물 부품 출하와 동시에 원청 품질·보안팀으로 여권 및 세금계산서 발송</text>
+    <text x="76" y="108" fill="#5eead4" font-size="12" font-weight="700">✓ 원청은 도면 반출 없이도 “정확한 도면·공차대로 가공됨”을 1초 만에 검증</text>
   </g>
 
   <!-- Summary Comparison Box -->
-  <g transform="translate(1016, 606)">
-    <rect width="528" height="126" rx="12" fill="#06121e" stroke="#10b981" stroke-opacity="0.5"/>
-    <text x="264" y="30" fill="#34d399" font-size="14" font-weight="800" text-anchor="middle">물리적 이중 게이트 보안 요약 (Defense Security Summary)</text>
-    <line x1="24" y1="42" x2="504" y2="42" stroke="#10b981" stroke-opacity="0.3"/>
-    <text x="32" y="68" fill="#7dd3fc" font-size="13" font-weight="700">• 푸른 반입 게이트:</text>
-    <text x="165" y="68" fill="#e2e8f0" font-size="13">검역된 봉인 도면만 공장 안으로 진입 (역류 불가)</text>
-    <text x="32" y="92" fill="#fcd34d" font-size="13" font-weight="700">• 금빛 반출 게이트:</text>
-    <text x="165" y="92" fill="#e2e8f0" font-size="13">암호학 부품 여권(수 KB)만 외부로 반출 (도면 차단)</text>
-    <text x="32" y="114" fill="#6ee7b7" font-size="12.5" font-weight="700">• 물리적 독립 설계:</text>
-    <text x="165" y="114" fill="#94a3b8" font-size="12.5">반입 장비와 반출 장비는 회로가 분리된 서로 다른 하드웨어</text>
+  <g transform="translate(1012, 608)">
+    <rect width="536" height="140" rx="8" fill="#0b101b" stroke="#334155" stroke-width="1"/>
+    <text x="268" y="28" fill="#f8fafc" font-size="13.5" font-weight="800" text-anchor="middle">물리적 이중 게이트 보안 요약 (Defense Security Summary)</text>
+    <line x1="24" y1="40" x2="512" y2="40" stroke="#293548" stroke-width="1"/>
+    <text x="28" y="66" fill="#7dd3fc" font-size="12.5" font-weight="700">• 푸른 반입 게이트:</text>
+    <text x="158" y="66" fill="#cbd5e1" font-size="12.5">검역된 봉인 도면만 공장 안으로 진입 (역류 불가)</text>
+    <text x="28" y="92" fill="#f3e5ab" font-size="12.5" font-weight="700">• 금빛 반출 게이트:</text>
+    <text x="158" y="92" fill="#cbd5e1" font-size="12.5">암호학 부품 여권(수 KB)만 외부로 반출 (도면 차단)</text>
+    <text x="28" y="118" fill="#5eead4" font-size="12.5" font-weight="700">• 물리적 독립 설계:</text>
+    <text x="158" y="118" fill="#94a3b8" font-size="12.5">반입 장비와 반출 장비는 회로가 분리된 서로 다른 하드웨어</text>
   </g>
 
   <!-- ==================== BOTTOM BAR ==================== -->
-  <rect x="32" y="772" width="1536" height="62" rx="12" fill="#0b1528" stroke="#38bdf8" stroke-opacity="0.4"/>
-  <text x="64" y="809" fill="#38bdf8" font-size="15" font-weight="800">핵심 요약</text>
-  <line x1="145" y1="786" x2="145" y2="820" stroke="#38bdf8" stroke-opacity="0.4"/>
-  <text x="168" y="809" fill="#ffffff" font-size="14.5" font-weight="700">◀ 들어오는 길: 봉인된 암호화 도면 (검역 통과 후 봉인 반입)</text>
-  <text x="630" y="809" fill="#fcd34d" font-size="14.5" font-weight="700">▶ 나가는 길: 잠긴 부품 여권 (도면 원본 0 Byte)</text>
-  <text x="1035" y="809" fill="#fda4af" font-size="14.5" font-weight="700">🚫 거꾸로는 절대 못 지나감 (물리적 단방향 분리)</text>
+  <rect x="30" y="786" width="1540" height="66" rx="8" fill="url(#panelObsidian2)" stroke="#334155" stroke-width="1"/>
+  <text x="58" y="824" fill="#7dd3fc" font-size="14" font-weight="800">핵심 요약</text>
+  <line x1="138" y1="800" x2="138" y2="838" stroke="#334155" stroke-width="1"/>
+  <text x="162" y="824" fill="#f8fafc" font-size="13.5" font-weight="700">◀ 들어오는 길: 봉인된 암호화 도면 (검역 통과 후 봉인 반입)</text>
+  <text x="618" y="824" fill="#f3e5ab" font-size="13.5" font-weight="700">▶ 나가는 길: 잠긴 부품 여권 (도면 원본 0 Byte)</text>
+  <text x="1032" y="824" fill="#cbd5e1" font-size="13.5" font-weight="700">■ 역방향 전송 원천 차단 (물리적 단방향 하드웨어 분리)</text>
 
-  <rect x="32" y="846" width="1536" height="44" rx="10" fill="#091222" stroke="#38bdf8" stroke-opacity="0.3"/>
-  <text x="52" y="873" fill="#cbd5e1" font-size="12.5" font-weight="700">준거 기준: 국가정보원 망분리 보안 가이드라인 및 2026.12.10 시행 개정 방위산업기술 보호법 물리적·기술적 보호조치 완벽 충족</text>
-  <text x="1548" y="873" fill="#94a3b8" font-size="12" font-weight="700" text-anchor="end">DOC: DUAL-AIRGAP-GATE-V2 · REV 2.0 · SHEET 2 / 4</text>
+  <rect x="30" y="868" width="1540" height="42" rx="8" fill="#0b101b" stroke="#293548" stroke-width="1"/>
+  <text x="50" y="894" fill="#cbd5e1" font-size="12" font-weight="600">준거 기준: 국가정보원 망분리 보안 가이드라인 및 2026.12.10 시행 개정 방위산업기술 보호법 물리적·기술적 보호조치 완벽 충족</text>
+  <text x="1550" y="894" fill="#94a3b8" font-size="11.5" font-weight="700" text-anchor="end">DOC: DUAL-AIRGAP-GATE-V3 · REV 3.0 · SHEET 02 / 04</text>
 </svg>
