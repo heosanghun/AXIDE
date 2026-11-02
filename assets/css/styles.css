@@ -10677,11 +10677,20 @@ p,
   padding: 10px;
   margin-bottom: 24px;
   box-shadow: 0 22px 54px rgba(0, 0, 0, 0.65);
+  text-align: center;
+}
+.arch-blueprint-frame > a,
+.arch-blueprint-frame a {
+  display: block !important;
+  width: 100% !important;
+  text-align: center;
 }
 .arch-blueprint-frame img {
-  width: 100%;
-  height: auto;
-  display: block;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  margin: 0 auto !important;
   border-radius: 18px;
   object-fit: cover;
 }
@@ -11819,11 +11828,21 @@ footer .footer-image {
   font-weight: 700;
   cursor: pointer;
 }
+.axide-arch-modal .arch-modal-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
 .axide-arch-modal .arch-modal-body img {
   width: 100%;
+  max-width: 100%;
   max-height: 82vh;
   object-fit: contain;
   border-radius: 14px;
+  display: block;
+  margin: 0 auto;
 }
 
 @keyframes simsSphereFloat {
@@ -12888,14 +12907,18 @@ footer .footer-content .footer-logo.axide-footer-brand {
   overflow: auto;
   text-align: center;
   background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .story-lightbox-body.dark-bg {
   background: #060913;
 }
 .story-lightbox-body img {
+  display: block;
+  width: 100%;
   max-width: 100%;
-  max-height: 78vh;
-  width: auto;
+  max-height: 82vh;
   height: auto;
   object-fit: contain;
   margin: 0 auto;
