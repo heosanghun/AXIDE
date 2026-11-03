@@ -357,7 +357,7 @@
     if (/부품\s*여권|파트\s*패스포트|필드\s*볼트|하드웨어\s*상세|동글|솔루션\s*상세/.test(lower)) {
       return {
         clipKey: "nav_passport",
-        reply: "방산 부품 여권과 Field Vault 하드웨어 상세 페이지로 이동합니다. 도면 외부 유출 없이 단 3초 만에 무결성을 입증하는 암호학 봉인 구조를 확인하실 수 있습니다.",
+        reply: "방산 부품 여권과 Field Vault 하드웨어 상세 페이지로 이동합니다. 도면 외부 유출 없이 단 3초 만에 무결성을 입증하는 암호화 봉인 구조를 확인하실 수 있습니다.",
         action: { type: "navigate", target: "service-single.html" }
       };
     }
@@ -396,10 +396,10 @@
         action: { type: "navigate", target: "blog-three-columns.html" }
       };
     }
-    if (/백서\s*상세|백서\s*전문|암호학\s*백서|방산법\s*해설/.test(lower)) {
+    if (/백서\s*상세|백서\s*전문|암호화\s*백서|암호학\s*백서|방산법\s*해설/.test(lower)) {
       return {
         clipKey: "nav_blog_single",
-        reply: "DEQ 상수 메모리 추론과 암호학 해시 체인 감사 봉인을 다룬 기술 백서 상세 페이지로 안내해 드리겠습니다.",
+        reply: "DEQ 상수 메모리 추론과 암호화 해시 체인 감사 봉인을 다룬 기술 백서 상세 페이지로 안내해 드리겠습니다.",
         action: { type: "navigate", target: "blog-single.html" }
       };
     }
@@ -570,7 +570,7 @@
     if (/방위산업|방산법|12월\s*10일|법률|유출|보호법/.test(lower)) {
       return {
         clipKey: "qa_law",
-        reply: "2026년 12월 10일 시행되는 개정 방위산업기술 보호법은 도면 유출 시 엄중한 처벌과 공급망 검증을 규정하고 있습니다. 액사이드는 원본 도면을 공장 밖으로 단 1바이트도 반출하지 않고 암호학 부품 여권만 전달하여 법적 리스크를 원천 해결합니다.",
+        reply: "2026년 12월 10일 시행되는 개정 방위산업기술 보호법은 도면 유출 시 엄중한 처벌과 공급망 검증을 규정하고 있습니다. 액사이드는 원본 도면을 공장 밖으로 단 1바이트도 반출하지 않고 암호화 부품 여권만 전달하여 법적 리스크를 원천 해결합니다.",
         action: { type: "none", target: "" }
       };
     }
@@ -1496,7 +1496,7 @@
                 <span class="axide-telemetry-v">14.8GB · TTFT 0.161s</span>
               </div>
               <div class="axide-telemetry-box">
-                <span class="axide-telemetry-k">부품 여권 암호학 봉인</span>
+                <span class="axide-telemetry-k">부품 여권 암호화 봉인</span>
                 <span class="axide-telemetry-v">Ed25519 · SHA-256</span>
               </div>
               <div class="axide-telemetry-box">
