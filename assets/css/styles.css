@@ -14926,9 +14926,42 @@ footer .footer-content .footer-logo.axide-footer-brand {
               linear-gradient(180deg, #0d0b28 0%, #13113a 42%, #0e0c2c 100%);
   color: var(--ci-fg);
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   border-top: 1px solid rgba(202, 164, 251, 0.22);
   border-bottom: 1px solid rgba(0, 217, 252, 0.2);
+}
+
+.axide-ci-theme.ci-page-stage {
+  border-top: none;
+  padding-top: 148px;
+}
+
+.axide-ci-theme .ci-sticky-nav-wrap {
+  max-width: 1140px;
+  width: 100%;
+  padding: 0;
+  margin: 0 auto 16px;
+  position: sticky;
+  top: 0;
+  z-index: 990;
+}
+
+.axide-ci-theme .ci-sticky-nav-wrap .story-chapter-bar {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 8px 16px;
+  border-radius: 0 0 20px 20px;
+  background: rgba(16, 14, 48, 0.92);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(202, 164, 251, 0.35);
+  border-top: none;
+  box-shadow: 0 14px 34px rgba(5, 4, 20, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  overflow-x: auto;
 }
 
 .axide-ci-theme .ci-wrap {

@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="assets/css/slick.css">
     <link rel="stylesheet" href="assets/css/slick.theme.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/styles.css?v=20261103v82">
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css?v=20261104v87">
 
     <!-- Favicon and Touch Icons  -->
     <link rel="shortcut icon" href="assets/images/logo/favicon.svg?v=20261102v50">
@@ -184,44 +184,14 @@
         </header>
         <!-- /Header -->
 
-        <!-- Sticky Chapter Bar -->
-        <div class="container story-chapter-wrap" style="padding-top: 108px; margin-bottom: 0;">
-            <nav class="story-chapter-bar" aria-label="AXIDE CI Philosophy Chapters">
-                <a href="#ci-anatomy" class="story-chapter-link active">
-                    <span class="chapter-num">CH 01</span>
-                    <span>세 축의 분해 (X·Y·T)</span>
-                </a>
-                <a href="#ci-name" class="story-chapter-link">
-                    <span class="chapter-num">CH 02</span>
-                    <span>AXIDE 다섯 글자의 축</span>
-                </a>
-                <a href="#ci-form" class="story-chapter-link">
-                    <span class="chapter-num">CH 03</span>
-                    <span>형태의 문법 &amp; O(1)</span>
-                </a>
-                <a href="#ci-hangul" class="story-chapter-link">
-                    <span class="chapter-num">CH 04</span>
-                    <span>한글과 세계 모델</span>
-                </a>
-                <a href="#ci-color" class="story-chapter-link">
-                    <span class="chapter-num">CH 05</span>
-                    <span>시간의 색 체계</span>
-                </a>
-                <a href="#ci-manifesto" class="story-chapter-link">
-                    <span class="chapter-num">CH 06</span>
-                    <span>로고의 선언</span>
-                </a>
-            </nav>
-        </div>
-
         <!-- =================================================================
              AXIDE CI PHILOSOPHY FULL THEME STAGE
              ================================================================= -->
-        <div class="axide-ci-theme">
+        <div class="axide-ci-theme ci-page-stage">
             <div class="ci-wrap">
 
                 <!-- HERO SECTION -->
-                <section class="ci-section ci-hero">
+                <section class="ci-section ci-hero" style="padding-top: 24px;">
                     <div class="ci-hero-copy">
                         <span class="ci-eyebrow">AXIDE · Corporate Identity &amp; World Model Philosophy</span>
                         <h1 class="ci-h1">공간을 한 장씩 쌓으면,<br><em>시간이 됩니다.</em></h1>
@@ -256,8 +226,38 @@
                     </div>
                 </section>
 
+                <!-- Sticky Chapter Bar (Below Hero, Sticks Flush to Top on Scroll) -->
+                <div class="ci-sticky-nav-wrap">
+                    <nav class="story-chapter-bar" aria-label="AXIDE CI Philosophy Chapters">
+                        <a href="#ci-anatomy" class="story-chapter-link active">
+                            <span class="chapter-num">CH 01</span>
+                            <span>세 축의 분해 (X·Y·T)</span>
+                        </a>
+                        <a href="#ci-name" class="story-chapter-link">
+                            <span class="chapter-num">CH 02</span>
+                            <span>AXIDE 다섯 글자의 축</span>
+                        </a>
+                        <a href="#ci-form" class="story-chapter-link">
+                            <span class="chapter-num">CH 03</span>
+                            <span>형태의 문법 &amp; O(1)</span>
+                        </a>
+                        <a href="#ci-hangul" class="story-chapter-link">
+                            <span class="chapter-num">CH 04</span>
+                            <span>한글과 세계 모델</span>
+                        </a>
+                        <a href="#ci-color" class="story-chapter-link">
+                            <span class="chapter-num">CH 05</span>
+                            <span>시간의 색 체계</span>
+                        </a>
+                        <a href="#ci-manifesto" class="story-chapter-link">
+                            <span class="chapter-num">CH 06</span>
+                            <span>로고의 선언</span>
+                        </a>
+                    </nav>
+                </div>
+
                 <!-- CH 01: ANATOMY (INTERACTIVE X-Y-T EXPLODED DIAGRAM) -->
-                <section id="ci-anatomy" class="ci-section" style="scroll-margin-top: 120px;">
+                <section id="ci-anatomy" class="ci-section" style="scroll-margin-top: 84px;">
                     <div class="ci-head">
                         <span class="ci-eyebrow">CH 01 · Anatomy · 세 축의 분해</span>
                         <h2 class="ci-h2">평면 한 장은 한 순간의 세계입니다</h2>
@@ -805,6 +805,19 @@
             });
         });
         draw(+r.value);
+
+        var links = Array.prototype.slice.call(document.querySelectorAll('.ci-sticky-nav-wrap .story-chapter-link'));
+        var secs = links.map(function(a) { return document.querySelector(a.getAttribute('href')); }).filter(Boolean);
+        window.addEventListener('scroll', function() {
+            var y = window.scrollY + 140;
+            var activeIdx = 0;
+            for (var i = 0; i < secs.length; i++) {
+                if (secs[i].offsetTop <= y) activeIdx = i;
+            }
+            links.forEach(function(l, idx) {
+                l.classList.toggle('active', idx === activeIdx);
+            });
+        }, { passive: true });
     })();
     </script>
     <script src="assets/js/axide-voice-ai.js?v=20261103v82"></script>
