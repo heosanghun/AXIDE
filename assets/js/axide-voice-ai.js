@@ -472,7 +472,7 @@
     if (/월드\s*모델|월드모델|world\s*model|simsreality|심즈리얼리티/.test(lower)) {
       return {
         clipKey: "team",
-        reply: "허상훈 대표가 단독으로 직접 설계·개발한 공간(X·Y)·시간(T) 동시 추론 O(1) 월드모델 플랫폼(simsreality.app)으로 연결해 드리겠습니다.",
+        reply: "허상훈 대표가 단독으로 직접 설계·개발한 공간(X·Y)·시간(T) 동시 추론 O(1) 월드모델 플랫폼(World Model AI)으로 연결해 드리겠습니다.",
         action: {
           type: "external",
           target: "https://simsreality.app"
