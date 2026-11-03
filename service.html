@@ -88,19 +88,16 @@
                             <a href="story.html" class="item-link link1">창업 스토리</a>
                             <ul class="sub-menu">
                                 <li class="sub-menu-item">
-                                    <a href="story.html#act-origin" class="item-link link1">Act 1. 한글 모듈 · 3D 12년 · AI 박사</a>
+                                    <a href="story.html#act-origin" class="item-link link1">Act 1. 한글 모듈 → 3D 12년 → Cogni-OS</a>
                                 </li>
                                 <li class="sub-menu-item">
                                     <a href="story.html#act-hangul-archive" class="item-link link1">Act 1-B. 한글사랑 영상 &amp; 전시 아카이브</a>
                                 </li>
                                 <li class="sub-menu-item">
-                                    <a href="story.html#act-architecture" class="item-link link1">Act 2. 4대 핵심 기술 &amp; 6계층 OS</a>
+                                    <a href="story.html#story-prologue" class="item-link link1">Act 2. 폐쇄망 작동 흐름 &amp; 방산 부품 여권</a>
                                 </li>
                                 <li class="sub-menu-item">
-                                    <a href="story.html#story-prologue" class="item-link link1">Act 3. 폐쇄망 작동 흐름 &amp; 부품 여권</a>
-                                </li>
-                                <li class="sub-menu-item">
-                                    <a href="story.html#act-journey" class="item-link link1">Act 4. 50번째 전화 &amp; 현장의 증명</a>
+                                    <a href="story.html#act-journey" class="item-link link1">Act 3. 50번째 전화 &amp; 현장의 증명</a>
                                 </li>
                                 <li class="sub-menu-item">
                                     <a href="story.html#act-vision" class="item-link link1">Epilogue. 대전의 중심축 · 3막 비전</a>
@@ -131,7 +128,10 @@
                             <a href="service.html" class="item-link link1 active">솔루션</a>
                             <ul class="sub-menu">
                                 <li class="sub-menu-item">
-                                    <a href="service.html" class="item-link link1 active">Cogni-OS 3층 아키텍처 & 하드웨어</a>
+                                    <a href="service.html" class="item-link link1 active">Cogni-OS 3층 아키텍처 &amp; 하드웨어</a>
+                                </li>
+                                <li class="sub-menu-item">
+                                    <a href="service.html#core-4-technologies" class="item-link link1">Cogni-OS 4대 핵심 기술 도해</a>
                                 </li>
                                 <li class="sub-menu-item">
                                     <a href="service-single.html" class="item-link link1">방산 부품 여권 (Part Passport v1)</a>
@@ -318,6 +318,99 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- =========================================================
+                     CORE 4 TECHNOLOGIES: 단일 GPU 폐쇄망을 완성한 4대 핵심 기술 (DEQ · NVMe · ADAS · Dual-Process OS)
+                     ========================================================= -->
+                <div id="core-4-technologies" class="story-shell-dark mt-48 mb-48">
+                    <span class="story-act-badge">CORE 4 TECHNOLOGIES · SINGLE-GPU SOVEREIGN ENGINE</span>
+                    <h2 class="story-headline">
+                        단일 GPU 폐쇄망을 완성한 4대 핵심 기술
+                    </h2>
+                    <p class="story-lead">
+                        단일 GPU(32GB/48GB) 폐쇄망 환경에서 거대 모델의 추론 성능을 구현하는 <strong>① 심층 평형(DEQ)</strong>, <strong>② NVMe 직통 스트리밍</strong>, <strong>③ 자율 설계 에이전트(ADAS)</strong>, <strong>④ 이중 프로세스(System 1·2) OS</strong>입니다.
+                    </p>
+
+                    <!-- 2x2 Grid of Original Diagrams: image03, image04, image05, image06 -->
+                    <div class="row g-4">
+                        <!-- Tech 1: image03.png -->
+                        <div class="col-lg-6">
+                            <div class="story-figure-card h-100">
+                                <div class="story-figure-Stage stage-light" onclick="openStoryLightbox('assets/images/story/image03.png', '핵심 기술 ① 1. 메모리 · 심층 평형 모델 (DEQ)', false)">
+                                    <img src="assets/images/story/image03.png" alt="1. 메모리 — 심층 평형 모델: 한 블록을 반복해 답에 수렴하므로 깊어져도 메모리가 늘지 않는다">
+                                    <span class="story-zoom-pill">🔍 원본 도해 확대</span>
+                                </div>
+                                <div class="story-figure-body">
+                                    <div>
+                                        <span class="story-figure-tag">CORE TECHNOLOGY 01 · DEEP EQUILIBRIUM MODEL (DEQ)</span>
+                                        <h3 class="story-figure-title">① 평형(DEQ) 사고 엔진: 상수(O(1)) 메모리 심층 추론</h3>
+                                        <p class="story-figure-desc">
+                                            단일 블록을 반복 적용해 고정점(z<sup>*</sup>)에 수렴시킴으로써 추론이 깊어져도 메모리를 상수(<code>O(1)</code>)로 고정합니다.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tech 2: image04.png -->
+                        <div class="col-lg-6">
+                            <div class="story-figure-card h-100">
+                                <div class="story-figure-Stage stage-light" onclick="openStoryLightbox('assets/images/story/image04.png?v=20261102v76', '핵심 기술 ② 2. 속도 · NVMe 직통 전송 (예측형 가중치 모듈 스트리밍)', false)">
+                                    <img src="assets/images/story/image04.png?v=20261102v76" alt="2. 속도 — NVMe 직통 전송: 저장장치에서 GPU 메모리로 중간 경유 없이 바로 보낸다">
+                                    <span class="story-zoom-pill">🔍 원본 도해 확대</span>
+                                </div>
+                                <div class="story-figure-body">
+                                    <div>
+                                        <span class="story-figure-tag">CORE TECHNOLOGY 02 · PREDICTIVE NVMe-TO-GPU STREAMING</span>
+                                        <h3 class="story-figure-title">② 예측형 모듈 스트리밍: NVMe → GPU 직통 선적재</h3>
+                                        <p class="story-figure-desc">
+                                            가중치를 모듈 단위로 분할해 시스템 RAM 경유 없이 PCIe 직통 경로로 GPU VRAM에 선적재합니다.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tech 3: image05.png -->
+                        <div class="col-lg-6">
+                            <div class="story-figure-card h-100">
+                                <div class="story-figure-Stage stage-light" onclick="openStoryLightbox('assets/images/story/image05.png', '핵심 기술 ③ 3. ADAS · 에이전트 자동 설계 (자율 설계 에이전트 아카이브)', false)">
+                                    <img src="assets/images/story/image05.png" alt="3. ADAS — 에이전트 자동 설계: 메타 에이전트가 에이전트를 설계·평가·저장하며 세대마다 성능을 높인다">
+                                    <span class="story-zoom-pill">🔍 원본 도해 확대</span>
+                                </div>
+                                <div class="story-figure-body">
+                                    <div>
+                                        <span class="story-figure-tag">CORE TECHNOLOGY 03 · ADAS SELF-EVOLVING ARCHIVE</span>
+                                        <h3 class="story-figure-title">③ 자율 설계 아카이브(ADAS): 스스로 진화하는 에이전트</h3>
+                                        <p class="story-figure-desc">
+                                            메타 에이전트가 하위 모듈을 생성·격리 검증·보관하며 세대마다 성능을 높이고 새 임무에 즉시 대응합니다.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tech 4: image06.png -->
+                        <div class="col-lg-6">
+                            <div class="story-figure-card h-100">
+                                <div class="story-figure-Stage stage-light" onclick="openStoryLightbox('assets/images/story/image06.png', '핵심 기술 ④ 4. OS · Cogni-OS 운영체제 구조 및 두 개의 루프', false)">
+                                    <img src="assets/images/story/image06.png" alt="4. OS — Cogni-OS 운영체제 구조: 일반 컴퓨터 운영체제와의 대응 관계 및 실행 루프와 진화 루프">
+                                    <span class="story-zoom-pill">🔍 원본 도해 확대</span>
+                                </div>
+                                <div class="story-figure-body">
+                                    <div>
+                                        <span class="story-figure-tag">CORE TECHNOLOGY 04 · DUAL-PROCESS OS & TWO LOOPS</span>
+                                        <h3 class="story-figure-title">④ 이중 프로세스 OS: 실행 루프(오늘)와 진화 루프(내일)</h3>
+                                        <p class="story-figure-desc">
+                                            즉답은 빠른 System 1이 처리하고, 불확실한 질의는 System 2 심층 검토 및 사람 승인 후 지식 증류로 학습합니다.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                     <!-- Cogni-OS Reference Architecture v1.0 Showcase -->
                     <div id="cogni-os-architecture" class="arch-blueprint-wrap no-div" style="background: linear-gradient(160deg, #070b14 0%, #0d1424 52%, #060911 100%); color: #f8fafc; border-radius: 36px; border: 1px solid rgba(56, 189, 248, 0.28);">
                         <div class="arch-blueprint-header">
@@ -963,6 +1056,19 @@
         </div>
         <!-- /section-contact -->
 
+        <!-- Lightbox Modal for Diagrams -->
+        <div id="storyLightboxModal" class="story-lightbox-backdrop" onclick="if(event.target===this) closeStoryLightbox()">
+            <div class="story-lightbox-inner">
+                <div class="story-lightbox-top">
+                    <h5 id="storyLightboxTitle" class="story-lightbox-title">원본 도해 확대 보기</h5>
+                    <button type="button" class="story-lightbox-close" onclick="closeStoryLightbox()">닫기 ✕</button>
+                </div>
+                <div id="storyLightboxBody" class="story-lightbox-body">
+                    <img id="storyLightboxImg" src="" alt="확대 도해">
+                </div>
+            </div>
+        </div>
+
         <!-- footer -->
         <footer>
             <div class="footer-image">
@@ -1230,6 +1336,29 @@
     <script src="assets/js/gsapAnimation.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/axide-voice-ai.js?v=20261103v82"></script>
+    <script>
+        function openStoryLightbox(src, title, isDarkBg) {
+            var modal = document.getElementById('storyLightboxModal');
+            var img = document.getElementById('storyLightboxImg');
+            var titleEl = document.getElementById('storyLightboxTitle');
+            var bodyEl = document.getElementById('storyLightboxBody');
+            if (!modal || !img) return;
+            img.src = src;
+            if (titleEl) titleEl.textContent = title || '원본 도해 확대 보기';
+            if (bodyEl) {
+                if (isDarkBg) bodyEl.classList.add('dark-bg');
+                else bodyEl.classList.remove('dark-bg');
+            }
+            modal.classList.add('open');
+        }
+        function closeStoryLightbox() {
+            var modal = document.getElementById('storyLightboxModal');
+            if (modal) modal.classList.remove('open');
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeStoryLightbox();
+        });
+    </script>
 
 </body>
 
