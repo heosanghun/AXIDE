@@ -878,18 +878,22 @@
     };
   }
 
-  function startListening() {
+  function startListening(anchorMode) {
     if (!recognition) {
-      openVoicePanel();
+      openVoicePanel(anchorMode);
       updateStatusText("음성 입력 미지원 · 아래 입력창을 이용해 주세요");
       const inputEl = document.getElementById("axideVoiceInput");
-      if (inputEl) inputEl.focus();
+      if (inputEl) {
+        try {
+          inputEl.focus({ preventScroll: true });
+        } catch (e) {}
+      }
       return;
     }
     if (isSpeaking) {
       stopAllAudio();
     }
-    openVoicePanel();
+    openVoicePanel(anchorMode);
     try {
       recognition.start();
     } catch (e) {
@@ -906,19 +910,124 @@
     isListening = false;
   }
 
-  function toggleListening() {
+  function toggleListening(anchorMode) {
+    openVoicePanel(anchorMode);
     if (isListening) {
       stopListening();
       setWidgetState("idle");
       updateStatusText("대기 중 · 구체를 누르거나 말씀해 주세요");
     } else {
-      startListening();
+      startListening(anchorMode);
     }
   }
 
   /* --------------------------------------------------------------------------
    * 5. Build Luxury SIMS-Style Spatial/Sovereign AI Voice HUD & Orb
    * -------------------------------------------------------------------------- */
+  function injectCriticalStyles() {
+    if (document.getElementById("axide-voice-critical-css")) return;
+    const style = document.createElement("style");
+    style.id = "axide-voice-critical-css";
+    style.textContent = `
+      html, body {
+        filter: none !important;
+        transform: none !important;
+        perspective: none !important;
+      }
+      body.axide-mode-eyecare #wrapper {
+        filter: sepia(0.14) saturate(0.92) brightness(0.97);
+      }
+      body.axide-mode-contrast #wrapper {
+        filter: contrast(1.12) brightness(1.04);
+      }
+      header.tf-header {
+        z-index: 1050 !important;
+      }
+      .axide-header-mic-btn {
+        position: relative;
+        z-index: 1060;
+        cursor: pointer !important;
+        pointer-events: auto !important;
+      }
+      .axide-header-mic-btn svg {
+        pointer-events: none;
+      }
+      #axideVoiceWidget {
+        position: fixed !important;
+        right: 26px !important;
+        bottom: 28px !important;
+        z-index: 2147483000 !important;
+        display: flex !important;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 14px;
+        pointer-events: none;
+        animation-play-state: running !important;
+      }
+      #axideVoiceWidget > * {
+        pointer-events: auto;
+      }
+      #axideVoiceWidget * {
+        animation-play-state: running !important;
+      }
+      #axideVoicePanel {
+        width: 364px;
+        max-width: calc(100vw - 32px);
+        max-height: calc(100vh - 112px);
+        padding: 18px 18px 14px;
+        border-radius: 26px;
+        background: linear-gradient(180deg, #090b13 0%, #070910 100%);
+        border: 1.5px solid rgba(56, 189, 248, 0.44);
+        box-shadow:
+          0 30px 80px rgba(0, 0, 0, 0.9),
+          0 0 42px rgba(56, 189, 248, 0.2),
+          0 0 56px rgba(139, 92, 246, 0.18),
+          inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        color: #f8fafc;
+        overflow-x: hidden;
+        overflow-y: auto;
+        display: none;
+        flex-direction: column;
+      }
+      #axideVoicePanel.open {
+        display: flex !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+      }
+      #axideVoicePanel.open[data-anchor="top"] {
+        position: fixed !important;
+        top: 96px !important;
+        right: 26px !important;
+        bottom: auto !important;
+        z-index: 2147483002 !important;
+        transform-origin: top right !important;
+      }
+      #axideVoicePanel.panel-flash {
+        border-color: #38bdf8 !important;
+        box-shadow:
+          0 30px 80px rgba(0, 0, 0, 0.92),
+          0 0 0 2px rgba(56, 189, 248, 0.58),
+          0 0 48px rgba(56, 189, 248, 0.45),
+          0 0 64px rgba(168, 85, 247, 0.35) !important;
+      }
+      .ux-voice-bar {
+        cursor: pointer;
+      }
+      @media (max-width: 767px) {
+        #axideVoiceWidget {
+          right: 16px !important;
+          bottom: 20px !important;
+        }
+        #axideVoicePanel.open[data-anchor="top"] {
+          top: 82px !important;
+          right: 16px !important;
+        }
+      }
+    `;
+    (document.head || document.documentElement).appendChild(style);
+  }
+
   function loadLastHeadline() {
     try {
       sessionStorage.removeItem("axide_voice_history_v1");
@@ -977,10 +1086,36 @@
     }
   }
 
-  function openVoicePanel() {
+  function isPanelVisiblyOpen(panel) {
+    if (!panel || !panel.classList.contains("open")) return false;
+    const cs = window.getComputedStyle(panel);
+    if (cs.display === "none" || cs.visibility === "hidden" || parseFloat(cs.opacity) < 0.1) {
+      return false;
+    }
+    const rect = panel.getBoundingClientRect();
+    return rect.width > 40 && rect.height > 40;
+  }
+
+  function openVoicePanel(anchorMode) {
+    injectCriticalStyles();
     const panel = document.getElementById("axideVoicePanel");
     if (panel) {
+      if (anchorMode === "top" || anchorMode === "bottom") {
+        panel.setAttribute("data-anchor", anchorMode);
+      } else if (!panel.getAttribute("data-anchor")) {
+        panel.setAttribute("data-anchor", "bottom");
+      }
       panel.classList.add("open");
+      panel.style.setProperty("display", "flex", "important");
+      panel.style.setProperty("opacity", "1", "important");
+      panel.style.setProperty("visibility", "visible", "important");
+      panel.style.setProperty("pointer-events", "auto", "important");
+      panel.classList.remove("panel-flash");
+      void panel.offsetWidth;
+      panel.classList.add("panel-flash");
+      setTimeout(() => {
+        panel.classList.remove("panel-flash");
+      }, 750);
       sessionStorage.setItem(STORAGE_KEY_OPEN, "true");
     }
   }
@@ -988,7 +1123,8 @@
   function closeVoicePanel() {
     const panel = document.getElementById("axideVoicePanel");
     if (panel) {
-      panel.classList.remove("open");
+      panel.classList.remove("open", "panel-flash");
+      panel.style.setProperty("display", "none", "important");
       sessionStorage.setItem(STORAGE_KEY_OPEN, "false");
     }
     stopListening();
@@ -1028,65 +1164,85 @@
     modal.classList.add("show");
   }
 
-  function triggerGreetingAndListen() {
-    openVoicePanel();
+  function triggerGreetingAndListen(anchorMode) {
+    openVoicePanel(anchorMode);
     const greet =
       "안녕하십니까. 소버린 AI 기업 액사이드의 수석 브리핑 아나운서 아리아입니다. 오늘 어떤 솔루션과 실증 데이터를 안내해 드릴까요?";
     appendMessage("ai", greet);
+    const inputEl = document.getElementById("axideVoiceInput");
+    if (inputEl && window.innerWidth > 768) {
+      try {
+        inputEl.focus({ preventScroll: true });
+      } catch (e) {}
+    }
     speakFemaleVoice(
       greet,
       () => {
-        startListening();
+        startListening(anchorMode);
       },
       "greet"
     );
   }
 
-  function injectUI() {
-    // 1. Inject Right-Most Minimal Luxury Mic Button into .tf-header .header-inner
-    const headerInner = document.querySelector(".tf-header .header-inner");
-    if (headerInner && !headerInner.querySelector(".axide-header-mic-btn")) {
-      const rightWrap = document.createElement("div");
-      rightWrap.className = "d-flex align-items-center gap-10 flex-shrink-0";
+  function handleMicTrigger(anchorMode) {
+    const panel = document.getElementById("axideVoicePanel");
+    const currentAnchor = panel ? panel.getAttribute("data-anchor") || "bottom" : "bottom";
+    const targetAnchor = anchorMode || currentAnchor;
 
-      const existingCta = headerInner.querySelector("a.tf-btn:not(.mobile-menu)");
-      const existingMobileBtn = headerInner.querySelector("a.mobile-menu");
-
-      const micBtn = document.createElement("button");
-      micBtn.type = "button";
-      micBtn.className = "axide-header-mic-btn";
-      micBtn.setAttribute("aria-label", "AI 음성 비서 호출");
-      micBtn.setAttribute("title", "AI 음성 대화 및 사이트 제어 (AXIDE Live · Aria HD)");
-      micBtn.innerHTML = `
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 2C10.3431 2 9 3.34315 9 5V12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12V5C15 3.34315 13.6569 2 12 2Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M19 10V12C19 15.866 15.866 19 12 19C8.13401 19 5 15.866 5 12V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M12 19V22M8 22H16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      `;
-      micBtn.addEventListener("click", function () {
-        const panel = document.getElementById("axideVoicePanel");
-        if (panel && !panel.classList.contains("open")) {
-          triggerGreetingAndListen();
-        } else {
-          if (isSpeaking) {
-            stopAllAudio();
-            startListening();
-          } else {
-            toggleListening();
-          }
-        }
-      });
-
-      if (existingCta) {
-        rightWrap.appendChild(existingCta);
-      }
-      rightWrap.appendChild(micBtn);
-      if (existingMobileBtn) {
-        rightWrap.appendChild(existingMobileBtn);
-      }
-      headerInner.appendChild(rightWrap);
+    if (!isPanelVisiblyOpen(panel) || (anchorMode && currentAnchor !== anchorMode)) {
+      triggerGreetingAndListen(targetAnchor);
+      return;
     }
+
+    openVoicePanel(targetAnchor);
+    if (isSpeaking) {
+      stopAllAudio();
+      startListening(targetAnchor);
+    } else {
+      toggleListening(targetAnchor);
+    }
+  }
+
+  function injectUI() {
+    injectCriticalStyles();
+
+    // 1. Inject Right-Most Minimal Luxury Mic Button into all .tf-header .header-inner
+    document.querySelectorAll(".tf-header .header-inner").forEach((headerInner) => {
+      if (!headerInner.querySelector(".axide-header-mic-btn")) {
+        const rightWrap = document.createElement("div");
+        rightWrap.className = "d-flex align-items-center gap-10 flex-shrink-0";
+
+        const existingCta = headerInner.querySelector("a.tf-btn:not(.mobile-menu)");
+        const existingMobileBtn = headerInner.querySelector("a.mobile-menu");
+
+        const micBtn = document.createElement("button");
+        micBtn.type = "button";
+        micBtn.className = "axide-header-mic-btn";
+        micBtn.setAttribute("aria-label", "AI 음성 비서 호출");
+        micBtn.setAttribute("title", "AI 음성 대화 및 사이트 제어 (AXIDE Live · Aria HD)");
+        micBtn.innerHTML = `
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C10.3431 2 9 3.34315 9 5V12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12V5C15 3.34315 13.6569 2 12 2Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M19 10V12C19 15.866 15.866 19 12 19C8.13401 19 5 15.866 5 12V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 19V22M8 22H16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        `;
+        micBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          handleMicTrigger("top");
+        });
+
+        if (existingCta) {
+          rightWrap.appendChild(existingCta);
+        }
+        rightWrap.appendChild(micBtn);
+        if (existingMobileBtn) {
+          rightWrap.appendChild(existingMobileBtn);
+        }
+        headerInner.appendChild(rightWrap);
+      }
+    });
 
     // 2. Inject Floating Right-Edge SIMS-Style Spatial AI HUD & Minimal Cyan-Violet Mic Button
     if (document.getElementById("axideVoiceWidget")) return;
@@ -1098,7 +1254,7 @@
     widget.className = "axide-voice-widget";
     widget.setAttribute("data-state", "idle");
     widget.innerHTML = `
-      <div class="axide-voice-panel" id="axideVoicePanel">
+      <div class="axide-voice-panel" id="axideVoicePanel" data-anchor="bottom">
         <!-- Top Minimal Header -->
         <div class="sims-top-bar">
           <div class="sims-brand-group">
@@ -1222,23 +1378,44 @@
     document.body.appendChild(widget);
 
     // Event bindings
-    function handleOrbOrSphereClick() {
-      const panel = document.getElementById("axideVoicePanel");
-      if (!panel.classList.contains("open")) {
-        triggerGreetingAndListen();
-      } else {
-        // Barge-in support: if speaking, interrupt immediately and start listening
-        if (isSpeaking) {
-          stopAllAudio();
-          startListening();
-        } else {
-          toggleListening();
-        }
-      }
+    function handleOrbOrSphereClick(anchorMode) {
+      handleMicTrigger(anchorMode);
     }
 
-    document.getElementById("axideFloatingOrb").addEventListener("click", handleOrbOrSphereClick);
-    document.getElementById("axideSphereTrigger").addEventListener("click", handleOrbOrSphereClick);
+    document.getElementById("axideFloatingOrb").addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      handleMicTrigger("bottom");
+    });
+    document.getElementById("axideSphereTrigger").addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      handleMicTrigger();
+    });
+
+    // Global delegated fallback for any cloned header mic button or in-page voice bar
+    if (!window.__axideMicDelegatedBound) {
+      window.__axideMicDelegatedBound = true;
+      document.addEventListener("click", function (e) {
+        const headerMic = e.target.closest && e.target.closest(".axide-header-mic-btn");
+        if (headerMic) {
+          e.preventDefault();
+          handleMicTrigger("top");
+          return;
+        }
+        const floatingOrb = e.target.closest && e.target.closest("#axideFloatingOrb");
+        if (floatingOrb) {
+          e.preventDefault();
+          handleMicTrigger("bottom");
+          return;
+        }
+        const uxVoiceBar = e.target.closest && e.target.closest(".ux-voice-bar");
+        if (uxVoiceBar) {
+          e.preventDefault();
+          handleMicTrigger("bottom");
+        }
+      });
+    }
 
     document.getElementById("axideVoiceCloseBtn").addEventListener("click", function () {
       closeVoicePanel();
@@ -1332,19 +1509,19 @@
       });
     });
 
-    // Restore open state & speak pending utterance after page navigation
-    if (sessionStorage.getItem(STORAGE_KEY_OPEN) === "true") {
-      openVoicePanel();
-    }
+    // Restore open state & speak pending utterance after voice-triggered page navigation
     const pending = sessionStorage.getItem(STORAGE_KEY_PENDING);
     const pendingClip = sessionStorage.getItem(STORAGE_KEY_PENDING_CLIP);
     if (pending) {
+      openVoicePanel("bottom");
       sessionStorage.removeItem(STORAGE_KEY_PENDING);
       sessionStorage.removeItem(STORAGE_KEY_PENDING_CLIP);
       setTimeout(() => {
         appendMessage("ai", pending);
         speakFemaleVoice(pending, null, pendingClip || null);
       }, 350);
+    } else {
+      sessionStorage.setItem(STORAGE_KEY_OPEN, "false");
     }
 
     initSovereignCommandCenter();

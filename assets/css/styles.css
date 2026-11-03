@@ -4100,11 +4100,17 @@ header.header-sticky {
   color: #ffffff !important;
 }
 
-/* Display Modes & Accessibility States */
-body.axide-mode-eyecare {
+/* Display Modes & Accessibility States (applied to #wrapper so position:fixed widgets never break) */
+html,
+body {
+  filter: none !important;
+  transform: none !important;
+  perspective: none !important;
+}
+body.axide-mode-eyecare #wrapper {
   filter: sepia(0.14) saturate(0.92) brightness(0.97);
 }
-body.axide-mode-contrast {
+body.axide-mode-contrast #wrapper {
   filter: contrast(1.12) brightness(1.04);
 }
 html.axide-scale-md {
@@ -4113,10 +4119,15 @@ html.axide-scale-md {
 html.axide-scale-lg {
   font-size: 110%;
 }
-body.axide-low-motion *,
-body.axide-low-motion *::before,
-body.axide-low-motion *::after {
+body.axide-low-motion #wrapper *,
+body.axide-low-motion #wrapper *::before,
+body.axide-low-motion #wrapper *::after {
   animation-play-state: paused !important;
+}
+#axideVoiceWidget,
+#axideVoiceWidget *,
+.axide-header-mic-btn {
+  animation-play-state: running !important;
 }
 body[data-axide-accent="cyan"] {
   --primary: #38bdf8;
@@ -11298,8 +11309,12 @@ footer .footer-image {
 }
 
 /* Right-Most Header Minimal Obsidian & Cyan-Violet Rim Mic Button */
+header.tf-header {
+  z-index: 1050 !important;
+}
 .axide-header-mic-btn {
   position: relative;
+  z-index: 1060;
   width: 42px;
   height: 42px;
   padding: 0;
@@ -11307,12 +11322,13 @@ footer .footer-image {
   border: 1.5px solid transparent;
   background:
     linear-gradient(145deg, #090d18, #0f1526) padding-box,
-    linear-gradient(135deg, rgba(56, 189, 248, 0.75) 0%, rgba(139, 92, 246, 0.75) 100%) border-box;
+    linear-gradient(135deg, rgba(56, 189, 248, 0.78) 0%, rgba(139, 92, 246, 0.78) 100%) border-box;
   color: #7dd3fc;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
+  cursor: pointer !important;
+  pointer-events: auto !important;
   flex-shrink: 0;
   box-shadow:
     0 6px 18px rgba(2, 6, 23, 0.45),
@@ -11332,6 +11348,7 @@ footer .footer-image {
   width: 18px;
   height: 18px;
   color: currentColor;
+  pointer-events: none;
   transition: transform 0.25s ease;
 }
 .axide-header-mic-btn[data-state="listening"],
@@ -11350,14 +11367,14 @@ footer .footer-image {
 
 /* Floating Right-Side Voice Widget Container */
 .axide-voice-widget {
-  position: fixed;
-  right: 26px;
-  bottom: 28px;
-  z-index: 9995;
-  display: flex;
+  position: fixed !important;
+  right: 26px !important;
+  bottom: 28px !important;
+  z-index: 2147483000 !important;
+  display: flex !important;
   flex-direction: column;
   align-items: flex-end;
-  gap: 16px;
+  gap: 14px;
   font-family: "Pretendard Variable", "Pretendard", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
   pointer-events: none;
 }
@@ -11376,7 +11393,8 @@ footer .footer-image {
     radial-gradient(circle at 50% 35%, #111827 0%, #070a12 100%) padding-box,
     linear-gradient(135deg, rgba(56, 189, 248, 0.72) 0%, rgba(168, 85, 247, 0.72) 55%, rgba(56, 189, 248, 0.5) 100%) border-box;
   color: #7dd3fc;
-  cursor: pointer;
+  cursor: pointer !important;
+  pointer-events: auto !important;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11408,6 +11426,7 @@ footer .footer-image {
   width: 22px;
   height: 22px;
   color: currentColor;
+  pointer-events: none;
   filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.35));
   transition: transform 0.25s ease;
 }
@@ -11433,23 +11452,45 @@ footer .footer-image {
 .axide-voice-panel {
   width: 364px;
   max-width: calc(100vw - 32px);
-  padding: 20px 20px 16px;
-  border-radius: 28px;
+  max-height: calc(100vh - 112px);
+  padding: 18px 18px 14px;
+  border-radius: 26px;
   background: linear-gradient(180deg, #090b13 0%, #070910 100%);
-  border: 1px solid rgba(139, 92, 246, 0.34);
+  border: 1.5px solid rgba(56, 189, 248, 0.42);
   box-shadow:
-    0 30px 80px rgba(0, 0, 0, 0.88),
-    0 0 36px rgba(99, 102, 241, 0.14),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    0 30px 80px rgba(0, 0, 0, 0.9),
+    0 0 42px rgba(56, 189, 248, 0.18),
+    0 0 56px rgba(139, 92, 246, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
   color: #f8fafc;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   display: none;
   flex-direction: column;
   transform-origin: bottom right;
-  animation: axidePanelIn 0.26s cubic-bezier(0.22, 1, 0.36, 1);
+  animation: axidePanelIn 0.24s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 .axide-voice-panel.open {
-  display: flex;
+  display: flex !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+.axide-voice-panel.open[data-anchor="top"] {
+  position: fixed !important;
+  top: 96px !important;
+  right: 26px !important;
+  bottom: auto !important;
+  z-index: 2147483002 !important;
+  transform-origin: top right !important;
+}
+.axide-voice-panel.panel-flash {
+  border-color: #38bdf8 !important;
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.92),
+    0 0 0 2px rgba(56, 189, 248, 0.55),
+    0 0 48px rgba(56, 189, 248, 0.45),
+    0 0 64px rgba(168, 85, 247, 0.35) !important;
 }
 
 /* Top Brand & Window Control Bar */
@@ -11457,7 +11498,7 @@ footer .footer-image {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
   padding: 0 2px;
 }
 .sims-brand-group {
@@ -11515,14 +11556,15 @@ footer .footer-image {
 /* Centerpiece 3D Glowing Sphere & 4 Concentric Rings */
 .sims-sphere-stage {
   position: relative;
-  width: 172px;
-  height: 172px;
-  margin: 4px auto 12px;
+  width: 144px;
+  height: 144px;
+  margin: 2px auto 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   user-select: none;
+  flex-shrink: 0;
 }
 .sims-ring {
   position: absolute;
@@ -11531,32 +11573,32 @@ footer .footer-image {
   transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .sims-ring-1 {
-  width: 102px;
-  height: 102px;
+  width: 88px;
+  height: 88px;
   border: 1.2px solid rgba(165, 180, 252, 0.34);
   box-shadow: 0 0 16px rgba(139, 92, 246, 0.18);
 }
 .sims-ring-2 {
-  width: 124px;
-  height: 124px;
+  width: 106px;
+  height: 106px;
   border: 1px solid rgba(148, 163, 184, 0.22);
 }
 .sims-ring-3 {
-  width: 146px;
-  height: 146px;
+  width: 124px;
+  height: 124px;
   border: 1px solid rgba(148, 163, 184, 0.15);
 }
 .sims-ring-4 {
-  width: 168px;
-  height: 168px;
+  width: 142px;
+  height: 142px;
   border: 1px solid rgba(148, 163, 184, 0.09);
 }
 
 .sims-core-sphere {
   position: relative;
   z-index: 2;
-  width: 82px;
-  height: 82px;
+  width: 72px;
+  height: 72px;
   border-radius: 50%;
   border: none;
   padding: 0;
@@ -11616,25 +11658,25 @@ footer .footer-image {
 /* Status Line & Centered Hero Prompt */
 .sims-status-line {
   text-align: center;
-  font-size: 12.5px;
+  font-size: 12px;
   font-weight: 600;
   color: #a5b4fc;
   letter-spacing: -0.01em;
-  margin-bottom: 10px;
-  min-height: 19px;
+  margin-bottom: 6px;
+  min-height: 18px;
 }
 .sims-hero-text {
   text-align: center;
-  font-size: 17px;
+  font-size: 15.5px;
   font-weight: 700;
-  line-height: 1.48;
+  line-height: 1.45;
   color: #ffffff;
   letter-spacing: -0.025em;
   word-break: keep-all;
-  margin: 0 auto 20px;
+  margin: 0 auto 14px;
   padding: 0 6px;
-  min-height: 50px;
-  max-height: 102px;
+  min-height: 44px;
+  max-height: 92px;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 4;
@@ -11646,18 +11688,18 @@ footer .footer-image {
 .sims-action-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 9px;
-  margin-bottom: 16px;
+  gap: 8px;
+  margin-bottom: 12px;
 }
 .sims-action-tile {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 7px;
-  height: 68px;
-  padding: 10px 6px;
-  border-radius: 15px;
+  gap: 5px;
+  height: 60px;
+  padding: 8px 6px;
+  border-radius: 14px;
   background: rgba(15, 19, 30, 0.92);
   border: 1px solid rgba(255, 255, 255, 0.08);
   color: #f1f5f9;
@@ -11868,8 +11910,12 @@ footer .footer-image {
 
 @media (max-width: 767px) {
   .axide-voice-widget {
-    right: 16px;
-    bottom: 20px;
+    right: 16px !important;
+    bottom: 20px !important;
+  }
+  .axide-voice-panel.open[data-anchor="top"] {
+    top: 82px !important;
+    right: 16px !important;
   }
   .axide-voice-orb {
     width: 54px;
