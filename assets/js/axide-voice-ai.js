@@ -459,6 +459,16 @@
         }
       };
     }
+    if (/로고|ci\s*철학|아이덴티티|마름모|육각형|세\s*층|세\s*축/.test(lower)) {
+      return {
+        clipKey: "about_intro",
+        reply: "공간을 한 장씩 쌓으면 시간이 됩니다. 대지 그린(과거 현실), 흐름 시안(현재 학습), 비전 바이올렛(미래 예측) 세 평면이 쌓여 월드모델이 되는 AXIDE CI 로고 철학 섹션으로 안내해 드리겠습니다.",
+        action: {
+          type: document.querySelector("#axide-ci-philosophy") ? "scroll" : "navigate",
+          target: document.querySelector("#axide-ci-philosophy") ? "#axide-ci-philosophy" : "ci-philosophy.html"
+        }
+      };
+    }
     if (/월드\s*모델|월드모델|world\s*model|simsreality|심즈리얼리티/.test(lower)) {
       return {
         clipKey: "team",

@@ -14904,4 +14904,636 @@ footer .footer-content .footer-logo.axide-footer-brand {
   background: radial-gradient(ellipse at center, rgba(56, 189, 248, 0.34) 0%, rgba(168, 85, 247, 0.18) 52%, transparent 76%);
 }
 
+/* ==========================================================================
+   AXIDE CI Philosophy & World Model X·Y·T Theme (.axide-ci-theme)
+   ========================================================================== */
+.axide-ci-theme {
+  --ci-bg: #13113a;
+  --ci-surface: #1c1950;
+  --ci-line: #2f2b6e;
+  --ci-fg: #efeefa;
+  --ci-muted: #a9a6d4;
+  --ci-navy: #231f5c;
+  --ci-green-a: #01b9a1;
+  --ci-green-b: #00de8e;
+  --ci-cyan-a: #039dd9;
+  --ci-cyan-b: #00d9fc;
+  --ci-violet-a: #0c5ad6;
+  --ci-violet-b: #caa4fb;
+  --ci-accent: #caa4fb;
+  background: radial-gradient(circle at 80% 12%, rgba(12, 90, 214, 0.22) 0%, transparent 45%),
+              radial-gradient(circle at 18% 82%, rgba(0, 222, 142, 0.12) 0%, transparent 48%),
+              linear-gradient(180deg, #0d0b28 0%, #13113a 42%, #0e0c2c 100%);
+  color: var(--ci-fg);
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(202, 164, 251, 0.22);
+  border-bottom: 1px solid rgba(0, 217, 252, 0.2);
+}
+
+.axide-ci-theme .ci-wrap {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.axide-ci-theme .ci-section {
+  padding-block: clamp(56px, 7.5vw, 104px);
+  border-top: 1px solid var(--ci-line);
+}
+
+.axide-ci-theme .ci-section:first-of-type {
+  border-top: 0;
+}
+
+.axide-ci-theme .ci-eyebrow {
+  font-family: "JetBrains Mono", ui-monospace, Consolas, monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ci-accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.axide-ci-theme .ci-eyebrow::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--ci-green-b), var(--ci-cyan-b), var(--ci-violet-b));
+  box-shadow: 0 0 10px rgba(0, 217, 252, 0.8);
+}
+
+.axide-ci-theme .ci-head {
+  display: grid;
+  gap: 14px;
+  margin-bottom: clamp(32px, 4.5vw, 52px);
+}
+
+.axide-ci-theme .ci-h1,
+.axide-ci-theme .ci-h2,
+.axide-ci-theme .ci-h3 {
+  color: var(--ci-fg);
+  margin: 0;
+  letter-spacing: -0.02em;
+  word-break: keep-all;
+}
+
+.axide-ci-theme .ci-h1 {
+  font-size: clamp(34px, 5.2vw, 60px);
+  line-height: 1.22;
+  font-weight: 700;
+}
+
+.axide-ci-theme .ci-h1 em,
+.axide-ci-theme .ci-gradient-text {
+  font-style: normal;
+  background: linear-gradient(90deg, var(--ci-green-b), var(--ci-cyan-b) 50%, var(--ci-violet-b));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.axide-ci-theme .ci-h2 {
+  font-size: clamp(26px, 3.4vw, 40px);
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+.axide-ci-theme .ci-h3 {
+  font-size: 21px;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.axide-ci-theme .ci-lede {
+  font-size: clamp(16.5px, 1.5vw, 18.5px);
+  color: var(--ci-muted);
+  line-height: 1.78;
+  max-width: 66ch;
+  margin: 0;
+  word-break: keep-all;
+}
+
+.axide-ci-theme .ci-hero {
+  display: grid;
+  grid-template-columns: 1.18fr 0.82fr;
+  gap: clamp(28px, 5vw, 64px);
+  align-items: center;
+  padding-block: clamp(48px, 7vw, 88px);
+}
+
+.axide-ci-theme .ci-hero-copy {
+  min-width: 0;
+  display: grid;
+  gap: 22px;
+}
+
+.axide-ci-theme .ci-logo-stage {
+  position: relative;
+  justify-self: center;
+  width: min(360px, 100%);
+  padding: 28px;
+  border-radius: 32px;
+  background: radial-gradient(circle at 50% 45%, rgba(28, 25, 80, 0.9) 0%, rgba(19, 17, 58, 0.45) 100%);
+  border: 1px solid rgba(202, 164, 251, 0.28);
+  box-shadow: 0 28px 64px rgba(8, 6, 32, 0.65), 0 0 48px rgba(0, 217, 252, 0.14);
+}
+
+.axide-ci-theme .ci-logo-stage img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 26px 48px rgba(12, 10, 50, 0.55));
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.axide-ci-theme .ci-logo-stage:hover img {
+  transform: translateY(-6px) scale(1.03);
+}
+
+.axide-ci-theme .ci-axis-key {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.axide-ci-theme .ci-axis-key span {
+  font-family: "JetBrains Mono", ui-monospace, Consolas, monospace;
+  font-size: 13px;
+  padding: 7px 14px;
+  border: 1px solid var(--ci-line);
+  background: rgba(28, 25, 80, 0.72);
+  border-radius: 999px;
+  color: var(--ci-muted);
+}
+
+.axide-ci-theme .ci-axis-key b {
+  color: var(--ci-fg);
+  font-weight: 700;
+  margin-right: 4px;
+}
+
+.axide-ci-theme .ci-easy-summary-box {
+  background: linear-gradient(135deg, rgba(28, 25, 80, 0.92), rgba(35, 31, 92, 0.78));
+  border: 1px solid rgba(0, 217, 252, 0.35);
+  border-left: 4px solid var(--ci-cyan-b);
+  border-radius: 16px;
+  padding: 18px 22px;
+  display: grid;
+  gap: 6px;
+}
+
+.axide-ci-theme .ci-easy-summary-box .easy-tag {
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--ci-cyan-b);
+  text-transform: uppercase;
+}
+
+.axide-ci-theme .ci-easy-summary-box p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.68;
+  color: var(--ci-fg);
+  word-break: keep-all;
+}
+
+/* Interactive X-Y-T Exploded Diagram */
+.axide-ci-theme .ci-explode {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 56px);
+  align-items: center;
+}
+
+.axide-ci-theme .ci-diagram-box {
+  background: var(--ci-surface);
+  border: 1px solid var(--ci-line);
+  border-radius: 22px;
+  padding: 24px;
+  box-shadow: 0 20px 50px rgba(7, 6, 26, 0.5);
+}
+
+.axide-ci-theme .ci-diagram-box svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 440px;
+}
+
+.axide-ci-theme .ci-diagram-box svg text {
+  font-family: "JetBrains Mono", ui-monospace, Consolas, monospace;
+  font-size: 15px;
+  font-weight: 600;
+  fill: var(--ci-fg);
+}
+
+.axide-ci-theme .ci-diagram-box svg .ax {
+  stroke: var(--ci-muted);
+  stroke-width: 1.75;
+  fill: none;
+}
+
+.axide-ci-theme .ci-ctrl {
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.axide-ci-theme .ci-ctrl label {
+  font-size: 14px;
+  color: var(--ci-muted);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.axide-ci-theme .ci-ctrl input[type="range"] {
+  width: 100%;
+  accent-color: var(--ci-cyan-b);
+  cursor: pointer;
+}
+
+.axide-ci-theme .ci-preset-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.axide-ci-theme .ci-preset-btn {
+  flex: 1;
+  min-width: 92px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ci-fg);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--ci-line);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.axide-ci-theme .ci-preset-btn:hover,
+.axide-ci-theme .ci-preset-btn.active {
+  background: rgba(0, 217, 252, 0.16);
+  border-color: var(--ci-cyan-b);
+  color: #ffffff;
+}
+
+.axide-ci-theme .ci-layers {
+  display: grid;
+  gap: 18px;
+}
+
+.axide-ci-theme .ci-layer-card {
+  display: grid;
+  grid-template-columns: 14px 1fr;
+  gap: 18px;
+  align-items: start;
+  padding: 18px 20px;
+  border-radius: 18px;
+  background: rgba(28, 25, 80, 0.65);
+  border: 1px solid var(--ci-line);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.axide-ci-theme .ci-layer-card:hover {
+  transform: translateX(4px);
+  border-color: rgba(202, 164, 251, 0.55);
+}
+
+.axide-ci-theme .ci-layer-bar {
+  width: 14px;
+  height: 100%;
+  min-height: 60px;
+  border-radius: 7px;
+  display: block;
+}
+
+.axide-ci-theme .ci-layer-card .t {
+  font-family: "JetBrains Mono", ui-monospace, Consolas, monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--ci-muted);
+}
+
+.axide-ci-theme .ci-layer-card h3 {
+  margin: 4px 0 6px;
+  font-size: 20px;
+  color: var(--ci-fg);
+}
+
+.axide-ci-theme .ci-layer-card p {
+  color: var(--ci-muted);
+  font-size: 15px;
+  line-height: 1.65;
+  margin: 0;
+  word-break: keep-all;
+}
+
+/* 5 Letters A-X-I-D-E */
+.axide-ci-theme .ci-letters {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.axide-ci-theme .ci-letter-card {
+  background: var(--ci-surface);
+  border: 1px solid var(--ci-line);
+  border-radius: 18px;
+  padding: 24px 18px;
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.axide-ci-theme .ci-letter-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--ci-cyan-b);
+  box-shadow: 0 16px 36px rgba(0, 217, 252, 0.14);
+}
+
+.axide-ci-theme .ci-letter-card .big {
+  font-weight: 800;
+  font-size: 46px;
+  line-height: 1;
+  background: linear-gradient(135deg, var(--ci-cyan-b), var(--ci-violet-b));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.axide-ci-theme .ci-letter-card .word {
+  font-family: "JetBrains Mono", ui-monospace, Consolas, monospace;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ci-fg);
+}
+
+.axide-ci-theme .ci-letter-card p {
+  font-size: 14.5px;
+  color: var(--ci-muted);
+  line-height: 1.65;
+  margin: 0;
+  word-break: keep-all;
+}
+
+.axide-ci-theme .ci-name-note {
+  margin-top: 24px;
+  padding: 18px 22px;
+  border-radius: 16px;
+  background: rgba(28, 25, 80, 0.72);
+  border: 1px solid var(--ci-line);
+}
+
+/* Form Grammar 4 Cards */
+.axide-ci-theme .ci-forms {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px 32px;
+}
+
+.axide-ci-theme .ci-form-card {
+  display: grid;
+  grid-template-columns: 88px minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+  padding: 24px;
+  border-radius: 20px;
+  background: var(--ci-surface);
+  border: 1px solid var(--ci-line);
+}
+
+.axide-ci-theme .ci-form-card svg {
+  width: 88px;
+  height: 88px;
+}
+
+.axide-ci-theme .ci-form-card .body {
+  display: grid;
+  gap: 8px;
+}
+
+.axide-ci-theme .ci-form-card p {
+  color: var(--ci-muted);
+  font-size: 15px;
+  line-height: 1.68;
+  margin: 0;
+  word-break: keep-all;
+}
+
+/* Hangul Origin Bridge */
+.axide-ci-theme .ci-hangul {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(24px, 4vw, 56px);
+  align-items: center;
+  background: var(--ci-surface);
+  border: 1px solid var(--ci-line);
+  border-radius: 24px;
+  padding: clamp(28px, 4vw, 48px);
+}
+
+.axide-ci-theme .ci-syll {
+  display: grid;
+  gap: 12px;
+  justify-items: center;
+  padding: 24px;
+  border-radius: 18px;
+  background: rgba(19, 17, 58, 0.78);
+  border: 1px solid var(--ci-line);
+}
+
+.axide-ci-theme .ci-syll .row-bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  max-width: 340px;
+}
+
+.axide-ci-theme .ci-syll .row-bar small {
+  font-family: "JetBrains Mono", ui-monospace, Consolas, monospace;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--ci-muted);
+  width: 72px;
+}
+
+.axide-ci-theme .ci-syll .row-bar span {
+  flex: 1;
+  height: 14px;
+  border-radius: 7px;
+}
+
+.axide-ci-theme .ci-syll .row-bar b {
+  font-size: 32px;
+  font-weight: 800;
+  width: 48px;
+  text-align: center;
+  color: var(--ci-fg);
+}
+
+.axide-ci-theme .ci-syll .eq {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-top: 8px;
+  background: linear-gradient(90deg, var(--ci-green-b), var(--ci-cyan-b), var(--ci-violet-b));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Color Swatches */
+.axide-ci-theme .ci-colors {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.axide-ci-theme .ci-sw {
+  border: 1px solid var(--ci-line);
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--ci-surface);
+  display: grid;
+  transition: transform 0.25s ease;
+}
+
+.axide-ci-theme .ci-sw:hover {
+  transform: translateY(-4px);
+}
+
+.axide-ci-theme .ci-sw .chip {
+  height: 120px;
+}
+
+.axide-ci-theme .ci-sw .info {
+  padding: 18px;
+  display: grid;
+  gap: 6px;
+}
+
+.axide-ci-theme .ci-sw .info b {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--ci-fg);
+}
+
+.axide-ci-theme .ci-sw .hex {
+  font-family: "JetBrains Mono", ui-monospace, Consolas, monospace;
+  font-size: 12.5px;
+  color: var(--ci-cyan-b);
+}
+
+.axide-ci-theme .ci-sw p {
+  font-size: 14px;
+  color: var(--ci-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Manifesto */
+.axide-ci-theme .ci-manifesto {
+  display: grid;
+  gap: clamp(18px, 3vw, 28px);
+}
+
+.axide-ci-theme .ci-manifesto .line-row {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 20px;
+  align-items: baseline;
+  padding-bottom: clamp(18px, 3vw, 28px);
+  border-bottom: 1px solid var(--ci-line);
+}
+
+.axide-ci-theme .ci-manifesto .line-row .k {
+  font-family: "JetBrains Mono", ui-monospace, Consolas, monospace;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ci-cyan-b);
+}
+
+.axide-ci-theme .ci-manifesto .line-row h3 {
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 700;
+  color: var(--ci-fg);
+  margin: 0;
+}
+
+.axide-ci-theme .ci-closing {
+  margin-top: clamp(36px, 5vw, 60px);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 28px 32px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, rgba(28, 25, 80, 0.9), rgba(12, 90, 214, 0.22));
+  border: 1px solid rgba(202, 164, 251, 0.35);
+}
+
+.axide-ci-theme .ci-closing .sig {
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--ci-fg);
+  margin: 6px 0 0;
+}
+
+@media (max-width: 991px) {
+  .axide-ci-theme .ci-hero,
+  .axide-ci-theme .ci-explode,
+  .axide-ci-theme .ci-hangul {
+    grid-template-columns: 1fr;
+  }
+  .axide-ci-theme .ci-logo-stage {
+    width: min(300px, 82%);
+  }
+  .axide-ci-theme .ci-letters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .axide-ci-theme .ci-letters .ci-letter-card:last-child {
+    grid-column: 1 / -1;
+  }
+  .axide-ci-theme .ci-forms {
+    grid-template-columns: 1fr;
+  }
+  .axide-ci-theme .ci-colors {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .axide-ci-theme .ci-manifesto .line-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+}
+
+@media (max-width: 575px) {
+  .axide-ci-theme .ci-form-card {
+    grid-template-columns: 64px minmax(0, 1fr);
+  }
+  .axide-ci-theme .ci-form-card svg {
+    width: 64px;
+    height: 64px;
+  }
+  .axide-ci-theme .ci-colors {
+    grid-template-columns: 1fr;
+  }
+}
+
 /*# sourceMappingURL=styles.css.map */
