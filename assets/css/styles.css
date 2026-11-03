@@ -9133,8 +9133,10 @@ button.animate-btn::after,
   color: var(--white);
   margin-bottom: 4px;
 }
-.team-item .name:hover {
-  color: var(--brand);
+.team-item .name:hover,
+.comment-wrap .name:hover,
+.comment-wrap .name a:hover {
+  color: var(--white) !important;
 }
 .team-item .sub {
   color: var(--neutral-400);
