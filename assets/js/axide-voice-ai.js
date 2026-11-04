@@ -1500,8 +1500,9 @@
     });
 
     document.querySelectorAll(".physical-ai-card").forEach((card) => {
-      card.addEventListener("click", function () {
-        const src = this.getAttribute("data-zoom-src");
+      card.addEventListener("click", function (e) {
+        const subTarget = e && e.target && e.target.closest ? e.target.closest("[data-zoom-src]") : null;
+        const src = (subTarget && subTarget.getAttribute("data-zoom-src")) || this.getAttribute("data-zoom-src");
         if (src) openArchModal(src);
       });
     });
