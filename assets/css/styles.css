@@ -15889,4 +15889,143 @@ footer .footer-content .footer-logo.axide-footer-brand {
   }
 }
 
+/* ==========================================================================
+   Cogni-OS x·y·t Unified Architecture & 2026-2030 Gate Roadmap Styles
+   ========================================================================== */
+.axide-xyt-roadmap-shell {
+  background: linear-gradient(165deg, #090d16 0%, #0f172a 55%, #090d16 100%);
+  border: 1px solid rgba(56, 189, 248, 0.32);
+  border-radius: 24px;
+  padding: 36px 32px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  color: #f8fafc;
+}
+
+.axide-xyt-axis-card {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  border-radius: 18px;
+  padding: 24px 22px;
+  height: 100%;
+  transition: transform 0.22s ease, border-color 0.22s ease;
+}
+
+.axide-xyt-axis-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(56, 189, 248, 0.6);
+}
+
+.axide-xyt-axis-card.axis-x {
+  border-top: 3px solid #38bdf8;
+}
+
+.axide-xyt-axis-card.axis-y {
+  border-top: 3px solid #f59e0b;
+}
+
+.axide-xyt-axis-card.axis-t {
+  border-top: 3px solid #10b981;
+}
+
+.axide-xyt-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  margin-bottom: 12px;
+}
+
+.axide-xyt-badge.badge-x {
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.4);
+}
+
+.axide-xyt-badge.badge-y {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.4);
+}
+
+.axide-xyt-badge.badge-t {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+}
+
+.axide-xyt-table-wrap {
+  overflow-x: auto;
+  border-radius: 16px;
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  background: rgba(9, 13, 22, 0.85);
+}
+
+.axide-xyt-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+  color: #e2e8f0;
+}
+
+.axide-xyt-table th {
+  background: rgba(30, 41, 59, 0.92);
+  color: #38bdf8;
+  font-weight: 800;
+  padding: 13px 16px;
+  text-align: left;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.28);
+  white-space: nowrap;
+}
+
+.axide-xyt-table td {
+  padding: 13px 16px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+  vertical-align: top;
+  line-height: 1.58;
+  color: #e2e8f0;
+}
+
+.axide-xyt-table tr:last-child td {
+  border-bottom: none;
+}
+
+.axide-xyt-table tr:hover td {
+  background: rgba(30, 41, 59, 0.45);
+}
+
+.axide-xyt-table a {
+  color: #38bdf8;
+  text-decoration: underline;
+  font-weight: 700;
+}
+
+.axide-gate-card {
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(56, 189, 248, 0.28);
+  border-radius: 16px;
+  padding: 18px 20px;
+  height: 100%;
+}
+
+.axide-provenance-bar {
+  margin-top: 14px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: rgba(15, 23, 42, 0.78);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  font-size: 12.5px;
+  color: #cbd5e1;
+  line-height: 1.55;
+}
+
+@media (max-width: 767px) {
+  .axide-xyt-roadmap-shell {
+    padding: 22px 16px;
+  }
+}
+
 /*# sourceMappingURL=styles.css.map */

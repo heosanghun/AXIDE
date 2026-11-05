@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="assets/css/slick.css">
     <link rel="stylesheet" href="assets/css/slick.theme.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/styles.css?v=20261105v96">
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css?v=20261105v97">
 
     <!-- Favicon and Touch Icons  -->
     <link rel="shortcut icon" href="assets/images/logo/favicon.svg?v=20261102v50">
@@ -221,21 +221,21 @@
                         <div class="accordion-action" data-bs-target="#faq-1" role="button"
                             data-bs-toggle="collapse" aria-controls="faq-1" aria-expanded="true">
                             <div class="accordion-title">
-                                1층: Cogni-OS Core — DEQ 상수 메모리 O(1) 추론 & 판단 보류
+                                1층: Cogni-OS Core — 검수(ATP) 통과 폐쇄망 추론 런타임 · DEQ &amp; Edge0 연구 엔진
                                 <i class="icon icon-arrow-top-right"></i>
                             </div>
                         </div>
                         <div id="faq-1" class="collapse show" data-bs-parent="#accordion-services">
                             <div class="accordion-content">
                                 <div class="image">
-                                    <img src="assets/images/section/service-5.jpg?v=20261102v50" alt="Cogni-OS Core DEQ 추론 런타임">
+                                    <img src="assets/images/section/service-5.jpg?v=20261102v50" alt="Cogni-OS Core 검수 통과 추론 런타임">
                                 </div>
                                 <div class="content">
-                                    <div class="text-body-3 text-neutral-300 text">수십 개의 레이어를 적층하는 기존 트랜스포머 대신 단일 평형층을 고정점(Fixed-Point)까지 반복 수렴시키는 DEQ(Deep Equilibrium) 아키텍처를 적용하여, 단일 32GB GPU 워크스테이션 또는 이동형 서버 노트북에서 VRAM 14.8GB, 첫 글자 응답(TTFT) 중앙값 0.161초를 달성했습니다. 수렴 잔차가 임계치를 초과하면 거짓 환각 대신 '판단 보류(모른다)'를 출력하고 로그에 남깁니다.</div>
+                                    <div class="text-body-3 text-neutral-300 text">검수 관문(ATP)을 통과한 엔진만 탑재하는 교체형 폐쇄망 추론 런타임입니다. 1호기는 검증된 Gemma 4 + 기하 검증 + Tech-Audit으로 구동되며(2026.10 오프라인 노트북 gemma-4-e4b-it bf16 30회 실측 VRAM 14.8GB, TTFT 중앙값 0.161초 · 검증 보고서 요청 가능), 차세대 연구 엔진인 DEQ(심층 평형)와 Edge0-CUDA(SSD 전문가 스트리밍)는 관문 통과 순서대로 갱신 엔진에 투입됩니다. 확신이 부족할 때는 거짓 환각 대신 '판단 보류(모른다)'를 출력하고 로그에 남깁니다.</div>
                                     <div class="list-tags">
                                         <a href="service-single.html" class="tags-item fw-semibold">특허 제10-2973709호</a>
-                                        <a href="service-single.html" class="tags-item fw-semibold">TTFT 0.161초 · VRAM 14.8GB</a>
-                                        <a href="service-single.html" class="tags-item fw-semibold">미수렴 시 판단 보류 안전장치</a>
+                                        <a href="service-single.html" class="tags-item fw-semibold">TTFT 0.161초 · VRAM 14.8GB (검증 원장 보유)</a>
+                                        <a href="service-single.html" class="tags-item fw-semibold">미확신·미수렴 시 판단 보류</a>
                                     </div>
                                     <div class="text-body-1 num">01</div>
                                 </div>
@@ -246,7 +246,7 @@
                         <div class="accordion-action collapsed" data-bs-target="#faq-2" role="button"
                             data-bs-toggle="collapse" aria-controls="faq-2" aria-expanded="false">
                             <div class="accordion-title">
-                                2층: System 4 (CogniCraft) — 3D CAD 파싱 & AR 스마트글라스 3줄 HUD
+                                2층: CogniCraft (1호기 계약명 System 4) — 3D CAD 파싱 &amp; AR 스마트글라스 3줄 HUD
                                 <i class="icon icon-arrow-top-right"></i>
                             </div>
                         </div>
@@ -534,6 +534,148 @@
                     </div>
                     <!-- /Cogni-OS Reference Architecture v1.0 Showcase -->
 
+                    <!-- Cogni-OS x·y·t Unified Architecture, Linux/CUDA SSD-LLaMA Precedents & 2026-2030 Roadmap -->
+                    <div id="xyt-roadmap" class="axide-xyt-roadmap-shell mt-32">
+                        <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
+                            <span class="axide-xyt-badge badge-x mb-0">COGNI-OS UNIFIED ARCHITECTURE &amp; R&amp;D ROADMAP (x·y·t)</span>
+                            <span class="text-caption" style="color: #94a3b8;">2026.11.05 · @허상훈 (수석 아키텍트) · “검증 관문(G1~G4)을 통과한 부품만 상용 제품에 넣는다”</span>
+                        </div>
+                        <h3 class="fw-bold text-white mb-2" style="font-size: clamp(22px, 2.4vw, 30px);">
+                            Cogni-OS 통합 설계와 AXIDE 연구 로드맵 (x · y · t 3축 큐브 운영체계)
+                        </h3>
+                        <p class="mb-4" style="color: #cbd5e1; font-size: 15px; line-height: 1.75;">
+                            Cogni-OS는 <strong>x(가로·크기) = Edge0 + SSD-LLaMA + KDA</strong>, <strong>y(세로·깊이) = DEQ + CTS + HRM 스스로 멈추기</strong>, <strong>t(시간·기억) = System 1.5 → 2.5 → 3 → 4</strong>의 3축 운영체계로 구성됩니다. <strong>1호기(2027-02)는 검증된 엔진(Gemma 4 + CogniCraft 기하 검증 + Tech-Audit + 복구 LoRA 무수정 원칙)</strong>으로 안전하게 납품하고, 차세대 엔진은 관문(G1~G4) 통과 순서대로 2호기 이후 갱신 엔진에 탑재합니다.
+                        </p>
+
+                        <!-- 3-Axis Cards -->
+                        <div class="row g-3 mb-4">
+                            <div class="col-lg-4">
+                                <div class="axide-xyt-axis-card axis-x">
+                                    <span class="axide-xyt-badge badge-x">x축 (가로 · 크기) · Edge0-CUDA + KDA</span>
+                                    <h5 class="text-white fw-bold mb-2" style="font-size: 17px;">얼마나 큰 책을 넣을 수 있나 (SSD 전문가 스트리밍)</h5>
+                                    <p style="font-size: 13.5px; color: #cbd5e1; line-height: 1.65; margin-bottom: 10px;">
+                                        Edge0가 창고(NVMe SSD)에서 다음 층에 필요한 전문가 가중치만 미리 꺼내 와서, 단일 32GB GPU 워크스테이션에도 초대형 MoE 모델을 탑재합니다. KDA(Kimi Linear)는 도면 묶음·규격서 등 수십만 토큰 문서를 고정 크기 상태로 읽습니다.
+                                    </p>
+                                    <div style="font-size: 12.5px; color: #7dd3fc; background: rgba(56, 189, 248, 0.1); padding: 8px 12px; border-radius: 10px;">
+                                        <strong>최고 가치 결합:</strong> <strong>System 3의 “입력만 보는(z-무관) 라우터” + Edge0 “미리 읽기(프리라우터)”</strong> 결합으로 DEQ 풀이 전에 전문가를 확정·적재하여 SSD 읽기 지연을 구조적으로 제거합니다.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="axide-xyt-axis-card axis-y">
+                                    <span class="axide-xyt-badge badge-y">y축 (세로 · 깊이) · DEQ + CTS + ACT</span>
+                                    <h5 class="text-white fw-bold mb-2" style="font-size: 17px;">얼마나 깊게 생각하나 (트리 탐색 &amp; 스스로 멈추기)</h5>
+                                    <p style="font-size: 13.5px; color: #cbd5e1; line-height: 1.65; margin-bottom: 10px;">
+                                        CTS가 가공 순서·공구 경로·치수 해석 후보를 트리로 탐색하고 각 노드를 DEQ 고정점으로 풉니다. 쉬운 질문은 일찍 종료하고 어려운 질문에만 탐색 예산을 배정하는 <strong>HRM 스스로 멈추기(ACT, 계산 37~80% 절감)</strong>를 결합합니다.
+                                    </p>
+                                    <div style="font-size: 12.5px; color: #fde68a; background: rgba(245, 158, 11, 0.12); padding: 8px 12px; border-radius: 10px;">
+                                        <strong>객관적 검증기 원칙:</strong> 노드 평가는 언어모델의 자기판단이 아니라 <strong>CogniCraft(CadQuery 등 기하 계산기)</strong>가 수행하며, 관문 G1 통과 후 투입합니다.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="axide-xyt-axis-card axis-t">
+                                    <span class="axide-xyt-badge badge-t">t축 (시간 · 기억) · System 1.5 → 2.5 → 3 → 4</span>
+                                    <h5 class="text-white fw-bold mb-2" style="font-size: 17px;">얼마나 오래 기억하고 자라나 (Plastic Library)</h5>
+                                    <p style="font-size: 13.5px; color: #cbd5e1; line-height: 1.65; margin-bottom: 10px;">
+                                        세션 단위(<strong>System 1.5</strong> 빠른 가중치 &amp; 근거리 OOD 판단 보류 라우터) → 영역 단위(<strong>System 2.5</strong> FP-EWC 망각 방지 · <strong>System 3</strong> R²P 전문가 자동 생성) → 현장 변화(<strong>System 4</strong> PCAS 6.3ms 무기울기 적응) 순으로 확장됩니다.
+                                    </p>
+                                    <div style="font-size: 12.5px; color: #a7f3d0; background: rgba(16, 185, 129, 0.12); padding: 8px 12px; border-radius: 10px;">
+                                        <strong>기반 모델 무수정 원칙:</strong> 배운 지식은 작은 어댑터·전문가 파일로 <strong>고객사 SSD(Plastic Library)에만 저장</strong>되며, Tech-Audit이 기반 해시와 어댑터 해시를 따로 봉인합니다.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Linux/CUDA SSD Expert Streaming Precedent Table & Risk Gate Table -->
+                        <div class="row g-4">
+                            <div class="col-lg-7">
+                                <h6 class="text-white fw-bold mb-2">⚡ 리눅스·CUDA SSD 전문가 서빙 선행 연구 비교 &amp; Cogni-OS(Edge0-CUDA) 설계 반영</h6>
+                                <div class="axide-xyt-table-wrap">
+                                    <table class="axide-xyt-table">
+                                        <thead>
+                                            <tr>
+                                                <th>논문 · 시스템</th>
+                                                <th>구동 환경</th>
+                                                <th>핵심 실측 성과</th>
+                                                <th>Cogni-OS (Edge0-CUDA) 반영 요소</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><a href="https://arxiv.org/abs/2609.18110" target="_blank" rel="noopener">SSD-LLaMA (arXiv 2609.18110)</a></td>
+                                                <td>Linux(<code>io_uring</code>)·CUDA, 단일 32GB GPU + RAM 16~32GB + NVMe 4TB</td>
+                                                <td>1조급 Kimi-K2.7 1.03 tok/s(RAM 32GB), 2.8조급 Kimi-K3 생성 0.465 tok/s(llama.cpp 대비 17.2배), SSD→RAM→VRAM 3단 계층</td>
+                                                <td><strong>Edge0-CUDA의 핵심 설계 선례:</strong> 전문가 묶음 배치 + <code>io_uring</code> 동시 읽기 + 무손실(전문가 생략·대체 없음)</td>
+                                            </tr>
+                                            <tr>
+                                                <td><a href="https://github.com/Edge0-AI/Edge0" target="_blank" rel="noopener">Edge0 (arXiv 2609.18063)</a></td>
+                                                <td>Apple Silicon (Apache-2.0, CUDA 백엔드 확장 구조)</td>
+                                                <td>35B MoE 14.9~17.7 tok/s (활성 메모리 2.9GiB), 8B 23.9~25.3 tok/s (1.0GiB)</td>
+                                                <td><strong>프리라우터(다음 층 선행 예측) + 복구 LoRA(기반 체크포인트 읽기 전용·무병합 원칙)</strong> 채택</td>
+                                            </tr>
+                                            <tr>
+                                                <td><a href="https://madsys.cs.tsinghua.edu.cn/publication/ktransformers-unleashing-the-full-potential-of-cpu/gpu-hybrid-inference-for-moe-models/" target="_blank" rel="noopener">KTransformers (SOSP 2025)</a> / <a href="https://arxiv.org/abs/2402.07033" target="_blank" rel="noopener">Fiddler</a></td>
+                                                <td>Linux 서버, CPU(AMX) + GPU 하이브리드</td>
+                                                <td>프리필 4.62~19.74배, 디코딩 1.25~4.09배 가속, 가중치 전송 대신 CPU 연산 활용</td>
+                                                <td>RAM 128GB~1TB급 구성(Field Vault S/L)의 하이브리드 실행 경로 및 “계산 이동” 원칙</td>
+                                            </tr>
+                                            <tr>
+                                                <td><a href="https://arxiv.org/abs/2312.12456" target="_blank" rel="noopener">PowerInfer (SOSP 2024)</a> / <a href="https://arxiv.org/abs/2609.12978" target="_blank" rel="noopener">SeqMoE</a> / <a href="https://arxiv.org/abs/2601.17063" target="_blank" rel="noopener">FlashMoE</a></td>
+                                                <td>Linux 단일 데스크톱 GPU + CPU/SSD</td>
+                                                <td>전문가 45% 상주 시 적중률 96.97%(SeqMoE), 학습형 캐시 교체로 적중률 +51%·2.6배(FlashMoE)</td>
+                                                <td><strong>피셔(FP-EWC) 중요도 + 빈도·최근성 결합 3단 캐시 교체 정책</strong> 및 다단계 선행 프리패치</td>
+                                            </tr>
+                                            <tr>
+                                                <td><a href="https://pith.science/paper/2508.06978" target="_blank" rel="noopener">에너지·발열 분석 (arXiv 2508.06978)</a></td>
+                                                <td>SSD 오프로드 전력 분석</td>
+                                                <td>무분별한 SSD 오프로드 시 토큰당 에너지 증가 경고</td>
+                                                <td><strong>Field Vault S에 RAM 128GB(64GB×2) 기본 탑재</strong>로 SSD 수명·발열 최소화 및 검수(ATP)에 전력·온도 항목 포함</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-5">
+                                <h6 class="text-white fw-bold mb-2">🛡️ 6대 기술 위험 관리 &amp; 검증 관문(Gate G1~G4) 원칙</h6>
+                                <div class="axide-xyt-table-wrap">
+                                    <table class="axide-xyt-table">
+                                        <thead>
+                                            <tr>
+                                                <th>관리 항목</th>
+                                                <th>영향 및 엔지니어링 검증 관문 대응</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>1. DEQ 디코더 접합 (G1)</strong></td>
+                                                <td>관문 G1 통과를 모든 DEQ 계열(CTS·System 1.5 오버레이·System 3) 상용 투입의 전제로 설정. 1호기는 검증 완료된 <strong>Gemma 4 + CogniCraft 기하 검증</strong>으로 안전 납품</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>2. Edge0-CUDA 속도 (G2)</strong></td>
+                                                <td>단일 32GB GPU + RAM 128GB + Gen5 SSD×2 환경에서 실측 곡선 확인 후 무손실 생성 <code>≥1.0 tok/s</code> 통과 시 2호기 탑재</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>3. 현장 학습 품질 (G3)</strong></td>
+                                                <td>고객 SSD 전문가 파일(Plastic Library)은 <strong>승격 관문(이전 영역 정확도 하락 기준 이하)</strong> 통과 시에만 확정하며, 파일 단위 즉시 롤백 지원</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>4. 전력·발열 및 SSD 수명</strong></td>
+                                                <td>검수(ATP)에 전력·온도·SSD TBW 기준을 포함하고, 고빈도·고피셔 전문가는 RAM(128GB)·VRAM(32GB)에 상주</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>5. 수치 원장 &amp; 라이선스</strong></td>
+                                                <td>모든 성능 수치에 <strong>검증 원장 포인터</strong>를 부여하고, 납품 패키지에 Apache-2.0(Gemma 4, Edge0 등) 라이선스 원문 동봉</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Cogni-OS x·y·t Unified Architecture, Linux/CUDA SSD-LLaMA Precedents & 2026-2030 Roadmap -->
+
                     <!-- Cogni-OS All-in-One Hardware, 4-Step UI Brochure & 3-Domain Tech-Audit Showcase -->
                     <div class="arch-blueprint-wrap no-div mt-32" style="background: linear-gradient(160deg, #070b14 0%, #0d1424 52%, #060911 100%); color: #f8fafc; border-radius: 36px; border: 1px solid rgba(56, 189, 248, 0.28); padding: 36px;">
                         <div class="arch-blueprint-header mb-4">
@@ -802,7 +944,7 @@
                                         </li>
                                         <li>
                                             <i class="icon icon-check-solid"></i>
-                                            Cogni-OS Core(DEQ) + System 4(3D 도면 파서) + Tech-Audit(Ed25519·SHA256)
+                                            Cogni-OS Core(검수 통과 추론 런타임) + CogniCraft(3D 도면 파서·System 4) + Tech-Audit(Ed25519·SHA256)
                                         </li>
                                         <li>
                                             <i class="icon icon-check-solid"></i>
@@ -900,7 +1042,7 @@
                                 </div>
                                 <div id="collapse2" role="region" class="accordion-collapse collapse" aria-labelledby="asked2" data-bs-parent="#accordion-asked">
                                     <div class="accordion-body">
-                                        System 4(CogniCraft)는 방산·정밀가공 현장에서 표준으로 쓰이는 STEP(.stp/.step), IGES, STL, OBJ 등 3D 솔리드·메시 포맷과 DWG, DXF, PDF 기계제도 도면을 모두 로컬에서 직접 적재·파싱하며, 대화형 치수 수정 후 STEP/STL로 즉시 재내보내기가 가능합니다.
+                                        CogniCraft(1호기 계약명 System 4)는 방산·정밀가공 현장에서 표준으로 쓰이는 STEP(.stp/.step), IGES, STL, OBJ 등 3D 솔리드·메시 포맷과 DWG, DXF, PDF 기계제도 도면을 모두 로컬에서 직접 적재·파싱하며, 대화형 치수 수정 후 STEP/STL로 즉시 재내보내기가 가능합니다. (※ 차세대 연구 로드맵의 System 4(PCAS)는 무기울기 현장 센서 적응 엔진을 지칭합니다.)
                                     </div>
                                 </div>
                             </div>

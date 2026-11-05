@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="assets/css/slick.css">
     <link rel="stylesheet" href="assets/css/slick.theme.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/styles.css?v=20261105v96">
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css?v=20261105v97">
 
     <!-- Favicon and Touch Icons  -->
     <link rel="shortcut icon" href="assets/images/logo/favicon.svg?v=20261102v50">
@@ -604,17 +604,17 @@
                                     <div class="accordion-action services-image-btn active-img" data-img="assets/images/section/service-1.jpg?v=20261102v50" data-bs-target="#faq-1" role="button"
                                         data-bs-toggle="collapse" aria-controls="faq-1" aria-expanded="true">
                                         <div class="accordion-title">
-                                            Cogni-OS Core <br> (DEQ 상수 메모리 추론)
+                                            Cogni-OS Core <br> (검수 통과 추론 런타임 · DEQ 연구 엔진)
                                             <div class="text-body-1 num">(01)</div>
                                         </div>
                                     </div>
                                     <div id="faq-1" class="collapse show" data-bs-parent="#accordion-services">
                                         <div class="accordion-content">
-                                            <div class="text-body-3 text-neutral-300 text">한 층을 고정점까지 반복 수렴시키는 DEQ(Deep Equilibrium) 아키텍처로 단일 32GB GPU 1장에서 구동되며(실측 VRAM 14.8GB, TTFT 0.161초), 수렴 조건 미달 시 거짓 환각 대신 '판단 보류(모른다)'를 출력합니다.</div>
+                                            <div class="text-body-3 text-neutral-300 text">검수 관문(ATP)을 통과한 엔진만 탑재하는 교체형 폐쇄망 추론 런타임입니다. 1호기는 검증된 Gemma 4 + 결정론적 기하 검증(CadQuery) + Tech-Audit으로 구동되며(오프라인 노트북 gemma-4-e4b-it bf16 30회 실측 VRAM 14.8GB, TTFT 0.161초 · 검증 보고서 요청 가능), DEQ 상수 메모리 평형 추론과 Edge0-CUDA 대형 모델 SSD 스트리밍은 차세대 갱신 엔진으로 탑재됩니다.</div>
                                             <div class="list-tags">
-                                                <a href="service-single.html" class="tags-item fw-semibold">DEQ O(1) 상수 메모리</a>
-                                                <a href="service-single.html" class="tags-item fw-semibold">TTFT 0.161초 실측</a>
-                                                <a href="service-single.html" class="tags-item fw-semibold">미수렴 시 판단 보류 안전망</a>
+                                                <a href="service-single.html" class="tags-item fw-semibold">검수 통과 추론 런타임</a>
+                                                <a href="service-single.html" class="tags-item fw-semibold">TTFT 0.161초 (검증 보고서 열람 가능)</a>
+                                                <a href="service-single.html" class="tags-item fw-semibold">미수렴·미확신 시 판단 보류</a>
                                             </div>
                                         </div>
                                     </div>
@@ -623,7 +623,7 @@
                                     <div class="accordion-action services-image-btn collapsed" data-img="assets/images/section/service-2.jpg?v=20261102v50" data-bs-target="#faq-2" role="button"
                                         data-bs-toggle="collapse" aria-controls="faq-2" aria-expanded="false">
                                         <div class="accordion-title">
-                                            System 4 · CogniCraft <br> (3D 도면 & AR 글라스)
+                                            CogniCraft <br> (3D 도면 파서 · 1호기 계약명 System 4)
                                             <div class="text-body-1 num">(02)</div>
                                         </div>
                                     </div>
@@ -772,8 +772,8 @@
                                         <img src="assets/images/section/service-1.jpg?v=20261102v50" alt="실물 검증 01 · 폐쇄망 DEQ 서버 랙">
                                         <div class="axide-hw-proof-meta">
                                             <span class="axide-hw-proof-tag">REAL HARDWARE 01 · L0 CORE</span>
-                                            <span class="axide-hw-proof-title">폐쇄망 RTX 6000 Ada 서버</span>
-                                            <span class="axide-hw-proof-desc">14.8GB VRAM · TTFT 0.161초 실측</span>
+                                            <span class="axide-hw-proof-title">폐쇄망 단일 32GB GPU 서버</span>
+                                            <span class="axide-hw-proof-desc">14.8GB VRAM · TTFT 0.161초 (검증 보고서 보유)</span>
                                         </div>
                                     </a>
                                     <a href="assets/images/section/service-2.jpg?v=20261102v50" class="axide-hw-proof-card" title="클릭하여 실물 사진 확대 보기">
@@ -978,6 +978,204 @@
                         </div>
                     </div>
                     <!-- /Cogni-OS Reference Architecture v1.0 Showcase -->
+
+                    <!-- Cogni-OS x·y·t Unified Design & 2026-2030 R&D Gate Roadmap -->
+                    <div id="xyt-roadmap" class="axide-xyt-roadmap-shell mt-48">
+                        <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
+                            <span class="axide-xyt-badge badge-x mb-0">COGNI-OS UNIFIED DESIGN &amp; R&amp;D ROADMAP (x·y·t)</span>
+                            <span class="text-caption" style="color: #94a3b8;">2026.11.05 · 수석 아키텍트 허상훈 (World Model AI Architect) · 검증 관문(G1~G4) 상용화 원칙</span>
+                        </div>
+                        <h3 class="fw-bold text-white mb-2" style="font-size: clamp(22px, 2.4vw, 30px);">
+                            Cogni-OS 통합 설계와 AXIDE 연구 로드맵 (x · y · t 3축 큐브 운영체계)
+                        </h3>
+                        <p class="mb-4" style="color: #cbd5e1; font-size: 15px; line-height: 1.75;">
+                            Cogni-OS는 <strong>x축(가로·크기: Edge0-CUDA + SSD-LLaMA + KDA)</strong>, <strong>y축(세로·깊이: DEQ + CTS + HRM 스스로 멈추기 + CadQuery 객관 검증)</strong>, <strong>t축(시간·기억: System 1.5 → 2.5 → 3 → 4 &amp; Plastic Library)</strong>의 3축 운영체계로 결합됩니다. “암호화 증명을 파는 기업”이라는 원칙에 따라, <strong>1호기(2027-02)는 검수(ATP)가 완료된 엔진(Gemma 4 + CogniCraft 기하 검증 + Tech-Audit + 복구 LoRA 무수정 원칙)</strong>으로 안전하게 납품하고, 차세대 연구 엔진은 <strong>검증 관문(G1~G4)을 통과한 순서대로 2호기 이후 갱신 엔진에 투입</strong>합니다.
+                        </p>
+
+                        <!-- 3-Axis Cube Operating Principle -->
+                        <div class="row g-3 mb-4">
+                            <div class="col-lg-4">
+                                <div class="axide-xyt-axis-card axis-x">
+                                    <span class="axide-xyt-badge badge-x">x축 (가로 · 크기) · Edge0-CUDA + KDA</span>
+                                    <h5 class="text-white fw-bold mb-2" style="font-size: 17px;">작은 PC에 거대한 모델을, 긴 문서를 고정 메모리로</h5>
+                                    <p style="font-size: 13.5px; color: #cbd5e1; line-height: 1.65; margin-bottom: 10px;">
+                                        기반 MoE 모델(DeepSeek V4.1 Flash, Kimi K3.1 Pro 등)은 읽기 전용으로 NVMe SSD에 두고, <strong>SSD-LLaMA(arXiv:2609.18110)</strong>식 전문가 묶음 배치·<code>io_uring</code> 비동기 읽기·<strong>SSD→RAM→VRAM 3단 캐시</strong>에 <strong>Edge0(arXiv:2609.18063) 프리라우터(다음 층 선행 예측)</strong>를 결합합니다.
+                                    </p>
+                                    <div style="font-size: 12.5px; color: #7dd3fc; background: rgba(56, 189, 248, 0.1); padding: 8px 12px; border-radius: 10px;">
+                                        <strong>핵심 시너지:</strong> System 3의 <em>z-무관(입력 기반) 라우터</em>와 Edge0 <em>선행 프리패치</em>를 결합해 DEQ 풀이 전에 필요한 전문가를 SSD에서 미리 적재(읽기 지연 구조적 해소) · <strong>KDA(Kimi Linear)</strong>로 수십만 토큰 도면·규격서 고정 메모리 독해
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="axide-xyt-axis-card axis-y">
+                                    <span class="axide-xyt-badge badge-y">y축 (세로 · 깊이) · DEQ + CTS + ACT</span>
+                                    <h5 class="text-white fw-bold mb-2" style="font-size: 17px;">여러 설계안을 깊게 탐색하고, 충분하면 스스로 멈춤</h5>
+                                    <p style="font-size: 13.5px; color: #cbd5e1; line-height: 1.65; margin-bottom: 10px;">
+                                        가공 순서·공구 경로·치수 해석 후보를 <strong>CTS(DEQ + MCTS 트리 탐색)</strong>로 깊게 탐색하며, 쉬운 질문은 조기 종료하고 어려운 질문에만 연산 예산을 배정하는 <strong>HRM 스스로 멈추기(ACT, 계산 37~80% 절감)</strong>를 결합합니다.
+                                    </p>
+                                    <div style="font-size: 12.5px; color: #fde68a; background: rgba(245, 158, 11, 0.12); padding: 8px 12px; border-radius: 10px;">
+                                        <strong>객관적 기하 판정 원칙:</strong> 치수·간섭·가공성 판정은 언어모델의 자기판단이 아니라 <strong>CogniCraft(CadQuery 등 결정론적 계산기)</strong>가 수행하며, DEQ 계열은 관문 G1 통과 후 2028년 투입
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="axide-xyt-axis-card axis-t">
+                                    <span class="axide-xyt-badge badge-t">t축 (시간 · 기억) · System 1.5 → 2.5 → 3 → 4</span>
+                                    <h5 class="text-white fw-bold mb-2" style="font-size: 17px;">세션 기억부터 평생 학습·현장 센서 즉시 적응까지</h5>
+                                    <p style="font-size: 13.5px; color: #cbd5e1; line-height: 1.65; margin-bottom: 10px;">
+                                        <strong>System 1.5</strong>(세션 빠른 가중치 FWP &amp; 미확신 시 ‘판단 보류’ 근거리 OOD 라우터) → <strong>System 2.5</strong>(FP-EWC·C-FIRE 망각 없는 연속 학습) → <strong>System 3</strong>(R²P 전문가 자동 생성 &amp; 고객 SSD 저장) → <strong>System 4</strong>(PCAS 6.3ms 무기울기 현장 센서 적응)로 이어집니다.
+                                    </p>
+                                    <div style="font-size: 12.5px; color: #a7f3d0; background: rgba(16, 185, 129, 0.12); padding: 8px 12px; border-radius: 10px;">
+                                        <strong>Plastic Library &amp; 명칭 구분:</strong> 배운 지식은 작은 어댑터·전문가 파일로 <strong>고객사 전용 SSD에만 누적</strong>(기반 모델 무수정) · 도면 파서는 <strong>CogniCraft(1호기 계약명 System 4)</strong>로, 현장 적응 엔진은 <strong>System 4(PCAS)</strong>로 명확히 구분
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 5 Core R&D Papers & Component Deployment Matrix -->
+                        <div class="row g-4 mb-4">
+                            <div class="col-lg-7">
+                                <h6 class="text-white fw-bold mb-2">📑 AXIDE 5대 핵심 연구 설계도 &amp; 구성요소별 투입 시점</h6>
+                                <div class="axide-xyt-table-wrap">
+                                    <table class="axide-xyt-table">
+                                        <thead>
+                                            <tr>
+                                                <th>구성요소 / 논문</th>
+                                                <th>축</th>
+                                                <th>핵심 장치 및 Cogni-OS 역할</th>
+                                                <th>투입 시점 · 검증 관문</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>Gemma 4 + CogniCraft + Tech-Audit</strong></td>
+                                                <td><span class="badge bg-info text-dark">기반 코어</span></td>
+                                                <td>단일 32GB GPU 전량 적재 도면 판독 + 결정론적 3D CAD 파싱(1호기 계약명 System 4 병기) + 기반·어댑터 분리 해시 봉인(복구 LoRA 원칙)</td>
+                                                <td><strong style="color:#34d399;">1호기 (2027-02) 확정 탑재</strong></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Edge0-CUDA + SSD-LLaMA + KDA</strong><br><small style="color:#94a3b8;">arXiv:2609.18063 · 2609.18110</small></td>
+                                                <td><span class="badge bg-primary">x축</span></td>
+                                                <td>전문가 묶음 배치 · <code>io_uring</code> 동시 읽기 · SSD-RAM-VRAM 3단 캐시 + 프리라우터 선행 예측 + KDA 장문(도면·규격서) 고정 메모리 독해</td>
+                                                <td><strong style="color:#38bdf8;">2호기 (2027 H2 · Gate G1/G2)</strong></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>System 1.5 (AAAI-27 투고)</strong><br><small style="color:#94a3b8;">FWP · AQ-Gate · OOD 라우터</small></td>
+                                                <td><span class="badge bg-success">t축 (세션)</span></td>
+                                                <td>확신 부족 시 ‘미결정(판단 보류)’으로 돌려보내는 근거리 OOD 안전 라우터 + 반복 도면 수렴점 <code>z*</code> 저랭크 오버레이(세션 3.6배 가속)</td>
+                                                <td><strong>OOD 라우터 2호기 / 오버레이 관문 통과 후</strong></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>CTS (NeurIPS 투고) + HRM ACT</strong><br><small style="color:#94a3b8;">DEQ + MCTS + 스스로 멈추기</small></td>
+                                                <td><span class="badge bg-warning text-dark">y축</span></td>
+                                                <td>가공 순서·공구 경로 후보 트리 탐색 + 쉬운 질의 조기 종료(계산 37~80% 절감) + CadQuery 객관적 검증기 결합</td>
+                                                <td><strong>디코더 관문(G1) 통과 후 (2028)</strong></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>System 2.5 &amp; System 3 (ICLR 투고)</strong><br><small style="color:#94a3b8;">FP-EWC · C-FIRE · CGM · R²P</small></td>
+                                                <td><span class="badge bg-success">t축 (평생·용량)</span></td>
+                                                <td>신규 재질·설비 도입 시 이전 지식 보호(FP-EWC) + 새 전문가 자동 생성(R²P) 및 [가중치·피셔·기준점] SSD 라이브러리 저장 + 피셔 기반 캐시 배치</td>
+                                                <td><strong>Gate G3 통과 후 (2028)</strong></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>System 4 (NeurIPS 투고 · PCAS)</strong><br><small style="color:#94a3b8;">마이크로 DEQ 28군집 · 무기울기 TTA</small></td>
+                                                <td><span class="badge bg-success">t축 (현장 변화)</span></td>
+                                                <td>CNC 진동·온도·공구 마모 등 센서 분포 변화 시 기울기 계산 없이 사전 컴파일된 연결 구조로 즉시 교체(6.3ms급 적응, 망각 없음)</td>
+                                                <td><strong>피지컬 AI 고도화 (2029 · Gate G4)</strong></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- Right: Long-term 5-Layer Solution Structure & Field Vault S/M/L -->
+                            <div class="col-lg-5">
+                                <h6 class="text-white fw-bold mb-2">🏛️ AXIDE 장기 솔루션 5층 구조 &amp; Field Vault S·M·L 라인업</h6>
+                                <div class="axide-xyt-table-wrap mb-3">
+                                    <table class="axide-xyt-table">
+                                        <thead>
+                                            <tr>
+                                                <th>솔루션 층</th>
+                                                <th>제품 및 하드웨어·소프트웨어 구성</th>
+                                                <th>수익 모델</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>1. 장비</strong></td>
+                                                <td><strong>Field Vault S / M / L</strong><br>• <strong>S (표준):</strong> 단일 32GB GPU(RTX PRO 4500 32GB) + Gen5 SSD×2 + RAM 128GB(Edge0 3단 캐시)<br>• <strong>M (중형):</strong> RTX PRO 6000 96GB<br>• <strong>L (대형):</strong> PRO 6000×2 또는 RAM 1TB급</td>
+                                                <td>1년차 도입비<br>(표준 9,000만 원)</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>2. 엔진 갱신</strong></td>
+                                                <td><strong>Cogni-OS 구독:</strong> 검수(ATP) 통과 엔진·오픈 웨이트 신규 버전을 보안 USB 등 오프라인 매체로 반입</td>
+                                                <td>연 갱신 구독료<br>(연 6,600만 원)</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>3. 현장 학습</strong></td>
+                                                <td><strong>Plastic Library:</strong> 고객 현장에서 배운 전문가 파일이 해당 고객 SSD에만 축적(t축) — 쓸수록 똑똑해지는 독점 자산</td>
+                                                <td>장기 계약 락인(Lock-in) 핵심</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>4. 암호화 증명</strong></td>
+                                                <td><strong>Tech-Audit · Part Passport:</strong> 부품과 해시 봉인 기록이 원청↔1·2차 협력사 간 함께 이동</td>
+                                                <td>검증 노드 연 3,600만 원 + 여권 수수료</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>5. 플랫폼</strong></td>
+                                                <td><strong>Cogni-OS SDK(2028) → 제조사 런타임 탑재(2029):</strong> 제3자 모듈 생태계 및 공작기계·로봇 기본 탑재</td>
+                                                <td>장비당 라이선스 로열티</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="axide-provenance-bar mt-0">
+                                    <strong style="color:#38bdf8;">🔬 실측 수치 투명성 및 검증 원장 안내:</strong> 홈페이지에 기재된 <code>TTFT 0.161초</code>, <code>VRAM 14.8GB</code>, <code>30/30 무결성</code> 수치는 인터넷을 물리적으로 차단한 오프라인 환경(2026.10, <code>gemma-4-e4b-it bf16</code> 30회 반복 실측) 및 NVIDIA B200 학습 원장 기준이며, 고객사 기술 실사 시 <strong>원장 포인터 및 전체 검증 보고서 열람을 즉시 제공</strong>합니다.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2026-2030 5-Stage Roadmap & 4 Verification Gates -->
+                        <div class="row g-3">
+                            <div class="col-md-3">
+                                <div class="axide-gate-card">
+                                    <span class="badge bg-success mb-2">STAGE 1 · 2026 ~ 2027.02</span>
+                                    <h6 class="text-white fw-bold mb-1" style="font-size: 15px;">1호기 상용 납품 &amp; 기준선 확립</h6>
+                                    <p class="mb-0" style="font-size: 12.5px; color: #cbd5e1; line-height: 1.55;">
+                                        검증 완료 엔진(Gemma 4 + CogniCraft 기하 검증 + Tech-Audit) 1호기 납품 · 복구 LoRA(기반 모델 무수정) 원칙 적용 · 단일 32GB GPU 서버에서 SSD-LLaMA 방식 기준선 실측
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="axide-gate-card">
+                                    <span class="badge bg-info text-dark mb-2">GATE G1/G2 · 2027 H2 (2호기)</span>
+                                    <h6 class="text-white fw-bold mb-1" style="font-size: 15px;">x축 확장: Edge0-CUDA &amp; KDA</h6>
+                                    <p class="mb-0" style="font-size: 12.5px; color: #cbd5e1; line-height: 1.55;">
+                                        단일 32GB GPU + RAM 128GB + Gen5 SSD×2 표준 사양(Field Vault S)에 전문가 묶음 배치·3단 캐시·Edge0 프리라우터 탑재(무손실 ≥1.0 tok/s 검수) + KDA 장문 독해 + OOD 안전 라우터
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="axide-gate-card">
+                                    <span class="badge bg-warning text-dark mb-2">GATE G3 · 2028 (3축 결합)</span>
+                                    <h6 class="text-white fw-bold mb-1" style="font-size: 15px;">y·t축 결합: CTS &amp; Plastic Library</h6>
+                                    <p class="mb-0" style="font-size: 12.5px; color: #cbd5e1; line-height: 1.55;">
+                                        DEQ 판독 관문 통과 후 CTS(DEQ+MCTS) + HRM 스스로 멈추기 투입 · System 2.5/3 기반 고객 SSD 전문가 라이브러리 &amp; 피셔 중요도 캐시 교체 · Cogni-OS SDK 공개
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="axide-gate-card">
+                                    <span class="badge bg-primary mb-2">GATE G4 · 2029 ~ 2030</span>
+                                    <h6 class="text-white fw-bold mb-1" style="font-size: 15px;">System 4(PCAS) &amp; 제조사 런타임</h6>
+                                    <p class="mb-0" style="font-size: 12.5px; color: #cbd5e1; line-height: 1.55;">
+                                        System 3의 z-무관 라우터로 DEQ 풀이 전 무예측 선행 읽기 완결 · System 4(PCAS 6.3ms 무기울기 현장 센서 적응) 피지컬 AI 탑재 및 공작기계·로봇 OEM 런타임 공급
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Cogni-OS x·y·t Unified Design & 2026-2030 R&D Gate Roadmap -->
 
                     <!-- Founder Story & 4 Core Technologies Teaser Showcase -->
                     <div class="story-shell-dark mt-48 mb-0">
@@ -1543,21 +1741,21 @@
                             <div class="features-col col-left lg-mb-24">
                                 <div class="features-item effectFade fadeUp">
                                     <i class="icon icon-robot-solid"></i>
-                                    <h6 class="title fw-semibold">DEQ 상수 메모리 O(1) 추론 코어</h6>
+                                    <h6 class="title fw-semibold">검수 통과 추론 런타임 &amp; DEQ·Edge0 연구 엔진</h6>
                                     <p class="text-secondary">
-                                        등록특허 제10-2973709호 기반의 상태 적응형 심층 평형(DEQ) 네트워크로 단일 32GB GPU에서 대규모 도면·감사 추론을 안정적으로 수행합니다.
+                                        검수 관문(ATP)을 통과한 엔진만 탑재하는 폐쇄망 추론 런타임(1호기 Gemma 4 + 기하 검증) 위에 등록특허 제10-2973709호 기반 DEQ 상수 메모리 코어와 Edge0-CUDA 대형 모델 스트리밍을 단계별 결합합니다.
                                     </p>
                                 </div>
                                 <div class="features-item effectFade fadeUp">
                                     <i class="icon icon-clipboard-check-solid"></i>
                                     <h6 class="title fw-semibold">환각 차단 '판단 보류(Abstention)'</h6>
                                     <p class="text-secondary">
-                                        수렴 조건이 충족되지 않거나 도면 근거가 부족할 때 억지 거짓 답을 생성하지 않고 '모른다(판단 보류)'로 응답하며 감사 로그에 남깁니다.
+                                        근거리 OOD 라우터 및 수렴 검증을 통해 도면 근거가 부족할 때 억지 거짓 답을 생성하지 않고 '모른다(판단 보류)'로 응답하며 감사 로그에 남깁니다.
                                     </p>
                                 </div>
                                 <div class="features-item effectFade fadeUp">
                                     <i class="icon icon-book-solid"></i>
-                                    <h6 class="title fw-semibold">System 4 (CogniCraft) 3D CAD 파서</h6>
+                                    <h6 class="title fw-semibold">CogniCraft 3D CAD 파서 (1호기 계약명 System 4)</h6>
                                     <p class="text-secondary">
                                         2D 기계제도 도면과 3D STEP·STL·메시 모델을 로컬에서 직접 파싱해 치수, 공차, 단면도, BOM, 공정표를 결정론적으로 추출합니다.
                                     </p>
@@ -2070,7 +2268,7 @@
                                     </li>
                                     <li>
                                         <i class="icon icon-check-solid"></i>
-                                        Cogni-OS Core(DEQ) + System 4(3D 도면 파서) + Tech-Audit(Ed25519·SHA256)
+                                        Cogni-OS Core(검수 통과 추론 런타임) + CogniCraft(3D 도면 파서·System 4) + Tech-Audit(Ed25519·SHA256)
                                     </li>
                                     <li>
                                         <i class="icon icon-check-solid"></i>
@@ -2154,7 +2352,7 @@
                                 </div>
                                 <div id="collapse1" role="region" class="accordion-collapse collapse show" aria-labelledby="asked1" data-bs-parent="#accordion-asked">
                                     <div class="accordion-body">
-                                        오픈소스 가중치는 언어 처리 부품으로만 사용하며, 핵심 가치는 액사이드가 100% 자체 개발·특허 등록(제10-2973709호, PCT/KR2026/011625)한 3층 소프트웨어에 있습니다. ① Cogni-OS Core(DEQ 상수 메모리 추론 및 미수렴 시 판단 보류 안전장치), ② System 4(3D STEP/DWG 결정론적 도면 파서 및 AR 3줄 HUD), ③ Tech-Audit(Ed25519 전자서명 + SHA256 해시 체인 봉인)과 NVIDIA B200 GPU에서 수행한 SFT→DPO 2단계 방산 감사 재학습(선호 정확도 96.7%)이 결합된 독자 운영체계입니다.
+                                        오픈소스 가중치는 교체 가능한 언어 처리 부품으로만 사용하며(기반 모델 무수정 복구 LoRA 원칙), 핵심 가치는 액사이드가 100% 자체 개발·특허 등록(제10-2973709호, PCT/KR2026/011625)한 3층 소프트웨어와 x·y·t 운영체계에 있습니다. ① Cogni-OS Core(검수 통과 엔진만 탑재하는 폐쇄망 추론 런타임 및 차세대 DEQ·Edge0-CUDA 엔진, 미확신 시 판단 보류 안전장치), ② CogniCraft(결정론적 3D STEP/DWG 도면 파서 및 AR 3줄 HUD, 1호기 계약명 System 4), ③ Tech-Audit(기반 해시·어댑터 해시 분리 봉인 Ed25519 전자서명 + SHA256 해시 체인)과 NVIDIA B200 GPU에서 수행한 SFT→DPO 2단계 방산 감사 재학습(선호 정확도 96.7% · 검증 원장 보유)이 결합된 독자 운영체계입니다.
                                     </div>
                                 </div>
                             </div>
@@ -2180,7 +2378,7 @@
                                 </div>
                                 <div id="collapse3" role="region" class="accordion-collapse collapse" aria-labelledby="asked3" data-bs-parent="#accordion-asked">
                                     <div class="accordion-body">
-                                        첫째, 치수·공차·구멍 수·부피 등 기하학적 수치는 LLM의 확률적 추측이 아니라 System 4의 결정론적(Deterministic) 3D CAD 파서가 도면 파일에서 직접 계산합니다. 둘째, DEQ 추론 코어는 내부 고정점 수렴 오차가 기준치를 넘으면 억지 답변을 생성하는 대신 '판단 보류(모른다)'를 출력하고 인간 엔지니어의 확인을 요청하도록 설계되어 있습니다.
+                                        첫째, 치수·공차·구멍 수·부피 등 기하학적 수치는 LLM의 확률적 추측이 아니라 CogniCraft(1호기 계약명 System 4)의 결정론적(Deterministic) 3D CAD 파서 및 CadQuery 검증기가 도면 파일에서 직접 계산합니다. 둘째, Cogni-OS 추론 런타임과 근거리 OOD 안전 라우터는 확신도나 수렴 조건이 기준치를 밑돌면 억지 답변을 생성하는 대신 '판단 보류(모른다)'를 출력하고 인간 엔지니어의 확인을 요청하도록 설계되어 있습니다.
                                     </div>
                                 </div>
                             </div>

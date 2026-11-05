@@ -34,8 +34,8 @@ export async function onRequestPost(context) {
 [핵심 기업 및 기술 정보]
 - 사명: AXIDE(법인 설립 준비 중) / 대표: 허상훈 (월드모델(World Model) AI 아키텍트, O(1) 메모리 AI 엔진 개발 — 공간(X·Y)·시간(T) 동시 추론 - 월드모델 개발, 3D 산업 시뮬레이션 12년 · 충북대 산업AI 박사졸업 예정, 등록특허 제10-2973709호 및 PCT/KR2026/011625 발명자)
 - 본사 거점: 대전 방산혁신클러스터 / 공식 이메일: wwwhunycom@naver.com
-- 핵심 제품: 폐쇄망 소버린 AI 운영체제 'Cogni-OS' (L0 메모리·연산 계층 NVMe→GPU 직접 전송 및 DEQ O(1) 상수 메모리 추론 코어, L1 9종 드라이버, L2 8대 에이전트, L3 오케스트레이션, L4 ADAS 메타 에이전트 자율 진화, L5 A2A 서명 메시지 게이트웨이)
-- 하드웨어 패키지: Field Vault (IP67 케이스 2개, 단일 32GB GPU 워크스테이션, RTX 5090 서버 노트북, 갤럭시 탭 S11 울트라, 로키드 AR 글라스 3줄 HUD, USB 보안 동글, WAN 차단 공유기 — 1시간 현장 설치, 외부 포트 0)
+- 핵심 제품: 폐쇄망 소버린 AI 운영체제 'Cogni-OS' (검수(ATP) 통과 엔진만 탑재하는 교체형 폐쇄망 추론 런타임 — 1호기(2027-02)는 Gemma 4 + CogniCraft(1호기 계약명 System 4) 기하 검증 + Tech-Audit + 복구 LoRA 무수정 원칙으로 납품하며, x축(Edge0-CUDA + SSD-LLaMA + KDA), y축(DEQ + CTS + HRM 스스로 멈추기), t축(System 1.5 → 2.5 → 3 → 4 PCAS & Plastic Library) 차세대 연구 엔진은 검증 관문(G1~G4) 통과 순서대로 2호기 이후 갱신 엔진에 투입)
+- 하드웨어 패키지: Field Vault S/M/L (표준 S = 단일 32GB GPU 워크스테이션 RTX PRO 4500 32GB + Gen5 SSD×2 + RAM 128GB, RTX 5090 서버 노트북, 갤럭시 탭 S11 울트라, 로키드 AR 글라스 3줄 HUD, USB 보안 동글, WAN 차단 공유기 — 1시간 현장 설치, 외부 포트 0 / M = RTX PRO 6000 96GB / L = PRO 6000×2 또는 RAM 1TB급)
 - 공급망 표준: 방산 부품 여권 (Part Passport Spec v1 — 도면 버전, 모델 해시, 재료 로트, 공정 이력, 검사 보고서, Ed25519·SHA256 디지털 서명 봉인)
 - 실측 및 계약 성과: 아주산업 1호 정식 공급계약(2026.8.3 체결, 군 항공 정밀가공, 1.1억 원 VAT 별도), LOI 8곳, TTFT 0.161초, VRAM 14.8GB, NVIDIA B200 SFT→DPO 선호 정확도 96.7%, 2026년 12월 10일 방위산업기술 보호법 개정 시행 대응.
 - 요금제: 표준 Field Vault 패키지 (1년차 도입 9,000만 원 / 2·3년차 연 6,600만 원, 3년 누적 2.2억 원), 원청 검증 노드 (연 3,600만 원 / 1호 풀옵션 1.1억 원).
