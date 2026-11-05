@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <!--[if IE 8]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko-KR" lang="ko-KR"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
@@ -353,8 +353,11 @@
                             2026년 12월 10일 시행되는 개정 <strong>방위산업기술 보호법(법률 제21768호)</strong>은 방산 도면 및 기술의 외부 유출 시 징역 3년 이상 및 벌금 65억 원 이하 병과라는 강력한 처벌을 규정하며, 원청 체계업체뿐만 아니라 1·2차 협력사까지 동일한 보안 관리 의무를 부과합니다. 더불어 2027년 12월 본격화되는 EU 고위험 AI 규제 및 디지털 제품 여권(ESPR)은 완제품에 들어가는 모든 부품의 생산·검증 이력 추적을 요구합니다.
                             <br>
                             <br>
-                            액사이드의 <strong>방산 부품 여권(Part Passport Spec v1)</strong>은 이 문제를 정면으로 해결합니다. 2차 정밀가공사가 부품을 가공할 때 Cogni-OS가 정본 도면의 SHA256 해시, 사용된 폐쇄망 AI 모델 해시, 작업자 음성·HUD 지시 이력, 그리고 치수 측정값을 하나로 묶어 Ed25519 전자서명으로 봉인합니다. 부품이 1차 협력사를 거쳐 원청 체계업체 품질팀에 도착하면, 품질팀은 도면 원본 파일을 다시 열어보거나 외부 망에 접속할 필요 없이 <strong>원청 검증 노드(연 3,600만 원 구독)</strong>에서 동글과 여권을 꽂아 1초 만에 "정본 도면 일치 · 외부 전송 0 Byte · 해시 체인 변조 없음"을 검증합니다.
+                            액사이드의 <strong>방산 부품 여권(Part Passport Spec v1)</strong>은 이 문제를 정면으로 해결합니다. <strong>협력사가 보관하는 원본 도면과 원청이 받는 서명 기록을 구분</strong>하여, 2차 정밀가공사가 부품을 가공할 때 Cogni-OS가 정본 도면의 SHA256 해시, 사용된 폐쇄망 AI 모델 해시, 작업자 음성·HUD 지시 이력, 그리고 치수 측정값을 하나로 묶어 Ed25519 전자서명으로 봉인합니다. 부품이 1차 협력사를 거쳐 원청 체계업체 품질팀에 도착하면, 품질팀은 도면 원본 파일을 다시 열어보거나 외부 망에 접속할 필요 없이 <strong>원청 검증 노드(연 3,600만 원 구독)</strong>에서 부품과 <strong>한글코드 부품여권(<code>ㄱ·ㄷ·ㅁ</code>)</strong>을 눈으로 맞추고 서명으로 이력을 1초 만에 검증합니다.
                         </p>
+                        <div class="mt-24 rounded-4 overflow-hidden" style="border: 1px solid rgba(251, 191, 36, 0.38); box-shadow: 0 20px 50px rgba(2, 6, 23, 0.35);">
+                            <img src="assets/images/story/story-hangul-code-part-passport.jpg?v=20261105v108" alt="AXIDE 한글코드 부품여권 — 부품과 여권(ㄱ·ㄷ·ㅁ A-027)을 눈으로 맞추고, 서명으로 이력을 확인하며 협력사 원본 도면과 원청 서명 기록을 구분합니다" style="width: 100%; height: auto; display: block;">
+                        </div>
                     </div>
                 </div>
                 <div class="row justify-content-between">
