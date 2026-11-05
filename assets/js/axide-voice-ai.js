@@ -1178,36 +1178,65 @@
     setWidgetState("idle");
   }
 
-  function openArchModal(imgSrc) {
-    let modal = document.getElementById("axideArchModal");
+  function ensureStoryLightboxModal() {
+    let modal = document.getElementById("storyLightboxModal");
     if (!modal) {
       modal = document.createElement("div");
-      modal.id = "axideArchModal";
-      modal.className = "axide-arch-modal";
+      modal.id = "storyLightboxModal";
+      modal.className = "story-lightbox-backdrop";
       modal.innerHTML = `
-        <div class="arch-modal-backdrop"></div>
-        <div class="arch-modal-content">
-          <div class="arch-modal-top">
-            <div class="arch-modal-title">Cogni-OS 참조 아키텍처 v1.0 (L0~L5 · ADAS · A2A 공급망)</div>
-            <button type="button" class="arch-modal-close" aria-label="닫기">&times; 닫기</button>
+        <div class="story-lightbox-inner">
+          <div class="story-lightbox-top">
+            <h5 id="storyLightboxTitle" class="story-lightbox-title">원본 이미지 확대 보기</h5>
+            <button type="button" class="story-lightbox-close" onclick="window.closeStoryLightbox()">닫기 ✕</button>
           </div>
-          <div class="arch-modal-body">
-            <img src="${imgSrc}" alt="Cogni-OS 참조 아키텍처 v1.0">
+          <div id="storyLightboxBody" class="story-lightbox-body dark-bg">
+            <img id="storyLightboxImg" src="" alt="확대 이미지">
           </div>
         </div>
       `;
+      modal.addEventListener("click", function (e) {
+        if (e.target === modal) window.closeStoryLightbox();
+      });
       document.body.appendChild(modal);
-      modal.querySelector(".arch-modal-backdrop").addEventListener("click", () => {
-        modal.classList.remove("show");
-      });
-      modal.querySelector(".arch-modal-close").addEventListener("click", () => {
-        modal.classList.remove("show");
-      });
-    } else {
-      const img = modal.querySelector(".arch-modal-body img");
-      if (img && imgSrc) img.setAttribute("src", imgSrc);
     }
-    modal.classList.add("show");
+    return modal;
+  }
+
+  window.openStoryLightbox = function (src, title, isDarkBg) {
+    if (!src) return;
+    const modal = ensureStoryLightboxModal();
+    const img = document.getElementById("storyLightboxImg");
+    const titleEl = document.getElementById("storyLightboxTitle");
+    const bodyEl = document.getElementById("storyLightboxBody");
+    if (!modal || !img) return;
+    img.src = src;
+    if (titleEl) titleEl.textContent = title || "원본 이미지 확대 보기";
+    if (bodyEl) {
+      if (isDarkBg === false && src.indexOf(".svg") === -1 && src.indexOf("image0") !== -1) {
+        bodyEl.classList.remove("dark-bg");
+      } else {
+        bodyEl.classList.add("dark-bg");
+      }
+    }
+    modal.classList.add("open");
+  };
+
+  window.closeStoryLightbox = function () {
+    const modal = document.getElementById("storyLightboxModal");
+    if (modal) modal.classList.remove("open");
+  };
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+      window.closeStoryLightbox();
+      const archModal = document.getElementById("axideArchModal");
+      if (archModal) archModal.classList.remove("show");
+    }
+  });
+
+  function openArchModal(imgSrc, customTitle) {
+    window.openStoryLightbox(imgSrc, customTitle || "원본 도해 및 이미지 확대 보기", true);
   }
 
   function triggerGreetingAndListen(anchorMode) {
@@ -1519,11 +1548,17 @@
       });
     });
 
-    document.querySelectorAll(".physical-ai-card").forEach((card) => {
-      card.addEventListener("click", function (e) {
+    document.querySelectorAll("[data-zoom-src]").forEach((el) => {
+      el.style.cursor = "zoom-in";
+      el.addEventListener("click", function (e) {
         const subTarget = e && e.target && e.target.closest ? e.target.closest("[data-zoom-src]") : null;
         const src = (subTarget && subTarget.getAttribute("data-zoom-src")) || this.getAttribute("data-zoom-src");
-        if (src) openArchModal(src);
+        if (src) {
+          e.stopPropagation();
+          const imgEl = this.querySelector("img");
+          const title = (imgEl && imgEl.getAttribute("alt")) || this.getAttribute("title") || "원본 이미지 확대 보기";
+          openArchModal(src, title);
+        }
       });
     });
 
@@ -1532,8 +1567,40 @@
         const href = this.getAttribute("href");
         if (href && (href.indexOf(".jpg") !== -1 || href.indexOf(".png") !== -1 || href.indexOf(".svg") !== -1)) {
           e.preventDefault();
-          openArchModal(href);
+          const imgEl = this.querySelector("img");
+          openArchModal(href, (imgEl && imgEl.getAttribute("alt")) || "실물 하드웨어 검증 이미지 확대 보기");
         }
+      });
+    });
+
+    // Universal single-image click-to-zoom for all content figures/diagrams/infographics (no overlay icons added)
+    document.querySelectorAll("main img").forEach((img) => {
+      if (
+        img.closest("header") ||
+        img.closest("footer") ||
+        img.closest(".logo-site") ||
+        img.closest(".footer-logo") ||
+        img.closest(".infiniteSlide") ||
+        img.closest(".axide-deck-card") ||
+        img.closest(".story-lightbox-backdrop") ||
+        img.closest(".axide-arch-modal") ||
+        img.closest(".tf-btn")
+      ) {
+        return;
+      }
+      img.style.cursor = "zoom-in";
+      img.addEventListener("click", function (e) {
+        if (this.closest("[onclick*='openStoryLightbox']") || this.closest("[data-zoom-src]") || this.closest(".axide-hw-proof-card") || this.closest(".arch-blueprint-frame")) {
+          return;
+        }
+        if (this.clientWidth > 0 && this.clientWidth < 110 && this.naturalWidth > 0 && this.naturalWidth < 160) {
+          return;
+        }
+        const src = this.getAttribute("src");
+        if (!src) return;
+        e.preventDefault();
+        e.stopPropagation();
+        window.openStoryLightbox(src, this.getAttribute("alt") || "원본 이미지 확대 보기", true);
       });
     });
 
