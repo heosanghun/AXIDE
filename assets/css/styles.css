@@ -3838,22 +3838,52 @@ header.header-sticky {
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
 }
 
-/*-- AXIDE Sovereign Workspace & Briefing Control Center (#settingColorMenu) --*/
+/*-- AXIDE Sovereign Workspace & Briefing Control Center (#settingColorMenu - Luxury Flagship Cockpit UI) --*/
 .offcanvas-color {
-  width: 460px !important;
-  max-width: 92vw !important;
-  background: linear-gradient(165deg, #070b14 0%, #0b1324 55%, #050811 100%) !important;
-  border-left: 1px solid rgba(56, 189, 248, 0.32) !important;
-  box-shadow: -24px 0 64px rgba(0, 0, 0, 0.78) !important;
+  width: 472px !important;
+  max-width: 94vw !important;
+  background:
+    radial-gradient(120% 55% at 15% 0%, rgba(56, 189, 248, 0.11) 0%, transparent 65%),
+    radial-gradient(90% 45% at 90% 18%, rgba(212, 175, 55, 0.08) 0%, transparent 60%),
+    linear-gradient(170deg, #050811 0%, #090f1d 48%, #04060c 100%) !important;
+  border-left: 1px solid rgba(226, 232, 240, 0.16) !important;
+  box-shadow:
+    -32px 0 80px rgba(0, 0, 0, 0.88),
+    inset 1px 0 0 rgba(56, 189, 248, 0.25) !important;
   color: #f8fafc;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
 }
 .offcanvas-color .offcanvas-content {
+  position: relative;
   display: flex;
   flex-direction: column;
   height: 100%;
   overflow-y: auto;
-  padding: 28px 24px 32px !important;
+  padding: 26px 24px 32px !important;
   background: transparent !important;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.28) transparent;
+}
+.offcanvas-color .offcanvas-content::-webkit-scrollbar {
+  width: 5px;
+}
+.offcanvas-color .offcanvas-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+.offcanvas-color .offcanvas-content::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.28);
+  border-radius: 999px;
+}
+.axide-cockpit-ambient-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #38bdf8 0%, #818cf8 45%, #e2b857 78%, transparent 100%);
+  box-shadow: 0 2px 18px rgba(56, 189, 248, 0.55);
+  pointer-events: none;
 }
 .offcanvas-color .canvas-body {
   background: transparent !important;
@@ -3863,24 +3893,30 @@ header.header-sticky {
   color: #cbd5e1;
   width: 36px;
   height: 36px;
-  border-radius: 10px;
-  background: rgba(15, 23, 42, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 11px;
+  background: linear-gradient(145deg, rgba(24, 34, 54, 0.95), rgba(9, 14, 26, 0.98));
+  border: 1px solid rgba(226, 232, 240, 0.18);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    0 6px 16px rgba(0, 0, 0, 0.55);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   position: absolute;
   top: 22px;
   right: 22px;
-  font-size: 16px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.22s cubic-bezier(0.22, 1, 0.36, 1);
   z-index: 10;
 }
 .offcanvas-color .icon-close-popup:hover {
   color: #ffffff;
-  border-color: #38bdf8;
-  background: rgba(56, 189, 248, 0.18);
+  border-color: rgba(226, 184, 87, 0.65);
+  background: linear-gradient(145deg, rgba(35, 48, 74, 0.98), rgba(15, 23, 42, 0.98));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    0 0 16px rgba(226, 184, 87, 0.28);
+  transform: scale(1.04);
 }
 .offcanvas-color .title {
   margin-bottom: 12px;
@@ -3888,25 +3924,66 @@ header.header-sticky {
 
 .axide-ctrl-header {
   padding-bottom: 16px;
-  margin-bottom: 18px;
-  border-bottom: 1px solid rgba(56, 189, 248, 0.2);
-  padding-right: 42px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.11);
+  position: relative;
+}
+.axide-ctrl-header::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 96px;
+  height: 1px;
+  background: linear-gradient(90deg, #e2b857, #38bdf8, transparent);
+}
+.axide-ctrl-brand-row {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding-right: 44px;
+  margin-bottom: 10px;
+}
+.axide-ctrl-emblem-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 13px;
+  background: radial-gradient(circle at 30% 25%, rgba(56, 189, 248, 0.22), rgba(7, 11, 22, 0.96) 72%);
+  border: 1px solid rgba(226, 184, 87, 0.42);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    0 8px 20px rgba(0, 0, 0, 0.65),
+    0 0 18px rgba(56, 189, 248, 0.16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.axide-ctrl-emblem-img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 6px rgba(56, 189, 248, 0.45));
+}
+.axide-ctrl-brand-meta {
+  min-width: 0;
 }
 .axide-ctrl-badge {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 4px 10px;
+  padding: 3px 9px;
   border-radius: 999px;
-  background: rgba(56, 189, 248, 0.12);
-  border: 1px solid rgba(56, 189, 248, 0.35);
-  color: #38bdf8;
-  font-size: 10.5px;
+  background: linear-gradient(90deg, rgba(226, 184, 87, 0.14), rgba(56, 189, 248, 0.1));
+  border: 1px solid rgba(226, 184, 87, 0.38);
+  color: #f3d27a;
+  font-size: 9.5px;
   font-weight: 800;
-  letter-spacing: 0.06em;
-  margin-bottom: 8px;
+  letter-spacing: 0.09em;
+  margin-bottom: 4px;
+  text-transform: uppercase;
 }
-.axide-ctrl-badge span {
+.axide-ctrl-badge .axide-led-dot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
@@ -3914,113 +3991,327 @@ header.header-sticky {
   box-shadow: 0 0 8px #34d399;
 }
 .axide-ctrl-title {
-  font-size: 19px;
+  font-size: 17.5px;
   font-weight: 800;
   color: #ffffff;
-  letter-spacing: -0.02em;
-  margin: 0 0 4px;
+  letter-spacing: -0.025em;
+  margin: 0;
+  line-height: 1.25;
 }
 .axide-ctrl-sub {
-  font-size: 12.5px;
+  font-size: 12px;
   color: #94a3b8;
   margin: 0;
-  line-height: 1.45;
+  line-height: 1.48;
 }
+
+/* Luxury Console Module Cards */
 .axide-ctrl-section {
-  background: rgba(13, 21, 38, 0.78);
-  border: 1px solid rgba(255, 255, 255, 0.09);
+  position: relative;
+  background: linear-gradient(165deg, rgba(16, 24, 42, 0.88) 0%, rgba(7, 11, 21, 0.94) 100%);
+  border: 1px solid rgba(226, 232, 240, 0.1);
+  border-top-color: rgba(255, 255, 255, 0.16);
   border-radius: 16px;
   padding: 15px 16px;
-  margin-bottom: 14px;
+  margin-bottom: 13px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 12px 28px rgba(0, 0, 0, 0.48);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.axide-ctrl-section:hover {
+  border-color: rgba(56, 189, 248, 0.24);
+}
+.axide-ctrl-section--featured {
+  background:
+    radial-gradient(110% 90% at 100% 0%, rgba(226, 184, 87, 0.09) 0%, transparent 60%),
+    linear-gradient(165deg, rgba(18, 29, 52, 0.92) 0%, rgba(7, 12, 24, 0.96) 100%);
+  border-color: rgba(226, 184, 87, 0.26);
 }
 .axide-ctrl-sec-head {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 10px;
+  gap: 8px;
+  margin-bottom: 12px;
 }
 .axide-ctrl-sec-title {
   font-size: 13px;
   font-weight: 800;
-  color: #f1f5f9;
+  color: #f8fafc;
   display: inline-flex;
   align-items: center;
-  gap: 7px;
+  gap: 9px;
   margin: 0;
+  letter-spacing: -0.01em;
+}
+.axide-ctrl-sec-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  background: linear-gradient(145deg, rgba(30, 41, 59, 0.95), rgba(9, 14, 26, 0.95));
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  color: #38bdf8;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.axide-ctrl-section--featured .axide-ctrl-sec-icon {
+  color: #f3d27a;
+  border-color: rgba(226, 184, 87, 0.38);
 }
 .axide-ctrl-sec-tag {
-  font-size: 10.5px;
-  font-weight: 700;
-  color: #38bdf8;
-  background: rgba(56, 189, 248, 0.12);
-  padding: 2px 8px;
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #93c5fd;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(56, 189, 248, 0.28);
+  padding: 3px 8px;
   border-radius: 6px;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+.axide-ctrl-sec-tag--gold {
+  color: #f3d27a;
+  background: rgba(226, 184, 87, 0.12);
+  border-color: rgba(226, 184, 87, 0.42);
+}
+.axide-ctrl-sec-tag--emerald {
+  color: #34d399;
+  background: rgba(16, 185, 129, 0.12);
+  border-color: rgba(52, 211, 153, 0.38);
+}
+
+/* Sub-header & Recessed Rocker Switch Group */
+.axide-ctrl-group-wrap {
+  margin-bottom: 10px;
+}
+.axide-ctrl-sub-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+.axide-ctrl-micro-spec {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #64748b;
+  font-family: "JetBrains Mono", Consolas, monospace;
 }
 .axide-ctrl-btn-group {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
+  gap: 5px;
+  padding: 4px;
+  border-radius: 12px;
+  background: #03060c;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.85);
 }
 .axide-ctrl-seg-btn {
-  background: #060b14;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 10px;
-  padding: 8px 6px;
-  color: #cbd5e1;
-  font-size: 12px;
+  position: relative;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  padding: 8px 6px 7px;
+  color: #94a3b8;
+  font-size: 11.5px;
   font-weight: 700;
   text-align: center;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .axide-ctrl-seg-btn:hover {
-  border-color: rgba(56, 189, 248, 0.5);
-  color: #ffffff;
+  color: #e2e8f0;
+  background: rgba(255, 255, 255, 0.03);
 }
 .axide-ctrl-seg-btn.active {
-  background: rgba(56, 189, 248, 0.18);
-  border-color: #38bdf8;
-  color: #38bdf8;
-  box-shadow: 0 0 14px rgba(56, 189, 248, 0.22);
+  background: linear-gradient(180deg, #17253e 0%, #0d1729 100%);
+  border-color: rgba(56, 189, 248, 0.48);
+  color: #ffffff;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    0 4px 12px rgba(0, 0, 0, 0.65),
+    0 0 12px rgba(56, 189, 248, 0.18);
 }
+.axide-ctrl-seg-btn.active::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 18px;
+  height: 2px;
+  border-radius: 999px;
+  background: #38bdf8;
+  box-shadow: 0 0 6px #38bdf8;
+}
+
+/* Row + Bespoke Billet Automotive Toggle Switch (overrides giant 80x40 default) */
 .axide-ctrl-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 8px 0 2px;
+  padding: 9px 2px 2px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  margin-top: 4px;
 }
 .axide-ctrl-row-label {
-  font-size: 12.5px;
-  font-weight: 600;
-  color: #cbd5e1;
+  font-size: 12px;
+  font-weight: 700;
+  color: #e2e8f0;
+  display: block;
 }
 .axide-ctrl-row-sub {
   font-size: 11px;
   color: #64748b;
   display: block;
 }
+.offcanvas-color .tf-switch-check,
+.offcanvas-color .tf-switch-check.style-small {
+  appearance: none;
+  -webkit-appearance: none;
+  position: relative;
+  width: 48px !important;
+  height: 26px !important;
+  border-radius: 999px !important;
+  background: #04070f !important;
+  border: 1px solid rgba(148, 163, 184, 0.28) !important;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.9) !important;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin: 0 !important;
+  transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+.offcanvas-color .tf-switch-check::before,
+.offcanvas-color .tf-switch-check.style-small::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 2px !important;
+  left: 2px !important;
+  width: 20px !important;
+  height: 20px !important;
+  border-radius: 50% !important;
+  background: linear-gradient(145deg, #cbd5e1 0%, #64748b 100%) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    0 2px 6px rgba(0, 0, 0, 0.75) !important;
+  transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+.offcanvas-color .tf-switch-check:checked,
+.offcanvas-color .tf-switch-check.style-small:checked {
+  background: linear-gradient(90deg, rgba(2, 132, 199, 0.38), rgba(16, 185, 129, 0.38)) !important;
+  border-color: #38bdf8 !important;
+  box-shadow:
+    inset 0 2px 5px rgba(0, 0, 0, 0.6),
+    0 0 14px rgba(56, 189, 248, 0.32) !important;
+}
+.offcanvas-color .tf-switch-check:checked::before,
+.offcanvas-color .tf-switch-check.style-small:checked::before {
+  left: 24px !important;
+  background: linear-gradient(145deg, #ffffff 0%, #bae6fd 100%) !important;
+  box-shadow:
+    0 0 10px rgba(56, 189, 248, 0.9),
+    0 2px 6px rgba(0, 0, 0, 0.65) !important;
+}
+
+/* Bespoke Cockpit Crystal Ignition / Briefing Button */
 .axide-aria-launch-btn {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 10px 14px;
-  border-radius: 11px;
-  background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
-  border: 1px solid rgba(125, 211, 252, 0.45);
+  justify-content: space-between;
+  gap: 11px;
+  padding: 11px 14px;
+  border-radius: 13px;
+  background:
+    radial-gradient(90% 120% at 15% 0%, rgba(56, 189, 248, 0.32) 0%, transparent 60%),
+    linear-gradient(135deg, #0b1c36 0%, #0f294d 52%, #09152b 100%);
+  border: 1px solid rgba(226, 184, 87, 0.48);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    0 8px 22px rgba(0, 0, 0, 0.55),
+    0 0 18px rgba(56, 189, 248, 0.16);
   color: #ffffff;
-  font-size: 13px;
-  font-weight: 800;
   cursor: pointer;
-  margin-bottom: 10px;
-  transition: all 0.22s ease;
+  margin-bottom: 12px;
+  text-align: left;
+  transition: all 0.24s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .axide-aria-launch-btn:hover {
   transform: translateY(-1px);
-  box-shadow: 0 8px 20px rgba(2, 132, 199, 0.4);
+  border-color: #f3d27a;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 12px 26px rgba(2, 132, 199, 0.32),
+    0 0 22px rgba(226, 184, 87, 0.26);
 }
+.axide-aria-play-ring {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #f3d27a 0%, #c89b3c 100%);
+  color: #050811;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.65),
+    0 0 14px rgba(226, 184, 87, 0.55);
+}
+.axide-aria-play-ring svg {
+  margin-left: 2px;
+}
+.axide-aria-launch-copy {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.axide-aria-launch-copy strong {
+  font-size: 12.5px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  display: block;
+}
+.axide-aria-launch-copy small {
+  font-size: 10px;
+  font-weight: 600;
+  color: #93c5fd;
+  letter-spacing: 0.03em;
+  display: block;
+}
+.axide-aria-eq {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 2.5px;
+  height: 16px;
+  padding-left: 4px;
+}
+.axide-aria-eq i {
+  width: 2.5px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, #f3d27a, #38bdf8);
+  animation: axideCockpitEq 1.2s ease-in-out infinite;
+}
+.axide-aria-eq i:nth-child(1) { height: 7px; animation-delay: 0s; }
+.axide-aria-eq i:nth-child(2) { height: 14px; animation-delay: 0.2s; }
+.axide-aria-eq i:nth-child(3) { height: 10px; animation-delay: 0.4s; }
+.axide-aria-eq i:nth-child(4) { height: 15px; animation-delay: 0.1s; }
+@keyframes axideCockpitEq {
+  0%, 100% { transform: scaleY(0.55); opacity: 0.7; }
+  50% { transform: scaleY(1); opacity: 1; }
+}
+
+/* Domain Ambient Signature Selector */
 .axide-accent-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -4029,11 +4320,12 @@ header.header-sticky {
 .axide-accent-chip {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 10px;
-  border-radius: 10px;
-  background: #060b14;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  gap: 9px;
+  padding: 9px 11px;
+  border-radius: 11px;
+  background: #040812;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.75);
   color: #cbd5e1;
   font-size: 11.5px;
   font-weight: 700;
@@ -4042,38 +4334,102 @@ header.header-sticky {
   transition: all 0.2s ease;
 }
 .axide-accent-chip i {
-  width: 12px;
-  height: 12px;
+  width: 11px;
+  height: 11px;
   border-radius: 50%;
   flex-shrink: 0;
 }
+.axide-accent-chip span {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+.axide-accent-chip small {
+  font-size: 9.5px;
+  font-weight: 600;
+  color: #64748b;
+  margin-top: 2px;
+}
 .axide-accent-chip.active,
 .axide-accent-chip:hover {
-  border-color: #38bdf8;
-  background: rgba(15, 23, 42, 0.95);
+  border-color: rgba(56, 189, 248, 0.55);
+  background: linear-gradient(145deg, #111c33 0%, #080f1e 100%);
   color: #ffffff;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    0 4px 12px rgba(0, 0, 0, 0.5);
 }
+.axide-accent-chip.active small {
+  color: #93c5fd;
+}
+
+/* Digital Instrument Cluster Telemetry Gauges */
 .axide-telemetry-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 8px;
 }
 .axide-telemetry-box {
-  background: #060b14;
+  background: linear-gradient(160deg, #050914 0%, #091122 100%);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 10px;
-  padding: 8px 10px;
+  border-radius: 11px;
+  padding: 9px 11px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+.axide-telemetry-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  margin-bottom: 3px;
 }
 .axide-telemetry-k {
-  font-size: 10.5px;
+  font-size: 10px;
+  font-weight: 600;
   color: #94a3b8;
   display: block;
 }
+.axide-telemetry-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #34d399;
+  box-shadow: 0 0 6px #34d399;
+  flex-shrink: 0;
+}
+.axide-telemetry-dot--amber {
+  background: #fbbf24;
+  box-shadow: 0 0 6px #fbbf24;
+}
 .axide-telemetry-v {
-  font-size: 12.5px;
+  font-size: 12px;
   font-weight: 800;
   color: #34d399;
+  font-family: "JetBrains Mono", Consolas, monospace;
+  letter-spacing: -0.02em;
+  display: block;
+  margin-bottom: 6px;
 }
+.axide-telemetry-bar {
+  width: 100%;
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07);
+  overflow: hidden;
+}
+.axide-telemetry-bar span {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #10b981, #38bdf8);
+  box-shadow: 0 0 8px rgba(52, 211, 153, 0.6);
+}
+.axide-telemetry-bar--amber span {
+  background: linear-gradient(90deg, #f59e0b, #fde047);
+  box-shadow: 0 0 8px rgba(251, 191, 36, 0.6);
+}
+
+/* Tactile Quick-Access Keys */
 .axide-quick-links {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -4082,22 +4438,51 @@ header.header-sticky {
 .axide-quick-link {
   display: flex;
   align-items: center;
-  gap: 7px;
-  padding: 9px 11px;
-  border-radius: 10px;
-  background: #060b14;
-  border: 1px solid rgba(56, 189, 248, 0.22);
+  gap: 8px;
+  padding: 9px 10px;
+  border-radius: 11px;
+  background: linear-gradient(160deg, #070d1b 0%, #040811 100%);
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
   color: #e2e8f0 !important;
-  font-size: 12px;
+  font-size: 11.5px;
   font-weight: 700;
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
   cursor: pointer;
+  text-align: left;
+}
+.axide-ql-ico {
+  width: 24px;
+  height: 24px;
+  border-radius: 7px;
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.24);
+  color: #38bdf8;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+.axide-ql-txt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .axide-quick-link:hover {
-  background: rgba(56, 189, 248, 0.14);
-  border-color: #38bdf8;
+  background: linear-gradient(160deg, #111e36 0%, #091224 100%);
+  border-color: rgba(226, 184, 87, 0.5);
   color: #ffffff !important;
+  transform: translateY(-1px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    0 6px 14px rgba(0, 0, 0, 0.45);
+}
+.axide-quick-link:hover .axide-ql-ico {
+  background: rgba(226, 184, 87, 0.16);
+  border-color: rgba(226, 184, 87, 0.5);
+  color: #f3d27a;
 }
 
 /* Display Modes & Accessibility States (applied to #wrapper so position:fixed widgets never break) */

@@ -1683,26 +1683,51 @@
 
     menu.innerHTML = `
       <div class="offcanvas-content">
-        <span class="icon-close-popup" data-bs-dismiss="offcanvas" title="닫기">
-          <i class="icon-close">✕</i>
+        <div class="axide-cockpit-ambient-bar"></div>
+        <span class="icon-close-popup" data-bs-dismiss="offcanvas" title="콘솔 닫기">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         </span>
         <div class="axide-ctrl-header">
-          <div class="axide-ctrl-badge"><span></span> SOVEREIGN WORKSPACE CONTROL v2.0</div>
-          <h3 class="axide-ctrl-title">AXIDE 브리핑 &amp; 워크스페이스 환경 설정</h3>
-          <p class="axide-ctrl-sub">임원 브리핑 음성 제어, 백서·도면 가독성 배율, 디스플레이 모드 및 핵심 기술 문서를 한곳에서 제어합니다.</p>
+          <div class="axide-ctrl-brand-row">
+            <div class="axide-ctrl-emblem-box">
+              <img src="assets/images/logo/axide-emblem.png" alt="AXIDE" class="axide-ctrl-emblem-img">
+            </div>
+            <div class="axide-ctrl-brand-meta">
+              <div class="axide-ctrl-badge"><span class="axide-led-dot"></span> SOVEREIGN COCKPIT CONSOLE · v2.0</div>
+              <h3 class="axide-ctrl-title">AXIDE 브리핑 &amp; 워크스페이스 제어</h3>
+            </div>
+          </div>
+          <p class="axide-ctrl-sub">임원 브리핑 오디오 마스터링, 백서·도면 가독성 배율, 디스플레이 시그니처 및 핵심 기술 문서를 정밀 제어합니다.</p>
         </div>
         <div class="canvas-body">
           <!-- 1. AI Announcer Voice & Briefing Control -->
-          <div class="axide-ctrl-section">
+          <div class="axide-ctrl-section axide-ctrl-section--featured">
             <div class="axide-ctrl-sec-head">
-              <h6 class="axide-ctrl-sec-title">🎙️ AI 수석 아나운서 (Aria HD) 브리핑 제어</h6>
-              <span class="axide-ctrl-sec-tag">24kHz Broadcast</span>
+              <h6 class="axide-ctrl-sec-title">
+                <span class="axide-ctrl-sec-icon">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="22"></line></svg>
+                </span>
+                AI 수석 아나운서 (Aria HD) 브리핑 제어
+              </h6>
+              <span class="axide-ctrl-sec-tag axide-ctrl-sec-tag--gold">24kHz STUDIO</span>
             </div>
             <button type="button" class="axide-aria-launch-btn" id="axideCtrlLaunchBriefing">
-              <span>▶</span> AXIDE 핵심 비전 · 기술 요약 브리핑 즉시 듣기
+              <span class="axide-aria-play-ring">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
+              </span>
+              <span class="axide-aria-launch-copy">
+                <strong>AXIDE 핵심 비전 · 기술 요약 브리핑 즉시 듣기</strong>
+                <small>Aria HD · 24kHz Neural Acoustic Mastering</small>
+              </span>
+              <span class="axide-aria-eq" aria-hidden="true">
+                <i></i><i></i><i></i><i></i>
+              </span>
             </button>
-            <div class="mb-2">
-              <span class="axide-ctrl-row-sub mb-1">아나운서 브리핑 낭독 속도</span>
+            <div class="axide-ctrl-group-wrap">
+              <div class="axide-ctrl-sub-header">
+                <span class="axide-ctrl-row-sub">아나운서 브리핑 낭독 템포</span>
+                <span class="axide-ctrl-micro-spec">PITCH-LOCKED DSP</span>
+              </div>
               <div class="axide-ctrl-btn-group" id="axideCtrlVoiceRateGroup">
                 <button type="button" class="axide-ctrl-seg-btn ${savedRate === "0.94" ? "active" : ""}" data-rate="0.94">0.94x 차분하게</button>
                 <button type="button" class="axide-ctrl-seg-btn ${savedRate === "1.0" ? "active" : ""}" data-rate="1.0">1.0x 정석(기본)</button>
@@ -1711,7 +1736,7 @@
             </div>
             <div class="axide-ctrl-row">
               <div>
-                <span class="axide-ctrl-row-label">음성 브리핑 음소거 (텍스트 전용 모드)</span>
+                <span class="axide-ctrl-row-label">음성 브리핑 음소거 (텍스트 자막 전용)</span>
                 <span class="axide-ctrl-row-sub">회의 중 소리 없이 자막으로만 브리핑을 확인할 때 켭니다</span>
               </div>
               <input type="checkbox" id="axideCtrlVoiceMute" class="tf-switch-check style-small" ${savedMuted ? "checked" : ""}>
@@ -1721,19 +1746,30 @@
           <!-- 2. Display & Whitepaper Readability Control -->
           <div class="axide-ctrl-section">
             <div class="axide-ctrl-sec-head">
-              <h6 class="axide-ctrl-sec-title">🖥️ 열람 디스플레이 &amp; 백서 가독성 설정</h6>
-              <span class="axide-ctrl-sec-tag">Readability</span>
+              <h6 class="axide-ctrl-sec-title">
+                <span class="axide-ctrl-sec-icon">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                </span>
+                열람 디스플레이 &amp; 백서 가독성 설정
+              </h6>
+              <span class="axide-ctrl-sec-tag">OPTICS</span>
             </div>
-            <div class="mb-2">
-              <span class="axide-ctrl-row-sub mb-1">화면 색온도 · 명암비 프리셋</span>
+            <div class="axide-ctrl-group-wrap">
+              <div class="axide-ctrl-sub-header">
+                <span class="axide-ctrl-row-sub">화면 색온도 · 명암비 프리셋</span>
+                <span class="axide-ctrl-micro-spec">AMBIENT LUT</span>
+              </div>
               <div class="axide-ctrl-btn-group" id="axideCtrlDisplayModeGroup">
                 <button type="button" class="axide-ctrl-seg-btn ${savedMode === "standard" ? "active" : ""}" data-mode="standard">다크 옵시디언</button>
                 <button type="button" class="axide-ctrl-seg-btn ${savedMode === "eyecare" ? "active" : ""}" data-mode="eyecare">아이케어(백서용)</button>
                 <button type="button" class="axide-ctrl-seg-btn ${savedMode === "contrast" ? "active" : ""}" data-mode="contrast">고대비(발표용)</button>
               </div>
             </div>
-            <div class="mb-2">
-              <span class="axide-ctrl-row-sub mb-1">백서 · 수식 · 아키텍처 본문 글자 크기</span>
+            <div class="axide-ctrl-group-wrap">
+              <div class="axide-ctrl-sub-header">
+                <span class="axide-ctrl-row-sub">백서 · 수식 · 아키텍처 본문 글자 배율</span>
+                <span class="axide-ctrl-micro-spec">TYPOGRAPHY SCALE</span>
+              </div>
               <div class="axide-ctrl-btn-group" id="axideCtrlFontScaleGroup">
                 <button type="button" class="axide-ctrl-seg-btn ${savedScale === "100" ? "active" : ""}" data-scale="100">100% 표준</button>
                 <button type="button" class="axide-ctrl-seg-btn ${savedScale === "105" ? "active" : ""}" data-scale="105">105% 확대</button>
@@ -1752,21 +1788,30 @@
           <!-- 3. Enterprise Domain Accent Signature -->
           <div class="axide-ctrl-section">
             <div class="axide-ctrl-sec-head">
-              <h6 class="axide-ctrl-sec-title">🎨 산업 도메인 액센트 시그니처</h6>
-              <span class="axide-ctrl-sec-tag">Domain Theme</span>
+              <h6 class="axide-ctrl-sec-title">
+                <span class="axide-ctrl-sec-icon">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4"></circle><line x1="21.17" y1="8" x2="12" y2="8"></line><line x1="3.95" y1="6.06" x2="8.54" y2="14"></line><line x1="10.88" y1="21.94" x2="15.46" y2="14"></line></svg>
+                </span>
+                산업 도메인 액센트 시그니처
+              </h6>
+              <span class="axide-ctrl-sec-tag">AMBIENT MOOD</span>
             </div>
             <div class="axide-accent-grid" id="axideCtrlAccentGroup">
               <button type="button" class="axide-accent-chip ${savedAccent === "cyan" ? "active" : ""}" data-accent="cyan">
-                <i style="background:#38bdf8;box-shadow:0 0 8px #38bdf8;"></i> Cogni-OS 시안 (방산 기본)
+                <i style="background:#38bdf8;box-shadow:0 0 10px #38bdf8;"></i>
+                <span>Cogni-OS 시안 <small>방산 기본</small></span>
               </button>
               <button type="button" class="axide-accent-chip ${savedAccent === "emerald" ? "active" : ""}" data-accent="emerald">
-                <i style="background:#10b981;box-shadow:0 0 8px #10b981;"></i> Passport 에메랄드 (바이오)
+                <i style="background:#10b981;box-shadow:0 0 10px #10b981;"></i>
+                <span>Passport 에메랄드 <small>바이오</small></span>
               </button>
               <button type="button" class="axide-accent-chip ${savedAccent === "amber" ? "active" : ""}" data-accent="amber">
-                <i style="background:#f59e0b;box-shadow:0 0 8px #f59e0b;"></i> Field Vault 앰버 (제조·ATP)
+                <i style="background:#f59e0b;box-shadow:0 0 10px #f59e0b;"></i>
+                <span>Field Vault 앰버 <small>제조·ATP</small></span>
               </button>
               <button type="button" class="axide-accent-chip ${savedAccent === "crimson" ? "active" : ""}" data-accent="crimson">
-                <i style="background:#FD3A25;box-shadow:0 0 8px #FD3A25;"></i> Defense 크림슨 (보안 감사)
+                <i style="background:#FD3A25;box-shadow:0 0 10px #FD3A25;"></i>
+                <span>Defense 크림슨 <small>보안 감사</small></span>
               </button>
             </div>
           </div>
@@ -1774,25 +1819,46 @@
           <!-- 4. Cogni-OS Live Verified Telemetry -->
           <div class="axide-ctrl-section">
             <div class="axide-ctrl-sec-head">
-              <h6 class="axide-ctrl-sec-title">🛡️ Cogni-OS v1.0 공인 실측 텔레메트리</h6>
-              <span class="axide-ctrl-sec-tag" style="color:#34d399;background:rgba(16,185,129,0.14);">VERIFIED</span>
+              <h6 class="axide-ctrl-sec-title">
+                <span class="axide-ctrl-sec-icon">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+                </span>
+                Cogni-OS v1.0 공인 실측 텔레메트리
+              </h6>
+              <span class="axide-ctrl-sec-tag axide-ctrl-sec-tag--emerald">VERIFIED</span>
             </div>
             <div class="axide-telemetry-grid">
               <div class="axide-telemetry-box">
-                <span class="axide-telemetry-k">망분리 · 외부 통신 포트</span>
+                <div class="axide-telemetry-top">
+                  <span class="axide-telemetry-k">망분리 · 외부 통신 포트</span>
+                  <span class="axide-telemetry-dot"></span>
+                </div>
                 <span class="axide-telemetry-v">0 Byte (완전 폐쇄망)</span>
+                <div class="axide-telemetry-bar"><span style="width:100%;"></span></div>
               </div>
               <div class="axide-telemetry-box">
-                <span class="axide-telemetry-k">DEQ 상수 메모리 · 지연</span>
+                <div class="axide-telemetry-top">
+                  <span class="axide-telemetry-k">DEQ 상수 메모리 · 지연</span>
+                  <span class="axide-telemetry-dot"></span>
+                </div>
                 <span class="axide-telemetry-v">14.8GB · TTFT 0.161s</span>
+                <div class="axide-telemetry-bar"><span style="width:92%;"></span></div>
               </div>
               <div class="axide-telemetry-box">
-                <span class="axide-telemetry-k">부품 여권 암호화 봉인</span>
+                <div class="axide-telemetry-top">
+                  <span class="axide-telemetry-k">부품 여권 암호화 봉인</span>
+                  <span class="axide-telemetry-dot"></span>
+                </div>
                 <span class="axide-telemetry-v">Ed25519 · SHA-256</span>
+                <div class="axide-telemetry-bar"><span style="width:100%;"></span></div>
               </div>
               <div class="axide-telemetry-box">
-                <span class="axide-telemetry-k">방위산업기술 보호법 개정</span>
+                <div class="axide-telemetry-top">
+                  <span class="axide-telemetry-k">방위산업기술 보호법 개정</span>
+                  <span class="axide-telemetry-dot axide-telemetry-dot--amber"></span>
+                </div>
                 <span class="axide-telemetry-v" style="color:#fbbf24;">2026.12.10 시행 대응</span>
+                <div class="axide-telemetry-bar axide-telemetry-bar--amber"><span style="width:100%;"></span></div>
               </div>
             </div>
           </div>
@@ -1800,16 +1866,39 @@
           <!-- 5. Executive Quick Navigation & PDF Print -->
           <div class="axide-ctrl-section mb-0">
             <div class="axide-ctrl-sec-head">
-              <h6 class="axide-ctrl-sec-title">⚡ 이그제큐티브 핵심 문서 바로가기</h6>
-              <span class="axide-ctrl-sec-tag">Quick Access</span>
+              <h6 class="axide-ctrl-sec-title">
+                <span class="axide-ctrl-sec-icon">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                </span>
+                이그제큐티브 핵심 문서 바로가기
+              </h6>
+              <span class="axide-ctrl-sec-tag">DIRECT ACCESS</span>
             </div>
             <div class="axide-quick-links">
-              <a href="index.html#cogni-os-architecture" class="axide-quick-link">📐 L0~L5 아키텍처 도면</a>
-              <a href="bio-research.html" class="axide-quick-link">🧬 Nature Biotech 공동연구</a>
-              <a href="story.html" class="axide-quick-link">📖 15년 창업 스토리</a>
-              <a href="blog-single.html" class="axide-quick-link">📄 기술·규제 마스터 백서</a>
-              <button type="button" class="axide-quick-link" id="axideCtrlPrintBtn">🖨️ 현재 페이지 인쇄/PDF</button>
-              <button type="button" class="axide-quick-link" id="axideCtrlResetBtn">🔄 환경 설정 초기화</button>
+              <a href="index.html#cogni-os-architecture" class="axide-quick-link">
+                <span class="axide-ql-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg></span>
+                <span class="axide-ql-txt">L0~L5 아키텍처 도면</span>
+              </a>
+              <a href="bio-research.html" class="axide-quick-link">
+                <span class="axide-ql-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 2v7.31"></path><path d="M14 9.3V1.99"></path><path d="M8.5 2h7"></path><path d="M14 9.3a6.5 6.5 0 1 1-4 0"></path></svg></span>
+                <span class="axide-ql-txt">Nature Biotech 연구</span>
+              </a>
+              <a href="story.html" class="axide-quick-link">
+                <span class="axide-ql-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg></span>
+                <span class="axide-ql-txt">15년 창업 스토리</span>
+              </a>
+              <a href="blog-single.html" class="axide-quick-link">
+                <span class="axide-ql-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></span>
+                <span class="axide-ql-txt">기술·규제 마스터 백서</span>
+              </a>
+              <button type="button" class="axide-quick-link" id="axideCtrlPrintBtn">
+                <span class="axide-ql-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg></span>
+                <span class="axide-ql-txt">현재 페이지 인쇄/PDF</span>
+              </button>
+              <button type="button" class="axide-quick-link" id="axideCtrlResetBtn">
+                <span class="axide-ql-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg></span>
+                <span class="axide-ql-txt">환경 설정 초기화</span>
+              </button>
             </div>
           </div>
         </div>
