@@ -1759,6 +1759,23 @@ header.header-sticky {
   margin-bottom: 0;
   z-index: 1050;
   pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+}
+body:has(.story-chapter-bar) .tf-header,
+body.has-chapter-bar .tf-header {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+}
+body.chapter-bar-active .tf-header {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transform: translateY(-110%) !important;
+}
+body.chapter-bar-active .tf-header .header-inner {
+  pointer-events: none !important;
 }
 .tf-header .header-inner {
   pointer-events: auto;

@@ -1047,6 +1047,23 @@
         margin-bottom: 0 !important;
         z-index: 1050 !important;
         pointer-events: none !important;
+        transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease !important;
+      }
+      body:has(.story-chapter-bar) header.tf-header,
+      body.has-chapter-bar header.tf-header {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+      }
+      body.chapter-bar-active header.tf-header {
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+        transform: translateY(-110%) !important;
+      }
+      body.chapter-bar-active header.tf-header .header-inner {
+        pointer-events: none !important;
       }
       header.tf-header .header-inner {
         pointer-events: auto !important;
@@ -1660,6 +1677,18 @@
     }
 
     initSovereignCommandCenter();
+
+    const chapterBar = document.querySelector(".story-chapter-bar");
+    if (chapterBar) {
+      document.body.classList.add("has-chapter-bar");
+      const syncChapterHeaderVisibility = () => {
+        const rect = chapterBar.getBoundingClientRect();
+        document.body.classList.toggle("chapter-bar-active", rect.top <= 110);
+      };
+      syncChapterHeaderVisibility();
+      window.addEventListener("scroll", syncChapterHeaderVisibility, { passive: true });
+      window.addEventListener("resize", syncChapterHeaderVisibility, { passive: true });
+    }
   }
 
   function initSovereignCommandCenter() {
