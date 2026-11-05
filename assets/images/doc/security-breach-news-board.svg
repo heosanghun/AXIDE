@@ -203,7 +203,7 @@
     <rect x="18" y="232" width="456" height="86" rx="10" fill="rgba(6,78,59,0.35)" stroke="rgba(52,211,153,0.5)" stroke-width="1.2"/>
     <text x="30" y="254" fill="#34d399" font-size="12" font-weight="800">🛡️ AXIDE 폐쇄망 Cogni-OS 방어 명분</text>
     <text x="30" y="276" fill="#f8fafc" font-size="13" font-weight="700">“AI를 밖에서 빌려 쓰지 말고, 조각내고 증류해서 공장 안으로 들여보내자.”</text>
-    <text x="30" y="298" fill="#a7f3d0" font-size="12.5" font-weight="700">→ O(1) 평형 엔진(DEQ) + NVMe 스트리밍으로 48GB 단일 GPU에서 폐쇄망 AI 완결</text>
+    <text x="30" y="298" fill="#a7f3d0" font-size="12.5" font-weight="700">→ O(1) 평형 엔진(DEQ) + NVMe 스트리밍으로 단일 32GB GPU에서 폐쇄망 AI 완결</text>
   </g>
 
   <!-- CARD 6: 스노우플레이크 165개 대기업 클라우드 참사 & SKT 유심·예스24 -->
