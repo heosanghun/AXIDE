@@ -155,6 +155,44 @@
     -------------------------------------------------------------------------*/
     var services_btn = () => {
         $('.services-image-btn').on('click', function(){
+            const targetId = $(this).attr('data-bs-target') || '';
+            const isBottomSlot = (targetId === '#faq-3' || targetId === '#faq-4');
+            const $leftCol = $(this).closest('.row').find('.services-image').parent();
+            const $servicesImg = $leftCol.find('.services-image');
+            const $masterCard = $leftCol.children().not('.services-image').first();
+
+            const wasBottomSlot = $leftCol.hasClass('services-stack-swapped');
+            if (isBottomSlot !== wasBottomSlot && $servicesImg.length && $masterCard.length) {
+                const firstImgTop = $servicesImg[0].getBoundingClientRect().top;
+                const firstMasterTop = $masterCard[0].getBoundingClientRect().top;
+
+                $leftCol.toggleClass('services-stack-swapped', isBottomSlot);
+                if (isBottomSlot) {
+                    $servicesImg.css('order', 2);
+                    $masterCard.css('order', 1);
+                } else {
+                    $servicesImg.css('order', 1);
+                    $masterCard.css('order', 2);
+                }
+
+                const lastImgTop = $servicesImg[0].getBoundingClientRect().top;
+                const lastMasterTop = $masterCard[0].getBoundingClientRect().top;
+                const deltaImg = firstImgTop - lastImgTop;
+                const deltaMaster = firstMasterTop - lastMasterTop;
+
+                if (Math.abs(deltaImg) > 4) {
+                    $servicesImg[0].style.transition = 'none';
+                    $masterCard[0].style.transition = 'none';
+                    $servicesImg[0].style.transform = `translateY(${deltaImg}px)`;
+                    $masterCard[0].style.transform = `translateY(${deltaMaster}px)`;
+                    void $servicesImg[0].offsetHeight;
+                    $servicesImg[0].style.transition = 'transform 0.44s cubic-bezier(0.22, 1, 0.36, 1)';
+                    $masterCard[0].style.transition = 'transform 0.44s cubic-bezier(0.22, 1, 0.36, 1)';
+                    $servicesImg[0].style.transform = 'translateY(0)';
+                    $masterCard[0].style.transform = 'translateY(0)';
+                }
+            }
+
             if(!$(this).hasClass('active-img')) {
                 $('.services-image-btn').removeClass('active-img');
                 $(this).addClass('active-img');
