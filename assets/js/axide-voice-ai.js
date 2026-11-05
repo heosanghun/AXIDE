@@ -1023,7 +1023,7 @@
       }
       #axideVoicePanel.open[data-anchor="top"] {
         position: fixed !important;
-        top: 96px !important;
+        top: 74px !important;
         right: 26px !important;
         bottom: auto !important;
         z-index: 2147483002 !important;
@@ -1039,24 +1039,30 @@
       }
       header.tf-header {
         position: fixed !important;
-        top: 18px !important;
+        top: 0 !important;
         left: 0 !important;
         right: 0 !important;
         padding-top: 0 !important;
+        margin-top: 0 !important;
         margin-bottom: 0 !important;
         z-index: 1050 !important;
         pointer-events: none !important;
       }
       header.tf-header .header-inner {
         pointer-events: auto !important;
-        background: rgba(255, 255, 255, 0.76) !important;
+        margin-top: 0 !important;
+        border-radius: 0 0 28px 28px !important;
+        border-top: none !important;
+        background: rgba(255, 255, 255, 0.78) !important;
         backdrop-filter: blur(28px) saturate(180%) !important;
         -webkit-backdrop-filter: blur(28px) saturate(180%) !important;
-        border: 1px solid rgba(255, 255, 255, 0.8) !important;
+        border-left: 1px solid rgba(255, 255, 255, 0.82) !important;
+        border-right: 1px solid rgba(255, 255, 255, 0.82) !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.82) !important;
         box-shadow: 0 12px 36px rgba(15, 23, 42, 0.12), 0 2px 8px rgba(15, 23, 42, 0.06) !important;
       }
       body.axide-display-contrast header.tf-header .header-inner {
-        background: rgba(9, 13, 22, 0.82) !important;
+        background: rgba(9, 13, 22, 0.84) !important;
         border-color: rgba(56, 189, 248, 0.35) !important;
       }
       .axide-voice-orb,
@@ -1088,7 +1094,7 @@
       }
       @media (max-width: 991px) {
         header.tf-header {
-          top: 12px !important;
+          top: 0 !important;
         }
       }
       @media (max-width: 767px) {
@@ -1101,7 +1107,7 @@
           bottom: 20px !important;
         }
         #axideVoicePanel.open[data-anchor="top"] {
-          top: 82px !important;
+          top: 66px !important;
           right: 16px !important;
         }
       }
