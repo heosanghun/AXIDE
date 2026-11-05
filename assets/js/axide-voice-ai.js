@@ -1,4 +1,4 @@
-/**
+﻿/**
  * AXIDE Cogni-Voice AI (아리아 · Aria)
  * Real Studio-Grade Neural Korean Female Voice (Seraphina HD + AXIDE Live Aria HD) + Full Website Controller
  * Domain: https://axide.ai | https://heosanghun.github.io/AXIDE/
@@ -1284,7 +1284,7 @@
         <!-- Top Minimal Header -->
         <div class="sims-top-bar">
           <div class="sims-brand-group">
-            <img src="assets/images/logo/axide-emblem.png?v=20261101v10" alt="AXIDE" class="sims-brand-emblem">
+            <img src="assets/images/logo/axide-emblem.png?v=20261105v99" alt="AXIDE" class="sims-brand-emblem">
             <span class="sims-brand-main">AXIDE</span>
             <span class="sims-brand-sub">SOVEREIGN AI</span>
           </div>
