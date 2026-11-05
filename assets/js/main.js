@@ -34,7 +34,7 @@
             var hasFooter = $footer.length > 0;
             var footerOffset = hasFooter ? $footer.offset().top : Infinity;
 
-            if (scrollTop > 100 && windowBottom < footerOffset) {
+            if (scrollTop > 100) {
                 $goTop.addClass("show");
             } else {
                 $goTop.removeClass("show");

@@ -1037,31 +1037,66 @@
           0 0 48px rgba(56, 189, 248, 0.45),
           0 0 64px rgba(168, 85, 247, 0.35) !important;
       }
+      header.tf-header {
+        position: fixed !important;
+        top: 18px !important;
+        left: 0 !important;
+        right: 0 !important;
+        padding-top: 0 !important;
+        margin-bottom: 0 !important;
+        z-index: 1050 !important;
+        pointer-events: none !important;
+      }
+      header.tf-header .header-inner {
+        pointer-events: auto !important;
+        background: rgba(255, 255, 255, 0.76) !important;
+        backdrop-filter: blur(28px) saturate(180%) !important;
+        -webkit-backdrop-filter: blur(28px) saturate(180%) !important;
+        border: 1px solid rgba(255, 255, 255, 0.8) !important;
+        box-shadow: 0 12px 36px rgba(15, 23, 42, 0.12), 0 2px 8px rgba(15, 23, 42, 0.06) !important;
+      }
+      body.axide-display-contrast header.tf-header .header-inner {
+        background: rgba(9, 13, 22, 0.82) !important;
+        border-color: rgba(56, 189, 248, 0.35) !important;
+      }
+      .axide-voice-orb,
+      #axideFloatingOrb {
+        display: none !important;
+      }
       .ux-voice-bar {
         cursor: pointer;
       }
       #goTop {
         position: fixed !important;
-        left: 50% !important;
-        right: auto !important;
-        bottom: 34px !important;
-        transform: translate(-50%, 14px) !important;
-        width: 44px !important;
-        height: 44px !important;
+        left: auto !important;
+        right: 26px !important;
+        bottom: 28px !important;
+        transform: translate(0, 14px) !important;
+        width: 48px !important;
+        height: 48px !important;
         background: rgba(9, 13, 22, 0.92) !important;
-        border: 1px solid rgba(56, 189, 248, 0.38) !important;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 16px rgba(56, 189, 248, 0.2) !important;
+        border: 1px solid rgba(56, 189, 248, 0.42) !important;
+        box-shadow: 0 10px 28px rgba(0, 0, 0, 0.55), 0 0 18px rgba(56, 189, 248, 0.22) !important;
         z-index: 2147483001 !important;
       }
       #goTop.show {
-        transform: translate(-50%, 0) !important;
+        transform: translate(0, 0) !important;
       }
       #goTop:hover {
-        transform: translate(-50%, -3px) !important;
+        transform: translate(0, -3px) !important;
         border-color: #38bdf8 !important;
+      }
+      @media (max-width: 991px) {
+        header.tf-header {
+          top: 12px !important;
+        }
       }
       @media (max-width: 767px) {
         #axideVoiceWidget {
+          right: 16px !important;
+          bottom: 20px !important;
+        }
+        #goTop {
           right: 16px !important;
           bottom: 20px !important;
         }
@@ -1329,7 +1364,7 @@
     widget.className = "axide-voice-widget";
     widget.setAttribute("data-state", "idle");
     widget.innerHTML = `
-      <div class="axide-voice-panel" id="axideVoicePanel" data-anchor="bottom">
+      <div class="axide-voice-panel" id="axideVoicePanel" data-anchor="top">
         <!-- Top Minimal Header -->
         <div class="sims-top-bar">
           <div class="sims-brand-group">
@@ -1439,33 +1474,19 @@
           <span class="sims-barge-hint">말을 끊어도 돼요</span>
         </div>
       </div>
-
-      <!-- Bottom-Right Minimal Dark Obsidian & Cyan-Violet Rim Glow Mic Orb -->
-      <button type="button" class="axide-voice-orb" id="axideFloatingOrb" aria-label="AXIDE AI 음성 비서 열기">
-        <svg class="orb-mic-svg" width="22" height="22" viewBox="0 0 24 24" fill="none">
-          <path d="M12 2C10.3431 2 9 3.34315 9 5V12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12V5C15 3.34315 13.6569 2 12 2Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M19 10V12C19 15.866 15.866 19 12 19C8.13401 19 5 15.866 5 12V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M12 19V22M8 22H16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
     `;
 
     document.body.appendChild(widget);
 
     // Event bindings
     function handleOrbOrSphereClick(anchorMode) {
-      handleMicTrigger(anchorMode);
+      handleMicTrigger(anchorMode || "top");
     }
 
-    document.getElementById("axideFloatingOrb").addEventListener("click", function (e) {
-      e.preventDefault();
-      e.stopPropagation();
-      handleMicTrigger("bottom");
-    });
     document.getElementById("axideSphereTrigger").addEventListener("click", function (e) {
       e.preventDefault();
       e.stopPropagation();
-      handleMicTrigger();
+      handleMicTrigger("top");
     });
 
     // Global delegated fallback for any cloned header mic button or in-page voice bar
@@ -1478,16 +1499,10 @@
           handleMicTrigger("top");
           return;
         }
-        const floatingOrb = e.target.closest && e.target.closest("#axideFloatingOrb");
-        if (floatingOrb) {
-          e.preventDefault();
-          handleMicTrigger("bottom");
-          return;
-        }
         const uxVoiceBar = e.target.closest && e.target.closest(".ux-voice-bar");
         if (uxVoiceBar) {
           e.preventDefault();
-          handleMicTrigger("bottom");
+          handleMicTrigger("top");
         }
       });
     }
@@ -1627,7 +1642,7 @@
     const pending = sessionStorage.getItem(STORAGE_KEY_PENDING);
     const pendingClip = sessionStorage.getItem(STORAGE_KEY_PENDING_CLIP);
     if (pending) {
-      openVoicePanel("bottom");
+      openVoicePanel("top");
       sessionStorage.removeItem(STORAGE_KEY_PENDING);
       sessionStorage.removeItem(STORAGE_KEY_PENDING_CLIP);
       setTimeout(() => {
