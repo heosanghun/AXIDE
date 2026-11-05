@@ -1,4 +1,4 @@
-﻿/**
+/**
  * AXIDE Cogni-Voice AI (아리아 · Aria)
  * Real Studio-Grade Neural Korean Female Voice (Seraphina HD + AXIDE Live Aria HD) + Full Website Controller
  * Domain: https://axide.ai | https://heosanghun.github.io/AXIDE/
@@ -1039,6 +1039,26 @@
       }
       .ux-voice-bar {
         cursor: pointer;
+      }
+      #goTop {
+        position: fixed !important;
+        left: 50% !important;
+        right: auto !important;
+        bottom: 34px !important;
+        transform: translate(-50%, 14px) !important;
+        width: 44px !important;
+        height: 44px !important;
+        background: rgba(9, 13, 22, 0.92) !important;
+        border: 1px solid rgba(56, 189, 248, 0.38) !important;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 16px rgba(56, 189, 248, 0.2) !important;
+        z-index: 2147483001 !important;
+      }
+      #goTop.show {
+        transform: translate(-50%, 0) !important;
+      }
+      #goTop:hover {
+        transform: translate(-50%, -3px) !important;
+        border-color: #38bdf8 !important;
       }
       @media (max-width: 767px) {
         #axideVoiceWidget {
