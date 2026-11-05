@@ -4130,16 +4130,20 @@ body.axide-low-motion #wrapper *::after {
   animation-play-state: running !important;
 }
 body[data-axide-accent="cyan"] {
-  --primary: #38bdf8;
+  --primary: #09090B;
+  --axide-accent: #0284c7;
 }
 body[data-axide-accent="emerald"] {
-  --primary: #10b981;
+  --primary: #09090B;
+  --axide-accent: #059669;
 }
 body[data-axide-accent="amber"] {
-  --primary: #f59e0b;
+  --primary: #09090B;
+  --axide-accent: #d97706;
 }
 body[data-axide-accent="crimson"] {
-  --primary: #FD3A25;
+  --primary: #09090B;
+  --axide-accent: #FD3A25;
 }
 
 /* ---------------------------------------------------------
@@ -15568,6 +15572,320 @@ footer .footer-content .footer-logo.axide-footer-brand {
   }
   .axide-ci-theme .ci-colors {
     grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   High-Contrast Mission Box, Review Box & Sovereign World Model Identity Card
+   ========================================================================== */
+.section-about-us .mission-box,
+.section-about-us .review-box,
+.section-about-us .box-quotes {
+  background: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #0f172a !important;
+  box-shadow:
+    0 14px 34px rgba(15, 23, 42, 0.08),
+    0 2px 6px rgba(15, 23, 42, 0.05) !important;
+}
+
+.section-about-us .mission-box .title {
+  color: #0f172a !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.02em;
+}
+
+.section-about-us .mission-box .text,
+.section-about-us .review-box .desc,
+.section-about-us .review-box .text {
+  color: #1e293b !important;
+  font-weight: 500 !important;
+  font-size: 15.5px;
+  line-height: 1.72;
+}
+
+.section-about-us .mission-box .text strong,
+.section-about-us .review-box .desc strong {
+  color: #0f172a !important;
+  font-weight: 800 !important;
+}
+
+.section-about-us .review-box .counter {
+  color: #0f172a !important;
+}
+
+.axide-mission-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 11px;
+  border-radius: 999px;
+  background: #0f172a;
+  color: #38bdf8 !important;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  margin-bottom: 10px;
+}
+
+.axide-mission-pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.axide-mission-pillar {
+  padding: 11px 12px;
+  border-radius: 14px;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.axide-mission-pillar .p-tag {
+  font-size: 10.5px;
+  font-weight: 800;
+  color: #0369a1 !important;
+  letter-spacing: 0.03em;
+}
+
+.axide-mission-pillar .p-title {
+  font-size: 13px;
+  font-weight: 800;
+  color: #0f172a !important;
+  line-height: 1.35;
+}
+
+.axide-mission-pillar .p-sub {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #334155 !important;
+  line-height: 1.4;
+}
+
+.section-about-us .box-quotes {
+  align-items: stretch;
+  gap: 22px;
+  padding: 28px !important;
+}
+
+/* Crisp 3D World Model X·Y·T & Sovereign Seal Visual Panel (Replaces grainy portrait) */
+.axide-sovereign-emblem-panel {
+  width: 176px;
+  flex-shrink: 0;
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at 50% 35%, rgba(0, 217, 252, 0.18) 0%, transparent 65%),
+    linear-gradient(160deg, #0b1120 0%, #15133c 54%, #070b14 100%);
+  border: 1px solid rgba(56, 189, 248, 0.42);
+  box-shadow:
+    0 18px 36px rgba(15, 23, 42, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  padding: 16px 13px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.axide-sovereign-emblem-panel .emblem-top-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: rgba(56, 189, 248, 0.14);
+  border: 1px solid rgba(56, 189, 248, 0.38);
+  color: #7dd3fc !important;
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.axide-sovereign-emblem-panel .emblem-top-tag i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #34d399;
+  box-shadow: 0 0 6px #34d399;
+  display: inline-block;
+}
+
+.axide-sovereign-emblem-panel .emblem-3d-wrap {
+  width: 84px;
+  height: 84px;
+  margin: 8px auto 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.axide-sovereign-emblem-panel .emblem-3d-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 22px rgba(0, 217, 252, 0.32));
+}
+
+.axide-sovereign-emblem-panel .emblem-stack-rows {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 6px;
+}
+
+.axide-sovereign-emblem-panel .emblem-stack-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  padding: 4px 8px;
+  border-radius: 7px;
+  background: rgba(15, 23, 42, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #f1f5f9 !important;
+}
+
+.axide-sovereign-emblem-panel .emblem-stack-item .s-axis {
+  font-family: "JetBrains Mono", ui-monospace, Consolas, monospace;
+  font-size: 9.5px;
+  font-weight: 800;
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+
+.axide-sovereign-emblem-panel .emblem-stack-item.axis-t3 .s-axis {
+  background: rgba(168, 85, 247, 0.24);
+  color: #d8b4fe !important;
+}
+
+.axide-sovereign-emblem-panel .emblem-stack-item.axis-t2 .s-axis {
+  background: rgba(56, 189, 248, 0.24);
+  color: #7dd3fc !important;
+}
+
+.axide-sovereign-emblem-panel .emblem-stack-item.axis-t1 .s-axis {
+  background: rgba(16, 185, 129, 0.24);
+  color: #6ee7b7 !important;
+}
+
+.axide-sovereign-emblem-panel .emblem-bot-seal {
+  font-size: 10px;
+  font-weight: 800;
+  color: #cbd5e1 !important;
+  letter-spacing: 0.04em;
+}
+
+.section-about-us .box-quotes .content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.section-about-us .box-quotes .desc {
+  color: #0f172a !important;
+  font-size: 18px !important;
+  font-weight: 800 !important;
+  line-height: 1.48 !important;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px !important;
+}
+
+.section-about-us .box-quotes .cite .name {
+  color: #0f172a !important;
+  font-size: 15px !important;
+  font-weight: 800 !important;
+}
+
+.section-about-us .box-quotes .cite .sub {
+  color: #1e293b !important;
+  font-weight: 600 !important;
+}
+
+.axide-architect-specs {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  margin: 6px 0 8px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+}
+
+.axide-architect-spec-line {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #1e293b !important;
+  font-weight: 600;
+}
+
+.axide-architect-spec-line .k-pill {
+  flex-shrink: 0;
+  padding: 2px 7px;
+  border-radius: 6px;
+  background: #0f172a;
+  color: #ffffff !important;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.axide-cred-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.axide-cred-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 11px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 800;
+  color: #0f172a !important;
+  background: #f1f5f9;
+  border: 1px solid #94a3b8;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.axide-cred-pill.pill-accent {
+  color: #ffffff !important;
+  background: #0284c7;
+  border-color: #0369a1;
+}
+
+.axide-cred-pill.pill-accent:hover {
+  background: #0369a1;
+  color: #ffffff !important;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 767px) {
+  .axide-mission-pillars {
+    grid-template-columns: 1fr;
+  }
+  .axide-sovereign-emblem-panel {
+    width: 100%;
   }
 }
 
