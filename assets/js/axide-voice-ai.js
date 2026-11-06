@@ -47,12 +47,14 @@
   /* --------------------------------------------------------------------------
    * 1-B. AXIDE Background Music (BGM) Engine — 황제1곡 반복.mp3 (Emperor Loop)
    * -------------------------------------------------------------------------- */
-  const BGM_SRC = "assets/audio/bgm-emperor-loop.mp3?v=20261106v164";
+  const BGM_SRC = "assets/audio/bgm-emperor-loop.mp3?v=20261106v165";
+  const BGM_FALLBACK_SRC = "https://raw.githubusercontent.com/heosanghun/AXIDE/main/assets/audio/bgm-emperor-loop.mp3";
   const STORAGE_KEY_BGM_ENABLED = "axide_bgm_enabled";
   const STORAGE_KEY_BGM_VOLUME = "axide_bgm_volume";
   const SESSION_KEY_BGM_TIME = "axide_bgm_time";
   let bgmAudio = null;
   let bgmUnlockBound = false;
+  let bgmTriedFallback = false;
 
   function getBgmEnabled() {
     const val = localStorage.getItem(STORAGE_KEY_BGM_ENABLED);
@@ -60,8 +62,8 @@
   }
 
   function getBgmBaseVolume() {
-    const v = parseFloat(localStorage.getItem(STORAGE_KEY_BGM_VOLUME) || "0.38");
-    return isNaN(v) ? 0.38 : Math.max(0.05, Math.min(1.0, v));
+    const v = parseFloat(localStorage.getItem(STORAGE_KEY_BGM_VOLUME) || "0.4");
+    return isNaN(v) ? 0.4 : Math.max(0.05, Math.min(1.0, v));
   }
 
   function syncBgmVolume() {
@@ -72,19 +74,29 @@
 
   function updateBgmUiState() {
     const playing = !!(bgmAudio && !bgmAudio.paused && getBgmEnabled());
-    document.querySelectorAll(".axide-header-bgm-btn, .axide-floating-bgm-btn").forEach((btn) => {
+    document.querySelectorAll(".axide-header-bgm-btn, .axide-right-bgm-pill").forEach((btn) => {
       btn.classList.toggle("is-playing", playing);
       btn.setAttribute(
         "title",
         playing
-          ? "배경음악 재생 중 (베토벤 피아노 협주곡 제5번 '황제' · 클릭 시 일시정지)"
-          : "배경음악 켜기 (베토벤 피아노 협주곡 제5번 '황제' 반복)"
+          ? "배경음악 재생 중 (베토벤 '황제' 1악장 · 클릭 시 끄기)"
+          : "배경음악 켜기 (베토벤 '황제' 1악장 반복)"
       );
       btn.setAttribute("aria-pressed", playing ? "true" : "false");
     });
+    const rightLabel = document.getElementById("axideRightBgmLabel");
+    if (rightLabel) {
+      rightLabel.textContent = playing ? "배경음악 ON" : "배경음악 켜기";
+    }
     const ctrlSwitch = document.getElementById("axideCtrlBgmSwitch");
     if (ctrlSwitch) {
-      ctrlSwitch.checked = getBgmEnabled();
+      ctrlSwitch.checked = playing;
+    }
+    const ctrlBtnTitle = document.getElementById("axideCtrlBgmBtnTitle");
+    if (ctrlBtnTitle) {
+      ctrlBtnTitle.textContent = playing
+        ? "베토벤 ‘황제’ 1악장 재생 중 (클릭 시 일시정지)"
+        : "베토벤 ‘황제’ 1악장 배경음악 재생하기";
     }
   }
 
@@ -94,6 +106,20 @@
     bgmAudio.loop = true;
     bgmAudio.preload = "auto";
     syncBgmVolume();
+
+    bgmAudio.addEventListener("error", function () {
+      if (!bgmTriedFallback) {
+        bgmTriedFallback = true;
+        bgmAudio.src = BGM_FALLBACK_SRC;
+        bgmAudio.load();
+        if (getBgmEnabled()) {
+          const p = bgmAudio.play();
+          if (p && typeof p.then === "function") {
+            p.then(updateBgmUiState).catch(bindBgmGestureUnlock);
+          }
+        }
+      }
+    });
 
     const savedTime = parseFloat(sessionStorage.getItem(SESSION_KEY_BGM_TIME) || "0");
     if (!isNaN(savedTime) && savedTime > 0) {
@@ -155,7 +181,12 @@
     if (bgmUnlockBound) return;
     bgmUnlockBound = true;
     const unlock = function (e) {
-      if (e && e.target && e.target.closest && e.target.closest(".axide-header-bgm-btn, .axide-floating-bgm-btn, #axideCtrlBgmSwitch")) {
+      if (
+        e &&
+        e.target &&
+        e.target.closest &&
+        e.target.closest(".axide-header-bgm-btn, .axide-right-bgm-pill, #axideCtrlBgmSwitch, #axideCtrlBgmLaunchBtn")
+      ) {
         return;
       }
       if (!getBgmEnabled()) return;
@@ -165,21 +196,21 @@
       if (p && typeof p.then === "function") {
         p.then(() => {
           updateBgmUiState();
-          ["pointerdown", "click", "touchstart", "keydown"].forEach((evt) =>
+          ["click", "touchend", "keydown"].forEach((evt) =>
             document.removeEventListener(evt, unlock, true)
           );
           bgmUnlockBound = false;
         }).catch(() => {});
       }
     };
-    ["pointerdown", "click", "touchstart", "keydown"].forEach((evt) =>
-      document.addEventListener(evt, unlock, { capture: true, passive: true })
+    ["click", "touchend", "keydown"].forEach((evt) =>
+      document.addEventListener(evt, unlock, true)
     );
   }
 
   function toggleBgmPlayback() {
     const audio = ensureBgmAudio();
-    if (!audio.paused && getBgmEnabled()) {
+    if (!audio.paused) {
       localStorage.setItem(STORAGE_KEY_BGM_ENABLED, "false");
       try {
         audio.pause();
@@ -1136,8 +1167,7 @@
       .axide-header-mic-btn svg {
         pointer-events: none;
       }
-      .axide-header-bgm-btn,
-      .axide-floating-bgm-btn {
+      .axide-header-bgm-btn {
         position: relative;
         z-index: 1060;
         width: 42px;
@@ -1154,17 +1184,41 @@
         transition: all 0.25s ease;
         box-shadow: 0 6px 18px rgba(2, 6, 23, 0.35);
       }
+      .axide-right-bgm-pill {
+        position: fixed !important;
+        right: 24px !important;
+        bottom: 88px !important;
+        z-index: 2147483001 !important;
+        height: 44px;
+        padding: 0 16px;
+        border-radius: 999px;
+        border: 1.5px solid rgba(56, 189, 248, 0.48);
+        background: rgba(9, 13, 22, 0.94);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        color: #e2e8f0;
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: -0.01em;
+        cursor: pointer !important;
+        pointer-events: auto !important;
+        transition: all 0.25s ease;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.58), 0 0 18px rgba(56, 189, 248, 0.2);
+      }
       .axide-header-bgm-btn:hover,
-      .axide-floating-bgm-btn:hover {
-        border-color: #fbbf24;
-        color: #fbbf24;
-        transform: translateY(-1px);
+      .axide-right-bgm-pill:hover {
+        border-color: #fbbf24 !important;
+        color: #fbbf24 !important;
+        transform: translateY(-2px);
       }
       .axide-header-bgm-btn.is-playing,
-      .axide-floating-bgm-btn.is-playing {
-        border-color: rgba(251, 191, 36, 0.78);
-        color: #fbbf24;
-        box-shadow: 0 0 18px rgba(251, 191, 36, 0.35), 0 6px 18px rgba(2, 6, 23, 0.45);
+      .axide-right-bgm-pill.is-playing {
+        border-color: rgba(251, 191, 36, 0.85) !important;
+        color: #fbbf24 !important;
+        box-shadow: 0 0 22px rgba(251, 191, 36, 0.38), 0 10px 26px rgba(2, 6, 23, 0.55) !important;
       }
       .axide-bgm-eq {
         display: none;
@@ -1174,12 +1228,21 @@
         pointer-events: none;
       }
       .axide-header-bgm-btn.is-playing .axide-bgm-eq,
-      .axide-floating-bgm-btn.is-playing .axide-bgm-eq {
+      .axide-right-bgm-pill.is-playing .axide-bgm-eq {
         display: inline-flex;
       }
       .axide-header-bgm-btn.is-playing .axide-bgm-note,
-      .axide-floating-bgm-btn.is-playing .axide-bgm-note {
+      .axide-right-bgm-pill.is-playing .axide-bgm-note {
         display: none;
+      }
+      @media (max-width: 767px) {
+        .axide-right-bgm-pill {
+          right: 16px !important;
+          bottom: 78px !important;
+          height: 40px;
+          padding: 0 13px;
+          font-size: 12px;
+        }
       }
       .axide-bgm-eq i {
         display: block;
@@ -1942,32 +2005,38 @@
       document.body.appendChild(menu);
     }
 
-    const savedMode = localStorage.getItem("axide_display_mode") || "standard";
-    const savedScale = localStorage.getItem("axide_font_scale") || "100";
-    const savedLowMotion = localStorage.getItem("axide_low_motion") === "true";
-    const savedAccent = localStorage.getItem("axide_accent") || "cyan";
-    const savedRate = localStorage.getItem("axide_voice_rate") || "1.0";
-    const savedMuted = localStorage.getItem("axide_voice_muted") === "true";
+    // Ensure clean default body classes (remove any legacy unused display/scale classes)
+    document.body.classList.remove("axide-mode-eyecare", "axide-mode-contrast", "axide-low-motion");
+    document.documentElement.classList.remove("axide-scale-md", "axide-scale-lg");
 
-    function applyEnvironmentSettings() {
-      const m = localStorage.getItem("axide_display_mode") || "standard";
-      const s = localStorage.getItem("axide_font_scale") || "100";
-      const lm = localStorage.getItem("axide_low_motion") === "true";
-      const ac = localStorage.getItem("axide_accent") || "cyan";
-
-      document.body.classList.remove("axide-mode-eyecare", "axide-mode-contrast");
-      if (m === "eyecare") document.body.classList.add("axide-mode-eyecare");
-      if (m === "contrast") document.body.classList.add("axide-mode-contrast");
-
-      document.documentElement.classList.remove("axide-scale-md", "axide-scale-lg");
-      if (s === "105") document.documentElement.classList.add("axide-scale-md");
-      if (s === "110") document.documentElement.classList.add("axide-scale-lg");
-
-      document.body.classList.toggle("axide-low-motion", lm);
-      document.body.setAttribute("data-axide-accent", ac);
+    // Inject Right-Side Floating BGM Toggle Pill Button (right side, above #goTop)
+    if (!document.getElementById("axideRightBgmToggle")) {
+      const rightBgmBtn = document.createElement("button");
+      rightBgmBtn.type = "button";
+      rightBgmBtn.id = "axideRightBgmToggle";
+      rightBgmBtn.className = "axide-right-bgm-pill";
+      rightBgmBtn.setAttribute("aria-label", "배경음악 켜기 / 끄기");
+      rightBgmBtn.setAttribute("title", "배경음악 켜기/끄기 (베토벤 피아노 협주곡 제5번 '황제' 반복)");
+      rightBgmBtn.innerHTML = `
+        <svg class="axide-bgm-note" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 18V5l12-2v13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="6" cy="18" r="3" stroke="currentColor" stroke-width="2"/>
+          <circle cx="18" cy="16" r="3" stroke="currentColor" stroke-width="2"/>
+        </svg>
+        <span class="axide-bgm-eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span id="axideRightBgmLabel">배경음악 켜기</span>
+      `;
+      rightBgmBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        toggleBgmPlayback();
+      });
+      document.body.appendChild(rightBgmBtn);
     }
 
-    applyEnvironmentSettings();
+    const savedRate = localStorage.getItem("axide_voice_rate") || "1.0";
+    const savedMuted = localStorage.getItem("axide_voice_muted") === "true";
+    const savedBgmVol = localStorage.getItem(STORAGE_KEY_BGM_VOLUME) || "0.4";
 
     menu.innerHTML = `
       <div class="offcanvas-content">
@@ -1981,23 +2050,66 @@
               <img src="assets/images/logo/axide-emblem.png" alt="AXIDE" class="axide-ctrl-emblem-img">
             </div>
             <div class="axide-ctrl-brand-meta">
-              <div class="axide-ctrl-badge"><span class="axide-led-dot"></span> SOVEREIGN COCKPIT CONSOLE · v2.0</div>
-              <h3 class="axide-ctrl-title">AXIDE 브리핑 &amp; 워크스페이스 제어</h3>
+              <div class="axide-ctrl-badge"><span class="axide-led-dot"></span> AXIDE AUDIO &amp; BRIEFING CONSOLE</div>
+              <h3 class="axide-ctrl-title">배경음악 &amp; AI 브리핑 제어</h3>
             </div>
           </div>
-          <p class="axide-ctrl-sub">임원 브리핑 오디오 마스터링, 백서·도면 가독성 배율, 디스플레이 시그니처 및 핵심 기술 문서를 정밀 제어합니다.</p>
+          <p class="axide-ctrl-sub">홈페이지 클래식 배경음악(베토벤 ‘황제’ 1악장 반복), AI 수석 아나운서 음성 브리핑 및 핵심 기술 문서 바로가기를 제어합니다.</p>
         </div>
         <div class="canvas-body">
-          <!-- 1. AI Announcer Voice & Briefing Control -->
+          <!-- 1. Classic BGM Control (Emperor Concerto) -->
           <div class="axide-ctrl-section axide-ctrl-section--featured">
+            <div class="axide-ctrl-sec-head">
+              <h6 class="axide-ctrl-sec-title">
+                <span class="axide-ctrl-sec-icon">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+                </span>
+                클래식 배경음악 (베토벤 ‘황제’ 1악장)
+              </h6>
+              <span class="axide-ctrl-sec-tag axide-ctrl-sec-tag--gold">LOOP BGM</span>
+            </div>
+            <button type="button" class="axide-aria-launch-btn" id="axideCtrlBgmLaunchBtn">
+              <span class="axide-aria-play-ring">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
+              </span>
+              <span class="axide-aria-launch-copy">
+                <strong id="axideCtrlBgmBtnTitle">베토벤 ‘황제’ 1악장 배경음악 재생 / 일시정지</strong>
+                <small>Beethoven Piano Concerto No. 5 · Continuous Loop</small>
+              </span>
+              <span class="axide-aria-eq" aria-hidden="true">
+                <i></i><i></i><i></i><i></i>
+              </span>
+            </button>
+            <div class="axide-ctrl-group-wrap">
+              <div class="axide-ctrl-sub-header">
+                <span class="axide-ctrl-row-sub">배경음악 음량(볼륨) 조절</span>
+                <span class="axide-ctrl-micro-spec">VOLUME LEVEL</span>
+              </div>
+              <div class="axide-ctrl-btn-group" id="axideCtrlBgmVolGroup">
+                <button type="button" class="axide-ctrl-seg-btn ${savedBgmVol === "0.2" ? "active" : ""}" data-vol="0.2">작게 (20%)</button>
+                <button type="button" class="axide-ctrl-seg-btn ${savedBgmVol === "0.4" ? "active" : ""}" data-vol="0.4">표준 (40%)</button>
+                <button type="button" class="axide-ctrl-seg-btn ${savedBgmVol === "0.75" ? "active" : ""}" data-vol="0.75">크게 (75%)</button>
+              </div>
+            </div>
+            <div class="axide-ctrl-row">
+              <div>
+                <span class="axide-ctrl-row-label">배경음악 자동 연속 재생</span>
+                <span class="axide-ctrl-row-sub">페이지 이동 시에도 끊김 없이 이어서 재생합니다</span>
+              </div>
+              <input type="checkbox" id="axideCtrlBgmSwitch" class="tf-switch-check style-small" ${getBgmEnabled() ? "checked" : ""}>
+            </div>
+          </div>
+
+          <!-- 2. AI Announcer Voice & Briefing Control -->
+          <div class="axide-ctrl-section">
             <div class="axide-ctrl-sec-head">
               <h6 class="axide-ctrl-sec-title">
                 <span class="axide-ctrl-sec-icon">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="22"></line></svg>
                 </span>
-                AI 수석 아나운서 (Aria HD) 브리핑 제어
+                AI 수석 아나운서 (Aria HD) 음성 브리핑
               </h6>
-              <span class="axide-ctrl-sec-tag axide-ctrl-sec-tag--gold">24kHz STUDIO</span>
+              <span class="axide-ctrl-sec-tag axide-ctrl-sec-tag--emerald">24kHz STUDIO</span>
             </div>
             <button type="button" class="axide-aria-launch-btn" id="axideCtrlLaunchBriefing">
               <span class="axide-aria-play-ring">
@@ -2005,7 +2117,7 @@
               </span>
               <span class="axide-aria-launch-copy">
                 <strong>AXIDE 핵심 비전 · 기술 요약 브리핑 즉시 듣기</strong>
-                <small>Aria HD · 24kHz Neural Acoustic Mastering</small>
+                <small>Aria HD · 브리핑 재생 시 배경음악 볼륨 자동 낮춤</small>
               </span>
               <span class="axide-aria-eq" aria-hidden="true">
                 <i></i><i></i><i></i><i></i>
@@ -2014,7 +2126,7 @@
             <div class="axide-ctrl-group-wrap">
               <div class="axide-ctrl-sub-header">
                 <span class="axide-ctrl-row-sub">아나운서 브리핑 낭독 템포</span>
-                <span class="axide-ctrl-micro-spec">PITCH-LOCKED DSP</span>
+                <span class="axide-ctrl-micro-spec">VOICE SPEED</span>
               </div>
               <div class="axide-ctrl-btn-group" id="axideCtrlVoiceRateGroup">
                 <button type="button" class="axide-ctrl-seg-btn ${savedRate === "0.94" ? "active" : ""}" data-rate="0.94">0.94x 차분하게</button>
@@ -2029,143 +2141,16 @@
               </div>
               <input type="checkbox" id="axideCtrlVoiceMute" class="tf-switch-check style-small" ${savedMuted ? "checked" : ""}>
             </div>
-            <div class="axide-ctrl-row" style="margin-top: 8px; padding-top: 10px; border-top: 1px dashed rgba(56, 189, 248, 0.22);">
-              <div>
-                <span class="axide-ctrl-row-label">클래식 배경음악 (베토벤 ‘황제’ 1악장 반복)</span>
-                <span class="axide-ctrl-row-sub">사이트 열람 중 배경음악을 연속 재생합니다 (브리핑 시 자동 볼륨 조절)</span>
-              </div>
-              <input type="checkbox" id="axideCtrlBgmSwitch" class="tf-switch-check style-small" ${getBgmEnabled() ? "checked" : ""}>
-            </div>
           </div>
 
-          <!-- 2. Display & Whitepaper Readability Control -->
-          <div class="axide-ctrl-section">
-            <div class="axide-ctrl-sec-head">
-              <h6 class="axide-ctrl-sec-title">
-                <span class="axide-ctrl-sec-icon">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
-                </span>
-                열람 디스플레이 &amp; 백서 가독성 설정
-              </h6>
-              <span class="axide-ctrl-sec-tag">OPTICS</span>
-            </div>
-            <div class="axide-ctrl-group-wrap">
-              <div class="axide-ctrl-sub-header">
-                <span class="axide-ctrl-row-sub">화면 색온도 · 명암비 프리셋</span>
-                <span class="axide-ctrl-micro-spec">AMBIENT LUT</span>
-              </div>
-              <div class="axide-ctrl-btn-group" id="axideCtrlDisplayModeGroup">
-                <button type="button" class="axide-ctrl-seg-btn ${savedMode === "standard" ? "active" : ""}" data-mode="standard">다크 옵시디언</button>
-                <button type="button" class="axide-ctrl-seg-btn ${savedMode === "eyecare" ? "active" : ""}" data-mode="eyecare">아이케어(백서용)</button>
-                <button type="button" class="axide-ctrl-seg-btn ${savedMode === "contrast" ? "active" : ""}" data-mode="contrast">고대비(발표용)</button>
-              </div>
-            </div>
-            <div class="axide-ctrl-group-wrap">
-              <div class="axide-ctrl-sub-header">
-                <span class="axide-ctrl-row-sub">백서 · 수식 · 아키텍처 본문 글자 배율</span>
-                <span class="axide-ctrl-micro-spec">TYPOGRAPHY SCALE</span>
-              </div>
-              <div class="axide-ctrl-btn-group" id="axideCtrlFontScaleGroup">
-                <button type="button" class="axide-ctrl-seg-btn ${savedScale === "100" ? "active" : ""}" data-scale="100">100% 표준</button>
-                <button type="button" class="axide-ctrl-seg-btn ${savedScale === "105" ? "active" : ""}" data-scale="105">105% 확대</button>
-                <button type="button" class="axide-ctrl-seg-btn ${savedScale === "110" ? "active" : ""}" data-scale="110">110% 임원용</button>
-              </div>
-            </div>
-            <div class="axide-ctrl-row">
-              <div>
-                <span class="axide-ctrl-row-label">GPU 절전 · 정적 문서 열람 모드</span>
-                <span class="axide-ctrl-row-sub">3D 루프 광선·스캔 애니메이션을 일시 정지합니다</span>
-              </div>
-              <input type="checkbox" id="axideCtrlLowMotion" class="tf-switch-check style-small" ${savedLowMotion ? "checked" : ""}>
-            </div>
-          </div>
-
-          <!-- 3. Enterprise Domain Accent Signature -->
-          <div class="axide-ctrl-section">
-            <div class="axide-ctrl-sec-head">
-              <h6 class="axide-ctrl-sec-title">
-                <span class="axide-ctrl-sec-icon">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4"></circle><line x1="21.17" y1="8" x2="12" y2="8"></line><line x1="3.95" y1="6.06" x2="8.54" y2="14"></line><line x1="10.88" y1="21.94" x2="15.46" y2="14"></line></svg>
-                </span>
-                산업 도메인 액센트 시그니처
-              </h6>
-              <span class="axide-ctrl-sec-tag">AMBIENT MOOD</span>
-            </div>
-            <div class="axide-accent-grid" id="axideCtrlAccentGroup">
-              <button type="button" class="axide-accent-chip ${savedAccent === "cyan" ? "active" : ""}" data-accent="cyan">
-                <i style="background:#38bdf8;box-shadow:0 0 10px #38bdf8;"></i>
-                <span>Cogni-OS 시안 <small>방산 기본</small></span>
-              </button>
-              <button type="button" class="axide-accent-chip ${savedAccent === "emerald" ? "active" : ""}" data-accent="emerald">
-                <i style="background:#10b981;box-shadow:0 0 10px #10b981;"></i>
-                <span>Passport 에메랄드 <small>바이오</small></span>
-              </button>
-              <button type="button" class="axide-accent-chip ${savedAccent === "amber" ? "active" : ""}" data-accent="amber">
-                <i style="background:#f59e0b;box-shadow:0 0 10px #f59e0b;"></i>
-                <span>Field Vault 앰버 <small>제조·ATP</small></span>
-              </button>
-              <button type="button" class="axide-accent-chip ${savedAccent === "crimson" ? "active" : ""}" data-accent="crimson">
-                <i style="background:#FD3A25;box-shadow:0 0 10px #FD3A25;"></i>
-                <span>Defense 크림슨 <small>보안 감사</small></span>
-              </button>
-            </div>
-          </div>
-
-          <!-- 4. Cogni-OS Live Verified Telemetry -->
-          <div class="axide-ctrl-section">
-            <div class="axide-ctrl-sec-head">
-              <h6 class="axide-ctrl-sec-title">
-                <span class="axide-ctrl-sec-icon">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
-                </span>
-                Cogni-OS v1.0 공인 실측 텔레메트리
-              </h6>
-              <span class="axide-ctrl-sec-tag axide-ctrl-sec-tag--emerald">VERIFIED</span>
-            </div>
-            <div class="axide-telemetry-grid">
-              <div class="axide-telemetry-box">
-                <div class="axide-telemetry-top">
-                  <span class="axide-telemetry-k">망분리 · 외부 통신 포트</span>
-                  <span class="axide-telemetry-dot"></span>
-                </div>
-                <span class="axide-telemetry-v">0 Byte (완전 폐쇄망)</span>
-                <div class="axide-telemetry-bar"><span style="width:100%;"></span></div>
-              </div>
-              <div class="axide-telemetry-box">
-                <div class="axide-telemetry-top">
-                  <span class="axide-telemetry-k">DEQ 상수 메모리 · 지연</span>
-                  <span class="axide-telemetry-dot"></span>
-                </div>
-                <span class="axide-telemetry-v">14.8GB · TTFT 0.161s</span>
-                <div class="axide-telemetry-bar"><span style="width:92%;"></span></div>
-              </div>
-              <div class="axide-telemetry-box">
-                <div class="axide-telemetry-top">
-                  <span class="axide-telemetry-k">부품 여권 암호화 봉인</span>
-                  <span class="axide-telemetry-dot"></span>
-                </div>
-                <span class="axide-telemetry-v">Ed25519 · SHA-256</span>
-                <div class="axide-telemetry-bar"><span style="width:100%;"></span></div>
-              </div>
-              <div class="axide-telemetry-box">
-                <div class="axide-telemetry-top">
-                  <span class="axide-telemetry-k">방위산업기술 보호법 개정</span>
-                  <span class="axide-telemetry-dot axide-telemetry-dot--amber"></span>
-                </div>
-                <span class="axide-telemetry-v" style="color:#fbbf24;">2026.12.10 시행 대응</span>
-                <div class="axide-telemetry-bar axide-telemetry-bar--amber"><span style="width:100%;"></span></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- 5. Executive Quick Navigation & PDF Print -->
+          <!-- 3. Executive Quick Navigation & PDF Print -->
           <div class="axide-ctrl-section mb-0">
             <div class="axide-ctrl-sec-head">
               <h6 class="axide-ctrl-sec-title">
                 <span class="axide-ctrl-sec-icon">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
                 </span>
-                이그제큐티브 핵심 문서 바로가기
+                핵심 문서 바로가기 &amp; 인쇄
               </h6>
               <span class="axide-ctrl-sec-tag">DIRECT ACCESS</span>
             </div>
@@ -2192,7 +2177,7 @@
               </button>
               <button type="button" class="axide-quick-link" id="axideCtrlResetBtn">
                 <span class="axide-ql-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg></span>
-                <span class="axide-ql-txt">환경 설정 초기화</span>
+                <span class="axide-ql-txt">오디오 설정 초기화</span>
               </button>
             </div>
           </div>
@@ -2201,6 +2186,54 @@
     `;
 
     // Bind events
+    const bgmLaunchBtn = document.getElementById("axideCtrlBgmLaunchBtn");
+    if (bgmLaunchBtn) {
+      bgmLaunchBtn.addEventListener("click", function () {
+        toggleBgmPlayback();
+      });
+    }
+
+    menu.querySelectorAll("#axideCtrlBgmVolGroup .axide-ctrl-seg-btn").forEach((btn) => {
+      btn.addEventListener("click", function () {
+        const v = this.getAttribute("data-vol") || "0.4";
+        localStorage.setItem(STORAGE_KEY_BGM_VOLUME, v);
+        menu.querySelectorAll("#axideCtrlBgmVolGroup .axide-ctrl-seg-btn").forEach((b) => b.classList.remove("active"));
+        this.classList.add("active");
+        ensureBgmAudio();
+        syncBgmVolume();
+        if (bgmAudio && bgmAudio.paused) {
+          localStorage.setItem(STORAGE_KEY_BGM_ENABLED, "true");
+          const p = bgmAudio.play();
+          if (p && typeof p.then === "function") {
+            p.then(updateBgmUiState).catch(updateBgmUiState);
+          }
+        }
+      });
+    });
+
+    const bgmSwitch = document.getElementById("axideCtrlBgmSwitch");
+    if (bgmSwitch) {
+      bgmSwitch.addEventListener("change", function () {
+        const enabled = this.checked;
+        localStorage.setItem(STORAGE_KEY_BGM_ENABLED, enabled ? "true" : "false");
+        const audio = ensureBgmAudio();
+        if (enabled) {
+          syncBgmVolume();
+          const p = audio.play();
+          if (p && typeof p.then === "function") {
+            p.then(updateBgmUiState).catch(updateBgmUiState);
+          } else {
+            updateBgmUiState();
+          }
+        } else {
+          try {
+            audio.pause();
+          } catch (e) {}
+          updateBgmUiState();
+        }
+      });
+    }
+
     const launchBtn = document.getElementById("axideCtrlLaunchBriefing");
     if (launchBtn) {
       launchBtn.addEventListener("click", function () {
@@ -2238,96 +2271,6 @@
       });
     }
 
-    const bgmSwitch = document.getElementById("axideCtrlBgmSwitch");
-    if (bgmSwitch) {
-      bgmSwitch.addEventListener("change", function () {
-        const enabled = this.checked;
-        localStorage.setItem(STORAGE_KEY_BGM_ENABLED, enabled ? "true" : "false");
-        const audio = ensureBgmAudio();
-        if (enabled) {
-          syncBgmVolume();
-          const p = audio.play();
-          if (p && typeof p.then === "function") {
-            p.then(updateBgmUiState).catch(updateBgmUiState);
-          } else {
-            updateBgmUiState();
-          }
-        } else {
-          try {
-            audio.pause();
-          } catch (e) {}
-          updateBgmUiState();
-        }
-      });
-    }
-
-    const leftBarEl = document.querySelector(".tf-left-bar");
-    if (leftBarEl && !leftBarEl.querySelector(".axide-floating-bgm-btn")) {
-      leftBarEl.style.display = "flex";
-      leftBarEl.style.flexDirection = "column";
-      leftBarEl.style.alignItems = "center";
-      leftBarEl.style.gap = "10px";
-      const floatBgmBtn = document.createElement("button");
-      floatBgmBtn.type = "button";
-      floatBgmBtn.className = "axide-floating-bgm-btn";
-      floatBgmBtn.setAttribute("aria-label", "배경음악 재생 / 일시정지");
-      floatBgmBtn.setAttribute("title", "배경음악 켜기/끄기 (베토벤 피아노 협주곡 제5번 '황제' 반복)");
-      floatBgmBtn.innerHTML = `
-        <svg class="axide-bgm-note" width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M9 18V5l12-2v13" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="6" cy="18" r="3" stroke="currentColor" stroke-width="1.9"/>
-          <circle cx="18" cy="16" r="3" stroke="currentColor" stroke-width="1.9"/>
-        </svg>
-        <span class="axide-bgm-eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-      `;
-      floatBgmBtn.addEventListener("click", function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        toggleBgmPlayback();
-      });
-      leftBarEl.insertBefore(floatBgmBtn, leftBarEl.firstChild);
-    }
-
-    tryStartBgm();
-
-    menu.querySelectorAll("#axideCtrlDisplayModeGroup .axide-ctrl-seg-btn").forEach((btn) => {
-      btn.addEventListener("click", function () {
-        const m = this.getAttribute("data-mode") || "standard";
-        localStorage.setItem("axide_display_mode", m);
-        menu.querySelectorAll("#axideCtrlDisplayModeGroup .axide-ctrl-seg-btn").forEach((b) => b.classList.remove("active"));
-        this.classList.add("active");
-        applyEnvironmentSettings();
-      });
-    });
-
-    menu.querySelectorAll("#axideCtrlFontScaleGroup .axide-ctrl-seg-btn").forEach((btn) => {
-      btn.addEventListener("click", function () {
-        const s = this.getAttribute("data-scale") || "100";
-        localStorage.setItem("axide_font_scale", s);
-        menu.querySelectorAll("#axideCtrlFontScaleGroup .axide-ctrl-seg-btn").forEach((b) => b.classList.remove("active"));
-        this.classList.add("active");
-        applyEnvironmentSettings();
-      });
-    });
-
-    const lowMotionSwitch = document.getElementById("axideCtrlLowMotion");
-    if (lowMotionSwitch) {
-      lowMotionSwitch.addEventListener("change", function () {
-        localStorage.setItem("axide_low_motion", this.checked ? "true" : "false");
-        applyEnvironmentSettings();
-      });
-    }
-
-    menu.querySelectorAll("#axideCtrlAccentGroup .axide-accent-chip").forEach((chip) => {
-      chip.addEventListener("click", function () {
-        const ac = this.getAttribute("data-accent") || "cyan";
-        localStorage.setItem("axide_accent", ac);
-        menu.querySelectorAll("#axideCtrlAccentGroup .axide-accent-chip").forEach((c) => c.classList.remove("active"));
-        this.classList.add("active");
-        applyEnvironmentSettings();
-      });
-    });
-
     const printBtn = document.getElementById("axideCtrlPrintBtn");
     if (printBtn) {
       printBtn.addEventListener("click", function () {
@@ -2340,16 +2283,16 @@
     const resetBtn = document.getElementById("axideCtrlResetBtn");
     if (resetBtn) {
       resetBtn.addEventListener("click", function () {
-        localStorage.removeItem("axide_display_mode");
-        localStorage.removeItem("axide_font_scale");
-        localStorage.removeItem("axide_low_motion");
-        localStorage.removeItem("axide_accent");
+        localStorage.removeItem(STORAGE_KEY_BGM_VOLUME);
+        localStorage.setItem(STORAGE_KEY_BGM_ENABLED, "true");
         localStorage.removeItem("axide_voice_rate");
         localStorage.removeItem("axide_voice_muted");
-        applyEnvironmentSettings();
+        syncBgmVolume();
         initSovereignCommandCenter();
       });
     }
+
+    tryStartBgm();
   }
 
   if (document.readyState === "loading") {
