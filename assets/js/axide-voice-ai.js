@@ -44,6 +44,159 @@
   let currentAudio = null;
   let isSpeaking = false;
 
+  /* --------------------------------------------------------------------------
+   * 1-B. AXIDE Background Music (BGM) Engine — 황제1곡 반복.mp3 (Emperor Loop)
+   * -------------------------------------------------------------------------- */
+  const BGM_SRC = "assets/audio/bgm-emperor-loop.mp3?v=20261106v164";
+  const STORAGE_KEY_BGM_ENABLED = "axide_bgm_enabled";
+  const STORAGE_KEY_BGM_VOLUME = "axide_bgm_volume";
+  const SESSION_KEY_BGM_TIME = "axide_bgm_time";
+  let bgmAudio = null;
+  let bgmUnlockBound = false;
+
+  function getBgmEnabled() {
+    const val = localStorage.getItem(STORAGE_KEY_BGM_ENABLED);
+    return val === null ? true : val === "true";
+  }
+
+  function getBgmBaseVolume() {
+    const v = parseFloat(localStorage.getItem(STORAGE_KEY_BGM_VOLUME) || "0.38");
+    return isNaN(v) ? 0.38 : Math.max(0.05, Math.min(1.0, v));
+  }
+
+  function syncBgmVolume() {
+    if (!bgmAudio) return;
+    const base = getBgmBaseVolume();
+    bgmAudio.volume = isSpeaking ? Math.min(base, 0.08) : base;
+  }
+
+  function updateBgmUiState() {
+    const playing = !!(bgmAudio && !bgmAudio.paused && getBgmEnabled());
+    document.querySelectorAll(".axide-header-bgm-btn, .axide-floating-bgm-btn").forEach((btn) => {
+      btn.classList.toggle("is-playing", playing);
+      btn.setAttribute(
+        "title",
+        playing
+          ? "배경음악 재생 중 (베토벤 피아노 협주곡 제5번 '황제' · 클릭 시 일시정지)"
+          : "배경음악 켜기 (베토벤 피아노 협주곡 제5번 '황제' 반복)"
+      );
+      btn.setAttribute("aria-pressed", playing ? "true" : "false");
+    });
+    const ctrlSwitch = document.getElementById("axideCtrlBgmSwitch");
+    if (ctrlSwitch) {
+      ctrlSwitch.checked = getBgmEnabled();
+    }
+  }
+
+  function ensureBgmAudio() {
+    if (bgmAudio) return bgmAudio;
+    bgmAudio = new Audio(BGM_SRC);
+    bgmAudio.loop = true;
+    bgmAudio.preload = "auto";
+    syncBgmVolume();
+
+    const savedTime = parseFloat(sessionStorage.getItem(SESSION_KEY_BGM_TIME) || "0");
+    if (!isNaN(savedTime) && savedTime > 0) {
+      bgmAudio.addEventListener(
+        "loadedmetadata",
+        function () {
+          try {
+            if (bgmAudio.duration && savedTime < bgmAudio.duration) {
+              bgmAudio.currentTime = savedTime;
+            }
+          } catch (e) {}
+        },
+        { once: true }
+      );
+    }
+
+    bgmAudio.addEventListener("play", updateBgmUiState);
+    bgmAudio.addEventListener("pause", updateBgmUiState);
+    bgmAudio.addEventListener("timeupdate", function () {
+      try {
+        if (!bgmAudio.paused && bgmAudio.currentTime > 0) {
+          sessionStorage.setItem(SESSION_KEY_BGM_TIME, String(bgmAudio.currentTime));
+        }
+      } catch (e) {}
+    });
+
+    window.addEventListener("pagehide", function () {
+      try {
+        if (bgmAudio && bgmAudio.currentTime > 0) {
+          sessionStorage.setItem(SESSION_KEY_BGM_TIME, String(bgmAudio.currentTime));
+        }
+      } catch (e) {}
+    });
+
+    return bgmAudio;
+  }
+
+  function tryStartBgm() {
+    if (!getBgmEnabled()) {
+      updateBgmUiState();
+      return;
+    }
+    const audio = ensureBgmAudio();
+    syncBgmVolume();
+    const playPromise = audio.play();
+    if (playPromise && typeof playPromise.then === "function") {
+      playPromise
+        .then(() => {
+          updateBgmUiState();
+        })
+        .catch(() => {
+          updateBgmUiState();
+          bindBgmGestureUnlock();
+        });
+    }
+  }
+
+  function bindBgmGestureUnlock() {
+    if (bgmUnlockBound) return;
+    bgmUnlockBound = true;
+    const unlock = function (e) {
+      if (e && e.target && e.target.closest && e.target.closest(".axide-header-bgm-btn, .axide-floating-bgm-btn, #axideCtrlBgmSwitch")) {
+        return;
+      }
+      if (!getBgmEnabled()) return;
+      const audio = ensureBgmAudio();
+      syncBgmVolume();
+      const p = audio.play();
+      if (p && typeof p.then === "function") {
+        p.then(() => {
+          updateBgmUiState();
+          ["pointerdown", "click", "touchstart", "keydown"].forEach((evt) =>
+            document.removeEventListener(evt, unlock, true)
+          );
+          bgmUnlockBound = false;
+        }).catch(() => {});
+      }
+    };
+    ["pointerdown", "click", "touchstart", "keydown"].forEach((evt) =>
+      document.addEventListener(evt, unlock, { capture: true, passive: true })
+    );
+  }
+
+  function toggleBgmPlayback() {
+    const audio = ensureBgmAudio();
+    if (!audio.paused && getBgmEnabled()) {
+      localStorage.setItem(STORAGE_KEY_BGM_ENABLED, "false");
+      try {
+        audio.pause();
+      } catch (e) {}
+      updateBgmUiState();
+    } else {
+      localStorage.setItem(STORAGE_KEY_BGM_ENABLED, "true");
+      syncBgmVolume();
+      const p = audio.play();
+      if (p && typeof p.then === "function") {
+        p.then(updateBgmUiState).catch(updateBgmUiState);
+      } else {
+        updateBgmUiState();
+      }
+    }
+  }
+
   function stopAllAudio() {
     if (currentAudio) {
       try {
@@ -58,6 +211,7 @@
       } catch (e) {}
     }
     isSpeaking = false;
+    syncBgmVolume();
   }
 
   function selectBestKoreanFemaleVoice() {
@@ -154,6 +308,7 @@
     }
     currentAudio = audio;
     isSpeaking = true;
+    syncBgmVolume();
     setWidgetState("speaking");
 
     let finished = false;
@@ -163,6 +318,7 @@
       if (currentAudio === audio) {
         currentAudio = null;
         isSpeaking = false;
+        syncBgmVolume();
       }
       setWidgetState(isListening ? "listening" : "idle");
       if (onEndCallback) onEndCallback();
@@ -175,6 +331,7 @@
       if (currentAudio === audio) {
         currentAudio = null;
         isSpeaking = false;
+        syncBgmVolume();
       }
       if (onErrorFallback) {
         onErrorFallback();
@@ -192,6 +349,7 @@
         if (currentAudio === audio) {
           currentAudio = null;
           isSpeaking = false;
+          syncBgmVolume();
         }
         if (onErrorFallback) {
           onErrorFallback();
@@ -978,6 +1136,66 @@
       .axide-header-mic-btn svg {
         pointer-events: none;
       }
+      .axide-header-bgm-btn,
+      .axide-floating-bgm-btn {
+        position: relative;
+        z-index: 1060;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        border: 1px solid rgba(56, 189, 248, 0.42);
+        background: linear-gradient(135deg, #0b1120 0%, #111827 100%);
+        color: #94a3b8;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer !important;
+        pointer-events: auto !important;
+        transition: all 0.25s ease;
+        box-shadow: 0 6px 18px rgba(2, 6, 23, 0.35);
+      }
+      .axide-header-bgm-btn:hover,
+      .axide-floating-bgm-btn:hover {
+        border-color: #fbbf24;
+        color: #fbbf24;
+        transform: translateY(-1px);
+      }
+      .axide-header-bgm-btn.is-playing,
+      .axide-floating-bgm-btn.is-playing {
+        border-color: rgba(251, 191, 36, 0.78);
+        color: #fbbf24;
+        box-shadow: 0 0 18px rgba(251, 191, 36, 0.35), 0 6px 18px rgba(2, 6, 23, 0.45);
+      }
+      .axide-bgm-eq {
+        display: none;
+        align-items: flex-end;
+        gap: 2.5px;
+        height: 14px;
+        pointer-events: none;
+      }
+      .axide-header-bgm-btn.is-playing .axide-bgm-eq,
+      .axide-floating-bgm-btn.is-playing .axide-bgm-eq {
+        display: inline-flex;
+      }
+      .axide-header-bgm-btn.is-playing .axide-bgm-note,
+      .axide-floating-bgm-btn.is-playing .axide-bgm-note {
+        display: none;
+      }
+      .axide-bgm-eq i {
+        display: block;
+        width: 2.5px;
+        border-radius: 2px;
+        background: #fbbf24;
+        animation: axideBgmBar 0.85s ease-in-out infinite alternate;
+      }
+      .axide-bgm-eq i:nth-child(1) { height: 6px; animation-delay: 0s; }
+      .axide-bgm-eq i:nth-child(2) { height: 13px; animation-delay: 0.2s; }
+      .axide-bgm-eq i:nth-child(3) { height: 9px; animation-delay: 0.4s; }
+      .axide-bgm-eq i:nth-child(4) { height: 12px; animation-delay: 0.1s; }
+      @keyframes axideBgmBar {
+        0% { transform: scaleY(0.35); opacity: 0.7; }
+        100% { transform: scaleY(1); opacity: 1; }
+      }
       #axideVoiceWidget {
         position: fixed !important;
         right: 26px !important;
@@ -1366,9 +1584,29 @@
           handleMicTrigger("top");
         });
 
+        const bgmBtn = document.createElement("button");
+        bgmBtn.type = "button";
+        bgmBtn.className = "axide-header-bgm-btn";
+        bgmBtn.setAttribute("aria-label", "배경음악 재생 / 일시정지");
+        bgmBtn.setAttribute("title", "배경음악 켜기/끄기 (베토벤 피아노 협주곡 제5번 '황제' 반복)");
+        bgmBtn.innerHTML = `
+          <svg class="axide-bgm-note" width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 18V5l12-2v13" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="6" cy="18" r="3" stroke="currentColor" stroke-width="1.9"/>
+            <circle cx="18" cy="16" r="3" stroke="currentColor" stroke-width="1.9"/>
+          </svg>
+          <span class="axide-bgm-eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        `;
+        bgmBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          toggleBgmPlayback();
+        });
+
         if (existingCta) {
           rightWrap.appendChild(existingCta);
         }
+        rightWrap.appendChild(bgmBtn);
         rightWrap.appendChild(micBtn);
         if (existingMobileBtn) {
           rightWrap.appendChild(existingMobileBtn);
@@ -1791,6 +2029,13 @@
               </div>
               <input type="checkbox" id="axideCtrlVoiceMute" class="tf-switch-check style-small" ${savedMuted ? "checked" : ""}>
             </div>
+            <div class="axide-ctrl-row" style="margin-top: 8px; padding-top: 10px; border-top: 1px dashed rgba(56, 189, 248, 0.22);">
+              <div>
+                <span class="axide-ctrl-row-label">클래식 배경음악 (베토벤 ‘황제’ 1악장 반복)</span>
+                <span class="axide-ctrl-row-sub">사이트 열람 중 배경음악을 연속 재생합니다 (브리핑 시 자동 볼륨 조절)</span>
+              </div>
+              <input type="checkbox" id="axideCtrlBgmSwitch" class="tf-switch-check style-small" ${getBgmEnabled() ? "checked" : ""}>
+            </div>
           </div>
 
           <!-- 2. Display & Whitepaper Readability Control -->
@@ -1992,6 +2237,58 @@
         }
       });
     }
+
+    const bgmSwitch = document.getElementById("axideCtrlBgmSwitch");
+    if (bgmSwitch) {
+      bgmSwitch.addEventListener("change", function () {
+        const enabled = this.checked;
+        localStorage.setItem(STORAGE_KEY_BGM_ENABLED, enabled ? "true" : "false");
+        const audio = ensureBgmAudio();
+        if (enabled) {
+          syncBgmVolume();
+          const p = audio.play();
+          if (p && typeof p.then === "function") {
+            p.then(updateBgmUiState).catch(updateBgmUiState);
+          } else {
+            updateBgmUiState();
+          }
+        } else {
+          try {
+            audio.pause();
+          } catch (e) {}
+          updateBgmUiState();
+        }
+      });
+    }
+
+    const leftBarEl = document.querySelector(".tf-left-bar");
+    if (leftBarEl && !leftBarEl.querySelector(".axide-floating-bgm-btn")) {
+      leftBarEl.style.display = "flex";
+      leftBarEl.style.flexDirection = "column";
+      leftBarEl.style.alignItems = "center";
+      leftBarEl.style.gap = "10px";
+      const floatBgmBtn = document.createElement("button");
+      floatBgmBtn.type = "button";
+      floatBgmBtn.className = "axide-floating-bgm-btn";
+      floatBgmBtn.setAttribute("aria-label", "배경음악 재생 / 일시정지");
+      floatBgmBtn.setAttribute("title", "배경음악 켜기/끄기 (베토벤 피아노 협주곡 제5번 '황제' 반복)");
+      floatBgmBtn.innerHTML = `
+        <svg class="axide-bgm-note" width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 18V5l12-2v13" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="6" cy="18" r="3" stroke="currentColor" stroke-width="1.9"/>
+          <circle cx="18" cy="16" r="3" stroke="currentColor" stroke-width="1.9"/>
+        </svg>
+        <span class="axide-bgm-eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      `;
+      floatBgmBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        toggleBgmPlayback();
+      });
+      leftBarEl.insertBefore(floatBgmBtn, leftBarEl.firstChild);
+    }
+
+    tryStartBgm();
 
     menu.querySelectorAll("#axideCtrlDisplayModeGroup .axide-ctrl-seg-btn").forEach((btn) => {
       btn.addEventListener("click", function () {
