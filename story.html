@@ -556,15 +556,72 @@
                         </div>
 
                         <!-- Quick Jump Visual Banner to Physical AI Mobility Archive (28개 자모 · 100개 테마 · 4000컷) -->
+                        <style>
+                            .mob100-jump-cta-btn {
+                                position: absolute;
+                                left: 2.83%;
+                                top: 62.76%;
+                                width: 19.82%;
+                                height: 12.61%;
+                                z-index: 4;
+                                background: transparent;
+                                border: 2px solid rgba(253, 230, 138, 0.0);
+                                border-radius: 6px;
+                                cursor: pointer;
+                                padding: 0;
+                                transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+                                box-shadow: 0 0 0 0 rgba(251, 191, 36, 0);
+                            }
+                            .mob100-jump-cta-btn:hover,
+                            .mob100-jump-cta-btn:focus-visible {
+                                background: rgba(255, 255, 255, 0.16);
+                                border-color: #FEF08A;
+                                box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.38), 0 10px 28px rgba(245, 158, 11, 0.55);
+                                transform: translateY(-2px) scale(1.015);
+                                outline: none;
+                            }
+                            .mob100-jump-cta-btn:active {
+                                transform: translateY(0) scale(0.99);
+                            }
+                            .mob100-jump-stage-hotspot {
+                                position: absolute;
+                                top: 15%;
+                                height: 68%;
+                                z-index: 3;
+                                border-radius: 12px;
+                                border: 1.5px solid transparent;
+                                background: transparent;
+                                cursor: pointer;
+                                transition: all 0.2s ease;
+                            }
+                            .mob100-jump-stage-hotspot:hover,
+                            .mob100-jump-stage-hotspot:focus-visible {
+                                border-color: rgba(56, 189, 248, 0.85);
+                                background: rgba(56, 189, 248, 0.08);
+                                box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.22), 0 10px 24px rgba(2, 6, 23, 0.45);
+                                transform: translateY(-2px);
+                                outline: none;
+                            }
+                            @keyframes mob100BoardArrivalPulse {
+                                0% { box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.85), 0 24px 60px rgba(2, 6, 23, 0.75); }
+                                50% { box-shadow: 0 0 0 6px rgba(251, 191, 36, 0.45), 0 28px 70px rgba(245, 158, 11, 0.45); }
+                                100% { box-shadow: 0 0 0 0 rgba(251, 191, 36, 0), 0 20px 48px rgba(2, 6, 23, 0.55); }
+                            }
+                            .mob100-board-arrival-highlight {
+                                animation: mob100BoardArrivalPulse 1.3s ease-out;
+                            }
+                        </style>
                         <div class="mt-3 position-relative rounded-4 overflow-hidden" style="border: 1.5px solid rgba(251, 191, 36, 0.48); background: #061127; box-shadow: 0 18px 44px rgba(2, 6, 23, 0.65);">
-                            <a href="#act-mobility-100" class="d-block" title="한글퍼즐 × 피지컬 AI 모빌리티 작품 도감 바로가기 (28개 자모 · 100개 테마 · 4000컷)">
+                            <a href="#act-mobility-100" onclick="return jumpToMobility100Archive('all', event);" class="d-block" title="한글퍼즐 × 피지컬 AI 모빌리티 작품 도감 바로가기 (28개 자모 · 100개 테마 · 4000컷)">
                                 <img src="assets/images/story/story-mobility-100-jump-banner.jpg?v=20261107_v2" alt="한글퍼즐 × 피지컬 AI 모빌리티 100작품 — 28개 자모 · 100개 테마 · 4000컷 (01 원형 · 02 골격화 CAD · 03 센서·구동 프로토타입 · 04 미래 모빌리티) 작품 도감 보기" style="width: 100%; height: auto; display: block;" decoding="async" loading="lazy">
                             </a>
+                            <!-- Interactive Hotspot on [작품 도감 보기 ↓] Cream-Gold Button (x=29..231, y=214..256 on 1024x341) -->
+                            <button type="button" class="mob100-jump-cta-btn" onclick="jumpToMobility100Archive('all', event);" title="한글퍼즐 × 피지컬 AI 모빌리티 100작품 도감 보기 (클릭 시 작품 도감으로 이동)" aria-label="작품 도감 보기 ↓"></button>
                             <!-- Interactive Stage Hotspots (01 ~ 04) on Banner -->
-                            <a href="#act-mobility-100" onclick="if(typeof selectMobility100StageMode==='function') selectMobility100StageMode('0');" title="01 원형 도감 보기" aria-label="01 원형 도감 보기" style="position: absolute; left: 30%; top: 18%; width: 13.5%; height: 65%; z-index: 2;"></a>
-                            <a href="#act-mobility-100" onclick="if(typeof selectMobility100StageMode==='function') selectMobility100StageMode('1');" title="02 골격화 CAD 도감 보기" aria-label="02 골격화 CAD 도감 보기" style="position: absolute; left: 43.8%; top: 18%; width: 13%; height: 65%; z-index: 2;"></a>
-                            <a href="#act-mobility-100" onclick="if(typeof selectMobility100StageMode==='function') selectMobility100StageMode('2');" title="03 센서·구동 프로토타입 도감 보기" aria-label="03 센서·구동 프로토타입 도감 보기" style="position: absolute; left: 57%; top: 18%; width: 16.5%; height: 65%; z-index: 2;"></a>
-                            <a href="#act-mobility-100" onclick="if(typeof selectMobility100StageMode==='function') selectMobility100StageMode('3');" title="04 미래 모빌리티 도감 보기" aria-label="04 미래 모빌리티 도감 보기" style="position: absolute; left: 74%; top: 18%; width: 24.5%; height: 65%; z-index: 2;"></a>
+                            <a href="#act-mobility-100" class="mob100-jump-stage-hotspot" onclick="return jumpToMobility100Archive('0', event);" title="01 원형 도감 보기" aria-label="01 원형 도감 보기" style="left: 30%; width: 13.5%;"></a>
+                            <a href="#act-mobility-100" class="mob100-jump-stage-hotspot" onclick="return jumpToMobility100Archive('1', event);" title="02 골격화 CAD 도감 보기" aria-label="02 골격화 CAD 도감 보기" style="left: 43.8%; width: 13%;"></a>
+                            <a href="#act-mobility-100" class="mob100-jump-stage-hotspot" onclick="return jumpToMobility100Archive('2', event);" title="03 센서·구동 프로토타입 도감 보기" aria-label="03 센서·구동 프로토타입 도감 보기" style="left: 57%; width: 16.5%;"></a>
+                            <a href="#act-mobility-100" class="mob100-jump-stage-hotspot" onclick="return jumpToMobility100Archive('3', event);" title="04 미래 모빌리티 도감 보기" aria-label="04 미래 모빌리티 도감 보기" style="left: 74%; width: 24.5%;"></a>
                         </div>
                     </div>
 
@@ -5098,8 +5155,8 @@
                 openMobility100Modal(currentHeroIdx);
             };
 
-            window.selectMobility100StageMode = function(mode) {
-                if (currentStageMode === mode && mode !== 'all') {
+            window.selectMobility100StageMode = function(mode, forceSet) {
+                if (!forceSet && currentStageMode === mode && mode !== 'all') {
                     currentStageMode = 'all';
                 } else {
                     currentStageMode = mode || 'all';
@@ -5116,6 +5173,31 @@
                 }
                 updateHeroStageHighlight();
                 renderMobility100Grid();
+            };
+
+            window.jumpToMobility100Archive = function(mode, ev) {
+                if (ev) {
+                    if (typeof ev.preventDefault === 'function') ev.preventDefault();
+                    if (typeof ev.stopPropagation === 'function') ev.stopPropagation();
+                }
+                if (typeof window.selectMobility100StageMode === 'function') {
+                    window.selectMobility100StageMode(mode || 'all', true);
+                }
+                var target = document.getElementById('mob100EditorialBoard') || document.getElementById('act-mobility-100');
+                if (target) {
+                    var stickyBar = document.querySelector('.story-chapter-wrap');
+                    var offset = (stickyBar ? stickyBar.offsetHeight : 64) + 18;
+                    var rect = target.getBoundingClientRect();
+                    var destY = Math.max(0, (window.pageYOffset || document.documentElement.scrollTop || 0) + rect.top - offset);
+                    window.scrollTo({ top: destY, behavior: 'smooth' });
+                    target.classList.remove('mob100-board-arrival-highlight');
+                    void target.offsetWidth;
+                    target.classList.add('mob100-board-arrival-highlight');
+                }
+                if (history && typeof history.replaceState === 'function') {
+                    try { history.replaceState(null, '', '#act-mobility-100'); } catch (e) {}
+                }
+                return false;
             };
 
             function renderCategoryTabs() {
