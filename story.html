@@ -1006,27 +1006,208 @@
                     <!-- =========================================================
                          HANGUL ROBOT 1,000 PDF ARCHIVE CENTER (제01권 ~ 제10권 원본 PDF 직접 다운로드)
                          ========================================================= -->
+                    <style>
+                        .hr1000-vol-card {
+                            background: linear-gradient(165deg, rgba(15, 23, 42, 0.92) 0%, rgba(7, 11, 22, 0.97) 100%);
+                            border-radius: 18px;
+                            padding: 16px;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-between;
+                            height: 100%;
+                            box-shadow: 0 14px 34px rgba(2, 6, 23, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+                            transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.22s ease, border-color 0.22s ease;
+                        }
+                        .hr1000-vol-card:hover {
+                            transform: translateY(-4px);
+                            box-shadow: 0 20px 44px rgba(2, 6, 23, 0.78), 0 0 24px rgba(251, 191, 36, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+                        }
+                        .hr1000-vol-header {
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            gap: 6px;
+                            margin-bottom: 10px;
+                            white-space: nowrap;
+                        }
+                        .hr1000-vol-badge {
+                            display: inline-flex;
+                            align-items: center;
+                            padding: 4px 11px;
+                            border-radius: 999px;
+                            font-size: 11px;
+                            font-weight: 800;
+                            letter-spacing: 0.02em;
+                            line-height: 1.2;
+                            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.28);
+                        }
+                        .hr1000-vol-range {
+                            font-size: 11px;
+                            font-weight: 700;
+                            color: #cbd5e1;
+                            letter-spacing: 0.03em;
+                            font-variant-numeric: tabular-nums;
+                        }
+                        .hr1000-btn-group {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 7px;
+                            padding-top: 12px;
+                            margin-top: 4px;
+                            border-top: 1px solid rgba(148, 163, 184, 0.16);
+                        }
+                        .hr1000-btn-download {
+                            position: relative;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            width: 100%;
+                            padding: 8px 11px;
+                            border-radius: 11px;
+                            background: linear-gradient(135deg, #f59e0b 0%, #d97706 52%, #b45309 100%);
+                            border: 1px solid rgba(253, 230, 138, 0.68);
+                            color: #ffffff !important;
+                            text-decoration: none !important;
+                            font-size: 12px;
+                            font-weight: 800;
+                            letter-spacing: -0.01em;
+                            box-shadow: 0 6px 18px rgba(217, 119, 6, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+                            transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+                            overflow: hidden;
+                        }
+                        .hr1000-btn-download:hover {
+                            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 52%, #d97706 100%);
+                            border-color: #fef3c7;
+                            box-shadow: 0 10px 24px rgba(245, 158, 11, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+                            transform: translateY(-1.5px);
+                            color: #ffffff !important;
+                        }
+                        .hr1000-btn-download:active {
+                            transform: translateY(0);
+                        }
+                        .hr1000-btn-dl-left {
+                            display: inline-flex;
+                            align-items: center;
+                            gap: 7px;
+                            min-width: 0;
+                        }
+                        .hr1000-btn-dl-icon {
+                            width: 22px;
+                            height: 22px;
+                            border-radius: 6px;
+                            background: rgba(15, 23, 42, 0.26);
+                            border: 1px solid rgba(255, 255, 255, 0.28);
+                            display: inline-flex;
+                            align-items: center;
+                            justify-content: center;
+                            flex-shrink: 0;
+                        }
+                        .hr1000-btn-dl-tag {
+                            font-size: 9.5px;
+                            font-weight: 800;
+                            padding: 2px 6px;
+                            border-radius: 999px;
+                            background: rgba(15, 23, 42, 0.32);
+                            color: #fef3c7;
+                            border: 1px solid rgba(254, 243, 199, 0.35);
+                            letter-spacing: 0.04em;
+                            flex-shrink: 0;
+                        }
+                        .hr1000-btn-viewer {
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            width: 100%;
+                            padding: 7.5px 11px;
+                            border-radius: 11px;
+                            background: linear-gradient(145deg, rgba(30, 41, 59, 0.88) 0%, rgba(15, 23, 42, 0.96) 100%);
+                            border: 1px solid rgba(148, 163, 184, 0.34);
+                            color: #e2e8f0 !important;
+                            text-decoration: none !important;
+                            font-size: 11.5px;
+                            font-weight: 700;
+                            letter-spacing: -0.01em;
+                            box-shadow: 0 4px 12px rgba(2, 6, 23, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.07);
+                            transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+                        }
+                        .hr1000-btn-viewer:hover {
+                            background: linear-gradient(145deg, rgba(51, 65, 85, 0.92) 0%, rgba(30, 41, 59, 0.98) 100%);
+                            border-color: rgba(56, 189, 248, 0.65);
+                            color: #ffffff !important;
+                            box-shadow: 0 8px 20px rgba(14, 165, 233, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.14);
+                            transform: translateY(-1px);
+                        }
+                        .hr1000-btn-vw-left {
+                            display: inline-flex;
+                            align-items: center;
+                            gap: 7px;
+                            min-width: 0;
+                        }
+                        .hr1000-btn-vw-icon {
+                            width: 20px;
+                            height: 20px;
+                            border-radius: 6px;
+                            background: rgba(56, 189, 248, 0.14);
+                            border: 1px solid rgba(56, 189, 248, 0.38);
+                            color: #38bdf8;
+                            display: inline-flex;
+                            align-items: center;
+                            justify-content: center;
+                            flex-shrink: 0;
+                        }
+                        .hr1000-btn-vw-arrow {
+                            color: #7dd3fc;
+                            transition: transform 0.18s ease;
+                            display: inline-flex;
+                            align-items: center;
+                        }
+                        .hr1000-btn-viewer:hover .hr1000-btn-vw-arrow {
+                            transform: translate(2px, -2px);
+                        }
+                        .hr1000-btn-master {
+                            display: inline-flex;
+                            align-items: center;
+                            gap: 10px;
+                            padding: 11px 22px;
+                            border-radius: 999px;
+                            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
+                            border: 1.5px solid #fef3c7;
+                            color: #0f172a;
+                            font-size: 13.5px;
+                            font-weight: 900;
+                            letter-spacing: -0.01em;
+                            box-shadow: 0 12px 28px rgba(245, 158, 11, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.65);
+                            transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+                            cursor: pointer;
+                        }
+                        .hr1000-btn-master:hover {
+                            transform: translateY(-2px);
+                            box-shadow: 0 16px 34px rgba(245, 158, 11, 0.52), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+                            background: linear-gradient(135deg, #fde68a 0%, #fbbf24 50%, #f59e0b 100%);
+                        }
+                    </style>
                     <div id="hangul-robot-1000-pdf-center" class="p-4 rounded-4" style="background: linear-gradient(155deg, rgba(15, 23, 42, 0.97) 0%, rgba(17, 24, 39, 0.98) 55%, rgba(7, 13, 27, 0.99) 100%); border: 1.5px solid rgba(251, 191, 36, 0.55); box-shadow: 0 22px 54px rgba(2, 6, 23, 0.72);">
                         <div class="row align-items-center justify-content-between g-3 mb-3 pb-3" style="border-bottom: 1px solid rgba(251, 191, 36, 0.25);">
                             <div class="col-lg-8">
                                 <div class="d-flex align-items-center gap-2 flex-wrap mb-2">
-                                    <span class="badge rounded-pill px-3 py-1 fw-bold" style="background: linear-gradient(135deg, #fbbf24, #d97706); color: #0f172a; font-size: 11.5px;">📚 FULL 10-VOLUME PDF ARCHIVE · 1,000 WORKS</span>
-                                    <span class="badge rounded-pill px-3 py-1 fw-bold" style="background: rgba(56, 189, 248, 0.18); color: #7dd3fc; border: 1px solid rgba(56, 189, 248, 0.45); font-size: 11.5px;">전 10권 · 권당 100페이지 · 총 1,000작품 (4,000도해)</span>
-                                    <span class="badge rounded-pill px-3 py-1 fw-bold" style="background: rgba(16, 185, 129, 0.18); color: #6ee7b7; border: 1px solid rgba(16, 185, 129, 0.45); font-size: 11.5px;">무료 원본 PDF 직접 다운로드 제공</span>
+                                    <span class="badge rounded-pill px-3 py-1 fw-bold" style="background: linear-gradient(135deg, #fbbf24, #d97706); color: #0f172a; font-size: 11.5px;">FULL 10-VOLUME PDF ARCHIVE · 1,000 WORKS</span>
+                                    <span class="badge rounded-pill px-3 py-1 fw-bold" style="background: rgba(56, 189, 248, 0.18); color: #7dd3fc; border: 1px solid rgba(56, 189, 248, 0.45); font-size: 11.5px;">전 10권 · 총 1,000작품 (4,000도해)</span>
+                                    <span class="badge rounded-pill px-3 py-1 fw-bold" style="background: rgba(16, 185, 129, 0.18); color: #6ee7b7; border: 1px solid rgba(16, 185, 129, 0.45); font-size: 11.5px;">원본 PDF 다운로드 &amp; 즉시 열람</span>
                                 </div>
                                 <h3 class="text-white fw-bold mb-1" style="font-size: 21px; letter-spacing: -0.02em;">
                                     『한글 조형에서 피지컬 AI 로봇으로 — 한글로봇 1,000작품 전집 (제01권 ~ 제10권)』 원본 PDF 다운로드 센터
                                 </h3>
                                 <p class="mb-0" style="font-size: 13.5px; color: #cbd5e1; line-height: 1.55;">
-                                    한글 28자·모 블록 조형(01)에서 기구 골격화 CAD(02), 센서·구동 프로토타입(03), 최종 피지컬 AI 로봇·모빌리티(04)까지 집대성한 <strong>전 10권(0001번~1000번, 총 1,000페이지)</strong> 원본 PDF 도감입니다. 원하는 권의 <strong>[📥 PDF 다운로드]</strong> 버튼을 클릭하면 사용자 PC/모바일로 즉시 저장되며, <strong>[📖 브라우저에서 바로 열기]</strong>로 즉시 열람하실 수 있습니다.
+                                    한글 28자·모 블록 조형(01)에서 기구 골격화 CAD(02), 센서·구동 프로토타입(03), 최종 피지컬 AI 로봇·모빌리티(04)까지 집대성한 <strong>전 10권(0001번~1000번)</strong> 원본 PDF 도감입니다. 각 권 하단의 <strong>[PDF 다운로드]</strong> 또는 <strong>[브라우저에서 바로 열기]</strong> 버튼으로 즉시 소장·열람하실 수 있습니다.
                                 </p>
                             </div>
                             <div class="col-lg-4 text-lg-end">
                                 <div class="d-inline-flex flex-column align-items-lg-end gap-2">
-                                    <button type="button" onclick="downloadAllHangulRobot1000Pdfs()" class="btn rounded-pill px-4 py-2 fw-bold" style="background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 55%, #d97706 100%); color: #0f172a; border: 1px solid rgba(254, 243, 199, 0.85); font-size: 13.5px; box-shadow: 0 10px 26px rgba(245, 158, 11, 0.35);">
-                                        📦 전권(제01권~제10권) 원클릭 순차 다운로드
+                                    <button type="button" onclick="downloadAllHangulRobot1000Pdfs()" class="hr1000-btn-master">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                                        <span>전권(제01권~제10권) 원클릭 순차 다운로드</span>
                                     </button>
-                                    <span id="hangul1000BatchStatus" style="font-size: 11.5px; color: #fde68a;">전 10권 합계 약 129 MB (고속 최적화본) · 개별 권 선택 다운로드 가능</span>
+                                    <span id="hangul1000BatchStatus" style="font-size: 11.5px; color: #fde68a;">전 10권(1,000작품) 고속 최적화본 · 개별 권 선택 다운로드 가능</span>
                                 </div>
                             </div>
                         </div>
@@ -1035,115 +1216,175 @@
                         <div class="row g-3">
                             <!-- Vol 01 -->
                             <div class="col-md-6 col-lg-4 col-xl">
-                                <div class="h-100 rounded-4 p-3 d-flex flex-column justify-content-between" style="background: rgba(2, 6, 23, 0.82); border: 1px solid rgba(56, 189, 248, 0.42);">
+                                <div class="hr1000-vol-card" style="border: 1px solid rgba(56, 189, 248, 0.42);">
                                     <div>
-                                        <div class="d-flex align-items-center justify-content-between gap-1 mb-2">
-                                            <span class="badge rounded-pill fw-bold" style="background: #38bdf8; color: #0f172a; font-size: 11px;">제01권 · 0001–0100</span>
-                                            <span style="font-size: 11px; color: #94a3b8; font-weight: 600;">100P · 18.6 MB</span>
+                                        <div class="hr1000-vol-header">
+                                            <span class="hr1000-vol-badge" style="background: #38bdf8; color: #0f172a;">제01권</span>
+                                            <span class="hr1000-vol-range">No. 0001–0100</span>
                                         </div>
                                         <div class="rounded-3 overflow-hidden mb-2 position-relative" onclick="openStoryLightbox('assets/images/hangul-robot-1000/vol_01_cover.jpg', '제01권 (0001–0100) 한글퍼즐 × 피지컬 AI 모빌리티 100작품 — 001 삼창 귀선 → 삼창 도심 비행정 외 99작품', false)" style="border: 1px solid rgba(148, 163, 184, 0.25); cursor: zoom-in; background: #0f172a;">
                                             <img src="assets/images/hangul-robot-1000/vol_01_cover.jpg" alt="제01권 한글퍼즐 피지컬 AI 모빌리티 100작품 표지" style="width: 100%; height: 126px; object-fit: cover; object-position: top center; display: block;" loading="lazy">
-                                            <span style="position: absolute; right: 6px; bottom: 6px; background: rgba(2, 6, 23, 0.82); color: #fde68a; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 999px; border: 1px solid rgba(251, 191, 36, 0.45);">🔍 표지 확대</span>
+                                            <span style="position: absolute; right: 6px; bottom: 6px; background: rgba(2, 6, 23, 0.82); color: #fde68a; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 999px; border: 1px solid rgba(251, 191, 36, 0.45);">표지 확대</span>
                                         </div>
                                         <h4 class="text-white fw-bold mb-1" style="font-size: 14.5px;">피지컬 AI 모빌리티</h4>
                                         <div class="mb-1" style="font-size: 11.5px; color: #7dd3fc; font-weight: 700;">대표 0001: 삼창 귀선 → 삼창 도심 비행정</div>
                                         <p class="mb-2" style="font-size: 11px; color: #94a3b8; line-height: 1.4;">물길과 선체 · 다리와 문 · 탑과 신호 · 마당과 집 · 앉고 놓는 모형 · 공방과 기계 · 날개와 생물 · 정원과 숲 · 관측과 등대 · 마당과 놀이</p>
                                     </div>
-                                    <div class="d-grid gap-1 pt-2" style="border-top: 1px solid rgba(148, 163, 184, 0.16);">
-                                        <a href="assets/docs/hangul-robot-1000/hangul_robot_1000_vol01.pdf" download="제01권_0001-0100_피지컬AI_모빌리티.pdf" class="btn btn-sm rounded-3 fw-bold py-1" style="background: linear-gradient(135deg, #38bdf8, #0284c7); color: #ffffff; font-size: 12px;">📥 PDF 다운로드 (제01권)</a>
-                                        <a href="assets/docs/hangul-robot-1000/hangul_robot_1000_vol01.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-sm rounded-3 fw-semibold py-1" style="background: rgba(30, 41, 59, 0.9); color: #e2e8f0; border: 1px solid rgba(148, 163, 184, 0.35); font-size: 11.5px;">📖 브라우저에서 바로 열기 ↗</a>
+                                    <div class="hr1000-btn-group">
+                                        <a href="assets/docs/hangul-robot-1000/hangul_robot_1000_vol01.pdf" download="제01권_0001-0100_피지컬AI_모빌리티.pdf" class="hr1000-btn-download">
+                                            <span class="hr1000-btn-dl-left">
+                                                <span class="hr1000-btn-dl-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+                                                <span>PDF 다운로드</span>
+                                            </span>
+                                            <span class="hr1000-btn-dl-tag">제01권</span>
+                                        </a>
+                                        <a href="assets/docs/hangul-robot-1000/hangul_robot_1000_vol01.pdf" target="_blank" rel="noopener noreferrer" class="hr1000-btn-viewer">
+                                            <span class="hr1000-btn-vw-left">
+                                                <span class="hr1000-btn-vw-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+                                                <span>브라우저에서 바로 열기</span>
+                                            </span>
+                                            <span class="hr1000-btn-vw-arrow"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- Vol 02 -->
                             <div class="col-md-6 col-lg-4 col-xl">
-                                <div class="h-100 rounded-4 p-3 d-flex flex-column justify-content-between" style="background: rgba(2, 6, 23, 0.82); border: 1px solid rgba(251, 191, 36, 0.38);">
+                                <div class="hr1000-vol-card" style="border: 1px solid rgba(251, 191, 36, 0.38);">
                                     <div>
-                                        <div class="d-flex align-items-center justify-content-between gap-1 mb-2">
-                                            <span class="badge rounded-pill fw-bold" style="background: #fbbf24; color: #0f172a; font-size: 11px;">제02권 · 0101–0200</span>
-                                            <span style="font-size: 11px; color: #94a3b8; font-weight: 600;">100P · 12.6 MB</span>
+                                        <div class="hr1000-vol-header">
+                                            <span class="hr1000-vol-badge" style="background: #fbbf24; color: #0f172a;">제02권</span>
+                                            <span class="hr1000-vol-range">No. 0101–0200</span>
                                         </div>
                                         <div class="rounded-3 overflow-hidden mb-2 position-relative" onclick="openStoryLightbox('assets/images/hangul-robot-1000/vol_02_cover.jpg', '제02권 (0101–0200) 마을과 건축 — 0101 빗장문 → 성문 빗장 도킹 로봇 외 99작품', false)" style="border: 1px solid rgba(148, 163, 184, 0.25); cursor: zoom-in; background: #0f172a;">
                                             <img src="assets/images/hangul-robot-1000/vol_02_cover.jpg" alt="제02권 마을과 건축 100작품 표지" style="width: 100%; height: 126px; object-fit: cover; object-position: top center; display: block;" loading="lazy">
-                                            <span style="position: absolute; right: 6px; bottom: 6px; background: rgba(2, 6, 23, 0.82); color: #fde68a; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 999px; border: 1px solid rgba(251, 191, 36, 0.45);">🔍 표지 확대</span>
+                                            <span style="position: absolute; right: 6px; bottom: 6px; background: rgba(2, 6, 23, 0.82); color: #fde68a; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 999px; border: 1px solid rgba(251, 191, 36, 0.45);">표지 확대</span>
                                         </div>
                                         <h4 class="text-white fw-bold mb-1" style="font-size: 14.5px;">마을과 건축</h4>
                                         <div class="mb-1" style="font-size: 11.5px; color: #fde68a; font-weight: 700;">대표 0101: 빗장문 → 성문 빗장 도킹 로봇</div>
                                         <p class="mb-2" style="font-size: 11px; color: #94a3b8; line-height: 1.4;">성곽과 성문 · 마당과 골목 · 지붕과 정자 · 산길과 고개 · 물가의 다리 · 우물과 수로 · 골목 장터 · 봉화와 감시 · 기와와 가마 · 역참과 나루</p>
                                     </div>
-                                    <div class="d-grid gap-1 pt-2" style="border-top: 1px solid rgba(148, 163, 184, 0.16);">
-                                        <a href="assets/docs/hangul-robot-1000/hangul_robot_1000_vol02.pdf" download="제02권_0101-0200_마을과_건축.pdf" class="btn btn-sm rounded-3 fw-bold py-1" style="background: linear-gradient(135deg, #38bdf8, #0284c7); color: #ffffff; font-size: 12px;">📥 PDF 다운로드 (제02권)</a>
-                                        <a href="assets/docs/hangul-robot-1000/hangul_robot_1000_vol02.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-sm rounded-3 fw-semibold py-1" style="background: rgba(30, 41, 59, 0.9); color: #e2e8f0; border: 1px solid rgba(148, 163, 184, 0.35); font-size: 11.5px;">📖 브라우저에서 바로 열기 ↗</a>
+                                    <div class="hr1000-btn-group">
+                                        <a href="assets/docs/hangul-robot-1000/hangul_robot_1000_vol02.pdf" download="제02권_0101-0200_마을과_건축.pdf" class="hr1000-btn-download">
+                                            <span class="hr1000-btn-dl-left">
+                                                <span class="hr1000-btn-dl-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+                                                <span>PDF 다운로드</span>
+                                            </span>
+                                            <span class="hr1000-btn-dl-tag">제02권</span>
+                                        </a>
+                                        <a href="assets/docs/hangul-robot-1000/hangul_robot_1000_vol02.pdf" target="_blank" rel="noopener noreferrer" class="hr1000-btn-viewer">
+                                            <span class="hr1000-btn-vw-left">
+                                                <span class="hr1000-btn-vw-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+                                                <span>브라우저에서 바로 열기</span>
+                                            </span>
+                                            <span class="hr1000-btn-vw-arrow"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- Vol 03 -->
                             <div class="col-md-6 col-lg-4 col-xl">
-                                <div class="h-100 rounded-4 p-3 d-flex flex-column justify-content-between" style="background: rgba(2, 6, 23, 0.82); border: 1px solid rgba(16, 185, 129, 0.38);">
+                                <div class="hr1000-vol-card" style="border: 1px solid rgba(16, 185, 129, 0.38);">
                                     <div>
-                                        <div class="d-flex align-items-center justify-content-between gap-1 mb-2">
-                                            <span class="badge rounded-pill fw-bold" style="background: #10b981; color: #0f172a; font-size: 11px;">제03권 · 0201–0300</span>
-                                            <span style="font-size: 11px; color: #94a3b8; font-weight: 600;">100P · 12.4 MB</span>
+                                        <div class="hr1000-vol-header">
+                                            <span class="hr1000-vol-badge" style="background: #10b981; color: #0f172a;">제03권</span>
+                                            <span class="hr1000-vol-range">No. 0201–0300</span>
                                         </div>
                                         <div class="rounded-3 overflow-hidden mb-2 position-relative" onclick="openStoryLightbox('assets/images/hangul-robot-1000/vol_03_cover.jpg', '제03권 (0201–0300) 이동과 운송 — 0201 외돛 연락선 → 단돛 연락 드론선 외 99작품', false)" style="border: 1px solid rgba(148, 163, 184, 0.25); cursor: zoom-in; background: #0f172a;">
                                             <img src="assets/images/hangul-robot-1000/vol_03_cover.jpg" alt="제03권 이동과 운송 100작품 표지" style="width: 100%; height: 126px; object-fit: cover; object-position: top center; display: block;" loading="lazy">
-                                            <span style="position: absolute; right: 6px; bottom: 6px; background: rgba(2, 6, 23, 0.82); color: #fde68a; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 999px; border: 1px solid rgba(251, 191, 36, 0.45);">🔍 표지 확대</span>
+                                            <span style="position: absolute; right: 6px; bottom: 6px; background: rgba(2, 6, 23, 0.82); color: #fde68a; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 999px; border: 1px solid rgba(251, 191, 36, 0.45);">표지 확대</span>
                                         </div>
                                         <h4 class="text-white fw-bold mb-1" style="font-size: 14.5px;">이동과 운송</h4>
                                         <div class="mb-1" style="font-size: 11.5px; color: #6ee7b7; font-weight: 700;">대표 0201: 외돛 연락선 → 단돛 연락 드론선</div>
                                         <p class="mb-2" style="font-size: 11px; color: #94a3b8; line-height: 1.4;">범선과 돛 · 작업선 · 여객과 화물선 · 도시 궤도 · 산악 운송 · 농장 운반 · 물류 터미널 · 회전익과 활공 · 우주 수송 · 구조와 응급</p>
                                     </div>
-                                    <div class="d-grid gap-1 pt-2" style="border-top: 1px solid rgba(148, 163, 184, 0.16);">
-                                        <a href="assets/docs/hangul-robot-1000/hangul_robot_1000_vol03.pdf" download="제03권_0201-0300_이동과_운송.pdf" class="btn btn-sm rounded-3 fw-bold py-1" style="background: linear-gradient(135deg, #38bdf8, #0284c7); color: #ffffff; font-size: 12px;">📥 PDF 다운로드 (제03권)</a>
-                                        <a href="assets/docs/hangul-robot-1000/hangul_robot_1000_vol03.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-sm rounded-3 fw-semibold py-1" style="background: rgba(30, 41, 59, 0.9); color: #e2e8f0; border: 1px solid rgba(148, 163, 184, 0.35); font-size: 11.5px;">📖 브라우저에서 바로 열기 ↗</a>
+                                    <div class="hr1000-btn-group">
+                                        <a href="assets/docs/hangul-robot-1000/hangul_robot_1000_vol03.pdf" download="제03권_0201-0300_이동과_운송.pdf" class="hr1000-btn-download">
+                                            <span class="hr1000-btn-dl-left">
+                                                <span class="hr1000-btn-dl-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+                                                <span>PDF 다운로드</span>
+                                            </span>
+                                            <span class="hr1000-btn-dl-tag">제03권</span>
+                                        </a>
+                                        <a href="assets/docs/hangul-robot-1000/hangul_robot_1000_vol03.pdf" target="_blank" rel="noopener noreferrer" class="hr1000-btn-viewer">
+                                            <span class="hr1000-btn-vw-left">
+                                                <span class="hr1000-btn-vw-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+                                                <span>브라우저에서 바로 열기</span>
+                                            </span>
+                                            <span class="hr1000-btn-vw-arrow"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- Vol 04 -->
                             <div class="col-md-6 col-lg-4 col-xl">
-                                <div class="h-100 rounded-4 p-3 d-flex flex-column justify-content-between" style="background: rgba(2, 6, 23, 0.82); border: 1px solid rgba(168, 85, 247, 0.38);">
+                                <div class="hr1000-vol-card" style="border: 1px solid rgba(168, 85, 247, 0.38);">
                                     <div>
-                                        <div class="d-flex align-items-center justify-content-between gap-1 mb-2">
-                                            <span class="badge rounded-pill fw-bold" style="background: #a855f7; color: #ffffff; font-size: 11px;">제04권 · 0301–0400</span>
-                                            <span style="font-size: 11px; color: #94a3b8; font-weight: 600;">100P · 12.5 MB</span>
+                                        <div class="hr1000-vol-header">
+                                            <span class="hr1000-vol-badge" style="background: #a855f7; color: #ffffff;">제04권</span>
+                                            <span class="hr1000-vol-range">No. 0301–0400</span>
                                         </div>
                                         <div class="rounded-3 overflow-hidden mb-2 position-relative" onclick="openStoryLightbox('assets/images/hangul-robot-1000/vol_04_cover.jpg', '제04권 (0301–0400) 생물과 서식처 — 0301 긴부리 도요 → 갯벌 긴부리 채수기 외 99작품', false)" style="border: 1px solid rgba(148, 163, 184, 0.25); cursor: zoom-in; background: #0f172a;">
                                             <img src="assets/images/hangul-robot-1000/vol_04_cover.jpg" alt="제04권 생물과 서식처 100작품 표지" style="width: 100%; height: 126px; object-fit: cover; object-position: top center; display: block;" loading="lazy">
-                                            <span style="position: absolute; right: 6px; bottom: 6px; background: rgba(2, 6, 23, 0.82); color: #fde68a; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 999px; border: 1px solid rgba(251, 191, 36, 0.45);">🔍 표지 확대</span>
+                                            <span style="position: absolute; right: 6px; bottom: 6px; background: rgba(2, 6, 23, 0.82); color: #fde68a; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 999px; border: 1px solid rgba(251, 191, 36, 0.45);">표지 확대</span>
                                         </div>
                                         <h4 class="text-white fw-bold mb-1" style="font-size: 14.5px;">생물과 서식처</h4>
                                         <div class="mb-1" style="font-size: 11.5px; color: #d8b4fe; font-weight: 700;">대표 0301: 긴부리 도요 → 갯벌 긴부리 채수기</div>
                                         <p class="mb-2" style="font-size: 11px; color: #94a3b8; line-height: 1.4;">물새 · 숲새 · 네발 동물 · 바닷물고기 · 연안 생물 · 곤충 · 양서와 파충 · 해양 대형동물 · 둥지와 굴 · 생태 관찰대</p>
                                     </div>
-                                    <div class="d-grid gap-1 pt-2" style="border-top: 1px solid rgba(148, 163, 184, 0.16);">
-                                        <a href="assets/docs/hangul-robot-1000/hangul_robot_1000_vol04.pdf" download="제04권_0301-0400_생물과_서식처.pdf" class="btn btn-sm rounded-3 fw-bold py-1" style="background: linear-gradient(135deg, #38bdf8, #0284c7); color: #ffffff; font-size: 12px;">📥 PDF 다운로드 (제04권)</a>
-                                        <a href="assets/docs/hangul-robot-1000/hangul_robot_1000_vol04.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-sm rounded-3 fw-semibold py-1" style="background: rgba(30, 41, 59, 0.9); color: #e2e8f0; border: 1px solid rgba(148, 163, 184, 0.35); font-size: 11.5px;">📖 브라우저에서 바로 열기 ↗</a>
+                                    <div class="hr1000-btn-group">
+                                        <a href="assets/docs/hangul-robot-1000/hangul_robot_1000_vol04.pdf" download="제04권_0301-0400_생물과_서식처.pdf" class="hr1000-btn-download">
+                                            <span class="hr1000-btn-dl-left">
+                                                <span class="hr1000-btn-dl-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+                                                <span>PDF 다운로드</span>
+                                            </span>
+                                            <span class="hr1000-btn-dl-tag">제04권</span>
+                                        </a>
+                                        <a href="assets/docs/hangul-robot-1000/hangul_robot_1000_vol04.pdf" target="_blank" rel="noopener noreferrer" class="hr1000-btn-viewer">
+                                            <span class="hr1000-btn-vw-left">
+                                                <span class="hr1000-btn-vw-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+                                                <span>브라우저에서 바로 열기</span>
+                                            </span>
+                                            <span class="hr1000-btn-vw-arrow"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- Vol 05 -->
                             <div class="col-md-6 col-lg-4 col-xl">
-                                <div class="h-100 rounded-4 p-3 d-flex flex-column justify-content-between" style="background: rgba(2, 6, 23, 0.82); border: 1px solid rgba(244, 63, 94, 0.38);">
+                                <div class="hr1000-vol-card" style="border: 1px solid rgba(244, 63, 94, 0.38);">
                                     <div>
-                                        <div class="d-flex align-items-center justify-content-between gap-1 mb-2">
-                                            <span class="badge rounded-pill fw-bold" style="background: #f43f5e; color: #ffffff; font-size: 11px;">제05권 · 0401–0500</span>
-                                            <span style="font-size: 11px; color: #94a3b8; font-weight: 600;">100P · 11.6 MB</span>
+                                        <div class="hr1000-vol-header">
+                                            <span class="hr1000-vol-badge" style="background: #f43f5e; color: #ffffff;">제05권</span>
+                                            <span class="hr1000-vol-range">No. 0401–0500</span>
                                         </div>
                                         <div class="rounded-3 overflow-hidden mb-2 position-relative" onclick="openStoryLightbox('assets/images/hangul-robot-1000/vol_05_cover.jpg', '제05권 (0401–0500) 가구와 생활 공간 — 0401 등창 안락의자 → 좌압 보정 이동 의자 외 99작품', false)" style="border: 1px solid rgba(148, 163, 184, 0.25); cursor: zoom-in; background: #0f172a;">
                                             <img src="assets/images/hangul-robot-1000/vol_05_cover.jpg" alt="제05권 가구와 생활 공간 100작품 표지" style="width: 100%; height: 126px; object-fit: cover; object-position: top center; display: block;" loading="lazy">
-                                            <span style="position: absolute; right: 6px; bottom: 6px; background: rgba(2, 6, 23, 0.82); color: #fde68a; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 999px; border: 1px solid rgba(251, 191, 36, 0.45);">🔍 표지 확대</span>
+                                            <span style="position: absolute; right: 6px; bottom: 6px; background: rgba(2, 6, 23, 0.82); color: #fde68a; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 999px; border: 1px solid rgba(251, 191, 36, 0.45);">표지 확대</span>
                                         </div>
                                         <h4 class="text-white fw-bold mb-1" style="font-size: 14.5px;">가구와 생활 공간</h4>
                                         <div class="mb-1" style="font-size: 11.5px; color: #fda4af; font-weight: 700;">대표 0401: 등창 안락의자 → 좌압 보정 이동 의자</div>
                                         <p class="mb-2" style="font-size: 11px; color: #94a3b8; line-height: 1.4;">앉는 모형 · 탁자 · 서가 · 현관 · 주방 모형 · 조명 · 침실 모형 · 작업실 · 전시 진열 · 생활 소품</p>
                                     </div>
-                                    <div class="d-grid gap-1 pt-2" style="border-top: 1px solid rgba(148, 163, 184, 0.16);">
-                                        <a href="assets/docs/hangul-robot-1000/hangul_robot_1000_vol05.pdf" download="제05권_0401-0500_가구와_생활_공간.pdf" class="btn btn-sm rounded-3 fw-bold py-1" style="background: linear-gradient(135deg, #38bdf8, #0284c7); color: #ffffff; font-size: 12px;">📥 PDF 다운로드 (제05권)</a>
-                                        <a href="assets/docs/hangul-robot-1000/hangul_robot_1000_vol05.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-sm rounded-3 fw-semibold py-1" style="background: rgba(30, 41, 59, 0.9); color: #e2e8f0; border: 1px solid rgba(148, 163, 184, 0.35); font-size: 11.5px;">📖 브라우저에서 바로 열기 ↗</a>
+                                    <div class="hr1000-btn-group">
+                                        <a href="assets/docs/hangul-robot-1000/hangul_robot_1000_vol05.pdf" download="제05권_0401-0500_가구와_생활_공간.pdf" class="hr1000-btn-download">
+                                            <span class="hr1000-btn-dl-left">
+                                                <span class="hr1000-btn-dl-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+                                                <span>PDF 다운로드</span>
+                                            </span>
+                                            <span class="hr1000-btn-dl-tag">제05권</span>
+                                        </a>
+                                        <a href="assets/docs/hangul-robot-1000/hangul_robot_1000_vol05.pdf" target="_blank" rel="noopener noreferrer" class="hr1000-btn-viewer">
+                                            <span class="hr1000-btn-vw-left">
+                                                <span class="hr1000-btn-vw-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+                                                <span>브라우저에서 바로 열기</span>
+                                            </span>
+                                            <span class="hr1000-btn-vw-arrow"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -1153,115 +1394,175 @@
                         <div class="row g-3 mt-1">
                             <!-- Vol 06 -->
                             <div class="col-md-6 col-lg-4 col-xl">
-                                <div class="h-100 rounded-4 p-3 d-flex flex-column justify-content-between" style="background: rgba(2, 6, 23, 0.82); border: 1px solid rgba(34, 197, 94, 0.38);">
+                                <div class="hr1000-vol-card" style="border: 1px solid rgba(34, 197, 94, 0.38);">
                                     <div>
-                                        <div class="d-flex align-items-center justify-content-between gap-1 mb-2">
-                                            <span class="badge rounded-pill fw-bold" style="background: #22c55e; color: #0f172a; font-size: 11px;">제06권 · 0501–0600</span>
-                                            <span style="font-size: 11px; color: #94a3b8; font-weight: 600;">100P · 12.9 MB</span>
+                                        <div class="hr1000-vol-header">
+                                            <span class="hr1000-vol-badge" style="background: #22c55e; color: #0f172a;">제06권</span>
+                                            <span class="hr1000-vol-range">No. 0501–0600</span>
                                         </div>
                                         <div class="rounded-3 overflow-hidden mb-2 position-relative" onclick="openStoryLightbox('assets/images/hangul-robot-1000/vol_06_cover.jpg', '제06권 (0501–0600) 식물과 정원 — 0501 우산가지 소나무 → 수관 하부 수형 스캐너 외 99작품', false)" style="border: 1px solid rgba(148, 163, 184, 0.25); cursor: zoom-in; background: #0f172a;">
                                             <img src="assets/images/hangul-robot-1000/vol_06_cover.jpg" alt="제06권 식물과 정원 100작품 표지" style="width: 100%; height: 126px; object-fit: cover; object-position: top center; display: block;" loading="lazy">
-                                            <span style="position: absolute; right: 6px; bottom: 6px; background: rgba(2, 6, 23, 0.82); color: #fde68a; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 999px; border: 1px solid rgba(251, 191, 36, 0.45);">🔍 표지 확대</span>
+                                            <span style="position: absolute; right: 6px; bottom: 6px; background: rgba(2, 6, 23, 0.82); color: #fde68a; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 999px; border: 1px solid rgba(251, 191, 36, 0.45);">표지 확대</span>
                                         </div>
                                         <h4 class="text-white fw-bold mb-1" style="font-size: 14.5px;">식물과 정원</h4>
                                         <div class="mb-1" style="font-size: 11.5px; color: #86efac; font-weight: 700;">대표 0501: 우산가지 소나무 → 수형 스캐너</div>
                                         <p class="mb-2" style="font-size: 11px; color: #94a3b8; line-height: 1.4;">나무 · 꽃 · 열매와 씨앗 · 덩굴 · 화분 · 온실 · 정원길 · 수경 재배 · 정원 도구 · 공공 화단</p>
                                     </div>
-                                    <div class="d-grid gap-1 pt-2" style="border-top: 1px solid rgba(148, 163, 184, 0.16);">
-                                        <a href="assets/docs/hangul-robot-1000/hangul_robot_1000_vol06.pdf" download="제06권_0501-0600_식물과_정원.pdf" class="btn btn-sm rounded-3 fw-bold py-1" style="background: linear-gradient(135deg, #38bdf8, #0284c7); color: #ffffff; font-size: 12px;">📥 PDF 다운로드 (제06권)</a>
-                                        <a href="assets/docs/hangul-robot-1000/hangul_robot_1000_vol06.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-sm rounded-3 fw-semibold py-1" style="background: rgba(30, 41, 59, 0.9); color: #e2e8f0; border: 1px solid rgba(148, 163, 184, 0.35); font-size: 11.5px;">📖 브라우저에서 바로 열기 ↗</a>
+                                    <div class="hr1000-btn-group">
+                                        <a href="assets/docs/hangul-robot-1000/hangul_robot_1000_vol06.pdf" download="제06권_0501-0600_식물과_정원.pdf" class="hr1000-btn-download">
+                                            <span class="hr1000-btn-dl-left">
+                                                <span class="hr1000-btn-dl-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+                                                <span>PDF 다운로드</span>
+                                            </span>
+                                            <span class="hr1000-btn-dl-tag">제06권</span>
+                                        </a>
+                                        <a href="assets/docs/hangul-robot-1000/hangul_robot_1000_vol06.pdf" target="_blank" rel="noopener noreferrer" class="hr1000-btn-viewer">
+                                            <span class="hr1000-btn-vw-left">
+                                                <span class="hr1000-btn-vw-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+                                                <span>브라우저에서 바로 열기</span>
+                                            </span>
+                                            <span class="hr1000-btn-vw-arrow"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- Vol 07 -->
                             <div class="col-md-6 col-lg-4 col-xl">
-                                <div class="h-100 rounded-4 p-3 d-flex flex-column justify-content-between" style="background: rgba(2, 6, 23, 0.82); border: 1px solid rgba(249, 115, 22, 0.38);">
+                                <div class="hr1000-vol-card" style="border: 1px solid rgba(249, 115, 22, 0.38);">
                                     <div>
-                                        <div class="d-flex align-items-center justify-content-between gap-1 mb-2">
-                                            <span class="badge rounded-pill fw-bold" style="background: #f97316; color: #0f172a; font-size: 11px;">제07권 · 0601–0700</span>
-                                            <span style="font-size: 11px; color: #94a3b8; font-weight: 600;">100P · 12.0 MB</span>
+                                        <div class="hr1000-vol-header">
+                                            <span class="hr1000-vol-badge" style="background: #f97316; color: #0f172a;">제07권</span>
+                                            <span class="hr1000-vol-range">No. 0601–0700</span>
                                         </div>
                                         <div class="rounded-3 overflow-hidden mb-2 position-relative" onclick="openStoryLightbox('assets/images/hangul-robot-1000/vol_07_cover.jpg', '제07권 (0601–0700) 기계와 제작 — 0601 활자 압인기 → 활자 압인 보조차 외 99작품', false)" style="border: 1px solid rgba(148, 163, 184, 0.25); cursor: zoom-in; background: #0f172a;">
                                             <img src="assets/images/hangul-robot-1000/vol_07_cover.jpg" alt="제07권 기계와 제작 100작품 표지" style="width: 100%; height: 126px; object-fit: cover; object-position: top center; display: block;" loading="lazy">
-                                            <span style="position: absolute; right: 6px; bottom: 6px; background: rgba(2, 6, 23, 0.82); color: #fde68a; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 999px; border: 1px solid rgba(251, 191, 36, 0.45);">🔍 표지 확대</span>
+                                            <span style="position: absolute; right: 6px; bottom: 6px; background: rgba(2, 6, 23, 0.82); color: #fde68a; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 999px; border: 1px solid rgba(251, 191, 36, 0.45);">표지 확대</span>
                                         </div>
                                         <h4 class="text-white fw-bold mb-1" style="font-size: 14.5px;">기계와 제작</h4>
                                         <div class="mb-1" style="font-size: 11.5px; color: #fdba74; font-weight: 700;">대표 0601: 활자 압인기 → 활자 압인 보조차</div>
                                         <p class="mb-2" style="font-size: 11px; color: #94a3b8; line-height: 1.4;">인쇄와 제본 · 직조와 봉제 · 목공 · 도예 · 양중과 운반 · 물과 바람 · 정렬과 분류 · 전동 장치 · 기록 기계 · 수리와 검수</p>
                                     </div>
-                                    <div class="d-grid gap-1 pt-2" style="border-top: 1px solid rgba(148, 163, 184, 0.16);">
-                                        <a href="assets/docs/hangul-robot-1000/hangul_robot_1000_vol07.pdf" download="제07권_0601-0700_기계와_제작.pdf" class="btn btn-sm rounded-3 fw-bold py-1" style="background: linear-gradient(135deg, #38bdf8, #0284c7); color: #ffffff; font-size: 12px;">📥 PDF 다운로드 (제07권)</a>
-                                        <a href="assets/docs/hangul-robot-1000/hangul_robot_1000_vol07.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-sm rounded-3 fw-semibold py-1" style="background: rgba(30, 41, 59, 0.9); color: #e2e8f0; border: 1px solid rgba(148, 163, 184, 0.35); font-size: 11.5px;">📖 브라우저에서 바로 열기 ↗</a>
+                                    <div class="hr1000-btn-group">
+                                        <a href="assets/docs/hangul-robot-1000/hangul_robot_1000_vol07.pdf" download="제07권_0601-0700_기계와_제작.pdf" class="hr1000-btn-download">
+                                            <span class="hr1000-btn-dl-left">
+                                                <span class="hr1000-btn-dl-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+                                                <span>PDF 다운로드</span>
+                                            </span>
+                                            <span class="hr1000-btn-dl-tag">제07권</span>
+                                        </a>
+                                        <a href="assets/docs/hangul-robot-1000/hangul_robot_1000_vol07.pdf" target="_blank" rel="noopener noreferrer" class="hr1000-btn-viewer">
+                                            <span class="hr1000-btn-vw-left">
+                                                <span class="hr1000-btn-vw-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+                                                <span>브라우저에서 바로 열기</span>
+                                            </span>
+                                            <span class="hr1000-btn-vw-arrow"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- Vol 08 -->
                             <div class="col-md-6 col-lg-4 col-xl">
-                                <div class="h-100 rounded-4 p-3 d-flex flex-column justify-content-between" style="background: rgba(2, 6, 23, 0.82); border: 1px solid rgba(14, 165, 233, 0.38);">
+                                <div class="hr1000-vol-card" style="border: 1px solid rgba(14, 165, 233, 0.38);">
                                     <div>
-                                        <div class="d-flex align-items-center justify-content-between gap-1 mb-2">
-                                            <span class="badge rounded-pill fw-bold" style="background: #0ea5e9; color: #0f172a; font-size: 11px;">제08권 · 0701–0800</span>
-                                            <span style="font-size: 11px; color: #94a3b8; font-weight: 600;">100P · 12.3 MB</span>
+                                        <div class="hr1000-vol-header">
+                                            <span class="hr1000-vol-badge" style="background: #0ea5e9; color: #0f172a;">제08권</span>
+                                            <span class="hr1000-vol-range">No. 0701–0800</span>
                                         </div>
                                         <div class="rounded-3 overflow-hidden mb-2 position-relative" onclick="openStoryLightbox('assets/images/hangul-robot-1000/vol_08_cover.jpg', '제08권 (0701–0800) 놀이와 스포츠 — 0701 고리 던짐대 → 이동 고리 표적 로봇 외 99작품', false)" style="border: 1px solid rgba(148, 163, 184, 0.25); cursor: zoom-in; background: #0f172a;">
                                             <img src="assets/images/hangul-robot-1000/vol_08_cover.jpg" alt="제08권 놀이와 스포츠 100작품 표지" style="width: 100%; height: 126px; object-fit: cover; object-position: top center; display: block;" loading="lazy">
-                                            <span style="position: absolute; right: 6px; bottom: 6px; background: rgba(2, 6, 23, 0.82); color: #fde68a; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 999px; border: 1px solid rgba(251, 191, 36, 0.45);">🔍 표지 확대</span>
+                                            <span style="position: absolute; right: 6px; bottom: 6px; background: rgba(2, 6, 23, 0.82); color: #fde68a; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 999px; border: 1px solid rgba(251, 191, 36, 0.45);">표지 확대</span>
                                         </div>
                                         <h4 class="text-white fw-bold mb-1" style="font-size: 14.5px;">놀이와 스포츠</h4>
                                         <div class="mb-1" style="font-size: 11.5px; color: #7dd3fc; font-weight: 700;">대표 0701: 고리 던짐대 → 이동 고리 표적 로봇</div>
                                         <p class="mb-2" style="font-size: 11px; color: #94a3b8; line-height: 1.4;">공놀이 · 구슬 경로 · 블록 미로 · 운동장 · 실내 체육 · 물놀이 · 바람 놀이 · 역할 놀이 · 소리 놀이 · 보드 놀이</p>
                                     </div>
-                                    <div class="d-grid gap-1 pt-2" style="border-top: 1px solid rgba(148, 163, 184, 0.16);">
-                                        <a href="assets/docs/hangul-robot-1000/hangul_robot_1000_vol08.pdf" download="제08권_0701-0800_놀이와_스포츠.pdf" class="btn btn-sm rounded-3 fw-bold py-1" style="background: linear-gradient(135deg, #38bdf8, #0284c7); color: #ffffff; font-size: 12px;">📥 PDF 다운로드 (제08권)</a>
-                                        <a href="assets/docs/hangul-robot-1000/hangul_robot_1000_vol08.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-sm rounded-3 fw-semibold py-1" style="background: rgba(30, 41, 59, 0.9); color: #e2e8f0; border: 1px solid rgba(148, 163, 184, 0.35); font-size: 11.5px;">📖 브라우저에서 바로 열기 ↗</a>
+                                    <div class="hr1000-btn-group">
+                                        <a href="assets/docs/hangul-robot-1000/hangul_robot_1000_vol08.pdf" download="제08권_0701-0800_놀이와_스포츠.pdf" class="hr1000-btn-download">
+                                            <span class="hr1000-btn-dl-left">
+                                                <span class="hr1000-btn-dl-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+                                                <span>PDF 다운로드</span>
+                                            </span>
+                                            <span class="hr1000-btn-dl-tag">제08권</span>
+                                        </a>
+                                        <a href="assets/docs/hangul-robot-1000/hangul_robot_1000_vol08.pdf" target="_blank" rel="noopener noreferrer" class="hr1000-btn-viewer">
+                                            <span class="hr1000-btn-vw-left">
+                                                <span class="hr1000-btn-vw-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+                                                <span>브라우저에서 바로 열기</span>
+                                            </span>
+                                            <span class="hr1000-btn-vw-arrow"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- Vol 09 -->
                             <div class="col-md-6 col-lg-4 col-xl">
-                                <div class="h-100 rounded-4 p-3 d-flex flex-column justify-content-between" style="background: rgba(2, 6, 23, 0.82); border: 1px solid rgba(99, 102, 241, 0.42);">
+                                <div class="hr1000-vol-card" style="border: 1px solid rgba(99, 102, 241, 0.42);">
                                     <div>
-                                        <div class="d-flex align-items-center justify-content-between gap-1 mb-2">
-                                            <span class="badge rounded-pill fw-bold" style="background: #6366f1; color: #ffffff; font-size: 11px;">제09권 · 0801–0900</span>
-                                            <span style="font-size: 11px; color: #94a3b8; font-weight: 600;">100P · 12.1 MB</span>
+                                        <div class="hr1000-vol-header">
+                                            <span class="hr1000-vol-badge" style="background: #6366f1; color: #ffffff;">제09권</span>
+                                            <span class="hr1000-vol-range">No. 0801–0900</span>
                                         </div>
                                         <div class="rounded-3 overflow-hidden mb-2 position-relative" onclick="openStoryLightbox('assets/images/hangul-robot-1000/vol_09_cover.jpg', '제09권 (0801–0900) 관측과 탐사 — 0801 심해 탐침정 → 심해 전방 탐침 잠수정 외 99작품', false)" style="border: 1px solid rgba(148, 163, 184, 0.25); cursor: zoom-in; background: #0f172a;">
                                             <img src="assets/images/hangul-robot-1000/vol_09_cover.jpg" alt="제09권 관측과 탐사 100작품 표지" style="width: 100%; height: 126px; object-fit: cover; object-position: top center; display: block;" loading="lazy">
-                                            <span style="position: absolute; right: 6px; bottom: 6px; background: rgba(2, 6, 23, 0.82); color: #fde68a; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 999px; border: 1px solid rgba(251, 191, 36, 0.45);">🔍 표지 확대</span>
+                                            <span style="position: absolute; right: 6px; bottom: 6px; background: rgba(2, 6, 23, 0.82); color: #fde68a; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 999px; border: 1px solid rgba(251, 191, 36, 0.45);">표지 확대</span>
                                         </div>
                                         <h4 class="text-white fw-bold mb-1" style="font-size: 14.5px;">관측과 탐사</h4>
                                         <div class="mb-1" style="font-size: 11.5px; color: #a5b4fc; font-weight: 700;">대표 0801: 심해 탐침정 → 심해 탐침 잠수정</div>
                                         <p class="mb-2" style="font-size: 11px; color: #94a3b8; line-height: 1.4;">해양 탐사 · 지질 조사 · 천문 관측 · 날씨 관측 · 숲속 탐사 · 극지 연구 · 화성 탐사 · 현미 관측 · 지도와 측량 · 발굴과 보존</p>
                                     </div>
-                                    <div class="d-grid gap-1 pt-2" style="border-top: 1px solid rgba(148, 163, 184, 0.16);">
-                                        <a href="assets/docs/hangul-robot-1000/hangul_robot_1000_vol09.pdf" download="제09권_0801-0900_관측과_탐사.pdf" class="btn btn-sm rounded-3 fw-bold py-1" style="background: linear-gradient(135deg, #38bdf8, #0284c7); color: #ffffff; font-size: 12px;">📥 PDF 다운로드 (제09권)</a>
-                                        <a href="assets/docs/hangul-robot-1000/hangul_robot_1000_vol09.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-sm rounded-3 fw-semibold py-1" style="background: rgba(30, 41, 59, 0.9); color: #e2e8f0; border: 1px solid rgba(148, 163, 184, 0.35); font-size: 11.5px;">📖 브라우저에서 바로 열기 ↗</a>
+                                    <div class="hr1000-btn-group">
+                                        <a href="assets/docs/hangul-robot-1000/hangul_robot_1000_vol09.pdf" download="제09권_0801-0900_관측과_탐사.pdf" class="hr1000-btn-download">
+                                            <span class="hr1000-btn-dl-left">
+                                                <span class="hr1000-btn-dl-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+                                                <span>PDF 다운로드</span>
+                                            </span>
+                                            <span class="hr1000-btn-dl-tag">제09권</span>
+                                        </a>
+                                        <a href="assets/docs/hangul-robot-1000/hangul_robot_1000_vol09.pdf" target="_blank" rel="noopener noreferrer" class="hr1000-btn-viewer">
+                                            <span class="hr1000-btn-vw-left">
+                                                <span class="hr1000-btn-vw-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+                                                <span>브라우저에서 바로 열기</span>
+                                            </span>
+                                            <span class="hr1000-btn-vw-arrow"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- Vol 10 -->
                             <div class="col-md-6 col-lg-4 col-xl">
-                                <div class="h-100 rounded-4 p-3 d-flex flex-column justify-content-between" style="background: rgba(2, 6, 23, 0.82); border: 1px solid rgba(236, 72, 153, 0.42);">
+                                <div class="hr1000-vol-card" style="border: 1px solid rgba(236, 72, 153, 0.42);">
                                     <div>
-                                        <div class="d-flex align-items-center justify-content-between gap-1 mb-2">
-                                            <span class="badge rounded-pill fw-bold" style="background: #ec4899; color: #ffffff; font-size: 11px;">제10권 · 0901–1000</span>
-                                            <span style="font-size: 11px; color: #94a3b8; font-weight: 600;">100P · 12.1 MB</span>
+                                        <div class="hr1000-vol-header">
+                                            <span class="hr1000-vol-badge" style="background: #ec4899; color: #ffffff;">제10권</span>
+                                            <span class="hr1000-vol-range">No. 0901–1000</span>
                                         </div>
                                         <div class="rounded-3 overflow-hidden mb-2 position-relative" onclick="openStoryLightbox('assets/images/hangul-robot-1000/vol_10_cover.jpg', '제10권 (0901–1000) 공연과 공공 디자인 — 0901 돌출 소무대 → 전개식 소무대 운반차 외 99작품', false)" style="border: 1px solid rgba(148, 163, 184, 0.25); cursor: zoom-in; background: #0f172a;">
                                             <img src="assets/images/hangul-robot-1000/vol_10_cover.jpg" alt="제10권 공연과 공공 디자인 100작품 표지" style="width: 100%; height: 126px; object-fit: cover; object-position: top center; display: block;" loading="lazy">
-                                            <span style="position: absolute; right: 6px; bottom: 6px; background: rgba(2, 6, 23, 0.82); color: #fde68a; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 999px; border: 1px solid rgba(251, 191, 36, 0.45);">🔍 표지 확대</span>
+                                            <span style="position: absolute; right: 6px; bottom: 6px; background: rgba(2, 6, 23, 0.82); color: #fde68a; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 999px; border: 1px solid rgba(251, 191, 36, 0.45);">표지 확대</span>
                                         </div>
                                         <h4 class="text-white fw-bold mb-1" style="font-size: 14.5px;">공연과 공공 디자인</h4>
                                         <div class="mb-1" style="font-size: 11.5px; color: #f9a8d4; font-weight: 700;">대표 0901: 돌출 소무대 → 전개식 소무대 운반차</div>
                                         <p class="mb-2" style="font-size: 11px; color: #94a3b8; line-height: 1.4;">공연 무대 · 악기 조형 · 전시 공간 · 박물관 교구 · 거리 가구 · 공원 시설 · 도서관 공간 · 도시 길찾기 · 축제 공간 · 한글 조형정원</p>
                                     </div>
-                                    <div class="d-grid gap-1 pt-2" style="border-top: 1px solid rgba(148, 163, 184, 0.16);">
-                                        <a href="assets/docs/hangul-robot-1000/hangul_robot_1000_vol10.pdf" download="제10권_0901-1000_공연과_공공_디자인.pdf" class="btn btn-sm rounded-3 fw-bold py-1" style="background: linear-gradient(135deg, #38bdf8, #0284c7); color: #ffffff; font-size: 12px;">📥 PDF 다운로드 (제10권)</a>
-                                        <a href="assets/docs/hangul-robot-1000/hangul_robot_1000_vol10.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-sm rounded-3 fw-semibold py-1" style="background: rgba(30, 41, 59, 0.9); color: #e2e8f0; border: 1px solid rgba(148, 163, 184, 0.35); font-size: 11.5px;">📖 브라우저에서 바로 열기 ↗</a>
+                                    <div class="hr1000-btn-group">
+                                        <a href="assets/docs/hangul-robot-1000/hangul_robot_1000_vol10.pdf" download="제10권_0901-1000_공연과_공공_디자인.pdf" class="hr1000-btn-download">
+                                            <span class="hr1000-btn-dl-left">
+                                                <span class="hr1000-btn-dl-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+                                                <span>PDF 다운로드</span>
+                                            </span>
+                                            <span class="hr1000-btn-dl-tag">제10권</span>
+                                        </a>
+                                        <a href="assets/docs/hangul-robot-1000/hangul_robot_1000_vol10.pdf" target="_blank" rel="noopener noreferrer" class="hr1000-btn-viewer">
+                                            <span class="hr1000-btn-vw-left">
+                                                <span class="hr1000-btn-vw-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+                                                <span>브라우저에서 바로 열기</span>
+                                            </span>
+                                            <span class="hr1000-btn-vw-arrow"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
