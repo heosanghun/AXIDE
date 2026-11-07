@@ -391,42 +391,11 @@
                             </div>
                         </div>
 
-                        <!-- Physical AI Companion & Educational Robot Notice + Interactive 28-Character MicroDuck Blueprint Switcher -->
-                        <div class="mt-3 p-3 px-4 rounded-4" style="background: linear-gradient(145deg, rgba(15, 23, 42, 0.96) 0%, rgba(12, 74, 110, 0.32) 55%, rgba(15, 23, 42, 0.98) 100%); border: 1.5px solid rgba(56, 189, 248, 0.55); box-shadow: 0 20px 48px rgba(2, 6, 23, 0.6);">
-                            <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
-                                <div class="d-flex align-items-center gap-2 flex-wrap">
-                                    <span class="badge rounded-pill px-3 py-1 fw-bold" style="background: linear-gradient(135deg, #38bdf8, #14b8a6); color: #0f172a; font-size: 11.5px;">🤖 PHYSICAL AI · 28-CHARACTER MICRODUCK BLUEPRINTS</span>
-                                    <span class="fw-bold text-white" style="font-size: 14.5px;">자음(14종)·모음(14종) 28개 캐릭터 전종 모두 그 특징·센서·두뇌(Cogni-OS)에 맞춘 <strong style="color: #fbbf24;">마이크로덕형 이족보행 반려·교육용 로봇 설계도(28종)</strong>가 구축되어 있습니다.</span>
-                                </div>
-                                <div class="d-flex align-items-center gap-2 flex-wrap">
-                                    <button type="button" onclick="stepSomooBlueprintShowcase(-1)" class="btn btn-sm rounded-pill px-2 py-1 fw-bold" style="background: rgba(30, 41, 59, 0.92); color: #e2e8f0; border: 1px solid rgba(148, 163, 184, 0.45); font-size: 11.5px;">
-                                        ◀ 이전 설계도
-                                    </button>
-                                    <span id="somooBpActiveLabel" class="badge rounded-pill px-3 py-1 fw-bold" style="background: rgba(251, 191, 36, 0.2); color: #fde68a; border: 1px solid rgba(251, 191, 36, 0.55); font-size: 12px;">01/28 · ㄱ 고롱 (발명가)</span>
-                                    <button type="button" onclick="stepSomooBlueprintShowcase(1)" class="btn btn-sm rounded-pill px-2 py-1 fw-bold" style="background: rgba(30, 41, 59, 0.92); color: #e2e8f0; border: 1px solid rgba(148, 163, 184, 0.45); font-size: 11.5px;">
-                                        다음 설계도 ▶
-                                    </button>
-                                    <button type="button" id="somooBpModalOpenBtn" onclick="openSomooCharacterModal(0)" class="btn btn-sm rounded-pill px-3 py-1 fw-bold" style="background: rgba(251, 191, 36, 0.22); color: #fde68a; border: 1px solid rgba(251, 191, 36, 0.55); font-size: 12px;">
-                                        ⚙️ ‘ㄱ 고롱’ 캐릭터 상세 팝업 열기
-                                    </button>
-                                    <button type="button" id="somooBpLightboxBtn" onclick="openStoryLightbox('assets/images/somoo-blueprint/bp_01.jpg?v=20261107_bp28', '한글 소모오 피지컬 AI — ‘ㄱ 고롱(GoLong)’ 마이크로덕(MicroDuck)형 이족보행 반려·교육용 로봇 설계도 (14-DOF 시리얼 버스 서보 · NFC 자모 뿔 교체 · 온디바이스 Cogni-OS 탑재)', false)" class="btn btn-sm rounded-pill px-3 py-1" style="background: rgba(15, 23, 42, 0.9); color: #7dd3fc; border: 1px solid rgba(56, 189, 248, 0.5); font-size: 12px;">
-                                        🔍 설계도 원본 크게 보기
-                                    </button>
-                                </div>
-                            </div>
-
-                            <!-- 28-Character Blueprint Quick Selector Pills -->
-                            <div class="mb-3 p-2 px-3 rounded-3" style="background: rgba(2, 6, 23, 0.65); border: 1px solid rgba(56, 189, 248, 0.28);">
-                                <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-1">
-                                    <span style="font-size: 11.5px; color: #7dd3fc; font-weight: 800;">📐 28종 캐릭터별 맞춤 피지컬 AI 로봇 설계도 바로 선택 (클릭 시 아래 설계도 즉시 전환):</span>
-                                    <span style="font-size: 11px; color: #94a3b8;">자음 14종 (01 ㄱ 고롱 ~ 14 ㅎ 호롱) · 모음 14종 (15 ㅏ 아롱 ~ 28 ㅖ 예롱)</span>
-                                </div>
-                                <div id="somooBp28SelectorBar" class="d-flex align-items-center gap-1 flex-wrap"></div>
-                            </div>
-
-                            <div id="somooBpShowcaseWrap" class="rounded-4 overflow-hidden" onclick="openStoryLightbox('assets/images/somoo-blueprint/bp_01.jpg?v=20261107_bp28', '한글 소모오 피지컬 AI — ‘ㄱ 고롱(GoLong)’ 마이크로덕(MicroDuck)형 이족보행 반려·교육용 로봇 설계도 (14-DOF 시리얼 버스 서보 · NFC 자모 뿔 교체 · 온디바이스 Cogni-OS 탑재)', false)" style="border: 1px solid rgba(251, 191, 36, 0.45); background: #070b14; cursor: zoom-in;">
-                                <img id="somooBpShowcaseImg" src="assets/images/somoo-blueprint/bp_01.jpg?v=20261107_bp28" alt="한글 소모오 피지컬 AI — ㄱ 고롱(GoLong) 마이크로덕(MicroDuck)형 이족보행 반려·교육용 로봇 설계도" style="width: 100%; height: auto; display: block;" decoding="async" loading="lazy">
-                            </div>
+                        <!-- Physical AI 28-Character Theme Robot Archive Interactive Board (C:\Project\myhistory\AXIDE_한글_테마로봇_28장) -->
+                        <div id="somooBpShowcaseWrap" class="mt-3 position-relative rounded-4 overflow-hidden" style="border: 1.5px solid rgba(251, 191, 36, 0.48); background: #FDF3E8; box-shadow: 0 20px 48px rgba(2, 6, 23, 0.65);">
+                            <img id="somooBpShowcaseImg" src="assets/images/somoo-blueprint/bp_01.jpg?v=20261107_theme28" alt="AXIDE / PHYSICAL AI 로봇 설계 아카이브 — 01/28 ㄱ 고롱(GoLong) 발명가형 이족보행 로봇" style="width: 100%; height: auto; display: block;" decoding="async">
+                            <!-- Interactive Hotspots: Upper Robot Lightbox, [캐릭터 상세 보기], [설계도 확대], 28 Jamo Selector (ㄱ~ㅎ, ㅏ~ㅖ), [이전 설계도 / 다음 설계도] -->
+                            <div id="somooBpBoardHotspots" style="position: absolute; inset: 0; pointer-events: none;"></div>
                         </div>
 
                         <!-- Quick Jump Visual Banner to Physical AI Mobility Archive (28개 자모 · 100개 테마 · 4000컷) -->
@@ -2459,6 +2428,42 @@
             transform: translateY(-3px);
             box-shadow: 0 16px 34px rgba(251, 191, 36, 0.25);
         }
+        .somoo-bp-upper-zoom {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 80.84%;
+            background: transparent;
+            border: none;
+            padding: 0;
+            margin: 0;
+            cursor: zoom-in;
+            pointer-events: auto;
+            z-index: 1;
+        }
+        .somoo-bp-hotspot-btn {
+            position: absolute;
+            background: transparent;
+            border: 1.5px solid transparent;
+            border-radius: 9px;
+            padding: 0;
+            margin: 0;
+            cursor: pointer;
+            pointer-events: auto;
+            z-index: 2;
+            transition: background 0.14s ease, border-color 0.14s ease, box-shadow 0.14s ease, transform 0.12s ease;
+        }
+        .somoo-bp-hotspot-btn:hover,
+        .somoo-bp-hotspot-btn:focus-visible {
+            background: rgba(111, 60, 171, 0.11);
+            border-color: rgba(111, 60, 171, 0.65);
+            box-shadow: 0 0 0 3px rgba(111, 60, 171, 0.16);
+            outline: none;
+        }
+        .somoo-bp-hotspot-btn:active {
+            transform: scale(0.96);
+        }
         @media (max-width: 767px) {
             #somooHoverTooltip {
                 display: none !important;
@@ -2635,7 +2640,7 @@
                                         <div style="font-size: 11.5px; font-weight: 800; color: #2dd4bf;">🤖 PHYSICAL AI · 반려 로봇 & 교육용 로봇 맞춤 설계도 수록</div>
                                         <div id="somooModalBlueprintNoticeText" style="font-size: 13px; color: #f8fafc; font-weight: 600; margin-top: 2px;">자음·모음 28종 소모오 캐릭터는 각각의 역할과 Cogni-OS 두뇌에 맞춘 <strong>마이크로덕(MicroDuck)형 이족보행 피지컬 AI 로봇</strong>으로 제작 중입니다.</div>
                                     </div>
-                                    <button type="button" id="somooModalBlueprintBtn" onclick="openStoryLightbox('assets/images/somoo-blueprint/bp_01.jpg?v=20261107_bp28', '한글 소모오 피지컬 AI — ‘ㄱ 고롱(GoLong)’ 마이크로덕(MicroDuck)형 이족보행 반려·교육용 로봇 설계도', false)" class="btn btn-sm rounded-pill px-3 py-1 fw-bold" style="background: rgba(45, 212, 191, 0.2); color: #99f6e4; border: 1px solid rgba(45, 212, 191, 0.55); font-size: 11.5px;">
+                                    <button type="button" id="somooModalBlueprintBtn" onclick="openStoryLightbox('assets/images/somoo-blueprint/bp_01.jpg?v=20261107_theme28', 'AXIDE / PHYSICAL AI 로봇 설계 아카이브 — 01/28 ㄱ 고롱(GoLong) 발명가형 이족보행 로봇 설계도', false)" class="btn btn-sm rounded-pill px-3 py-1 fw-bold" style="background: rgba(45, 212, 191, 0.2); color: #99f6e4; border: 1px solid rgba(45, 212, 191, 0.55); font-size: 11.5px;">
                                         📐 ‘ㄱ 고롱’ 로봇 설계도 보기
                                     </button>
                                 </div>
@@ -3137,7 +3142,7 @@
                 return 'assets/images/hangul28/jamo_sq_' + pad2(idx + 1) + '.jpg';
             }
             function getCharacterBlueprintUrl(idx) {
-                return 'assets/images/somoo-blueprint/bp_' + pad2(idx + 1) + '.jpg?v=20261107_bp28';
+                return 'assets/images/somoo-blueprint/bp_' + pad2(idx + 1) + '.jpg?v=20261107_theme28';
             }
 
             var currentBpShowcaseIdx = 0;
@@ -3146,48 +3151,15 @@
                 currentBpShowcaseIdx = idx;
                 var c = SOMOO_CHARACTERS[idx];
                 var bpUrl = getCharacterBlueprintUrl(idx);
-                var bpCaption = '한글 소모오 피지컬 AI — ‘' + c.jamo + ' ' + c.name + '(' + c.eng + ') · ' + c.role + '’ 마이크로덕(MicroDuck)형 14-DOF 이족보행 반려·교육용 로봇 설계도 (' + c.model + ' 탑재)';
+                var bpCaption = 'AXIDE / PHYSICAL AI 로봇 설계 아카이브 — ' + pad2(idx + 1) + '/28 ‘' + c.jamo + ' ' + c.name + '(' + c.eng + ') · ' + c.role + '’ 이족보행 반려·교육용 로봇 설계도 (' + c.model + ' 탑재)';
                 var imgEl = document.getElementById('somooBpShowcaseImg');
                 if (imgEl) {
                     imgEl.src = bpUrl;
                     imgEl.alt = bpCaption;
                 }
-                var wrapEl = document.getElementById('somooBpShowcaseWrap');
-                if (wrapEl) {
-                    wrapEl.onclick = function() {
-                        if (typeof openStoryLightbox === 'function') openStoryLightbox(bpUrl, bpCaption, false);
-                    };
-                }
-                var lbBtn = document.getElementById('somooBpLightboxBtn');
-                if (lbBtn) {
-                    lbBtn.innerHTML = '🔍 ‘' + c.jamo + ' ' + c.name + '’ 설계도 크게 보기';
-                    lbBtn.onclick = function() {
-                        if (typeof openStoryLightbox === 'function') openStoryLightbox(bpUrl, bpCaption, false);
-                    };
-                }
-                var modalBtn = document.getElementById('somooBpModalOpenBtn');
-                if (modalBtn) {
-                    modalBtn.innerHTML = '⚙️ ‘' + c.jamo + ' ' + c.name + '’ 캐릭터 상세 팝업 열기';
-                    modalBtn.onclick = function() {
-                        openSomooCharacterModal(idx);
-                    };
-                }
-                var lblEl = document.getElementById('somooBpActiveLabel');
-                if (lblEl) {
-                    lblEl.textContent = pad2(idx + 1) + '/28 · ' + c.jamo + ' ' + c.name + ' (' + c.role + ')';
-                }
-                var barPills = document.querySelectorAll('#somooBp28SelectorBar .somoo-bp28-pill');
-                barPills.forEach(function(btn, bIdx) {
-                    if (bIdx === idx) {
-                        btn.style.background = 'linear-gradient(135deg, #fbbf24, #f59e0b)';
-                        btn.style.color = '#0f172a';
-                        btn.style.borderColor = '#fde68a';
-                    } else {
-                        var isCons = bIdx < 14;
-                        btn.style.background = isCons ? 'rgba(15, 23, 42, 0.9)' : 'rgba(30, 27, 75, 0.85)';
-                        btn.style.color = isCons ? '#bae6fd' : '#fde68a';
-                        btn.style.borderColor = isCons ? 'rgba(56, 189, 248, 0.35)' : 'rgba(251, 191, 36, 0.35)';
-                    }
+                var jamoBtns = document.querySelectorAll('#somooBpBoardHotspots .somoo-bp-jamo-btn');
+                jamoBtns.forEach(function(btn, bIdx) {
+                    btn.setAttribute('aria-pressed', bIdx === idx ? 'true' : 'false');
                 });
             };
 
@@ -3296,7 +3268,7 @@
                 }
                 if (wrap) {
                     if (isBlueprint) {
-                        wrap.style.background = 'linear-gradient(180deg, #0b162c 0%, #10203d 50%, #0b162c 100%)';
+                        wrap.style.background = '#FDF3E8';
                         wrap.style.borderColor = 'rgba(45, 212, 191, 0.58)';
                     } else {
                         wrap.style.background = '#ffffff';
@@ -3304,7 +3276,7 @@
                     }
                 }
                 if (subHint) {
-                    subHint.textContent = isBlueprint ? '📐 클릭하여 14-DOF 로봇 설계도 원본 확대' : '🔍 클릭 시 고해상도 확대';
+                    subHint.textContent = isBlueprint ? '📐 클릭하여 로봇 설계 아카이브 원본 확대' : '🔍 클릭 시 고해상도 확대';
                 }
                 var openZoom = function() {
                     if (typeof openStoryLightbox === 'function') {
@@ -3436,7 +3408,7 @@
                     var tagHtml = imgObj.thumbTag
                         ? '<span class="somoo-thumb-tag" style="background:' + imgObj.thumbTagBg + ';color:' + imgObj.thumbTagColor + ';">' + imgObj.thumbTag + '</span>'
                         : '';
-                    btn.innerHTML = '<img src="' + srcUrl + '" alt="' + imgObj.title + '" style="width:100%;height:100%;object-fit:contain;background:' + (isBpThumb ? '#0b162c' : '#fff') + ';display:block;">' + tagHtml;
+                    btn.innerHTML = '<img src="' + srcUrl + '" alt="' + imgObj.title + '" style="width:100%;height:100%;object-fit:contain;background:' + (isBpThumb ? '#FDF3E8' : '#fff') + ';display:block;">' + tagHtml;
                     btn.onclick = function() {
                         setSomooModalMainImage(imgObj.file, imgObj.title, c.jamo + ' ' + c.name + '(' + c.eng + ')', imgObj.shortLabel);
                     };
@@ -3460,7 +3432,7 @@
                     var isBpCard = (imgObj.file.indexOf('somoo-blueprint/') !== -1 || imgObj.file.indexOf('microduck-blueprint') !== -1);
                     col.innerHTML =
                         '<div class="somoo-gallery-card h-100 d-flex flex-column justify-content-between p-2">' +
-                            '<div style="background:' + (isBpCard ? '#0b162c' : '#ffffff') + ';border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center;min-height:220px;">' +
+                            '<div style="background:' + (isBpCard ? '#FDF3E8' : '#ffffff') + ';border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center;min-height:220px;">' +
                                 '<img src="' + fullUrl + '" alt="' + captionText + '" loading="lazy" style="width:100%;height:auto;max-height:360px;object-fit:contain;display:block;">' +
                             '</div>' +
                             '<div class="d-flex align-items-center justify-content-between gap-2 px-2 pt-2 pb-1">' +
@@ -3632,27 +3604,129 @@
                         mPill.addEventListener('click', function() { openSomooCharacterModal(idx); });
                         modalJumper.appendChild(mPill);
                     }
+                });
 
-                    // 5. 28-Character Blueprint Switcher Pill in Showcase Card
-                    if (bp28Bar) {
-                        var bpPill = document.createElement('button');
-                        bpPill.type = 'button';
-                        bpPill.className = 'btn btn-sm rounded-pill px-2 py-0 fw-bold somoo-bp28-pill';
-                        var isCons = idx < 14;
-                        bpPill.style.fontSize = '11.5px';
-                        bpPill.style.lineHeight = '1.8';
-                        bpPill.style.transition = 'all 0.18s ease';
-                        bpPill.style.border = '1px solid ' + (idx === 0 ? '#fde68a' : (isCons ? 'rgba(56, 189, 248, 0.35)' : 'rgba(251, 191, 36, 0.35)'));
-                        bpPill.style.background = idx === 0 ? 'linear-gradient(135deg, #fbbf24, #f59e0b)' : (isCons ? 'rgba(15, 23, 42, 0.9)' : 'rgba(30, 27, 75, 0.85)');
-                        bpPill.style.color = idx === 0 ? '#0f172a' : (isCons ? '#bae6fd' : '#fde68a');
-                        bpPill.textContent = c.jamo + ' ' + c.name;
-                        bpPill.title = pad2(idx + 1) + '. ' + c.jamo + ' ' + c.name + ' (' + c.role + ') 피지컬 AI 로봇 설계도 보기';
-                        bpPill.addEventListener('click', function() {
+                // 5. Interactive Hotspots on 28-Character Theme Robot Board (#somooBpBoardHotspots, 1672x1049)
+                var bpBoardHotspots = document.getElementById('somooBpBoardHotspots');
+                if (bpBoardHotspots) {
+                    bpBoardHotspots.innerHTML = '';
+
+                    var openCurrentBpLightbox = function() {
+                        var curChar = SOMOO_CHARACTERS[currentBpShowcaseIdx];
+                        if (!curChar || typeof openStoryLightbox !== 'function') return;
+                        var url = getCharacterBlueprintUrl(currentBpShowcaseIdx);
+                        var cap = 'AXIDE / PHYSICAL AI 로봇 설계 아카이브 — ' + pad2(currentBpShowcaseIdx + 1) + '/28 ‘' + curChar.jamo + ' ' + curChar.name + '(' + curChar.eng + ') · ' + curChar.role + '’ 이족보행 반려·교육용 로봇 설계도 (' + curChar.model + ' 탑재)';
+                        openStoryLightbox(url, cap, false);
+                    };
+
+                    // Upper robot area click -> Lightbox zoom
+                    var upperZoomBtn = document.createElement('button');
+                    upperZoomBtn.type = 'button';
+                    upperZoomBtn.className = 'somoo-bp-upper-zoom';
+                    upperZoomBtn.title = '클릭하여 현재 로봇 설계도 크게 확대 보기';
+                    upperZoomBtn.setAttribute('aria-label', '현재 로봇 설계도 크게 확대 보기');
+                    upperZoomBtn.addEventListener('click', openCurrentBpLightbox);
+                    bpBoardHotspots.appendChild(upperZoomBtn);
+
+                    // Left button 1: [캐릭터 상세 보기] (x=50..239, y=704..762 on 1672x1049)
+                    var detailBtn = document.createElement('button');
+                    detailBtn.type = 'button';
+                    detailBtn.className = 'somoo-bp-hotspot-btn';
+                    detailBtn.style.left = '2.99%';
+                    detailBtn.style.top = '67.11%';
+                    detailBtn.style.width = '11.30%';
+                    detailBtn.style.height = '5.53%';
+                    detailBtn.title = '현재 선택된 캐릭터의 상세 도감 팝업 열기';
+                    detailBtn.setAttribute('aria-label', '캐릭터 상세 보기');
+                    detailBtn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        openSomooCharacterModal(currentBpShowcaseIdx);
+                    });
+                    bpBoardHotspots.appendChild(detailBtn);
+
+                    // Left button 2: [설계도 확대] (x=256..404, y=704..762 on 1672x1049)
+                    var zoomBtn = document.createElement('button');
+                    zoomBtn.type = 'button';
+                    zoomBtn.className = 'somoo-bp-hotspot-btn';
+                    zoomBtn.style.left = '15.31%';
+                    zoomBtn.style.top = '67.11%';
+                    zoomBtn.style.width = '8.85%';
+                    zoomBtn.style.height = '5.53%';
+                    zoomBtn.title = '현재 선택된 로봇 설계도 원본 확대 보기';
+                    zoomBtn.setAttribute('aria-label', '설계도 확대');
+                    zoomBtn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        openCurrentBpLightbox();
+                    });
+                    bpBoardHotspots.appendChild(zoomBtn);
+
+                    // 28 Jamo Selector Buttons (Row 0: Consonants 0..13, Row 1: Vowels 14..27)
+                    var bpColRanges = [
+                        [391, 449], [459, 517], [526, 584], [594, 651], [661, 719], [728, 786], [795, 853],
+                        [863, 921], [930, 989], [998, 1056], [1066, 1124], [1133, 1192], [1201, 1260], [1269, 1327]
+                    ];
+                    SOMOO_CHARACTERS.forEach(function(c, idx) {
+                        var isVowel = idx >= 14;
+                        var colIdx = isVowel ? (idx - 14) : idx;
+                        var xr = bpColRanges[colIdx];
+                        var jBtn = document.createElement('button');
+                        jBtn.type = 'button';
+                        jBtn.className = 'somoo-bp-hotspot-btn somoo-bp-jamo-btn';
+                        jBtn.style.left = (xr[0] / 1672.0 * 100.0).toFixed(2) + '%';
+                        jBtn.style.width = ((xr[1] - xr[0] + 1) / 1672.0 * 100.0).toFixed(2) + '%';
+                        jBtn.style.top = isVowel ? '90.56%' : '83.22%';
+                        jBtn.style.height = '5.15%';
+                        jBtn.title = pad2(idx + 1) + '/28 · ' + c.jamo + ' ' + c.name + ' (' + c.role + ') 로봇 설계도 보기';
+                        jBtn.setAttribute('aria-label', c.jamo + ' ' + c.name + ' 로봇 설계도 선택');
+                        jBtn.setAttribute('aria-pressed', idx === 0 ? 'true' : 'false');
+                        jBtn.addEventListener('click', function(e) {
+                            e.stopPropagation();
                             selectSomooBlueprintShowcase(idx);
                         });
-                        bp28Bar.appendChild(bpPill);
-                    }
-                });
+                        bpBoardHotspots.appendChild(jBtn);
+                    });
+
+                    // Bottom-Right: [이전 설계도] (x=1395..1505, y=900..965) & [다음 설계도] (x=1525..1640, y=900..965)
+                    var prevBpBtn = document.createElement('button');
+                    prevBpBtn.type = 'button';
+                    prevBpBtn.className = 'somoo-bp-hotspot-btn';
+                    prevBpBtn.style.left = '83.43%';
+                    prevBpBtn.style.top = '85.80%';
+                    prevBpBtn.style.width = '6.58%';
+                    prevBpBtn.style.height = '6.20%';
+                    prevBpBtn.title = '이전 캐릭터 로봇 설계도 보기';
+                    prevBpBtn.setAttribute('aria-label', '이전 설계도');
+                    prevBpBtn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        stepSomooBlueprintShowcase(-1);
+                    });
+                    bpBoardHotspots.appendChild(prevBpBtn);
+
+                    var nextBpBtn = document.createElement('button');
+                    nextBpBtn.type = 'button';
+                    nextBpBtn.className = 'somoo-bp-hotspot-btn';
+                    nextBpBtn.style.left = '91.21%';
+                    nextBpBtn.style.top = '85.80%';
+                    nextBpBtn.style.width = '6.88%';
+                    nextBpBtn.style.height = '6.20%';
+                    nextBpBtn.title = '다음 캐릭터 로봇 설계도 보기';
+                    nextBpBtn.setAttribute('aria-label', '다음 설계도');
+                    nextBpBtn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        stepSomooBlueprintShowcase(1);
+                    });
+                    bpBoardHotspots.appendChild(nextBpBtn);
+
+                    // Preload all 28 theme robot boards in idle time for zero-latency switching
+                    setTimeout(function() {
+                        SOMOO_CHARACTERS.forEach(function(_, idx) {
+                            if (idx === 0) return;
+                            var preImg = new Image();
+                            preImg.decoding = 'async';
+                            preImg.src = getCharacterBlueprintUrl(idx);
+                        });
+                    }, 1200);
+                }
             }
 
             if (document.readyState === 'loading') {
