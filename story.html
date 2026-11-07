@@ -1187,29 +1187,15 @@
                         }
                     </style>
                     <div id="hangul-robot-1000-pdf-center" class="p-4 rounded-4" style="background: linear-gradient(155deg, rgba(15, 23, 42, 0.97) 0%, rgba(17, 24, 39, 0.98) 55%, rgba(7, 13, 27, 0.99) 100%); border: 1.5px solid rgba(251, 191, 36, 0.55); box-shadow: 0 22px 54px rgba(2, 6, 23, 0.72);">
-                        <div class="row align-items-center justify-content-between g-3 mb-3 pb-3" style="border-bottom: 1px solid rgba(251, 191, 36, 0.25);">
-                            <div class="col-lg-8">
-                                <div class="d-flex align-items-center gap-2 flex-wrap mb-2">
-                                    <span class="badge rounded-pill px-3 py-1 fw-bold" style="background: linear-gradient(135deg, #fbbf24, #d97706); color: #0f172a; font-size: 11.5px;">FULL 10-VOLUME PDF ARCHIVE · 1,000 WORKS</span>
-                                    <span class="badge rounded-pill px-3 py-1 fw-bold" style="background: rgba(56, 189, 248, 0.18); color: #7dd3fc; border: 1px solid rgba(56, 189, 248, 0.45); font-size: 11.5px;">전 10권 · 총 1,000작품 (4,000도해)</span>
-                                    <span class="badge rounded-pill px-3 py-1 fw-bold" style="background: rgba(16, 185, 129, 0.18); color: #6ee7b7; border: 1px solid rgba(16, 185, 129, 0.45); font-size: 11.5px;">원본 PDF 다운로드 &amp; 즉시 열람</span>
-                                </div>
-                                <h3 class="text-white fw-bold mb-1" style="font-size: 21px; letter-spacing: -0.02em;">
-                                    『한글 조형에서 피지컬 AI 로봇으로 — 한글로봇 1,000작품 전집 (제01권 ~ 제10권)』 원본 PDF 다운로드 센터
-                                </h3>
-                                <p class="mb-0" style="font-size: 13.5px; color: #cbd5e1; line-height: 1.55;">
-                                    한글 28자·모 블록 조형(01)에서 기구 골격화 CAD(02), 센서·구동 프로토타입(03), 최종 피지컬 AI 로봇·모빌리티(04)까지 집대성한 <strong>전 10권(0001번~1000번)</strong> 원본 PDF 도감입니다. 각 권 하단의 <strong>[PDF 다운로드]</strong> 또는 <strong>[브라우저에서 바로 열기]</strong> 버튼으로 즉시 소장·열람하실 수 있습니다.
-                                </p>
-                            </div>
-                            <div class="col-lg-4 text-lg-end">
-                                <div class="d-inline-flex flex-column align-items-lg-end gap-2">
-                                    <button type="button" onclick="downloadAllHangulRobot1000Pdfs()" class="hr1000-btn-master">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                                        <span>전권(제01권~제10권) 원클릭 순차 다운로드</span>
-                                    </button>
-                                    <span id="hangul1000BatchStatus" style="font-size: 11.5px; color: #fde68a;">전 10권(1,000작품) 고속 최적화본 · 개별 권 선택 다운로드 가능</span>
-                                </div>
-                            </div>
+                        <!-- Top 10-Volume Slipcase Hero Banner (Replaces old text header) -->
+                        <div class="position-relative rounded-4 overflow-hidden mb-3" style="border: 1px solid rgba(251, 191, 36, 0.38); background: #070d1b; box-shadow: 0 14px 36px rgba(2, 6, 23, 0.65);">
+                            <img src="assets/images/hangul-robot-1000/hr1000_header_banner.jpg?v=20261107" alt="원본 PDF 다운로드 센터 — 한글 조형에서 피지컬 AI 로봇으로 한글로봇 1,000작품 전집 (전 10권 · 권당 100페이지 · 총 4,000도해)" style="width: 100%; height: auto; display: block;" decoding="async">
+                            <!-- Interactive Hotspot on [↓ 전 10권 순차 다운로드] Gold Button -->
+                            <button type="button" onclick="downloadAllHangulRobot1000Pdfs()" title="전 10권(제01권~제10권) 원본 PDF 순차 다운로드" aria-label="전 10권 순차 다운로드" style="position: absolute; left: 4.10%; top: 65.69%; width: 30.86%; height: 14.96%; background: transparent; border: none; border-radius: 6px; cursor: pointer; padding: 0; transition: box-shadow 0.18s ease, background 0.18s ease;" onmouseover="this.style.boxShadow='0 0 0 2px rgba(254, 243, 199, 0.85), 0 8px 24px rgba(245, 158, 11, 0.45)'; this.style.background='rgba(255, 255, 255, 0.06)';" onmouseout="this.style.boxShadow='none'; this.style.background='transparent';"></button>
+                            <!-- Interactive Hotspot on 10-Volume Slipcase (Right Half) to Zoom Banner -->
+                            <button type="button" onclick="openStoryLightbox('assets/images/hangul-robot-1000/hr1000_header_banner.jpg?v=20261107', '원본 PDF 다운로드 센터 — 한글 조형에서 피지컬 AI 로봇으로 한글로봇 1,000작품 전집 (제01권 ~ 제10권 · 총 4,000도해)', false)" title="클릭하여 10권 전집 케이스 확대 보기" aria-label="10권 전집 케이스 확대 보기" style="position: absolute; left: 50%; top: 0; width: 50%; height: 100%; background: transparent; border: none; cursor: zoom-in; padding: 0;"></button>
+                            <!-- Live Batch Download Progress Badge (Shown when sequential download runs) -->
+                            <span id="hangul1000BatchStatus" style="display: none; position: absolute; left: 4.10%; bottom: 3.2%; background: rgba(15, 23, 42, 0.94); color: #fde68a; border: 1px solid rgba(251, 191, 36, 0.65); border-radius: 999px; padding: 3px 12px; font-size: 11.5px; font-weight: 700; box-shadow: 0 6px 18px rgba(2, 6, 23, 0.7);"></span>
                         </div>
 
                         <!-- 10 Volumes Grid (2 rows × 5 columns on desktop) -->
@@ -1583,7 +1569,8 @@
                                         a.click();
                                         document.body.removeChild(a);
                                         if (statusEl) {
-                                            statusEl.textContent = '📥 (' + (idx + 1) + '/10) ' + item.name + ' 다운로드 요청 완료';
+                                            statusEl.style.display = 'inline-block';
+                                            statusEl.textContent = '(' + (idx + 1) + '/10) ' + item.name + ' 다운로드 요청 완료';
                                         }
                                     }, idx * 650);
                                 });
