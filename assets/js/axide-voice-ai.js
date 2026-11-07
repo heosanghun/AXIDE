@@ -45,7 +45,7 @@
   let isSpeaking = false;
 
   /* --------------------------------------------------------------------------
-   * 1-B. AXIDE Background Music (BGM) Engine — 황제1곡 반복.mp3 (Emperor Loop)
+   * 1-B. AXIDE Background Music (BGM) Engine — 베토벤: 피아노 협주곡 5번 "황제" 2악장
    * -------------------------------------------------------------------------- */
   const BGM_SRC = "assets/audio/bgm-emperor-loop.mp3?v=20261106v165";
   const BGM_FALLBACK_SRC = "https://raw.githubusercontent.com/heosanghun/AXIDE/main/assets/audio/bgm-emperor-loop.mp3";
@@ -79,8 +79,8 @@
       btn.setAttribute(
         "title",
         playing
-          ? "배경음악 재생 중 (베토벤 '황제' 1악장 · 클릭 시 끄기)"
-          : "배경음악 켜기 (베토벤 '황제' 1악장 반복)"
+          ? '배경음악 재생 중 (베토벤: 피아노 협주곡 5번 "황제" 2악장 · 클릭 시 끄기)'
+          : '배경음악 켜기 (베토벤: 피아노 협주곡 5번 "황제" 2악장 반복)'
       );
       btn.setAttribute("aria-pressed", playing ? "true" : "false");
     });
@@ -95,8 +95,8 @@
     const ctrlBtnTitle = document.getElementById("axideCtrlBgmBtnTitle");
     if (ctrlBtnTitle) {
       ctrlBtnTitle.textContent = playing
-        ? "베토벤 ‘황제’ 1악장 재생 중 (클릭 시 일시정지)"
-        : "베토벤 ‘황제’ 1악장 배경음악 재생하기";
+        ? '베토벤: 피아노 협주곡 5번 "황제" 2악장 재생 중 (일시정지)'
+        : '베토벤: 피아노 협주곡 5번 "황제" 2악장 재생하기';
     }
   }
 
@@ -1411,6 +1411,214 @@
           right: 16px !important;
         }
       }
+      /* Beethoven Emperor 2nd Mov. 4-Page Score Gallery & Download Styles */
+      .axide-score-box {
+        margin-top: 12px;
+        padding-top: 12px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .axide-score-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        margin-bottom: 9px;
+      }
+      .axide-score-title {
+        font-size: 11.5px;
+        font-weight: 700;
+        color: #f8fafc;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .axide-score-zip-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 10.5px;
+        font-weight: 700;
+        color: #fbbf24 !important;
+        background: rgba(251, 191, 36, 0.12);
+        border: 1px solid rgba(251, 191, 36, 0.38);
+        border-radius: 6px;
+        padding: 3px 8px;
+        text-decoration: none !important;
+        transition: all 0.18s ease;
+        cursor: pointer;
+      }
+      .axide-score-zip-btn:hover {
+        background: rgba(251, 191, 36, 0.24);
+        border-color: #fbbf24;
+        color: #fff !important;
+      }
+      .axide-score-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 7px;
+      }
+      .axide-score-card {
+        background: rgba(15, 23, 42, 0.78);
+        border: 1px solid rgba(148, 163, 184, 0.22);
+        border-radius: 8px;
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        transition: border-color 0.18s ease, transform 0.18s ease;
+      }
+      .axide-score-card:hover {
+        border-color: rgba(251, 191, 36, 0.65);
+        transform: translateY(-1px);
+      }
+      .axide-score-thumb-btn {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 3 / 4;
+        border-radius: 5px;
+        overflow: hidden;
+        border: none;
+        padding: 0;
+        background: #fff;
+        cursor: zoom-in;
+        display: block;
+      }
+      .axide-score-thumb-btn img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top center;
+        display: block;
+      }
+      .axide-score-badge {
+        position: absolute;
+        left: 4px;
+        top: 4px;
+        background: rgba(15, 23, 42, 0.86);
+        color: #fbbf24;
+        font-size: 9.5px;
+        font-weight: 800;
+        padding: 1px 5px;
+        border-radius: 4px;
+        border: 1px solid rgba(251, 191, 36, 0.4);
+      }
+      .axide-score-dl-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+        font-size: 10px;
+        font-weight: 700;
+        color: #e2e8f0 !important;
+        background: rgba(30, 41, 59, 0.9);
+        border: 1px solid rgba(148, 163, 184, 0.25);
+        border-radius: 5px;
+        padding: 4px 2px;
+        text-decoration: none !important;
+        transition: all 0.18s ease;
+      }
+      .axide-score-dl-link:hover {
+        background: rgba(251, 191, 36, 0.22);
+        border-color: rgba(251, 191, 36, 0.65);
+        color: #fde68a !important;
+      }
+      .axide-score-all-btn {
+        margin-top: 8px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        font-size: 11px;
+        font-weight: 700;
+        color: #fef3c7 !important;
+        background: linear-gradient(135deg, rgba(217, 119, 6, 0.26), rgba(15, 23, 42, 0.9));
+        border: 1px solid rgba(251, 191, 36, 0.45);
+        border-radius: 8px;
+        padding: 7px 10px;
+        cursor: pointer;
+        transition: all 0.18s ease;
+      }
+      .axide-score-all-btn:hover {
+        background: linear-gradient(135deg, rgba(245, 158, 11, 0.38), rgba(30, 41, 59, 0.95));
+        border-color: #fbbf24;
+      }
+      /* Full-screen Score Lightbox Modal */
+      .axide-score-modal-backdrop {
+        position: fixed;
+        inset: 0;
+        z-index: 2147483646;
+        background: rgba(2, 6, 23, 0.88);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 18px;
+      }
+      .axide-score-modal-backdrop.open {
+        display: flex;
+      }
+      .axide-score-modal-dialog {
+        width: min(920px, 96vw);
+        max-height: 92vh;
+        background: #0b1120;
+        border: 1px solid rgba(251, 191, 36, 0.42);
+        border-radius: 16px;
+        box-shadow: 0 24px 64px rgba(0, 0, 0, 0.75);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+      .axide-score-modal-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 12px 18px;
+        background: #0f172a;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .axide-score-modal-title {
+        font-size: 14px;
+        font-weight: 800;
+        color: #f8fafc;
+        margin: 0;
+      }
+      .axide-score-modal-actions {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        flex-wrap: wrap;
+      }
+      .axide-score-tab-btn {
+        font-size: 11.5px;
+        font-weight: 700;
+        color: #cbd5e1;
+        background: rgba(30, 41, 59, 0.85);
+        border: 1px solid rgba(148, 163, 184, 0.28);
+        border-radius: 6px;
+        padding: 4px 10px;
+        cursor: pointer;
+      }
+      .axide-score-tab-btn.active {
+        color: #0f172a;
+        background: #fbbf24;
+        border-color: #fbbf24;
+      }
+      .axide-score-modal-body {
+        padding: 16px;
+        overflow-y: auto;
+        text-align: center;
+        background: #1e293b;
+        flex: 1;
+      }
+      .axide-score-modal-body img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        background: #fff;
+      }
     `;
     (document.head || document.documentElement).appendChild(style);
   }
@@ -1653,7 +1861,7 @@
         bgmBtn.type = "button";
         bgmBtn.className = "axide-header-bgm-btn";
         bgmBtn.setAttribute("aria-label", "배경음악 재생 / 일시정지");
-        bgmBtn.setAttribute("title", "배경음악 켜기/끄기 (베토벤 피아노 협주곡 제5번 '황제' 반복)");
+        bgmBtn.setAttribute("title", '배경음악 켜기/끄기 (베토벤: 피아노 협주곡 5번 "황제" 2악장 반복)');
         bgmBtn.innerHTML = `
           <svg class="axide-bgm-note" width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M9 18V5l12-2v13" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
@@ -2042,7 +2250,7 @@
       rightBgmBtn.id = "axideRightBgmToggle";
       rightBgmBtn.className = "axide-right-bgm-pill";
       rightBgmBtn.setAttribute("aria-label", "배경음악 켜기 / 끄기");
-      rightBgmBtn.setAttribute("title", "배경음악 켜기/끄기 (베토벤 피아노 협주곡 제5번 '황제' 반복)");
+      rightBgmBtn.setAttribute("title", '배경음악 켜기/끄기 (베토벤: 피아노 협주곡 5번 "황제" 2악장 반복)');
       rightBgmBtn.innerHTML = `
         <svg class="axide-bgm-note" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M9 18V5l12-2v13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -2080,17 +2288,17 @@
               <h3 class="axide-ctrl-title">배경음악 &amp; AI 브리핑 제어</h3>
             </div>
           </div>
-          <p class="axide-ctrl-sub">홈페이지 클래식 배경음악(베토벤 ‘황제’ 1악장 반복), AI 수석 아나운서 음성 브리핑 및 핵심 기술 문서 바로가기를 제어합니다.</p>
+          <p class="axide-ctrl-sub">홈페이지 클래식 배경음악(베토벤: 피아노 협주곡 5번 "황제" 2악장), 피아노 악보(4면) 다운로드 및 AI 수석 아나운서 음성 브리핑을 제어합니다.</p>
         </div>
         <div class="canvas-body">
-          <!-- 1. Classic BGM Control (Emperor Concerto) -->
+          <!-- 1. Classic BGM Control (Emperor Concerto 2nd Mov.) -->
           <div class="axide-ctrl-section axide-ctrl-section--featured">
             <div class="axide-ctrl-sec-head">
               <h6 class="axide-ctrl-sec-title">
                 <span class="axide-ctrl-sec-icon">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
                 </span>
-                클래식 배경음악 (베토벤 ‘황제’ 1악장)
+                베토벤: 피아노 협주곡 5번 "황제" 2악장
               </h6>
               <span class="axide-ctrl-sec-tag axide-ctrl-sec-tag--gold">LOOP BGM</span>
             </div>
@@ -2099,8 +2307,8 @@
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
               </span>
               <span class="axide-aria-launch-copy">
-                <strong id="axideCtrlBgmBtnTitle">베토벤 ‘황제’ 1악장 배경음악 재생 / 일시정지</strong>
-                <small>Beethoven Piano Concerto No. 5 · Continuous Loop</small>
+                <strong id="axideCtrlBgmBtnTitle">베토벤: 피아노 협주곡 5번 "황제" 2악장 재생하기</strong>
+                <small>Beethoven: Piano Concerto No. 5 "Emperor", 2nd Mov. · Continuous Loop</small>
               </span>
               <span class="axide-aria-eq" aria-hidden="true">
                 <i></i><i></i><i></i><i></i>
@@ -2123,6 +2331,53 @@
                 <span class="axide-ctrl-row-sub">페이지 이동 시에도 끊김 없이 이어서 재생합니다</span>
               </div>
               <input type="checkbox" id="axideCtrlBgmSwitch" class="tf-switch-check style-small" ${getBgmEnabled() ? "checked" : ""}>
+            </div>
+
+            <!-- 4-Page Sheet Music Preview & Download Section -->
+            <div class="axide-score-box">
+              <div class="axide-score-header">
+                <span class="axide-score-title">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                  피아노 협주곡 5번 "황제" 2악장 악보 (4면)
+                </span>
+                <a href="assets/docs/scores/beethoven-emperor-no5-mov2-scores-all-4p.zip" download="베토벤_피아노_협주곡_5번_황제_2악장_악보_전체(1-4p).zip" class="axide-score-zip-btn" title="4개 악보 ZIP 압축파일 일괄 다운로드">
+                  ⬇ ZIP 전체 다운로드
+                </a>
+              </div>
+              <div class="axide-score-grid">
+                <div class="axide-score-card">
+                  <button type="button" class="axide-score-thumb-btn" onclick="window.openAxideScoreModal(0)" title="클릭하여 1번 악보 크게 보기">
+                    <span class="axide-score-badge">1면</span>
+                    <img src="assets/docs/scores/beethoven-emperor-no5-mov2-score-p1.png" alt="베토벤 피아노 협주곡 5번 황제 2악장 악보 1면" loading="lazy">
+                  </button>
+                  <a href="assets/docs/scores/beethoven-emperor-no5-mov2-score-p1.png" download="베토벤_피아노_협주곡_5번_황제_2악장_악보_1(Pianiste101).png" class="axide-score-dl-link">⬇ 1면 저장</a>
+                </div>
+                <div class="axide-score-card">
+                  <button type="button" class="axide-score-thumb-btn" onclick="window.openAxideScoreModal(1)" title="클릭하여 2번 악보 크게 보기">
+                    <span class="axide-score-badge">2면</span>
+                    <img src="assets/docs/scores/beethoven-emperor-no5-mov2-score-p2.png" alt="베토벤 피아노 협주곡 5번 황제 2악장 악보 2면" loading="lazy">
+                  </button>
+                  <a href="assets/docs/scores/beethoven-emperor-no5-mov2-score-p2.png" download="베토벤_피아노_협주곡_5번_황제_2악장_악보_2(Pianiste102).png" class="axide-score-dl-link">⬇ 2면 저장</a>
+                </div>
+                <div class="axide-score-card">
+                  <button type="button" class="axide-score-thumb-btn" onclick="window.openAxideScoreModal(2)" title="클릭하여 3번 악보 크게 보기">
+                    <span class="axide-score-badge">3면</span>
+                    <img src="assets/docs/scores/beethoven-emperor-no5-mov2-score-p3.png" alt="베토벤 피아노 협주곡 5번 황제 2악장 악보 3면" loading="lazy">
+                  </button>
+                  <a href="assets/docs/scores/beethoven-emperor-no5-mov2-score-p3.png" download="베토벤_피아노_협주곡_5번_황제_2악장_악보_3(Pianiste103).png" class="axide-score-dl-link">⬇ 3면 저장</a>
+                </div>
+                <div class="axide-score-card">
+                  <button type="button" class="axide-score-thumb-btn" onclick="window.openAxideScoreModal(3)" title="클릭하여 4번 악보 크게 보기">
+                    <span class="axide-score-badge">4면</span>
+                    <img src="assets/docs/scores/beethoven-emperor-no5-mov2-score-p4.png" alt="베토벤 피아노 협주곡 5번 황제 2악장 악보 4면" loading="lazy">
+                  </button>
+                  <a href="assets/docs/scores/beethoven-emperor-no5-mov2-score-p4.png" download="베토벤_피아노_협주곡_5번_황제_2악장_악보_4(Pianiste104).png" class="axide-score-dl-link">⬇ 4면 저장</a>
+                </div>
+              </div>
+              <button type="button" class="axide-score-all-btn" id="axideDownloadAllScoresBtn">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                4개 악보 파일(1~4면 PNG) 한 번에 모두 다운로드
+              </button>
             </div>
           </div>
 
@@ -2317,6 +2572,109 @@
         initSovereignCommandCenter();
       });
     }
+
+    const scoreFiles = [
+      {
+        src: "assets/docs/scores/beethoven-emperor-no5-mov2-score-p1.png",
+        downloadName: "베토벤_피아노_협주곡_5번_황제_2악장_악보_1(Pianiste101).png",
+        label: "1면 (p.24)"
+      },
+      {
+        src: "assets/docs/scores/beethoven-emperor-no5-mov2-score-p2.png",
+        downloadName: "베토벤_피아노_협주곡_5번_황제_2악장_악보_2(Pianiste102).png",
+        label: "2면 (p.25)"
+      },
+      {
+        src: "assets/docs/scores/beethoven-emperor-no5-mov2-score-p3.png",
+        downloadName: "베토벤_피아노_협주곡_5번_황제_2악장_악보_3(Pianiste103).png",
+        label: "3면 (p.26)"
+      },
+      {
+        src: "assets/docs/scores/beethoven-emperor-no5-mov2-score-p4.png",
+        downloadName: "베토벤_피아노_협주곡_5번_황제_2악장_악보_4(Pianiste104).png",
+        label: "4면 (p.27)"
+      }
+    ];
+
+    window.downloadAllBeethovenScores = function () {
+      scoreFiles.forEach((item, idx) => {
+        setTimeout(() => {
+          const a = document.createElement("a");
+          a.href = item.src;
+          a.download = item.downloadName;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+        }, idx * 260);
+      });
+    };
+
+    const dlAllBtn = document.getElementById("axideDownloadAllScoresBtn");
+    if (dlAllBtn) {
+      dlAllBtn.addEventListener("click", function () {
+        window.downloadAllBeethovenScores();
+      });
+    }
+
+    window.openAxideScoreModal = function (pageIndex) {
+      let modal = document.getElementById("axideScoreModal");
+      if (!modal) {
+        modal = document.createElement("div");
+        modal.id = "axideScoreModal";
+        modal.className = "axide-score-modal-backdrop";
+        modal.innerHTML = `
+          <div class="axide-score-modal-dialog">
+            <div class="axide-score-modal-top">
+              <h5 class="axide-score-modal-title">🎼 베토벤: 피아노 협주곡 5번 "황제" 2악장 피아노 악보 (1~4면)</h5>
+              <div class="axide-score-modal-actions">
+                <button type="button" class="axide-score-tab-btn" data-idx="0">1면</button>
+                <button type="button" class="axide-score-tab-btn" data-idx="1">2면</button>
+                <button type="button" class="axide-score-tab-btn" data-idx="2">3면</button>
+                <button type="button" class="axide-score-tab-btn" data-idx="3">4면</button>
+                <a id="axideScoreModalSingleDl" href="" download="" class="axide-score-zip-btn">⬇ 현재 악보 다운로드</a>
+                <a href="assets/docs/scores/beethoven-emperor-no5-mov2-scores-all-4p.zip" download="베토벤_피아노_협주곡_5번_황제_2악장_악보_전체(1-4p).zip" class="axide-score-zip-btn">⬇ 4개 전체(ZIP)</a>
+                <button type="button" class="axide-score-tab-btn" id="axideScoreModalCloseBtn">닫기 ✕</button>
+              </div>
+            </div>
+            <div class="axide-score-modal-body">
+              <img id="axideScoreModalImg" src="" alt="베토벤 피아노 협주곡 5번 황제 2악장 악보">
+            </div>
+          </div>
+        `;
+        modal.addEventListener("click", function (e) {
+          if (e.target === modal) modal.classList.remove("open");
+        });
+        document.body.appendChild(modal);
+
+        modal.querySelectorAll(".axide-score-tab-btn[data-idx]").forEach((btn) => {
+          btn.addEventListener("click", function () {
+            const idx = parseInt(this.getAttribute("data-idx") || "0", 10);
+            window.openAxideScoreModal(idx);
+          });
+        });
+        const closeBtn = document.getElementById("axideScoreModalCloseBtn");
+        if (closeBtn) {
+          closeBtn.addEventListener("click", function () {
+            modal.classList.remove("open");
+          });
+        }
+      }
+
+      const idx = Math.max(0, Math.min(3, pageIndex || 0));
+      const item = scoreFiles[idx];
+      const img = document.getElementById("axideScoreModalImg");
+      const singleDl = document.getElementById("axideScoreModalSingleDl");
+      if (img) img.src = item.src;
+      if (singleDl) {
+        singleDl.href = item.src;
+        singleDl.setAttribute("download", item.downloadName);
+        singleDl.textContent = "⬇ " + item.label + " 다운로드";
+      }
+      modal.querySelectorAll(".axide-score-tab-btn[data-idx]").forEach((btn) => {
+        btn.classList.toggle("active", parseInt(btn.getAttribute("data-idx") || "0", 10) === idx);
+      });
+      modal.classList.add("open");
+    };
 
     tryStartBgm();
   }
