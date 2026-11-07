@@ -893,82 +893,155 @@
                      MOBILITY 100 ARCHIVE: 한글퍼즐 × 피지컬 AI 모빌리티 100작품 (4단계 진화 도감)
                      Source: C:\Project\myhistory\한글퍼즐_피지컬AI_모빌리티_100작품_4단계\한글퍼즐_피지컬AI_모빌리티_100작품_4단계.pdf
                      ========================================================= -->
-                <div id="act-mobility-100" class="story-shell-dark" style="border-color: rgba(56, 189, 248, 0.48); background: linear-gradient(165deg, #050914 0%, #0b1326 48%, #070d1b 100%); box-shadow: 0 28px 70px rgba(2, 6, 23, 0.78);">
-                    <div class="row align-items-end mb-24 g-3">
-                        <div class="col-lg-8">
-                            <div class="d-flex align-items-center gap-2 flex-wrap mb-2">
-                                <span class="story-act-badge mb-0" style="background: rgba(56, 189, 248, 0.18); border-color: rgba(56, 189, 248, 0.55); color: #7dd3fc;">MOBILITY 100 ARCHIVE · HANGUL PUZZLE × PHYSICAL AI MOBILITY</span>
-                                <span class="badge rounded-pill px-3 py-1 fw-bold" style="background: rgba(251, 191, 36, 0.2); color: #fde68a; border: 1px solid rgba(251, 191, 36, 0.5); font-size: 11.5px;">자모 원형 디자인: 허상훈 · 10개 테마 · 100작품 · 400도해</span>
-                            </div>
-                            <h2 class="story-headline mb-2">
-                                한글퍼즐 × 피지컬 AI 모빌리티 100작품 — 4단계 진화 도감
-                                <span class="story-headline-sub">3D 한글 자모 원형(01) → 기구 골격화 CAD(02) → 센서·구동 프로토타입(03) → 최종 미래형 모빌리티(04)</span>
-                            </h2>
-                            <p class="story-lead mb-0">
-                                한글 28자·모 블록의 조립 원형이 <strong>결합축·부재 골격화(02)</strong>와 <strong>센서·구동부 시험 프로토타입(03)</strong>을 거쳐 수상·항공·육상·관측·공방 현장을 누비는 <strong>100종의 피지컬 AI 자율 모빌리티(04)</strong>로 진화하는 전 과정을 수록했습니다. 각 작품을 클릭하면 <strong>4단계 고해상도 상세 설계 팝업</strong>이 열립니다.
-                            </p>
+                <div id="act-mobility-100" class="story-shell-dark" style="border-color: rgba(200, 181, 152, 0.55); background: linear-gradient(165deg, #050914 0%, #0b1326 48%, #070d1b 100%); box-shadow: 0 28px 70px rgba(2, 6, 23, 0.78);">
+                    <!-- =========================================================
+                         EDITORIAL IVORY HERO BOARD & INTERACTIVE FILTER CONSOLE
+                         (Replaces old dark header/legend/toolbar and activates all buttons)
+                         ========================================================= -->
+                    <div id="mob100EditorialBoard" class="mob100-editorial-board mb-28">
+                        <!-- Top Eyebrow Row -->
+                        <div class="mob100-ed-eyebrow-row">
+                            <span class="mob100-ed-eyebrow-left">MOBILITY 100 ARCHIVE</span>
+                            <div class="mob100-ed-eyebrow-line"></div>
+                            <span class="mob100-ed-eyebrow-right">자모 원형 디자인 &nbsp;<strong>허상훈</strong></span>
                         </div>
-                        <div class="col-lg-4 text-lg-end">
-                            <div class="d-inline-flex flex-column align-items-lg-end gap-2">
-                                <div class="d-flex flex-wrap justify-content-lg-end gap-2">
-                                    <span class="badge rounded-pill px-3 py-2 fw-bold" style="background: rgba(16, 185, 129, 0.2); color: #6ee7b7; border: 1px solid rgba(16, 185, 129, 0.45); font-size: 12px;">총 1,000작품 전집 (제01~10권 PDF)</span>
-                                    <span class="badge rounded-pill px-3 py-2 fw-bold" style="background: rgba(56, 189, 248, 0.2); color: #7dd3fc; border: 1px solid rgba(56, 189, 248, 0.45); font-size: 12px;">인터랙티브 100작품 × 4단계 = 400컷</span>
+
+                        <!-- Main Title & 3 Stat Counters Row -->
+                        <div class="mob100-ed-header-row">
+                            <div class="mob100-ed-title-block">
+                                <h2 class="mob100-ed-main-title">한글퍼즐 × 피지컬 AI 모빌리티</h2>
+                                <div class="mob100-ed-sub-title">100작품의 4단계 진화 도감</div>
+                            </div>
+                            <div class="mob100-ed-stats-group">
+                                <div class="mob100-ed-stat-item">
+                                    <div class="mob100-ed-stat-num">10</div>
+                                    <div class="mob100-ed-stat-label">테마</div>
                                 </div>
-                                <a href="#hangul-robot-1000-pdf-center" class="btn btn-sm rounded-pill px-3 py-1 fw-bold" style="background: linear-gradient(135deg, #fbbf24, #d97706); color: #0f172a; font-size: 12px;">
-                                    📥 한글로봇 1,000작품 전집 (전10권 PDF) 직접 다운로드 ↓
-                                </a>
+                                <div class="mob100-ed-stat-item">
+                                    <div class="mob100-ed-stat-num">100</div>
+                                    <div class="mob100-ed-stat-label">작품</div>
+                                </div>
+                                <div class="mob100-ed-stat-item">
+                                    <div class="mob100-ed-stat-num">400</div>
+                                    <div class="mob100-ed-stat-label">도해</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Featured Work Title Strip (Dynamic + Interactive Controls) -->
+                        <div class="mob100-ed-work-bar">
+                            <div class="d-flex align-items-baseline flex-wrap gap-2">
+                                <span id="mob100HeroCode" class="mob100-ed-work-code">001</span>
+                                <span id="mob100HeroOrigin" class="mob100-ed-work-origin">삼창 귀선</span>
+                                <span class="mob100-ed-work-arrow">→</span>
+                                <span id="mob100HeroMobility" class="mob100-ed-work-target">삼창 도심 비행정</span>
+                            </div>
+                            <div class="d-flex align-items-center flex-wrap gap-2">
+                                <button type="button" onclick="stepMobility100Hero(-1)" class="mob100-ed-nav-btn" title="이전 대표 작품 보기">◀ 이전</button>
+                                <button type="button" onclick="stepMobility100Hero(1)" class="mob100-ed-nav-btn" title="다음 대표 작품 보기">다음 ▶</button>
+                                <button type="button" onclick="openMobility100HeroModal()" class="mob100-ed-nav-btn mob100-ed-nav-btn-primary">🔍 4단계 상세 팝업</button>
+                                <a href="#hangul-robot-1000-pdf-center" class="mob100-ed-nav-btn mob100-ed-nav-btn-gold">📥 전10권(1,000작품) PDF 다운로드 ↓</a>
+                            </div>
+                        </div>
+
+                        <!-- 4-Stage Visual Showcase Strip (01 ~ 04) -->
+                        <div id="mob100HeroStageStrip" class="mob100-ed-stage-strip">
+                            <!-- Stage 01 -->
+                            <div class="mob100-ed-stage-col" data-hero-stage="0">
+                                <div class="mob100-ed-stage-img-wrap" style="background: #F4F0E8;" onclick="openMobility100HeroModal()">
+                                    <img id="mob100HeroImg0" src="assets/images/mobility100/hero_w001_s1.jpg" alt="01 원형">
+                                    <span class="mob100-ed-zoom-hint">클릭하여 상세 설계 보기</span>
+                                </div>
+                                <button type="button" class="mob100-ed-stage-caption" onclick="selectMobility100StageMode('0')" title="클릭 시 01 원형 3D 모드로 전환">
+                                    <span class="mob100-ed-stage-num">01</span>
+                                    <span class="mob100-ed-stage-name">원형</span>
+                                </button>
+                            </div>
+                            <!-- Stage 02 -->
+                            <div class="mob100-ed-stage-col" data-hero-stage="1">
+                                <div class="mob100-ed-stage-img-wrap" style="background: #0B2D30;" onclick="openMobility100HeroModal()">
+                                    <img id="mob100HeroImg1" src="assets/images/mobility100/hero_w001_s2.jpg" alt="02 해체 및 골격화">
+                                    <span class="mob100-ed-zoom-hint">클릭하여 상세 설계 보기</span>
+                                </div>
+                                <button type="button" class="mob100-ed-stage-caption" onclick="selectMobility100StageMode('1')" title="클릭 시 02 골격화 CAD 모드로 전환">
+                                    <span class="mob100-ed-stage-num">02</span>
+                                    <span class="mob100-ed-stage-name">해체 및 골격화</span>
+                                </button>
+                            </div>
+                            <!-- Stage 03 -->
+                            <div class="mob100-ed-stage-col" data-hero-stage="2">
+                                <div class="mob100-ed-stage-img-wrap" style="background: #1B1D22;" onclick="openMobility100HeroModal()">
+                                    <img id="mob100HeroImg2" src="assets/images/mobility100/hero_w001_s3.jpg" alt="03 프로토타입">
+                                    <span class="mob100-ed-zoom-hint">클릭하여 상세 설계 보기</span>
+                                </div>
+                                <button type="button" class="mob100-ed-stage-caption" onclick="selectMobility100StageMode('2')" title="클릭 시 03 프로토타입 모드로 전환">
+                                    <span class="mob100-ed-stage-num">03</span>
+                                    <span class="mob100-ed-stage-name">프로토타입</span>
+                                </button>
+                            </div>
+                            <!-- Stage 04 -->
+                            <div class="mob100-ed-stage-col" data-hero-stage="3">
+                                <div class="mob100-ed-stage-img-wrap" style="background: #1A1B2E;" onclick="openMobility100HeroModal()">
+                                    <img id="mob100HeroImg3" src="assets/images/mobility100/hero_w001_s4.jpg" alt="04 미래 모빌리티">
+                                    <span class="mob100-ed-zoom-hint">클릭하여 상세 설계 보기</span>
+                                </div>
+                                <button type="button" class="mob100-ed-stage-caption" onclick="selectMobility100StageMode('3')" title="클릭 시 04 미래 모빌리티 모드로 전환">
+                                    <span class="mob100-ed-stage-num">04</span>
+                                    <span class="mob100-ed-stage-name">미래 모빌리티</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Search Row (작품 탐색) -->
+                        <div class="mob100-ed-search-row">
+                            <div class="d-flex align-items-center flex-wrap gap-3 flex-grow-1">
+                                <label for="mobility100SearchInput" class="mob100-ed-search-title mb-0">작품 탐색</label>
+                                <div class="mob100-ed-search-box">
+                                    <span class="mob100-ed-search-icon" aria-hidden="true">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4B5563" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                                    </span>
+                                    <input type="text" id="mobility100SearchInput" placeholder="작품 번호 · 작품명 · 자모 검색" autocomplete="off">
+                                    <button type="button" id="mobility100ClearSearchBtn" title="검색어 지우기" style="display: none;">✕</button>
+                                </div>
+                            </div>
+                            <span id="mobility100CountLabel" class="mob100-ed-count-badge">전체 100 / 100작품 표시 중 (400컷)</span>
+                        </div>
+
+                        <!-- 11 Category Filter Buttons Row -->
+                        <div id="mobility100CategoryBar" class="mob100-ed-cat-bar" role="tablist" aria-label="10대 모빌리티 테마 분류">
+                            <button type="button" data-cat="all" class="mob100-cat-btn active">전체</button>
+                            <button type="button" data-cat="물길과 선체" class="mob100-cat-btn">물길과 선체</button>
+                            <button type="button" data-cat="다리와 문" class="mob100-cat-btn">다리와 문</button>
+                            <button type="button" data-cat="탑과 신호" class="mob100-cat-btn">탑과 신호</button>
+                            <button type="button" data-cat="마당과 집" class="mob100-cat-btn">마당과 집</button>
+                            <button type="button" data-cat="앉고 놓는 모형" class="mob100-cat-btn">앉고 놓는 모형</button>
+                            <button type="button" data-cat="물가의 생물" class="mob100-cat-btn">물가의 생물</button>
+                            <button type="button" data-cat="날개와 꼬리" class="mob100-cat-btn">날개와 꼬리</button>
+                            <button type="button" data-cat="육상 운송" class="mob100-cat-btn">육상 운송</button>
+                            <button type="button" data-cat="관측과 기록" class="mob100-cat-btn">관측과 기록</button>
+                            <button type="button" data-cat="작은 공방" class="mob100-cat-btn">작은 공방</button>
+                        </div>
+
+                        <!-- View Mode Buttons Row (보기 방식) -->
+                        <div class="mob100-ed-view-row">
+                            <span class="mob100-ed-view-label">보기 방식</span>
+                            <div id="mobility100StageModeBar" class="mob100-ed-stage-btn-group" role="group" aria-label="보기 방식 선택">
+                                <button type="button" data-stage="all" class="mob100-stage-btn active">4단계 분할</button>
+                                <button type="button" data-stage="0" class="mob100-stage-btn">원형 3D</button>
+                                <button type="button" data-stage="1" class="mob100-stage-btn">골격화 CAD</button>
+                                <button type="button" data-stage="2" class="mob100-stage-btn">프로토타입</button>
+                                <button type="button" data-stage="3" class="mob100-stage-btn">미래 모빌리티</button>
                             </div>
                         </div>
                     </div>
 
-                    <!-- 4-Stage Evolution Pipeline Legend Strip -->
-                    <div class="row g-3 mb-24">
-                        <div class="col-md-6 col-xl-3">
-                            <div class="p-3 rounded-4 h-100" style="background: rgba(15, 23, 42, 0.88); border: 1px solid rgba(251, 191, 36, 0.4);">
-                                <div class="d-flex align-items-center justify-content-between mb-1">
-                                    <span class="badge rounded-pill fw-bold" style="background: #fbbf24; color: #0f172a; font-size: 11px;">STAGE 01 · 원형</span>
-                                    <span style="font-size: 11px; color: #fde68a; font-weight: 700;">원본 3D 퍼즐 조립</span>
-                                </div>
-                                <div class="fw-bold text-white mb-1" style="font-size: 14px;">한글 자·모 3D 블록 원형 (5~30개 부품)</div>
-                                <p class="mb-0" style="font-size: 12px; color: #cbd5e1; line-height: 1.45;">자음·모음 블록의 창틀·기둥·꺾쇠·속창을 조합해 모빌리티의 원형 조형과 대칭 축을 수립합니다.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-xl-3">
-                            <div class="p-3 rounded-4 h-100" style="background: rgba(15, 23, 42, 0.88); border: 1px solid rgba(56, 189, 248, 0.4);">
-                                <div class="d-flex align-items-center justify-content-between mb-1">
-                                    <span class="badge rounded-pill fw-bold" style="background: #38bdf8; color: #0f172a; font-size: 11px;">STAGE 02 · 해체 및 골격화</span>
-                                    <span style="font-size: 11px; color: #7dd3fc; font-weight: 700;">결합축 · 부재 매핑</span>
-                                </div>
-                                <div class="fw-bold text-white mb-1" style="font-size: 14px;">기준 부품(P01~P30) 기구 골격 CAD</div>
-                                <p class="mb-0" style="font-size: 12px; color: #cbd5e1; line-height: 1.45;">핵심 자모 부품을 동체 격벽, 회전 힌지, 부력 레일, 광학 창, 궤도 프레임 등 공학 부재로 치환합니다.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-xl-3">
-                            <div class="p-3 rounded-4 h-100" style="background: rgba(15, 23, 42, 0.88); border: 1px solid rgba(16, 185, 129, 0.4);">
-                                <div class="d-flex align-items-center justify-content-between mb-1">
-                                    <span class="badge rounded-pill fw-bold" style="background: #10b981; color: #0f172a; font-size: 11px;">STAGE 03 · 프로토타입</span>
-                                    <span style="font-size: 11px; color: #6ee7b7; font-weight: 700;">센서 · 구동부 시험 구성</span>
-                                </div>
-                                <div class="fw-bold text-white mb-1" style="font-size: 14px;">연구실 벤치탑 하드웨어 프로토타입</div>
-                                <p class="mb-0" style="font-size: 12px; color: #cbd5e1; line-height: 1.45;">한글 모듈 골격에 깊이 카메라·소나·장력 센서와 서보·덕트팬·워터제트·로봇팔 구동부를 결합해 검증합니다.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-xl-3">
-                            <div class="p-3 rounded-4 h-100" style="background: rgba(15, 23, 42, 0.88); border: 1px solid rgba(168, 85, 247, 0.45);">
-                                <div class="d-flex align-items-center justify-content-between mb-1">
-                                    <span class="badge rounded-pill fw-bold" style="background: #a855f7; color: #ffffff; font-size: 11px;">STAGE 04 · 최종 미래형 모빌리티</span>
-                                    <span style="font-size: 11px; color: #d8b4fe; font-weight: 700;">현장 운용 · 동작 설계</span>
-                                </div>
-                                <div class="fw-bold text-white mb-1" style="font-size: 14px;">피지컬 AI 자율주행·비행·운항 모빌리티</div>
-                                <p class="mb-0" style="font-size: 12px; color: #cbd5e1; line-height: 1.45;">센서 피드백으로 추력·자세·그리퍼·광축을 실시간 보정하며 실제 산업·해양·항공 현장에서 임무를 수행합니다.</p>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- 100 Works Interactive Grid Container -->
+                    <div id="mobility100Grid" class="row g-4 mb-28"></div>
 
                     <!-- =========================================================
                          HANGUL ROBOT 1,000 PDF ARCHIVE CENTER (제01권 ~ 제10권 원본 PDF 직접 다운로드)
                          ========================================================= -->
-                    <div id="hangul-robot-1000-pdf-center" class="p-4 rounded-4 mb-28" style="background: linear-gradient(155deg, rgba(15, 23, 42, 0.97) 0%, rgba(17, 24, 39, 0.98) 55%, rgba(7, 13, 27, 0.99) 100%); border: 1.5px solid rgba(251, 191, 36, 0.55); box-shadow: 0 22px 54px rgba(2, 6, 23, 0.72);">
+                    <div id="hangul-robot-1000-pdf-center" class="p-4 rounded-4" style="background: linear-gradient(155deg, rgba(15, 23, 42, 0.97) 0%, rgba(17, 24, 39, 0.98) 55%, rgba(7, 13, 27, 0.99) 100%); border: 1.5px solid rgba(251, 191, 36, 0.55); box-shadow: 0 22px 54px rgba(2, 6, 23, 0.72);">
                         <div class="row align-items-center justify-content-between g-3 mb-3 pb-3" style="border-bottom: 1px solid rgba(251, 191, 36, 0.25);">
                             <div class="col-lg-8">
                                 <div class="d-flex align-items-center gap-2 flex-wrap mb-2">
@@ -980,7 +1053,7 @@
                                     『한글 조형에서 피지컬 AI 로봇으로 — 한글로봇 1,000작품 전집 (제01권 ~ 제10권)』 원본 PDF 다운로드 센터
                                 </h3>
                                 <p class="mb-0" style="font-size: 13.5px; color: #cbd5e1; line-height: 1.55;">
-                                    한글 28자·모 블록 조형(01)에서 기구 골격화 CAD(02), 센서·구동 프로토타입(03), 최종 피지컬 AI 로봇·모빌리티(04)까지 집대성한 <strong>전 10권(0001번~1000번, 총 1,000페이지)</strong> 원본 PDF 도감입니다. 원하는 권의 <strong>[📥 PDF 직접 다운로드]</strong> 버튼을 클릭하면 사용자 PC/모바일로 즉시 저장되며, <strong>[📖 브라우저 열기]</strong>로 바로 열람하실 수도 있습니다.
+                                    한글 28자·모 블록 조형(01)에서 기구 골격화 CAD(02), 센서·구동 프로토타입(03), 최종 피지컬 AI 로봇·모빌리티(04)까지 집대성한 <strong>전 10권(0001번~1000번, 총 1,000페이지)</strong> 원본 PDF 도감입니다. 원하는 권의 <strong>[📥 PDF 다운로드]</strong> 버튼을 클릭하면 사용자 PC/모바일로 즉시 저장되며, <strong>[📖 브라우저에서 바로 열기]</strong>로 즉시 열람하실 수 있습니다.
                                 </p>
                             </div>
                             <div class="col-lg-4 text-lg-end">
@@ -1261,43 +1334,6 @@
                             }
                         </script>
                     </div>
-
-                    <!-- Interactive Filter & View Toolbar -->
-                    <div class="p-3 px-4 rounded-4 mb-24" style="background: rgba(15, 23, 42, 0.94); border: 1px solid rgba(56, 189, 248, 0.38);">
-                        <!-- 10 Theme Category Tabs -->
-                        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
-                            <div class="d-flex align-items-center gap-2">
-                                <span style="font-size: 12.5px; font-weight: 800; color: #38bdf8;">📂 10대 모빌리티 테마 분류 (클릭하여 필터링):</span>
-                            </div>
-                            <span id="mobility100CountLabel" class="badge rounded-pill px-3 py-1 fw-bold" style="background: rgba(251, 191, 36, 0.18); color: #fde68a; border: 1px solid rgba(251, 191, 36, 0.45); font-size: 12px;">전체 100 / 100작품 표시 중 (400컷)</span>
-                        </div>
-                        <div id="mobility100CategoryBar" class="d-flex flex-wrap gap-2 mb-3"></div>
-
-                        <!-- Search & Stage Display Mode Controls -->
-                        <div class="row g-2 align-items-center pt-2" style="border-top: 1px solid rgba(148, 163, 184, 0.2);">
-                            <div class="col-lg-5">
-                                <div class="position-relative">
-                                    <input type="text" id="mobility100SearchInput" placeholder="🔎 작품 번호(001~100), 작품명(삼창 도심 비행정, 가오리), 자모(ㄱ, ㅁ, ㅍ), 센서·구동부 검색..." style="width: 100%; background: rgba(2, 6, 23, 0.85); border: 1px solid rgba(56, 189, 248, 0.45); border-radius: 999px; padding: 8px 36px 8px 16px; color: #ffffff; font-size: 13px; outline: none;">
-                                    <button type="button" id="mobility100ClearSearchBtn" title="검색어 지우기" style="display: none; position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: transparent; border: none; color: #94a3b8; font-size: 14px; cursor: pointer;">✕</button>
-                                </div>
-                            </div>
-                            <div class="col-lg-7">
-                                <div class="d-flex align-items-center justify-content-lg-end flex-wrap gap-2">
-                                    <span style="font-size: 12px; color: #cbd5e1; font-weight: 700;">🖼️ 카드 이미지 표시 모드:</span>
-                                    <div id="mobility100StageModeBar" class="d-flex flex-wrap gap-1">
-                                        <button type="button" data-stage="all" class="mob100-stage-btn active">4단계 분할 (01~04 한눈에)</button>
-                                        <button type="button" data-stage="0" class="mob100-stage-btn">01 원형 3D</button>
-                                        <button type="button" data-stage="1" class="mob100-stage-btn">02 골격화 CAD</button>
-                                        <button type="button" data-stage="2" class="mob100-stage-btn">03 프로토타입</button>
-                                        <button type="button" data-stage="3" class="mob100-stage-btn">04 미래 모빌리티</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 100 Works Interactive Grid Container -->
-                    <div id="mobility100Grid" class="row g-4"></div>
                 </div>
 
                 <!-- =========================================================
@@ -3572,50 +3608,406 @@
          Source: C:\Project\myhistory\한글퍼즐_피지컬AI_모빌리티_100작품_4단계\한글퍼즐_피지컬AI_모빌리티_100작품_4단계.pdf
          ===================================================================== -->
     <style>
-        .mob100-cat-btn {
+        /* Editorial Warm Ivory Hero Board (Matches media_1794026347932_c91ff283.jpg 1:1) */
+        .mob100-editorial-board {
+            background: #F6F1E7;
+            color: #14181F;
+            border-radius: 18px;
+            padding: 26px 30px 24px;
+            border: 1.5px solid #C8B598;
+            box-shadow: 0 22px 54px rgba(2, 6, 23, 0.55);
+        }
+        .mob100-ed-eyebrow-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 14px;
+        }
+        .mob100-ed-eyebrow-left {
+            font-size: 14.5px;
+            font-weight: 800;
+            color: #1E242B;
+            letter-spacing: 0.03em;
+            white-space: nowrap;
+        }
+        .mob100-ed-eyebrow-line {
+            flex: 1;
+            height: 1.5px;
+            background: #B8A382;
+        }
+        .mob100-ed-eyebrow-right {
+            font-size: 14.5px;
+            font-weight: 600;
+            color: #2D333A;
+            white-space: nowrap;
+        }
+        .mob100-ed-header-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 18px;
+        }
+        .mob100-ed-main-title {
+            font-size: clamp(26px, 3.1vw, 38px);
+            font-weight: 900;
+            color: #14181F;
+            letter-spacing: -0.03em;
+            margin: 0 0 4px 0;
+            line-height: 1.18;
+        }
+        .mob100-ed-sub-title {
+            font-size: clamp(18px, 2.1vw, 26px);
+            font-weight: 500;
+            color: #232931;
+            letter-spacing: -0.02em;
+            line-height: 1.25;
+        }
+        .mob100-ed-stats-group {
+            display: flex;
+            align-items: center;
+        }
+        .mob100-ed-stat-item {
+            border-left: 1.5px solid #B8A382;
+            padding: 4px 28px;
+            text-align: center;
+        }
+        .mob100-ed-stat-num {
+            font-size: clamp(26px, 2.6vw, 34px);
+            font-weight: 900;
+            color: #14181F;
+            line-height: 1.05;
+        }
+        .mob100-ed-stat-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #374151;
+            margin-top: 3px;
+        }
+        .mob100-ed-work-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            padding: 11px 4px;
+            border-top: 1.5px solid #B8A382;
+            border-bottom: 1.5px solid #B8A382;
+            margin-bottom: 14px;
+        }
+        .mob100-ed-work-code {
+            font-size: 25px;
+            font-weight: 900;
+            color: #14181F;
+            margin-right: 10px;
+        }
+        .mob100-ed-work-origin {
+            font-size: 21px;
+            font-weight: 800;
+            color: #1E242B;
+        }
+        .mob100-ed-work-arrow {
+            font-size: 19px;
+            font-weight: 700;
+            color: #4B5563;
+            margin: 0 8px;
+        }
+        .mob100-ed-work-target {
+            font-size: 21px;
+            font-weight: 800;
+            color: #14181F;
+        }
+        .mob100-ed-nav-btn {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            padding: 6px 13px;
-            border-radius: 999px;
-            font-size: 12px;
+            gap: 4px;
+            padding: 5px 12px;
+            border-radius: 7px;
+            font-size: 12.5px;
             font-weight: 700;
-            color: #cbd5e1;
-            background: rgba(2, 6, 23, 0.78);
-            border: 1px solid rgba(148, 163, 184, 0.32);
+            color: #1E242B;
+            background: #EDE5D5;
+            border: 1px solid #B8A382;
             cursor: pointer;
-            transition: all 0.16s ease;
+            text-decoration: none;
+            transition: all 0.15s ease;
+        }
+        .mob100-ed-nav-btn:hover {
+            background: #E0D4BE;
+            color: #0F172A;
+        }
+        .mob100-ed-nav-btn-primary {
+            background: #114B3E;
+            color: #FFFFFF;
+            border-color: #114B3E;
+        }
+        .mob100-ed-nav-btn-primary:hover {
+            background: #0D3B30;
+            color: #FFFFFF;
+        }
+        .mob100-ed-nav-btn-gold {
+            background: linear-gradient(135deg, #D97706, #B45309);
+            color: #FFFFFF !important;
+            border-color: #B45309;
+        }
+        .mob100-ed-nav-btn-gold:hover {
+            filter: brightness(1.08);
+            color: #FFFFFF !important;
+        }
+        .mob100-ed-stage-strip {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            margin-bottom: 16px;
+        }
+        @media (max-width: 991px) {
+            .mob100-ed-stage-strip {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+        }
+        @media (max-width: 575px) {
+            .mob100-ed-stage-strip {
+                grid-template-columns: 1fr;
+            }
+            .mob100-ed-stat-item {
+                padding: 4px 16px;
+            }
+        }
+        .mob100-ed-stage-col {
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
+        }
+        .mob100-ed-stage-col.stage-focused .mob100-ed-stage-img-wrap {
+            outline: 3px solid #114B3E;
+            outline-offset: -3px;
+        }
+        .mob100-ed-stage-col.stage-dimmed {
+            opacity: 0.48;
+        }
+        .mob100-ed-stage-img-wrap {
+            position: relative;
+            aspect-ratio: 245 / 198;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .mob100-ed-stage-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.25s ease;
+        }
+        .mob100-ed-stage-img-wrap:hover img {
+            transform: scale(1.03);
+        }
+        .mob100-ed-zoom-hint {
+            position: absolute;
+            right: 8px;
+            bottom: 8px;
+            background: rgba(20, 24, 31, 0.78);
+            color: #F6F1E7;
+            font-size: 10.5px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 999px;
+            opacity: 0;
+            transition: opacity 0.18s ease;
+            pointer-events: none;
+        }
+        .mob100-ed-stage-img-wrap:hover .mob100-ed-zoom-hint {
+            opacity: 1;
+        }
+        .mob100-ed-stage-caption {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            padding: 10px 6px 4px;
+            background: transparent;
+            border: none;
+            text-align: left;
+            cursor: pointer;
+            color: #14181F;
+            transition: color 0.15s ease;
+        }
+        .mob100-ed-stage-caption:hover .mob100-ed-stage-name {
+            color: #114B3E;
+            text-decoration: underline;
+        }
+        .mob100-ed-stage-num {
+            font-size: 21px;
+            font-weight: 900;
+            color: #14181F;
+        }
+        .mob100-ed-stage-name {
+            font-size: 18.5px;
+            font-weight: 800;
+            color: #1E242B;
+        }
+        .mob100-ed-search-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            padding-top: 16px;
+            margin-bottom: 14px;
+            border-top: 1.5px solid #B8A382;
+        }
+        .mob100-ed-search-title {
+            font-size: 23px;
+            font-weight: 900;
+            color: #14181F;
+            letter-spacing: -0.02em;
+            white-space: nowrap;
+        }
+        .mob100-ed-search-box {
+            position: relative;
+            flex: 1;
+            max-width: 470px;
+            min-width: 240px;
+        }
+        .mob100-ed-search-icon {
+            position: absolute;
+            left: 13px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: inline-flex;
+            pointer-events: none;
+        }
+        #mobility100SearchInput {
+            width: 100%;
+            background: #F4EFE4;
+            border: 1.5px solid #A89372;
+            border-radius: 7px;
+            padding: 8px 34px 8px 40px;
+            color: #14181F;
+            font-size: 15px;
+            font-weight: 600;
+            outline: none;
+            transition: border-color 0.15s ease, box-shadow 0.15s ease;
+        }
+        #mobility100SearchInput::placeholder {
+            color: #575E68;
+            font-weight: 500;
+        }
+        #mobility100SearchInput:focus {
+            border-color: #114B3E;
+            box-shadow: 0 0 0 3px rgba(17, 75, 62, 0.15);
+            background: #FFFFFF;
+        }
+        #mobility100ClearSearchBtn {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            border: none;
+            color: #4B5563;
+            font-size: 14px;
+            font-weight: 800;
+            cursor: pointer;
+        }
+        .mob100-ed-count-badge {
+            font-size: 13px;
+            font-weight: 800;
+            color: #114B3E;
+            background: rgba(17, 75, 62, 0.1);
+            border: 1px solid rgba(17, 75, 62, 0.3);
+            padding: 5px 13px;
+            border-radius: 999px;
+        }
+        .mob100-ed-cat-bar {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2px;
+            padding-bottom: 14px;
+            margin-bottom: 14px;
+            border-bottom: 1.5px solid #B8A382;
+        }
+        .mob100-cat-btn {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 7px 15px;
+            border-radius: 7px;
+            font-size: 15px;
+            font-weight: 700;
+            color: #232931;
+            background: transparent;
+            border: 1.5px solid transparent;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            white-space: nowrap;
+        }
+        .mob100-cat-btn:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            right: -2px;
+            top: 24%;
+            height: 52%;
+            width: 1.5px;
+            background: #B8A382;
+            pointer-events: none;
+        }
+        .mob100-cat-btn.active::after {
+            display: none;
         }
         .mob100-cat-btn:hover {
-            border-color: rgba(56, 189, 248, 0.75);
-            color: #ffffff;
-            transform: translateY(-1px);
+            background: rgba(17, 75, 62, 0.1);
+            color: #114B3E;
         }
         .mob100-cat-btn.active {
-            background: linear-gradient(135deg, #38bdf8, #0284c7);
-            color: #ffffff;
-            border-color: #7dd3fc;
-            box-shadow: 0 4px 14px rgba(56, 189, 248, 0.35);
+            background: #114B3E;
+            color: #FFFFFF;
+            border-color: #114B3E;
+            font-weight: 800;
+            box-shadow: 0 4px 12px rgba(17, 75, 62, 0.25);
+        }
+        .mob100-ed-view-row {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+        .mob100-ed-view-label {
+            font-size: 17px;
+            font-weight: 800;
+            color: #1E242B;
+            margin-right: 4px;
+        }
+        .mob100-ed-stage-btn-group {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
         }
         .mob100-stage-btn {
-            padding: 5px 11px;
-            border-radius: 999px;
-            font-size: 11.5px;
+            padding: 7px 20px;
+            border-radius: 7px;
+            font-size: 15px;
             font-weight: 700;
-            color: #cbd5e1;
-            background: rgba(2, 6, 23, 0.75);
-            border: 1px solid rgba(148, 163, 184, 0.3);
+            color: #232931;
+            background: #F6F1E7;
+            border: 1.5px solid #B59E7A;
             cursor: pointer;
             transition: all 0.15s ease;
         }
         .mob100-stage-btn:hover {
-            border-color: rgba(251, 191, 36, 0.7);
-            color: #ffffff;
+            border-color: #114B3E;
+            color: #114B3E;
+            background: rgba(17, 75, 62, 0.07);
         }
         .mob100-stage-btn.active {
-            background: rgba(251, 191, 36, 0.22);
-            color: #fde68a;
-            border-color: rgba(251, 191, 36, 0.75);
+            background: #114B3E;
+            color: #FFFFFF;
+            border-color: #114B3E;
+            font-weight: 800;
+            box-shadow: 0 4px 12px rgba(17, 75, 62, 0.25);
         }
         .mob100-card {
             background: linear-gradient(165deg, rgba(15, 23, 42, 0.94) 0%, rgba(8, 13, 25, 0.98) 100%);
@@ -3852,30 +4244,31 @@
         </div>
     </div>
 
-    <script src="assets/js/mobility-100-data.js?v=20261107_v1"></script>
+    <script src="assets/js/mobility-100-data.js?v=20261107_v2"></script>
     <script>
         (function() {
             var DATA = window.AXIDE_MOBILITY_100_DATA || [];
             if (!DATA.length) return;
 
             var CATEGORIES = [
-                { key: 'all', label: '전체 100작품', range: '001~100', icon: '🌐' },
-                { key: '물길과 선체', label: '01 물길과 선체', range: '001~010', icon: '⚓' },
-                { key: '다리와 문', label: '02 다리와 문', range: '011~020', icon: '🌉' },
-                { key: '탑과 신호', label: '03 탑과 신호', range: '021~030', icon: '📡' },
-                { key: '마당과 집', label: '04 마당과 집', range: '031~040', icon: '🏛️' },
-                { key: '앉고 놓는 모형', label: '05 앉고 놓는 모형', range: '041~050', icon: '🪑' },
-                { key: '물가의 생물', label: '06 물가의 생물', range: '051~060', icon: '🐢' },
-                { key: '날개와 꼬리', label: '07 날개와 꼬리', range: '061~070', icon: '🦅' },
-                { key: '육상 운송', label: '08 육상 운송', range: '071~080', icon: '🚜' },
-                { key: '관측과 기록', label: '09 관측과 기록', range: '081~090', icon: '🔭' },
-                { key: '작은 공방', label: '10 작은 공방', range: '091~100', icon: '⚙️' }
+                { key: 'all', label: '전체' },
+                { key: '물길과 선체', label: '물길과 선체' },
+                { key: '다리와 문', label: '다리와 문' },
+                { key: '탑과 신호', label: '탑과 신호' },
+                { key: '마당과 집', label: '마당과 집' },
+                { key: '앉고 놓는 모형', label: '앉고 놓는 모형' },
+                { key: '물가의 생물', label: '물가의 생물' },
+                { key: '날개와 꼬리', label: '날개와 꼬리' },
+                { key: '육상 운송', label: '육상 운송' },
+                { key: '관측과 기록', label: '관측과 기록' },
+                { key: '작은 공방', label: '작은 공방' }
             ];
 
             var currentCategory = 'all';
             var currentStageMode = 'all'; // 'all' | '0' | '1' | '2' | '3'
             var currentSearch = '';
             var currentModalIdx = 0;
+            var currentHeroIdx = 0; // Index in DATA currently shown in top Editorial Board
 
             var catBar = document.getElementById('mobility100CategoryBar');
             var stageBar = document.getElementById('mobility100StageModeBar');
@@ -3884,17 +4277,112 @@
             var countLabel = document.getElementById('mobility100CountLabel');
             var gridEl = document.getElementById('mobility100Grid');
 
+            function updateHeroBoard(idx) {
+                if (idx < 0) idx = DATA.length - 1;
+                if (idx >= DATA.length) idx = 0;
+                currentHeroIdx = idx;
+                var w = DATA[idx];
+                if (!w) return;
+
+                var codeEl = document.getElementById('mob100HeroCode');
+                var originEl = document.getElementById('mob100HeroOrigin');
+                var mobEl = document.getElementById('mob100HeroMobility');
+                if (codeEl) codeEl.textContent = w.code;
+                if (originEl) originEl.textContent = w.originTitle;
+                if (mobEl) mobEl.textContent = w.mobilityTitle;
+
+                var img0 = document.getElementById('mob100HeroImg0');
+                var img1 = document.getElementById('mob100HeroImg1');
+                var img2 = document.getElementById('mob100HeroImg2');
+                var img3 = document.getElementById('mob100HeroImg3');
+
+                if (w.id === 1) {
+                    if (img0) img0.src = 'assets/images/mobility100/hero_w001_s1.jpg';
+                    if (img1) img1.src = 'assets/images/mobility100/hero_w001_s2.jpg';
+                    if (img2) img2.src = 'assets/images/mobility100/hero_w001_s3.jpg';
+                    if (img3) img3.src = 'assets/images/mobility100/hero_w001_s4.jpg';
+                } else {
+                    if (img0) img0.src = w.imgs[0];
+                    if (img1) img1.src = w.imgs[1];
+                    if (img2) img2.src = w.imgs[2];
+                    if (img3) img3.src = w.imgs[3];
+                }
+            }
+
+            function updateHeroStageHighlight() {
+                var cols = document.querySelectorAll('#mob100HeroStageStrip .mob100-ed-stage-col');
+                cols.forEach(function(col) {
+                    var s = col.getAttribute('data-hero-stage');
+                    if (currentStageMode === 'all') {
+                        col.classList.remove('stage-focused', 'stage-dimmed');
+                    } else if (s === currentStageMode) {
+                        col.classList.add('stage-focused');
+                        col.classList.remove('stage-dimmed');
+                    } else {
+                        col.classList.remove('stage-focused');
+                        col.classList.add('stage-dimmed');
+                    }
+                });
+            }
+
+            window.stepMobility100Hero = function(delta) {
+                var list = getFilteredWorks();
+                if (!list.length) {
+                    updateHeroBoard(currentHeroIdx + delta);
+                    return;
+                }
+                var pos = -1;
+                for (var i = 0; i < list.length; i++) {
+                    if (list[i].id - 1 === currentHeroIdx) {
+                        pos = i;
+                        break;
+                    }
+                }
+                if (pos === -1) pos = 0;
+                else pos = (pos + delta + list.length) % list.length;
+                updateHeroBoard(list[pos].id - 1);
+            };
+
+            window.openMobility100HeroModal = function() {
+                openMobility100Modal(currentHeroIdx);
+            };
+
+            window.selectMobility100StageMode = function(mode) {
+                if (currentStageMode === mode && mode !== 'all') {
+                    currentStageMode = 'all';
+                } else {
+                    currentStageMode = mode || 'all';
+                }
+                if (stageBar) {
+                    var stageBtns = stageBar.querySelectorAll('.mob100-stage-btn');
+                    stageBtns.forEach(function(x) {
+                        if (x.getAttribute('data-stage') === currentStageMode) {
+                            x.classList.add('active');
+                        } else {
+                            x.classList.remove('active');
+                        }
+                    });
+                }
+                updateHeroStageHighlight();
+                renderMobility100Grid();
+            };
+
             function renderCategoryTabs() {
                 if (!catBar) return;
                 catBar.innerHTML = '';
                 CATEGORIES.forEach(function(cat) {
                     var btn = document.createElement('button');
                     btn.type = 'button';
+                    btn.setAttribute('data-cat', cat.key);
                     btn.className = 'mob100-cat-btn' + (currentCategory === cat.key ? ' active' : '');
-                    btn.innerHTML = '<span>' + cat.icon + '</span><span>' + cat.label + '</span><span style="opacity:0.75;font-size:10.5px;">(' + cat.range + ')</span>';
+                    btn.textContent = cat.label;
                     btn.addEventListener('click', function() {
                         currentCategory = cat.key;
                         renderCategoryTabs();
+                        var filtered = getFilteredWorks();
+                        if (filtered.length > 0) {
+                            updateHeroBoard(filtered[0].id - 1);
+                        }
                         renderMobility100Grid();
                     });
                     catBar.appendChild(btn);
@@ -4019,6 +4507,7 @@
                 if (idx < 0) idx = DATA.length - 1;
                 if (idx >= DATA.length) idx = 0;
                 currentModalIdx = idx;
+                updateHeroBoard(idx);
                 var w = DATA[idx];
                 var modal = document.getElementById('mobility100Modal');
                 if (!modal || !w) return;
@@ -4100,6 +4589,7 @@
                         stageBtns.forEach(function(x) { x.classList.remove('active'); });
                         b.classList.add('active');
                         currentStageMode = b.getAttribute('data-stage') || 'all';
+                        updateHeroStageHighlight();
                         renderMobility100Grid();
                     });
                 });
@@ -4109,6 +4599,10 @@
                 searchInput.addEventListener('input', function() {
                     currentSearch = searchInput.value || '';
                     if (clearBtn) clearBtn.style.display = currentSearch ? 'block' : 'none';
+                    var filtered = getFilteredWorks();
+                    if (filtered.length > 0) {
+                        updateHeroBoard(filtered[0].id - 1);
+                    }
                     renderMobility100Grid();
                 });
             }
@@ -4117,12 +4611,18 @@
                     searchInput.value = '';
                     currentSearch = '';
                     clearBtn.style.display = 'none';
+                    var filtered = getFilteredWorks();
+                    if (filtered.length > 0) {
+                        updateHeroBoard(filtered[0].id - 1);
+                    }
                     renderMobility100Grid();
                 });
             }
 
             function initMobility100Section() {
                 renderCategoryTabs();
+                updateHeroBoard(0);
+                updateHeroStageHighlight();
                 renderMobility100Grid();
             }
 
