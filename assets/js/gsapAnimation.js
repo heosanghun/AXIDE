@@ -297,14 +297,7 @@
 
                 gsap.set(el, fromVars);
 
-                gsap.to(el, {
-                    ...toVars,
-                    scrollTrigger: {
-                        trigger: el,
-                        start: startPush,
-                        toggleActions: "play none none none",
-                    },
-                });
+                gsap.to(el, { ...toVars, onComplete: () => { gsap.set(el, { clearProps: "transform,transformOrigin,willChange" }); if (wrapper) wrapper.style.perspective = ""; }, scrollTrigger: { trigger: el, start: startPush, once: true, toggleActions: "play none none none" } });
             });
         }
     };

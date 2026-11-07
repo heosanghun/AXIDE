@@ -1193,9 +1193,7 @@
         padding: 0 16px;
         border-radius: 999px;
         border: 1.5px solid rgba(56, 189, 248, 0.48);
-        background: rgba(9, 13, 22, 0.94);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
+        background: rgba(9, 13, 22, 0.96);
         color: #e2e8f0;
         display: inline-flex;
         align-items: center;
@@ -1205,8 +1203,9 @@
         letter-spacing: -0.01em;
         cursor: pointer !important;
         pointer-events: auto !important;
-        transition: all 0.25s ease;
+        transition: transform 0.25s ease, border-color 0.25s ease;
         box-shadow: 0 12px 30px rgba(0, 0, 0, 0.58), 0 0 18px rgba(56, 189, 248, 0.2);
+        contain: layout style;
       }
       .axide-header-bgm-btn:hover,
       .axide-right-bgm-pill:hover {
@@ -1249,7 +1248,13 @@
         width: 2.5px;
         border-radius: 2px;
         background: #fbbf24;
+        transform-origin: bottom center;
         animation: axideBgmBar 0.85s ease-in-out infinite alternate;
+        animation-play-state: paused;
+      }
+      .axide-header-bgm-btn.is-playing:hover .axide-bgm-eq i,
+      .axide-right-bgm-pill.is-playing:hover .axide-bgm-eq i {
+        animation-play-state: running;
       }
       .axide-bgm-eq i:nth-child(1) { height: 6px; animation-delay: 0s; }
       .axide-bgm-eq i:nth-child(2) { height: 13px; animation-delay: 0.2s; }
@@ -1269,13 +1274,9 @@
         align-items: flex-end;
         gap: 14px;
         pointer-events: none;
-        animation-play-state: running !important;
       }
       #axideVoiceWidget > * {
         pointer-events: auto;
-      }
-      #axideVoiceWidget * {
-        animation-play-state: running !important;
       }
       #axideVoicePanel {
         width: 364px;
@@ -1351,13 +1352,14 @@
         margin-top: 0 !important;
         border-radius: 0 0 28px 28px !important;
         border-top: none !important;
-        background: rgba(255, 255, 255, 0.78) !important;
-        backdrop-filter: blur(28px) saturate(180%) !important;
-        -webkit-backdrop-filter: blur(28px) saturate(180%) !important;
-        border-left: 1px solid rgba(255, 255, 255, 0.82) !important;
-        border-right: 1px solid rgba(255, 255, 255, 0.82) !important;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.82) !important;
+        background: rgba(255, 255, 255, 0.9) !important;
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+        border-left: 1px solid rgba(255, 255, 255, 0.85) !important;
+        border-right: 1px solid rgba(255, 255, 255, 0.85) !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.85) !important;
         box-shadow: 0 12px 36px rgba(15, 23, 42, 0.12), 0 2px 8px rgba(15, 23, 42, 0.06) !important;
+        contain: layout style;
       }
       body.axide-display-contrast header.tf-header .header-inner {
         background: rgba(9, 13, 22, 0.84) !important;
@@ -1982,13 +1984,37 @@
     const chapterBar = document.querySelector(".story-chapter-bar");
     if (chapterBar) {
       document.body.classList.add("has-chapter-bar");
+      let chapterTicking = false;
       const syncChapterHeaderVisibility = () => {
-        const rect = chapterBar.getBoundingClientRect();
-        document.body.classList.toggle("chapter-bar-active", rect.top <= 110);
+        if (chapterTicking) return;
+        chapterTicking = true;
+        requestAnimationFrame(() => {
+          const rect = chapterBar.getBoundingClientRect();
+          document.body.classList.toggle("chapter-bar-active", rect.top <= 110);
+          chapterTicking = false;
+        });
       };
       syncChapterHeaderVisibility();
       window.addEventListener("scroll", syncChapterHeaderVisibility, { passive: true });
       window.addEventListener("resize", syncChapterHeaderVisibility, { passive: true });
+    }
+
+    // Viewport-aware GPU compositor power manager (pauses off-screen VFX & background tabs)
+    document.addEventListener("visibilitychange", () => {
+      document.documentElement.classList.toggle("axide-tab-hidden", document.hidden);
+    });
+    if ("IntersectionObserver" in window) {
+      const vfxObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            entry.target.classList.toggle("axide-vfx-offscreen", !entry.isIntersecting);
+          });
+        },
+        { rootMargin: "80px 0px" }
+      );
+      document
+        .querySelectorAll(".axide-hero-cinema-loop, .has-live-vfx, .partner-wrap, .side-line-main, .wg-tech")
+        .forEach((el) => vfxObserver.observe(el));
     }
   }
 

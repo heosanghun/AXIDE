@@ -69,8 +69,8 @@ $(window).on("load", function () {
                 el: [$this.find(".tf-sw-pagination")[0], $this.closest(".tf-pag-swiper").find(".tf-sw-pagination")[0]],
                 clickable: true,
             },
-            observer: true,
-            observeParents: true,
+            observer: false,
+            observeParents: false,
             navigation: {
                 nextEl: [
                     $this.closest(".tf-btn-swiper-main").find(".nav-next-swiper")[0],
@@ -143,21 +143,15 @@ $(window).on("load", function () {
 if ($(".section-testimonials").length > 0) {
     const thumbSwiper = new Swiper(".sw-main-image", {
         slidesPerView: 1,
-        watchSlidesProgress: true,
-        watchSlidesVisibility: true,
-        // speed: 800,
+        watchSlidesProgress: false,
         spaceBetween: 10,
         centeredSlides: true,
-        autoplay: {
-            delay: 4000,
-            disableOnInteraction: false,
-        },
+        autoplay: false,
         speed: 700,
     });
 
     const mainSwiper = new Swiper(".swiper-testimonial", {
         slidesPerView: 1,
-        // spaceBetween: 20,
         pagination: {
             el: ".testimonials-pagination",
             type: "fraction",
@@ -174,10 +168,6 @@ if ($(".section-testimonials").length > 0) {
 
 if ($(".swiper-progressbar").length > 0) {
     const progressFill = document.getElementById("progressBar");
-    
-    const SLIDE_DURATION = 5000;
-    let startTime = null;
-    let rafID = null;
 
     const swiper = new Swiper(".swiper-progressbar", {
         loop: true,
@@ -185,35 +175,27 @@ if ($(".swiper-progressbar").length > 0) {
         grabCursor: true,
         allowTouchMove: true,
         navigation: {
-        nextEl: ".progressbar-next",
-        prevEl: ".progressbar-prev",
+            nextEl: ".progressbar-next",
+            prevEl: ".progressbar-prev",
         },
         on: {
-            slideChange: () => resetProgress(),
-            touchStart: () => resetProgress(),
-        }
+            init: function () {
+                updateProgressFill(this);
+            },
+            slideChange: function () {
+                updateProgressFill(this);
+            },
+        },
     });
 
-    function resetProgress() {
-        progressFill.style.width = "0%";
-        startTime = performance.now();
+    function updateProgressFill(sw) {
+        if (!progressFill || !sw) return;
+        const total = Math.max(1, sw.slides && sw.slides.length ? sw.slides.length - (sw.params.loop ? 2 : 0) : 3);
+        const idx = ((sw.realIndex || 0) % total) + 1;
+        const ratio = Math.min(1, Math.max(0.25, idx / total));
+        progressFill.style.transition = "transform 0.45s cubic-bezier(0.22, 1, 0.36, 1)";
+        progressFill.style.transform = "scaleX(" + ratio + ")";
     }
 
-    function animateProgress(timestamp) {
-        if (!startTime) startTime = timestamp;
-        const elapsed = timestamp - startTime;
-        let percent = (elapsed / SLIDE_DURATION) * 100;
-
-        if (percent >= 100) {
-            percent = 100;
-            swiper.slideNext();
-            resetProgress();
-        }
-
-        progressFill.style.width = percent + "%";
-        rafID = requestAnimationFrame(animateProgress);
-    }
-
-    resetProgress();
-    animateProgress(performance.now());
+    updateProgressFill(swiper);
 }

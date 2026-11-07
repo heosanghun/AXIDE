@@ -1788,9 +1788,10 @@ body.chapter-bar-active .tf-header .header-inner {
   align-items: center;
   padding: 8px 8px 8px 32px;
   border-radius: 0 0 28px 28px;
-  background: rgba(255, 255, 255, 0.78);
-  backdrop-filter: blur(28px) saturate(180%);
-  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  contain: layout style;
 }
 .tf-header .mobile-menu {
   width: 40px;
@@ -4327,7 +4328,13 @@ body.chapter-bar-active .tf-header .header-inner {
   width: 2.5px;
   border-radius: 2px;
   background: linear-gradient(180deg, #f3d27a, #38bdf8);
+  transform-origin: bottom center;
   animation: axideCockpitEq 1.2s ease-in-out infinite;
+  animation-play-state: paused;
+}
+.offcanvas.show .axide-aria-launch-btn:hover .axide-aria-eq i,
+.axide-aria-launch-btn.is-active .axide-aria-eq i {
+  animation-play-state: running;
 }
 .axide-aria-eq i:nth-child(1) { height: 7px; animation-delay: 0s; }
 .axide-aria-eq i:nth-child(2) { height: 14px; animation-delay: 0.2s; }
@@ -5351,7 +5358,7 @@ button.animate-btn::after,
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed;
+  contain: layout paint;
 }
 .section-hero .hero-image video,
 .section-hero .hero-image img {
@@ -5691,6 +5698,7 @@ button.animate-btn::after,
 }
 .partner-wrap .infiniteslide_wrap {
   position: relative;
+  contain: layout paint;
 }
 .partner-wrap .infiniteslide_wrap::after {
   position: absolute;
@@ -7678,15 +7686,23 @@ button.animate-btn::after,
   right: 0;
   margin-right: -1px;
   width: 100%;
+  height: 66px;
   animation-iteration-count: infinite;
   animation-duration: 4s;
   animation-delay: 1.3s;
+  animation-play-state: paused;
+}
+.side-line-main:hover .link-break-line .item,
+.side-line-main:hover .simu-electric {
+  animation-play-state: running;
 }
 .side-line-main .link-break-line .item.top {
+  top: 0;
   background: radial-gradient(circle at top right, var(--brand) 0%, transparent 90%);
   animation-name: lineRunTop;
 }
 .side-line-main .link-break-line .item.bottom {
+  bottom: 0;
   background: radial-gradient(circle at bottom right, var(--brand) 0%, transparent 90%);
   animation-name: lineRunBottom;
 }
@@ -7721,14 +7737,17 @@ button.animate-btn::after,
   width: 50px;
   top: 50%;
   transform: translateY(-50%);
+  animation-play-state: paused;
 }
 .side-line-main .simu-electric.left {
+  left: 20%;
   background: linear-gradient(to right, var(--brand) 0%, transparent 100%);
   animation-name: left50To0;
   animation-duration: 4s;
   animation-iteration-count: infinite;
 }
 .side-line-main .simu-electric.right {
+  right: 20%;
   background: linear-gradient(to left, var(--brand) 0%, transparent 100%);
   animation-name: right50To0;
   animation-duration: 4s;
@@ -7763,42 +7782,40 @@ button.animate-btn::after,
 
 @keyframes lineRunBottom {
   0% {
-    bottom: 50%;
-    height: 0px;
+    transform: translate3d(0, -40px, 0) scaleY(0.1);
   }
   30% {
-    height: 66px;
+    transform: translate3d(0, 0, 0) scaleY(1);
   }
   100% {
-    bottom: -30%;
+    transform: translate3d(0, 60px, 0) scaleY(1);
   }
 }
 @keyframes lineRunTop {
   0% {
-    top: 50%;
-    height: 0px;
+    transform: translate3d(0, 40px, 0) scaleY(0.1);
   }
   30% {
-    height: 66px;
+    transform: translate3d(0, 0, 0) scaleY(1);
   }
   100% {
-    top: -30%;
+    transform: translate3d(0, -60px, 0) scaleY(1);
   }
 }
 @keyframes left50To0 {
   0% {
-    left: 50%;
+    transform: translate3d(120px, -50%, 0);
   }
   100% {
-    left: -10%;
+    transform: translate3d(-120px, -50%, 0);
   }
 }
 @keyframes right50To0 {
   0% {
-    right: 50%;
+    transform: translate3d(-120px, -50%, 0);
   }
   100% {
-    right: -10%;
+    transform: translate3d(120px, -50%, 0);
   }
 }
 .section-testimonials .col-left {
@@ -9059,9 +9076,7 @@ button.animate-btn::after,
   transform: translate(0, 14px);
   width: 48px;
   height: 48px;
-  background: rgba(9, 13, 22, 0.92);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(9, 13, 22, 0.96);
   color: var(--white);
   font-size: 20px;
   text-align: center;
@@ -9116,8 +9131,10 @@ button.animate-btn::after,
   -ms-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
-  animation: iconBounce 2s linear 0s infinite;
   display: flex;
+}
+#goTop:hover .ic-wrap {
+  animation: iconBounce 2s linear 0s infinite;
 }
 #goTop:hover {
   background: rgba(15, 23, 42, 0.98);
@@ -9177,7 +9194,10 @@ button.animate-btn::after,
 }
 .tf-left-bar .btn-setting-color .icon {
   flex-shrink: 0;
-  animation: spin 14s infinite linear;
+  transition: transform 0.4s ease;
+}
+.tf-left-bar .btn-setting-color:hover .icon {
+  animation: spin 8s infinite linear;
 }
 @media (max-width: 767px) {
   .tf-left-bar {
@@ -10734,11 +10754,12 @@ p,
   max-width: 960px;
   padding: 10px 12px 10px 28px;
   gap: 20px;
-  background: rgba(255, 255, 255, 0.76);
-  border: 1px solid rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.85);
   box-shadow: 0 12px 36px rgba(15, 23, 42, 0.11);
-  backdrop-filter: blur(28px) saturate(180%);
-  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  contain: layout style;
 }
 .tf-header.header2 .header-inner {
   max-width: 980px;
@@ -12040,6 +12061,9 @@ header.tf-header {
     0 0 32px rgba(139, 92, 246, 0.45),
     0 0 62px rgba(99, 102, 241, 0.22);
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+  animation: none;
+}
+.axide-voice-panel.open .sims-core-sphere {
   animation: simsSphereFloat 4.2s infinite ease-in-out;
 }
 .sims-sphere-stage:hover .sims-core-sphere {
@@ -13832,6 +13856,7 @@ footer .footer-content .footer-logo.axide-footer-brand {
     0 0 54px rgba(14, 165, 233, 0.18);
   overflow: hidden;
   text-align: left;
+  contain: layout paint;
 }
 
 /* 3D Generated Image Viewport + Live VFX Layer */
@@ -13843,6 +13868,7 @@ footer .footer-content .footer-logo.axide-footer-brand {
   max-height: 460px;
   overflow: hidden;
   background: #040710;
+  contain: layout paint;
 }
 .cinema-3d-bg-img {
   width: 100%;
@@ -13851,17 +13877,11 @@ footer .footer-content .footer-logo.axide-footer-brand {
   object-position: center 46%;
   display: block;
   transform-origin: center center;
-  animation: axideCinemaCameraBreath 8s ease-in-out infinite;
+  filter: brightness(1.04) contrast(1.05);
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
-@keyframes axideCinemaCameraBreath {
-  0%, 100% {
-    transform: scale(1.01);
-    filter: brightness(1.02) contrast(1.04);
-  }
-  50% {
-    transform: scale(1.035);
-    filter: brightness(1.1) contrast(1.08);
-  }
+.axide-hero-cinema-loop:hover .cinema-3d-bg-img {
+  transform: scale3d(1.022, 1.022, 1);
 }
 
 /* Top Floating Live Status Bar over 3D Image */
@@ -13882,8 +13902,7 @@ footer .footer-content .footer-logo.axide-footer-brand {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(5, 10, 22, 0.76);
-  backdrop-filter: blur(12px);
+  background: rgba(5, 10, 22, 0.9);
   border: 1px solid rgba(56, 189, 248, 0.35);
   padding: 5px 13px;
   border-radius: 999px;
@@ -13897,21 +13916,18 @@ footer .footer-content .footer-logo.axide-footer-brand {
   height: 8px;
   border-radius: 50%;
   background: #10b981;
-  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.8);
+  box-shadow: 0 0 8px 2px rgba(16, 185, 129, 0.75);
   animation: axideRecPulse 1.6s infinite;
+  animation-play-state: paused;
 }
 @keyframes axideRecPulse {
-  0% {
-    transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.8);
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.9;
   }
-  70% {
-    transform: scale(1.1);
-    box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
-  }
-  100% {
-    transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
   }
 }
 .cinema-loop-metrics {
@@ -13924,8 +13940,7 @@ footer .footer-content .footer-logo.axide-footer-brand {
   font-size: 11px;
   font-weight: 700;
   color: #e2e8f0;
-  background: rgba(5, 10, 22, 0.76);
-  backdrop-filter: blur(12px);
+  background: rgba(5, 10, 22, 0.9);
   border: 1px solid rgba(148, 163, 184, 0.28);
   padding: 4px 11px;
   border-radius: 999px;
@@ -13957,6 +13972,7 @@ footer .footer-content .footer-logo.axide-footer-brand {
 }
 .vfx-vault-laser {
   position: absolute;
+  top: 22%;
   left: 8%;
   right: 8%;
   height: 3px;
@@ -13965,14 +13981,15 @@ footer .footer-content .footer-logo.axide-footer-brand {
     0 0 16px 3px rgba(56, 189, 248, 0.9),
     0 0 36px 8px rgba(14, 165, 233, 0.55);
   animation: axide3dLaserScan 2.8s ease-in-out infinite;
+  animation-play-state: paused;
 }
 @keyframes axide3dLaserScan {
   0%, 100% {
-    top: 18%;
-    opacity: 0.75;
+    transform: translate3d(0, 0, 0);
+    opacity: 0.85;
   }
   50% {
-    top: 62%;
+    transform: translate3d(0, 105px, 0);
     opacity: 1;
   }
 }
@@ -13985,14 +14002,15 @@ footer .footer-content .footer-logo.axide-footer-brand {
     0 0 24px rgba(239, 68, 68, 0.25) inset,
     0 0 22px rgba(56, 189, 248, 0.25);
   animation: axideDomeShieldBreath 3s ease-in-out infinite;
+  animation-play-state: paused;
 }
 @keyframes axideDomeShieldBreath {
   0%, 100% {
-    opacity: 0.35;
-    transform: scale(0.99);
+    opacity: 0.75;
+    transform: scale(1);
   }
   50% {
-    opacity: 0.95;
+    opacity: 0.98;
     transform: scale(1.01);
   }
 }
@@ -14016,6 +14034,7 @@ footer .footer-content .footer-logo.axide-footer-brand {
   border: 1.5px dashed rgba(56, 189, 248, 0.75);
   box-shadow: 0 0 28px rgba(56, 189, 248, 0.35);
   animation: axideCoreSpin 10s linear infinite;
+  animation-play-state: paused;
 }
 .vfx-core-shockwave {
   position: absolute;
@@ -14024,16 +14043,21 @@ footer .footer-content .footer-logo.axide-footer-brand {
   border-radius: 50%;
   background: radial-gradient(circle, rgba(56, 189, 248, 0.38) 0%, rgba(16, 185, 129, 0.18) 50%, transparent 72%);
   animation: axideCoreWave 2.4s ease-out infinite;
+  animation-play-state: paused;
 }
 @keyframes axideCoreSpin {
-  0% { transform: rotate(0deg) scale(0.96); }
-  50% { transform: rotate(180deg) scale(1.03); }
-  100% { transform: rotate(360deg) scale(0.96); }
+  0% { transform: rotate(0deg) scale(0.98); }
+  50% { transform: rotate(180deg) scale(1.02); }
+  100% { transform: rotate(360deg) scale(0.98); }
 }
 @keyframes axideCoreWave {
   0% {
-    transform: scale(0.65);
-    opacity: 0.9;
+    transform: scale(0.95);
+    opacity: 0.75;
+  }
+  50% {
+    transform: scale(1.35);
+    opacity: 0.45;
   }
   100% {
     transform: scale(1.65);
@@ -14059,6 +14083,7 @@ footer .footer-content .footer-logo.axide-footer-brand {
   border-radius: 22px;
   background: radial-gradient(ellipse at center, rgba(16, 185, 129, 0.36) 0%, rgba(52, 211, 153, 0.12) 55%, transparent 75%);
   animation: axidePassportGlow 2.2s ease-in-out infinite;
+  animation-play-state: paused;
 }
 .vfx-rising-particles {
   position: absolute;
@@ -14070,27 +14095,29 @@ footer .footer-content .footer-logo.axide-footer-brand {
     radial-gradient(2px 2px at 38% 58%, #a7f3d0 50%, transparent 100%),
     radial-gradient(2.5px 2.5px at 64% 48%, #34d399 50%, transparent 100%);
   animation: axideParticlesAscend 2.4s linear infinite;
+  animation-play-state: paused;
 }
 @keyframes axidePassportGlow {
   0%, 100% {
-    transform: translateY(4px) scale(0.96);
-    opacity: 0.55;
+    transform: translateY(0) scale(1);
+    opacity: 0.82;
   }
   50% {
-    transform: translateY(-6px) scale(1.06);
+    transform: translateY(-6px) scale(1.05);
     opacity: 1;
   }
 }
 @keyframes axideParticlesAscend {
   0% {
-    transform: translateY(16px);
-    opacity: 0;
+    transform: translateY(0);
+    opacity: 0.85;
   }
-  40% {
+  50% {
+    transform: translateY(-18px);
     opacity: 1;
   }
   100% {
-    transform: translateY(-38px);
+    transform: translateY(-36px);
     opacity: 0;
   }
 }
@@ -14108,13 +14135,16 @@ footer .footer-content .footer-logo.axide-footer-brand {
 }
 .vfx-conduit-comet-1 {
   position: absolute;
+  left: 0;
   top: 0;
   bottom: 0;
   width: 48px;
   border-radius: 99px;
   background: linear-gradient(90deg, transparent, #38bdf8, #ffffff);
   box-shadow: 0 0 14px 3px #38bdf8;
+  transform: translate3d(42px, 0, 0);
   animation: axideCometRun 1.6s linear infinite;
+  animation-play-state: paused;
 }
 .vfx-conduit-track-2 {
   position: absolute;
@@ -14128,17 +14158,32 @@ footer .footer-content .footer-logo.axide-footer-brand {
 }
 .vfx-conduit-comet-2 {
   position: absolute;
+  left: 0;
   top: 0;
   bottom: 0;
   width: 48px;
   border-radius: 99px;
   background: linear-gradient(90deg, transparent, #10b981, #a7f3d0);
   box-shadow: 0 0 14px 3px #10b981;
+  transform: translate3d(36px, 0, 0);
   animation: axideCometRun 1.6s linear infinite 0.8s;
+  animation-play-state: paused;
 }
 @keyframes axideCometRun {
-  0% { left: -52px; }
-  100% { left: 100%; }
+  0% { transform: translate3d(-52px, 0, 0); }
+  100% { transform: translate3d(170px, 0, 0); }
+}
+
+.axide-hero-cinema-loop:hover .cinema-rec-dot,
+.axide-hero-cinema-loop:hover .vfx-vault-laser,
+.axide-hero-cinema-loop:hover .vfx-vault-shield-ripple,
+.axide-hero-cinema-loop:hover .vfx-core-pulse-ring,
+.axide-hero-cinema-loop:hover .vfx-core-shockwave,
+.axide-hero-cinema-loop:hover .vfx-passport-halo,
+.axide-hero-cinema-loop:hover .vfx-rising-particles,
+.axide-hero-cinema-loop:hover .vfx-conduit-comet-1,
+.axide-hero-cinema-loop:hover .vfx-conduit-comet-2 {
+  animation-play-state: running;
 }
 
 /* Bottom Synchronized 3-Step Glassmorphic HUD Bar */
@@ -14156,54 +14201,21 @@ footer .footer-content .footer-logo.axide-footer-brand {
   position: relative;
   padding: 10px 14px;
   border-radius: 14px;
-  background: rgba(15, 23, 42, 0.65);
-  border: 1px solid rgba(148, 163, 184, 0.18);
-  transition: all 0.3s ease;
+  background: rgba(15, 23, 42, 0.78);
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  transition: transform 0.25s ease, border-color 0.25s ease;
 }
 .cinema-hud-card.hud-step-1 {
-  animation: axideHudPulse1 6s ease-in-out infinite;
+  border-color: rgba(248, 113, 113, 0.42);
 }
 .cinema-hud-card.hud-step-2 {
-  animation: axideHudPulse2 6s ease-in-out infinite;
+  border-color: rgba(56, 189, 248, 0.48);
 }
 .cinema-hud-card.hud-step-3 {
-  animation: axideHudPulse3 6s ease-in-out infinite;
+  border-color: rgba(52, 211, 153, 0.45);
 }
-@keyframes axideHudPulse1 {
-  0%, 30% {
-    border-color: rgba(248, 113, 113, 0.75);
-    background: rgba(30, 41, 59, 0.9);
-    box-shadow: 0 0 20px rgba(239, 68, 68, 0.18);
-  }
-  35%, 100% {
-    border-color: rgba(148, 163, 184, 0.18);
-    background: rgba(15, 23, 42, 0.65);
-    box-shadow: none;
-  }
-}
-@keyframes axideHudPulse2 {
-  0%, 30%, 68%, 100% {
-    border-color: rgba(148, 163, 184, 0.18);
-    background: rgba(15, 23, 42, 0.65);
-    box-shadow: none;
-  }
-  33%, 63% {
-    border-color: rgba(56, 189, 248, 0.85);
-    background: rgba(30, 41, 59, 0.9);
-    box-shadow: 0 0 22px rgba(56, 189, 248, 0.22);
-  }
-}
-@keyframes axideHudPulse3 {
-  0%, 63% {
-    border-color: rgba(148, 163, 184, 0.18);
-    background: rgba(15, 23, 42, 0.65);
-    box-shadow: none;
-  }
-  66%, 97% {
-    border-color: rgba(52, 211, 153, 0.85);
-    background: rgba(30, 41, 59, 0.9);
-    box-shadow: 0 0 22px rgba(16, 185, 129, 0.24);
-  }
+.cinema-hud-card:hover {
+  transform: translateY(-2px);
 }
 .hud-card-badge {
   display: inline-flex;
@@ -14901,16 +14913,15 @@ footer .footer-content .footer-logo.axide-footer-brand {
 .visual-img-wrap.has-live-vfx {
   position: relative;
   overflow: hidden;
+  contain: layout paint;
 }
 
 /* Subtle breathing Ken-Burns micro-motion on dark 3D artworks */
 .has-live-vfx > img {
-  animation: axideSubtleBreath 9s ease-in-out infinite alternate;
-  will-change: transform;
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
-@keyframes axideSubtleBreath {
-  0% { transform: scale(1); }
-  100% { transform: scale(1.018); }
+.has-live-vfx:hover > img {
+  transform: scale3d(1.018, 1.018, 1);
 }
 
 .axide-live-vfx {
@@ -14934,9 +14945,7 @@ footer .footer-content .footer-logo.axide-footer-brand {
   gap: 6px;
   padding: 4px 10px;
   border-radius: 999px;
-  background: rgba(7, 11, 20, 0.72);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(7, 11, 20, 0.88);
   border: 1px solid rgba(56, 189, 248, 0.32);
   font-size: 10px;
   font-weight: 800;
@@ -14951,9 +14960,10 @@ footer .footer-content .footer-logo.axide-footer-brand {
   background: #34d399;
   box-shadow: 0 0 8px 2px rgba(52, 211, 153, 0.85);
   animation: axideLiveDotPulse 1.8s ease-in-out infinite;
+  animation-play-state: paused;
 }
 @keyframes axideLiveDotPulse {
-  0%, 100% { transform: scale(0.9); opacity: 0.75; }
+  0%, 100% { transform: scale(1); opacity: 0.85; }
   50% { transform: scale(1.25); opacity: 1; }
 }
 
@@ -14963,6 +14973,7 @@ footer .footer-content .footer-logo.axide-footer-brand {
   border-radius: 50%;
   pointer-events: none;
   animation: axideAuraPulse 3.2s ease-in-out infinite;
+  animation-play-state: paused;
 }
 .vfx-aura-cyan {
   background: radial-gradient(circle, rgba(56, 189, 248, 0.42) 0%, rgba(14, 165, 233, 0.14) 48%, transparent 72%);
@@ -14980,8 +14991,8 @@ footer .footer-content .footer-logo.axide-footer-brand {
   background: radial-gradient(circle, rgba(192, 132, 252, 0.44) 0%, rgba(139, 92, 246, 0.15) 48%, transparent 72%);
 }
 @keyframes axideAuraPulse {
-  0%, 100% { transform: scale(0.88); opacity: 0.45; }
-  50% { transform: scale(1.14); opacity: 0.95; }
+  0%, 100% { transform: scale(0.96); opacity: 0.72; }
+  50% { transform: scale(1.12); opacity: 0.95; }
 }
 
 /* Subtle Laser Scan Line within a bounded zone */
@@ -14992,12 +15003,14 @@ footer .footer-content .footer-logo.axide-footer-brand {
 }
 .vfx-scan-beam {
   position: absolute;
+  top: 25%;
   left: 6%;
   right: 6%;
   height: 2px;
   background: linear-gradient(90deg, transparent 0%, rgba(56, 189, 248, 0.85) 25%, #ffffff 50%, rgba(56, 189, 248, 0.85) 75%, transparent 100%);
   box-shadow: 0 0 12px 2px rgba(56, 189, 248, 0.75), 0 0 24px 5px rgba(14, 165, 233, 0.38);
   animation: axideZoneScanY 3.4s ease-in-out infinite;
+  animation-play-state: paused;
 }
 .vfx-scan-beam.beam-gold {
   background: linear-gradient(90deg, transparent 0%, rgba(251, 191, 36, 0.85) 25%, #fffbeb 50%, rgba(251, 191, 36, 0.85) 75%, transparent 100%);
@@ -15008,9 +15021,8 @@ footer .footer-content .footer-logo.axide-footer-brand {
   box-shadow: 0 0 12px 2px rgba(52, 211, 153, 0.75), 0 0 24px 5px rgba(16, 185, 129, 0.38);
 }
 @keyframes axideZoneScanY {
-  0%, 100% { top: 8%; opacity: 0.2; }
-  15%, 85% { opacity: 0.9; }
-  50% { top: 88%; opacity: 0.95; }
+  0%, 100% { transform: translate3d(0, 0, 0); opacity: 0.75; }
+  50% { transform: translate3d(0, 120px, 0); opacity: 0.95; }
 }
 
 /* Horizontal Light Glint / Piano Sweep */
@@ -15022,18 +15034,20 @@ footer .footer-content .footer-logo.axide-footer-brand {
 .vfx-sweep-x::after {
   content: "";
   position: absolute;
+  left: 0;
   top: 0;
   bottom: 0;
   width: 28%;
   background: linear-gradient(90deg, transparent 0%, rgba(56, 189, 248, 0.38) 45%, rgba(255, 255, 255, 0.65) 50%, rgba(251, 191, 36, 0.38) 55%, transparent 100%);
-  filter: blur(4px);
+  transform: translate3d(120%, 0, 0);
+  opacity: 0.55;
   animation: axideSweepX 3.6s ease-in-out infinite;
+  animation-play-state: paused;
 }
 @keyframes axideSweepX {
-  0% { left: -32%; opacity: 0; }
-  20% { opacity: 0.9; }
-  80% { opacity: 0.9; }
-  100% { left: 104%; opacity: 0; }
+  0% { transform: translate3d(-120%, 0, 0); opacity: 0; }
+  20%, 80% { opacity: 0.9; }
+  100% { transform: translate3d(360%, 0, 0); opacity: 0; }
 }
 
 /* Optical Data Comet Track */
@@ -15045,13 +15059,16 @@ footer .footer-content .footer-logo.axide-footer-brand {
 }
 .vfx-comet-dot {
   position: absolute;
+  left: 0;
   top: -2px;
   width: 56px;
   height: 6px;
   border-radius: 999px;
   background: linear-gradient(90deg, transparent 0%, rgba(56, 189, 248, 0.85) 65%, #ffffff 100%);
   box-shadow: 0 0 12px 3px rgba(56, 189, 248, 0.8);
+  transform: translate3d(60px, 0, 0);
   animation: axideCometFly 2.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation-play-state: paused;
 }
 .vfx-comet-dot.comet-gold {
   background: linear-gradient(90deg, transparent 0%, rgba(251, 191, 36, 0.9) 65%, #ffffff 100%);
@@ -15062,10 +15079,9 @@ footer .footer-content .footer-logo.axide-footer-brand {
   box-shadow: 0 0 12px 3px rgba(52, 211, 153, 0.85);
 }
 @keyframes axideCometFly {
-  0% { left: -10%; opacity: 0; transform: scaleX(0.6); }
-  15% { opacity: 1; transform: scaleX(1); }
-  85% { opacity: 1; transform: scaleX(1); }
-  100% { left: 96%; opacity: 0; transform: scaleX(0.5); }
+  0% { transform: translate3d(-20px, 0, 0) scaleX(0.6); opacity: 0.8; }
+  50% { transform: translate3d(90px, 0, 0) scaleX(1); opacity: 1; }
+  100% { transform: translate3d(180px, 0, 0) scaleX(0.5); opacity: 0; }
 }
 
 /* Floating Photon Motes */
@@ -15077,6 +15093,7 @@ footer .footer-content .footer-logo.axide-footer-brand {
   background: #ffffff;
   box-shadow: 0 0 10px 3px rgba(56, 189, 248, 0.9);
   animation: axideMoteRise 3.2s ease-in-out infinite;
+  animation-play-state: paused;
 }
 .vfx-mote.mote-gold {
   box-shadow: 0 0 10px 3px rgba(251, 191, 36, 0.95);
@@ -15085,10 +15102,18 @@ footer .footer-content .footer-logo.axide-footer-brand {
   box-shadow: 0 0 10px 3px rgba(52, 211, 153, 0.95);
 }
 @keyframes axideMoteRise {
-  0% { transform: translateY(14px) scale(0.5); opacity: 0; }
-  35% { opacity: 0.95; }
-  75% { opacity: 0.85; }
+  0% { transform: translateY(0) scale(0.9); opacity: 0.85; }
+  50% { transform: translateY(-14px) scale(1.05); opacity: 1; }
   100% { transform: translateY(-28px) scale(1.1); opacity: 0; }
+}
+
+.has-live-vfx:hover .live-dot,
+.has-live-vfx:hover .vfx-aura,
+.has-live-vfx:hover .vfx-scan-beam,
+.has-live-vfx:hover .vfx-sweep-x::after,
+.has-live-vfx:hover .vfx-comet-dot,
+.has-live-vfx:hover .vfx-mote {
+  animation-play-state: running;
 }
 
 /* ==========================================================================
@@ -16437,6 +16462,30 @@ footer .footer-content .footer-logo.axide-footer-brand {
   .axide-xyt-roadmap-shell {
     padding: 22px 16px;
   }
+}
+
+/* ==========================================================================
+   AXIDE Zero-Degradation GPU 3D Compositor & Idle Power Optimization
+   ========================================================================== */
+.partner-wrap .infiniteSlide {
+  animation-play-state: paused !important;
+}
+.partner-wrap:hover .infiniteSlide {
+  animation-play-state: running !important;
+}
+.axide-vfx-offscreen,
+.axide-vfx-offscreen *,
+.axide-vfx-offscreen::before,
+.axide-vfx-offscreen::after,
+html.axide-tab-hidden *,
+html.axide-tab-hidden *::before,
+html.axide-tab-hidden *::after {
+  animation-play-state: paused !important;
+}
+#progressBar {
+  width: 100% !important;
+  transform-origin: left center;
+  transform: scaleX(0);
 }
 
 /*# sourceMappingURL=styles.css.map */
