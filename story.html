@@ -393,7 +393,7 @@
 
                         <!-- Physical AI 28-Jamo Bipedal Partner Robot Archive Interactive Board (가봇 ~ 예봇, C:\Project\myhistory\AXIDE_한글_테마로봇_28장) -->
                         <div id="somooBpShowcaseWrap" class="mt-3 position-relative rounded-4 overflow-hidden" style="border: 1.5px solid rgba(251, 191, 36, 0.48); background: #FDF3E8; box-shadow: 0 20px 48px rgba(2, 6, 23, 0.65);">
-                            <img id="somooBpShowcaseImg" src="assets/images/somoo-jamo-robot/jr_01.jpg?v=20261107_jambot_v8" alt="AXIDE / PHYSICAL AI 로봇 설계 아카이브 — 01/28 ㄱ 가봇(GaBot) · ‘ㄱ 고롱’ 도우미 파트너 발명가형 이족보행 로봇" style="width: 100%; height: auto; display: block;" decoding="async">
+                            <img id="somooBpShowcaseImg" src="assets/images/somoo-jamo-robot/jr_01.jpg?v=20261107_jambot_v9" alt="AXIDE / PHYSICAL AI 로봇 설계 아카이브 — 01/28 ㄱ 가봇(GaBot) · ‘ㄱ 고롱’ 도우미 파트너 발명가형 이족보행 로봇" style="width: 100%; height: auto; display: block;" decoding="async">
                             <!-- Interactive Hotspots: Upper Robot Lightbox, [캐릭터 상세 보기], [설계도 확대], 28 Jamo Selector (ㄱ~ㅎ, ㅏ~ㅖ), [이전 설계도 / 다음 설계도] -->
                             <div id="somooBpBoardHotspots" style="position: absolute; inset: 0; pointer-events: none;"></div>
                         </div>
@@ -2953,7 +2953,7 @@
                                         <button type="button" id="somooModalBlueprintBtn" onclick="openStoryLightbox('assets/images/somoo-blueprint/bp_01.jpg?v=20261107_mainbp_v6', '한글 소모오 피지컬 AI — 01/28 ‘ㄱ 고롱(GoLong) · 발명가’ 마이크로덕형 14-DOF 메인 로봇 설계도', false)" class="btn btn-sm rounded-pill px-3 py-1 fw-bold" style="background: rgba(45, 212, 191, 0.2); color: #99f6e4; border: 1px solid rgba(45, 212, 191, 0.55); font-size: 11.5px;">
                                             📐 ‘ㄱ 고롱’ 메인 로봇 설계도 보기
                                         </button>
-                                        <button type="button" id="somooModalJamoBotBtn" onclick="openStoryLightbox('assets/images/somoo-jamo-robot/jr_01.jpg?v=20261107_jambot_v8', 'AXIDE / PHYSICAL AI 자모 파트너 로봇 — 01/28 ‘ㄱ 가봇(GaBot)’ (‘ㄱ 고롱’ 도우미 파트너 로봇)', false)" class="btn btn-sm rounded-pill px-3 py-1 fw-bold" style="background: rgba(139, 92, 246, 0.22); color: #ddd6fe; border: 1px solid rgba(167, 139, 250, 0.55); font-size: 11.5px;">
+                                        <button type="button" id="somooModalJamoBotBtn" onclick="openStoryLightbox('assets/images/somoo-jamo-robot/jr_01.jpg?v=20261107_jambot_v9', 'AXIDE / PHYSICAL AI 자모 파트너 로봇 — 01/28 ‘ㄱ 가봇(GaBot)’ (‘ㄱ 고롱’ 도우미 파트너 로봇)', false)" class="btn btn-sm rounded-pill px-3 py-1 fw-bold" style="background: rgba(139, 92, 246, 0.22); color: #ddd6fe; border: 1px solid rgba(167, 139, 250, 0.55); font-size: 11.5px;">
                                             🤖 ‘ㄱ 가봇’ 자모 파트너 로봇 보기
                                         </button>
                                     </div>
@@ -3493,7 +3493,7 @@
             }
             // Hangul Jamo Bipedal Partner Robot Archive Board (ㄱ 가봇 ~ ㅖ 예봇)
             function getJamoPartnerRobotUrl(idx) {
-                return 'assets/images/somoo-jamo-robot/jr_' + pad2(idx + 1) + '.jpg?v=20261107_jambot_v8';
+                return 'assets/images/somoo-jamo-robot/jr_' + pad2(idx + 1) + '.jpg?v=20261107_jambot_v9';
             }
 
             var currentBpShowcaseIdx = 0;
@@ -3549,6 +3549,10 @@
                 var jamoBtns = document.querySelectorAll('#somooBpBoardHotspots .somoo-bp-jamo-btn');
                 jamoBtns.forEach(function(btn, bIdx) {
                     btn.setAttribute('aria-pressed', bIdx === idx ? 'true' : 'false');
+                });
+                var moduHotspots = document.querySelectorAll('#somooBpBoardHotspots .somoo-bp-modu-hotspot');
+                moduHotspots.forEach(function(el) {
+                    el.style.display = (idx === 4) ? 'block' : 'none';
                 });
             };
 
@@ -3695,7 +3699,7 @@
                 });
             };
 
-            window.openSomooCharacterModal = function(idx) {
+            window.openSomooCharacterModal = function(idx, focusMode) {
                 hideSomooHoverTooltip();
                 var c = SOMOO_CHARACTERS[idx];
                 if (!c || !modalEl) return;
@@ -3804,6 +3808,20 @@
                     thumbTagBg: '#6f3cab',
                     thumbTagColor: '#ffffff'
                 });
+                // Special Edition for idx === 4 (ㅁ 마봇): '모두의 창업' 스페셜 로봇 턴어라운드·포즈·웃는 모니터 표정 상세 도감
+                var moduSheetUrl = 'assets/images/somoo-jamo-robot/modu_startup_robot_sheet.jpg?v=20261107_modu_v1';
+                var moduSheetTitle = '‘모두의 창업’ 스페셜 로봇 상세 도감 — 90° 정밀 옆모습 · 다양한 액션 포즈 · CRT 모니터 웃는 표정 & MicroDuck 절반 해부도';
+                var moduSheetShort = '모두의 창업 로봇 상세 도감 (옆모습 · 포즈 · 웃는 모니터 표정)';
+                if (idx === 4) {
+                    allImages.push({
+                        file: moduSheetUrl,
+                        title: moduSheetTitle,
+                        shortLabel: moduSheetShort,
+                        thumbTag: '모두의 창업',
+                        thumbTagBg: '#1979f4',
+                        thumbTagColor: '#ffffff'
+                    });
+                }
                 for (var bi = 1; bi < baseImages.length; bi++) {
                     allImages.push({
                         file: baseImages[bi].file,
@@ -3819,7 +3837,7 @@
                     thumbTagBg: '#fbbf24',
                     thumbTagColor: '#0f172a'
                 });
-                document.getElementById('somooModalGalleryCount').textContent = 'PDF 원본 ' + baseImages.length + '장 + 메인 로봇 설계도 1장 + 자모 파트너 로봇 1장 + 3D 한글 블록 1장';
+                document.getElementById('somooModalGalleryCount').textContent = 'PDF 원본 ' + baseImages.length + '장 + 메인 로봇 설계도 1장 + 자모 파트너 로봇 ' + (idx === 4 ? '2장(모두의 창업 포함)' : '1장') + ' + 3D 한글 블록 1장';
 
                 // Populate Thumbnails
                 var thumbStrip = document.getElementById('somooModalThumbStrip');
@@ -3844,8 +3862,10 @@
                     thumbStrip.appendChild(btn);
                 });
 
-                // Set first image (Representative 3D Portrait) as main image
-                if (allImages.length > 0) {
+                // Set initial main image (or '모두의 창업' robot sheet when focusMode === 'modu_startup')
+                if (focusMode === 'modu_startup' && idx === 4) {
+                    setSomooModalMainImage(moduSheetUrl, moduSheetTitle, 'ㅁ 마봇 (모두의 창업 스페셜 에디션)', moduSheetShort);
+                } else if (allImages.length > 0) {
                     setSomooModalMainImage(allImages[0].file, allImages[0].title, c.jamo + ' ' + c.name + '(' + c.eng + ')', allImages[0].shortLabel);
                 }
 
@@ -4091,6 +4111,41 @@
                         openCurrentBpLightbox();
                     });
                     bpBoardHotspots.appendChild(zoomBtn);
+
+                    // Special Hotspots on 05/28 'ㅁ 마봇' (currentBpShowcaseIdx === 4):
+                    // (a) Left Royal Blue Button [모두의 창업 | 로봇 상세 보기 ▶] (x=50..404, y=580..678)
+                    var moduLeftBtn = document.createElement('button');
+                    moduLeftBtn.type = 'button';
+                    moduLeftBtn.className = 'somoo-bp-hotspot-btn somoo-bp-modu-hotspot';
+                    moduLeftBtn.style.left = '2.99%';
+                    moduLeftBtn.style.top = '55.29%';
+                    moduLeftBtn.style.width = '21.17%';
+                    moduLeftBtn.style.height = '9.34%';
+                    moduLeftBtn.style.display = (currentBpShowcaseIdx === 4) ? 'block' : 'none';
+                    moduLeftBtn.title = '클릭하여 ‘모두의 창업’ 로봇 상세 보기 (옆모습 · 다양한 포즈 · 모니터 웃는 표정 도감)';
+                    moduLeftBtn.setAttribute('aria-label', '모두의 창업 로봇 상세 보기 (옆모습 · 다양한 포즈 · 모니터 웃는 표정)');
+                    moduLeftBtn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        openSomooCharacterModal(4, 'modu_startup');
+                    });
+                    bpBoardHotspots.appendChild(moduLeftBtn);
+
+                    // (b) Right 3D '모두의 창업' Cutaway Robot Figure (x=1240..1650, y=170..790)
+                    var moduRightFigBtn = document.createElement('button');
+                    moduRightFigBtn.type = 'button';
+                    moduRightFigBtn.className = 'somoo-bp-hotspot-btn somoo-bp-modu-hotspot';
+                    moduRightFigBtn.style.left = '74.16%';
+                    moduRightFigBtn.style.top = '16.20%';
+                    moduRightFigBtn.style.width = '24.52%';
+                    moduRightFigBtn.style.height = '59.10%';
+                    moduRightFigBtn.style.display = (currentBpShowcaseIdx === 4) ? 'block' : 'none';
+                    moduRightFigBtn.title = '클릭하여 ‘모두의 창업’ 로봇 상세 보기 (옆모습 · 다양한 포즈 · 모니터 웃는 표정 도감)';
+                    moduRightFigBtn.setAttribute('aria-label', '모두의 창업 로봇 상세 보기');
+                    moduRightFigBtn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        openSomooCharacterModal(4, 'modu_startup');
+                    });
+                    bpBoardHotspots.appendChild(moduRightFigBtn);
 
                     // 28 Jamo Selector Buttons (Row 0: Consonants 0..13, Row 1: Vowels 14..27)
                     var bpColRanges = [
