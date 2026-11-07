@@ -331,13 +331,48 @@
                         </div>
                     </div>
                     <div class="mb-24">
-                        <div class="rounded-4 overflow-hidden" onclick="openStoryLightbox('assets/images/story/story-cognios-28-hangul-model-status.jpg?v=20261106v160', 'AXIDE / Cogni-OS 모델 현황 (28 모델 전체 · 기존 목록 25 + 추가 연구 후보 3) — 한글 28자·모(자음 14 ㄱ고롱~ㅎ호롱 / 모음 14 ㅏ아롱~ㅖ예롱)와 결합한 Cogni-OS AI 모델 연구·개선 라인업', false)" style="border: 1px solid rgba(56, 189, 248, 0.45); box-shadow: 0 20px 50px rgba(2, 6, 23, 0.55); background: #ffffff; cursor: zoom-in;">
+                        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2 px-1">
+                            <div class="d-flex align-items-center gap-2 flex-wrap">
+                                <span class="badge rounded-pill px-3 py-1 fw-bold" style="background: rgba(56, 189, 248, 0.18); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.45); font-size: 11.5px;">INTERACTIVE MODEL MATRIX · 28 MODELS</span>
+                                <span style="font-size: 13px; color: #cbd5e1;">각 모델 행에 <strong style="color: #fbbf24;">마우스 오버</strong> 시 대표 캐릭터 프리뷰, <strong style="color: #38bdf8;">클릭</strong> 시 PDF 상세 캐릭터 도감 팝업이 열립니다.</span>
+                            </div>
+                            <button type="button" onclick="openStoryLightbox('assets/images/story/story-cognios-28-hangul-model-status.jpg?v=20261106v160', 'AXIDE / Cogni-OS 모델 현황 (28 모델 전체 · 기존 목록 25 + 추가 연구 후보 3) — 한글 28자·모(자음 14 ㄱ고롱~ㅎ호롱 / 모음 14 ㅏ아롱~ㅖ예롱)와 결합한 Cogni-OS AI 모델 연구·개선 라인업', false)" class="btn btn-sm rounded-pill px-3 py-1" style="background: rgba(15, 23, 42, 0.85); color: #e2e8f0; border: 1px solid rgba(56, 189, 248, 0.4); font-size: 12px;">
+                                🔍 전체 현황표 원본 확대
+                            </button>
+                        </div>
+                        <div class="rounded-4 overflow-hidden position-relative" style="border: 1px solid rgba(56, 189, 248, 0.45); box-shadow: 0 20px 50px rgba(2, 6, 23, 0.55); background: #ffffff;">
                             <img src="assets/images/story/story-cognios-28-hangul-model-status.jpg?v=20261106v160" alt="AXIDE / Cogni-OS 모델 현황 (28 모델 전체 · 기존 25종 + 추가 후보 3종): 자음 14(ㄱ 고롱 ~ ㅎ 호롱) 및 모음 14(ㅏ 아롱 ~ ㅖ 예롱)와 결합한 Cogni-OS AI 모델 현황" style="width: 100%; height: auto; display: block;" decoding="async" loading="lazy">
+                            <!-- 28 Interactive Row Hotspots on Model Status Table (populated by JS) -->
+                            <div id="somooModelStatusHotspots" style="position: absolute; inset: 0; pointer-events: none;"></div>
                         </div>
                     </div>
-                    <div class="mb-32">
-                        <div class="rounded-4 overflow-hidden" onclick="openStoryLightbox('assets/images/story/story-ai-model-hangul-somoo-encyclopedia.jpg?v=20261106v160', 'AXIDE / Cogni-OS — AI 모델 한글 도감 (한글 소모오: 자음 14 · 모음 14) — 소모오 원작의 이름·역할을 사용한 28종 AI 모델 캐릭터 도감', false)" style="border: 1px solid rgba(251, 191, 36, 0.45); box-shadow: 0 20px 50px rgba(2, 6, 23, 0.55); background: #ffffff; cursor: zoom-in;">
+                    <div class="mb-32" id="somoo-interactive-encyclopedia">
+                        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2 px-1">
+                            <div class="d-flex align-items-center gap-2 flex-wrap">
+                                <span class="badge rounded-pill px-3 py-1 fw-bold" style="background: rgba(251, 191, 36, 0.2); color: #fbbf24; border: 1px solid rgba(251, 191, 36, 0.5); font-size: 11.5px;">✨ INTERACTIVE 28 HANGUL SOMOO ENCYCLOPEDIA</span>
+                                <span style="font-size: 13px; color: #f8fafc;">캐릭터에 <strong style="color: #fbbf24;">마우스 오버</strong>하면 <strong>대표 3D 캐릭터 이미지</strong>가 나타나고, <strong style="color: #38bdf8;">클릭</strong>하면 <strong>PDF 원본 캐릭터 설정·턴어라운드·스토리 씬 상세 팝업창</strong>이 열립니다.</span>
+                            </div>
+                            <div class="d-flex align-items-center gap-2">
+                                <button type="button" onclick="openSomooOverviewModal()" class="btn btn-sm rounded-pill px-3 py-1 fw-bold" style="background: linear-gradient(135deg, rgba(251, 191, 36, 0.25), rgba(56, 189, 248, 0.22)); color: #fde68a; border: 1px solid rgba(251, 191, 36, 0.55); font-size: 12px;">
+                                    📖 한글 소모오 통합 도감 표지·그룹 보기
+                                </button>
+                                <button type="button" onclick="openStoryLightbox('assets/images/story/story-ai-model-hangul-somoo-encyclopedia.jpg?v=20261106v160', 'AXIDE / Cogni-OS — AI 모델 한글 도감 (한글 소모오: 자음 14 · 모음 14) — 소모오 원작의 이름·역할을 사용한 28종 AI 모델 캐릭터 도감', false)" class="btn btn-sm rounded-pill px-3 py-1" style="background: rgba(15, 23, 42, 0.85); color: #e2e8f0; border: 1px solid rgba(251, 191, 36, 0.45); font-size: 12px;">
+                                    🔍 전체 도감 보드 확대
+                                </button>
+                            </div>
+                        </div>
+                        <div class="rounded-4 overflow-hidden position-relative" style="border: 1px solid rgba(251, 191, 36, 0.55); box-shadow: 0 20px 50px rgba(2, 6, 23, 0.55); background: #ffffff;">
                             <img src="assets/images/story/story-ai-model-hangul-somoo-encyclopedia.jpg?v=20261106v160" alt="AXIDE / Cogni-OS — AI 모델 한글 도감 (한글 소모오: 자음 캐릭터 14종 ㄱ 고롱 ~ ㅎ 호롱 / 모음 캐릭터 14종 ㅏ 아롱 ~ ㅖ 예롱)" style="width: 100%; height: auto; display: block;" decoding="async" loading="lazy">
+                            <!-- 28 Interactive Character Cell Hotspots on Encyclopedia Board (populated by JS) -->
+                            <div id="somooEncyclopediaHotspots" style="position: absolute; inset: 0; pointer-events: none;"></div>
+                        </div>
+                        <!-- Quick Interactive 28-Character Selector Bar (Consonants 14 + Vowels 14) -->
+                        <div class="mt-3 p-3 rounded-4" style="background: rgba(15, 23, 42, 0.92); border: 1px solid rgba(251, 191, 36, 0.32);">
+                            <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
+                                <span style="font-size: 12.5px; color: #fde68a; font-weight: 700;">🎯 한글 소모오 28 캐릭터 빠른 선택 (마우스 오버: 대표 캐릭터 프리뷰 · 클릭: PDF 상세 도감 팝업)</span>
+                                <span style="font-size: 11.5px; color: #94a3b8;">자음 14종 (ㄱ 고롱 ~ ㅎ 호롱) · 모음 14종 (ㅏ 아롱 ~ ㅖ 예롱)</span>
+                            </div>
+                            <div id="somooQuickSelectorBar" class="d-flex flex-wrap gap-1"></div>
                         </div>
                     </div>
 
@@ -1692,6 +1727,1089 @@
                     });
                 }, { rootMargin: '-25% 0px -60% 0px', threshold: 0 });
                 sections.forEach(function(sec) { observer.observe(sec); });
+            }
+        })();
+    </script>
+
+    <!-- =====================================================================
+         HANGUL SOMOO 28-CHARACTER INTERACTIVE HOVER PREVIEW & PDF DETAIL MODAL
+         Source: C:\Project\myhistory\source\한글 소모오 캐릭터 통합.pdf (87 Pages, Im1~Im111)
+         ===================================================================== -->
+    <style>
+        .somoo-hotspot-cell {
+            position: absolute;
+            pointer-events: auto;
+            cursor: pointer;
+            border-radius: 10px;
+            border: 2px solid transparent;
+            background: transparent;
+            transition: border-color 0.18s ease, background-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+            z-index: 4;
+        }
+        .somoo-hotspot-cell:hover,
+        .somoo-hotspot-cell:focus-visible {
+            border-color: rgba(245, 158, 11, 0.95);
+            background: rgba(251, 191, 36, 0.10);
+            box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.28), 0 10px 24px rgba(15, 23, 42, 0.35);
+            transform: translateY(-2px);
+            outline: none;
+        }
+        .somoo-hotspot-row {
+            position: absolute;
+            pointer-events: auto;
+            cursor: pointer;
+            border-radius: 6px;
+            border: 1.5px solid transparent;
+            background: transparent;
+            transition: border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+            z-index: 4;
+        }
+        .somoo-hotspot-row:hover,
+        .somoo-hotspot-row:focus-visible {
+            border-color: rgba(14, 165, 233, 0.95);
+            background: rgba(56, 189, 248, 0.12);
+            box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.25);
+            outline: none;
+        }
+        .somoo-quick-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 10px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #e2e8f0;
+            background: rgba(30, 41, 59, 0.85);
+            border: 1px solid rgba(148, 163, 184, 0.32);
+            cursor: pointer;
+            transition: all 0.16s ease;
+        }
+        .somoo-quick-pill:hover,
+        .somoo-quick-pill.active {
+            color: #0f172a;
+            background: linear-gradient(135deg, #fbbf24, #38bdf8);
+            border-color: #fde68a;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(251, 191, 36, 0.35);
+        }
+        #somooHoverTooltip {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 310px;
+            pointer-events: none;
+            z-index: 9998;
+            opacity: 0;
+            visibility: hidden;
+            transform: translate3d(0, 6px, 0) scale(0.97);
+            transition: opacity 0.14s ease, transform 0.14s ease, visibility 0.14s ease;
+            background: linear-gradient(165deg, rgba(15, 23, 42, 0.98) 0%, rgba(7, 11, 20, 0.99) 100%);
+            border: 1.5px solid rgba(251, 191, 36, 0.75);
+            border-radius: 18px;
+            box-shadow: 0 22px 50px rgba(2, 6, 23, 0.85), 0 0 25px rgba(251, 191, 36, 0.22);
+            overflow: hidden;
+            padding: 12px;
+        }
+        #somooHoverTooltip.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translate3d(0, 0, 0) scale(1);
+        }
+        #somooDetailModal {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(2, 6, 23, 0.86);
+            backdrop-filter: blur(8px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 14px;
+            overflow-y: auto;
+        }
+        #somooDetailModal.open {
+            display: flex;
+        }
+        .somoo-modal-dialog {
+            width: 100%;
+            max-width: 1140px;
+            max-height: 92vh;
+            background: linear-gradient(165deg, #0b1120 0%, #0f172a 55%, #070b14 100%);
+            border: 1.5px solid rgba(251, 191, 36, 0.55);
+            border-radius: 22px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.88);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            color: #f8fafc;
+        }
+        .somoo-modal-body {
+            overflow-y: auto;
+            padding: 22px 24px 26px;
+        }
+        .somoo-thumb-btn {
+            border: 2px solid rgba(148, 163, 184, 0.3);
+            border-radius: 10px;
+            overflow: hidden;
+            padding: 0;
+            background: #ffffff;
+            cursor: pointer;
+            width: 68px;
+            height: 68px;
+            flex-shrink: 0;
+            transition: all 0.16s ease;
+        }
+        .somoo-thumb-btn.active,
+        .somoo-thumb-btn:hover {
+            border-color: #fbbf24;
+            box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.35);
+            transform: translateY(-2px);
+        }
+        .somoo-gallery-card {
+            background: #ffffff;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid rgba(251, 191, 36, 0.35);
+            box-shadow: 0 10px 26px rgba(2, 6, 23, 0.45);
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
+            cursor: zoom-in;
+        }
+        .somoo-gallery-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 34px rgba(251, 191, 36, 0.25);
+        }
+        @media (max-width: 767px) {
+            #somooHoverTooltip {
+                display: none !important;
+            }
+            .somoo-modal-body {
+                padding: 16px 14px 20px;
+            }
+        }
+    </style>
+
+    <!-- Floating Hover Preview Card (Shows Representative 3D Character Image on Mouseover) -->
+    <div id="somooHoverTooltip" role="tooltip" aria-hidden="true">
+        <div class="d-flex align-items-center justify-content-between gap-2 mb-2">
+            <div class="d-flex align-items-center gap-2">
+                <span id="somooTipJamo" class="badge rounded-3 fw-bold" style="font-size: 16px; padding: 5px 9px; background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #0f172a;">ㄱ</span>
+                <div>
+                    <div id="somooTipName" style="font-size: 15px; font-weight: 800; color: #ffffff; line-height: 1.2;">고롱 (GoLong)</div>
+                    <div id="somooTipRole" style="font-size: 12px; color: #fbbf24; font-weight: 700;">발명가 · 키 1.5cm / 2.5g</div>
+                </div>
+            </div>
+            <span id="somooTipGroup" class="badge rounded-pill" style="font-size: 10.5px; background: rgba(56, 189, 248, 0.18); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.4);">자음 01</span>
+        </div>
+        <div style="background: #ffffff; border-radius: 12px; overflow: hidden; height: 215px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(251, 191, 36, 0.45); position: relative;">
+            <img id="somooTipImg" src="assets/images/somoo/Im4.jpg" alt="대표 캐릭터 이미지" style="max-width: 100%; max-height: 215px; width: auto; height: auto; object-fit: contain; display: block;">
+            <span style="position: absolute; right: 8px; bottom: 8px; background: rgba(15, 23, 42, 0.85); color: #fde68a; font-size: 10.5px; font-weight: 700; padding: 3px 8px; border-radius: 999px; border: 1px solid rgba(251, 191, 36, 0.5);">대표 3D 캐릭터</span>
+        </div>
+        <div class="mt-2 pt-1">
+            <div class="d-flex align-items-center justify-content-between gap-1 mb-1">
+                <span id="somooTipModel" style="font-size: 12px; font-weight: 800; color: #38bdf8;">Kimi-K3.1-Pro</span>
+                <span id="somooTipTier" class="badge rounded-pill" style="font-size: 10.5px; background: rgba(251, 191, 36, 0.18); color: #fde68a;">Tier D · 1,561 GB</span>
+            </div>
+            <p id="somooTipDesc" class="mb-2" style="font-size: 11.5px; color: #cbd5e1; line-height: 1.42; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;"></p>
+            <div class="text-center py-1 rounded-pill fw-bold" style="background: rgba(56, 189, 248, 0.16); color: #7dd3fc; font-size: 11px; border: 1px solid rgba(56, 189, 248, 0.35);">
+                🖱️ 클릭하여 PDF 상세 캐릭터 도감·설정화 보기
+            </div>
+        </div>
+    </div>
+
+    <!-- Click Popup Modal (Shows Detailed Character Profile & All Extracted PDF Artwork) -->
+    <div id="somooDetailModal" role="dialog" aria-modal="true" aria-labelledby="somooModalTitle" onclick="if(event.target === this) closeSomooModal()">
+        <div class="somoo-modal-dialog" onclick="event.stopPropagation()">
+            <!-- Modal Top Header -->
+            <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 px-4 py-3" style="background: rgba(15, 23, 42, 0.95); border-bottom: 1px solid rgba(251, 191, 36, 0.32);">
+                <div class="d-flex align-items-center gap-3 flex-wrap">
+                    <span id="somooModalJamoBadge" class="d-inline-flex align-items-center justify-content-center rounded-3 fw-bold" style="width: 44px; height: 44px; font-size: 24px; background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #0f172a; box-shadow: 0 4px 14px rgba(251, 191, 36, 0.35);">ㄱ</span>
+                    <div>
+                        <div class="d-flex align-items-center gap-2 flex-wrap">
+                            <span id="somooModalCategoryBadge" class="badge rounded-pill" style="background: rgba(56, 189, 248, 0.2); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.45); font-size: 11px;">자음 캐릭터 01 / 14</span>
+                            <span id="somooModalRoleBadge" class="badge rounded-pill" style="background: rgba(251, 191, 36, 0.2); color: #fde68a; border: 1px solid rgba(251, 191, 36, 0.45); font-size: 11px;">발명가</span>
+                            <span id="somooModalPdfPages" style="font-size: 11.5px; color: #94a3b8;">PDF 원본 p.3–8</span>
+                        </div>
+                        <h4 id="somooModalTitle" class="mb-0 mt-1 fw-bold text-white" style="font-size: 21px;">고롱 (GoLong) — 한글 소모오 캐릭터 통합 도감</h4>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <button type="button" onclick="stepSomooCharacter(-1)" class="btn btn-sm rounded-pill px-3 py-1 fw-bold" style="background: rgba(30, 41, 59, 0.9); color: #e2e8f0; border: 1px solid rgba(148, 163, 184, 0.4); font-size: 12.5px;" title="이전 캐릭터 (←)">
+                        ◀ 이전
+                    </button>
+                    <button type="button" onclick="stepSomooCharacter(1)" class="btn btn-sm rounded-pill px-3 py-1 fw-bold" style="background: rgba(30, 41, 59, 0.9); color: #e2e8f0; border: 1px solid rgba(148, 163, 184, 0.4); font-size: 12.5px;" title="다음 캐릭터 (→)">
+                        다음 ▶
+                    </button>
+                    <button type="button" onclick="closeSomooModal()" class="btn btn-sm rounded-circle d-inline-flex align-items-center justify-content-center fw-bold" style="width: 34px; height: 34px; background: rgba(239, 68, 68, 0.2); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.45); font-size: 16px;" title="닫기 (ESC)">
+                        ✕
+                    </button>
+                </div>
+            </div>
+
+            <!-- Modal Scrollable Body -->
+            <div class="somoo-modal-body">
+                <!-- Character Profile + Interactive Main Image Showcase -->
+                <div id="somooModalCharacterView">
+                    <div class="row g-4 align-items-stretch">
+                        <!-- Left Column: Representative 3D Image & Interactive Switcher -->
+                        <div class="col-lg-5">
+                            <div class="h-100 d-flex flex-column justify-content-between p-3 rounded-4" style="background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(251, 191, 36, 0.38);">
+                                <div>
+                                    <div class="d-flex align-items-center justify-content-between mb-2">
+                                        <span id="somooMainImgLabel" class="badge rounded-pill px-3 py-1" style="background: rgba(251, 191, 36, 0.2); color: #fde68a; border: 1px solid rgba(251, 191, 36, 0.45); font-size: 11.5px;">✨ 대표 3D 캐릭터 이미지 (PDF 원본)</span>
+                                        <button type="button" id="somooMainImgZoomBtn" class="btn btn-sm rounded-pill px-2 py-0" style="font-size: 11px; color: #7dd3fc; background: rgba(56, 189, 248, 0.14); border: 1px solid rgba(56, 189, 248, 0.35);">
+                                            🔍 원본 전체화면 확대
+                                        </button>
+                                    </div>
+                                    <div id="somooMainImgWrap" style="background: #ffffff; border-radius: 14px; height: 330px; display: flex; align-items: center; justify-content: center; overflow: hidden; border: 1px solid rgba(251, 191, 36, 0.4); cursor: zoom-in;">
+                                        <img id="somooModalMainImg" src="assets/images/somoo/Im4.jpg" alt="한글 소모오 대표 캐릭터" style="max-width: 100%; max-height: 330px; width: auto; height: auto; object-fit: contain; display: block;">
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <div style="font-size: 11.5px; color: #94a3b8; margin-bottom: 6px; font-weight: 600;">📸 PDF 수록 이미지 선택 (클릭 시 상단 프리뷰 전환):</div>
+                                    <div id="somooModalThumbStrip" class="d-flex align-items-center gap-2 flex-wrap"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Column: Detailed Character Profile from PDF + Cogni-OS AI Model Info -->
+                        <div class="col-lg-7">
+                            <div class="h-100 d-flex flex-column justify-content-between gap-3">
+                                <!-- Story & Worldview Box -->
+                                <div class="p-3 px-4 rounded-4" style="background: linear-gradient(135deg, rgba(251, 191, 36, 0.14), rgba(15, 23, 42, 0.92)); border: 1px solid rgba(251, 191, 36, 0.45);">
+                                    <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-1">
+                                        <span style="font-size: 12px; font-weight: 800; color: #fbbf24; letter-spacing: 0.04em;">📖 한글 소모오 공식 캐릭터 스토리 · 특징</span>
+                                        <span id="somooModalEngName" style="font-size: 12px; color: #fde68a; font-weight: 700;">GoLong · ㄱ</span>
+                                    </div>
+                                    <p id="somooModalDescription" class="mb-0 text-white fw-semibold" style="font-size: 15.5px; line-height: 1.6;"></p>
+                                </div>
+
+                                <!-- Detailed Metadata Grid (Height/Weight, Birthday/Zodiac, Likes, Dislikes) -->
+                                <div class="row g-2">
+                                    <div class="col-sm-6">
+                                        <div class="p-3 rounded-4 h-100" style="background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(148, 163, 184, 0.25);">
+                                            <div style="font-size: 11.5px; color: #94a3b8; font-weight: 700;">📏 신체 사이즈 (키 · 몸무게)</div>
+                                            <div id="somooModalSize" class="mt-1 fw-bold text-white" style="font-size: 15px;">키 1.5cm · 몸무게 2.5g</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="p-3 rounded-4 h-100" style="background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(148, 163, 184, 0.25);">
+                                            <div style="font-size: 11.5px; color: #94a3b8; font-weight: 700;">🎂 생일 (기념일) · 별자리</div>
+                                            <div id="somooModalBirthday" class="mt-1 fw-bold text-white" style="font-size: 14.5px;">5월 19일 (발명의 날) · 황소자리</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="p-3 rounded-4 h-100" style="background: rgba(16, 185, 129, 0.10); border: 1px solid rgba(16, 185, 129, 0.35);">
+                                            <div style="font-size: 11.5px; color: #6ee7b7; font-weight: 700;">💚 좋아하는 것 (Likes)</div>
+                                            <div id="somooModalLikes" class="mt-1 fw-bold text-white" style="font-size: 14.5px;">태엽, 설계도</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="p-3 rounded-4 h-100" style="background: rgba(244, 63, 94, 0.10); border: 1px solid rgba(244, 63, 94, 0.35);">
+                                            <div style="font-size: 11.5px; color: #fda4af; font-weight: 700;">💔 싫어하는 것 (Dislikes)</div>
+                                            <div id="somooModalDislikes" class="mt-1 fw-bold text-white" style="font-size: 14.5px;">녹슨 나사</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Cogni-OS Mapped AI Model Specification Box -->
+                                <div class="p-3 px-4 rounded-4" style="background: linear-gradient(135deg, rgba(14, 165, 233, 0.16), rgba(15, 23, 42, 0.95)); border: 1px solid rgba(56, 189, 248, 0.5);">
+                                    <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-1">
+                                        <span style="font-size: 11.5px; font-weight: 800; color: #38bdf8; letter-spacing: 0.04em;">🤖 AXIDE / Cogni-OS 매핑 AI 모델 사양</span>
+                                        <span id="somooModalModelTier" class="badge rounded-pill px-3 py-1 fw-bold" style="background: rgba(251, 191, 36, 0.22); color: #fde68a; border: 1px solid rgba(251, 191, 36, 0.5); font-size: 11.5px;">Tier D · 1,561 GB</span>
+                                    </div>
+                                    <div id="somooModalModelName" class="fw-bold text-white" style="font-size: 18px;">Kimi-K3.1-Pro</div>
+                                    <div id="somooModalModelSpec" style="font-size: 13px; color: #cbd5e1; margin-top: 2px;">Moonshot AI · 중국 · 2.78T MoE · MXFP4</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Full PDF Character Artwork Gallery (All Extracted PDF Images for This Character) -->
+                    <div class="mt-4 pt-3" style="border-top: 1px solid rgba(148, 163, 184, 0.24);">
+                        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+                            <div>
+                                <h5 class="mb-0 fw-bold text-white" style="font-size: 16.5px;">🎨 PDF 원본 캐릭터 도감·턴어라운드·스토리 씬 전체 보기</h5>
+                                <span style="font-size: 12px; color: #94a3b8;">『한글 소모오 캐릭터 통합.pdf』에서 추출한 해당 캐릭터의 모든 원본 아트워크입니다. 이미지를 클릭하면 크게 확대됩니다.</span>
+                            </div>
+                            <span id="somooModalGalleryCount" class="badge rounded-pill px-3 py-1" style="background: rgba(251, 191, 36, 0.18); color: #fde68a; font-size: 12px;">총 6장 수록</span>
+                        </div>
+                        <div id="somooModalGalleryGrid" class="row g-3"></div>
+                    </div>
+                </div>
+
+                <!-- Group Overview Mode (Pages 1, 2, 62 of PDF) -->
+                <div id="somooModalOverviewView" style="display: none;">
+                    <div class="mb-3 p-3 rounded-4" style="background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(251, 191, 36, 0.4);">
+                        <h5 class="mb-1 fw-bold text-white" style="font-size: 17px;">📚 『한글 소모오 캐릭터 통합.pdf』 전체 대표 그룹 포스터 & 개요</h5>
+                        <p class="mb-0" style="font-size: 13px; color: #cbd5e1;">한글 자음 14종(ㄱ 고롱 ~ ㅎ 호롱)과 모음 14종(ㅏ 아롱 ~ ㅖ 예롱)으로 구성된 28종 소모오 캐릭터 통합 도감의 표지 및 전체 그룹 아트워크입니다. 아래에서 개별 캐릭터 버튼을 클릭하면 각 캐릭터 상세 도감으로 이동합니다.</p>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="somoo-gallery-card p-2" onclick="openStoryLightbox('assets/images/somoo/Im1.jpg', '한글 소모오 캐릭터 통합 — 자음 14종 그룹 아트워크 (PDF p.1)', false)">
+                                <img src="assets/images/somoo/Im1.jpg" alt="한글 소모오 자음 그룹" style="width: 100%; height: auto; display: block; border-radius: 10px;">
+                                <div class="p-2 text-center fw-bold" style="color: #0f172a; font-size: 13px;">PDF p.1 — 한글 소모오 자음 그룹 아트워크 (Im1)</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="somoo-gallery-card p-2" onclick="openStoryLightbox('assets/images/somoo/Im2.jpg', '한글 소모오 캐릭터 통합 — 모음 14종 그룹 아트워크 (PDF p.1)', false)">
+                                <img src="assets/images/somoo/Im2.jpg" alt="한글 소모오 모음 그룹" style="width: 100%; height: auto; display: block; border-radius: 10px;">
+                                <div class="p-2 text-center fw-bold" style="color: #0f172a; font-size: 13px;">PDF p.1 — 한글 소모오 모음 그룹 아트워크 (Im2)</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="somoo-gallery-card p-2" onclick="openStoryLightbox('assets/images/somoo/Im3.jpg', '한글 소모오 자음 14종 캐릭터 통합 포스터 (PDF p.2)', false)">
+                                <img src="assets/images/somoo/Im3.jpg" alt="한글 소모오 자음 14종 통합 포스터" style="width: 100%; height: auto; display: block; border-radius: 10px;">
+                                <div class="p-2 text-center fw-bold" style="color: #0f172a; font-size: 13px;">PDF p.2 — 제1부: 한글 자음 소모오 14종 통합 도감 (Im3)</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="somoo-gallery-card p-2" onclick="openStoryLightbox('assets/images/somoo/Im63.jpg', '한글 소모오 모음 14종 캐릭터 통합 포스터 (PDF p.62)', false)">
+                                <img src="assets/images/somoo/Im63.jpg" alt="한글 소모오 모음 14종 통합 포스터" style="width: 100%; height: auto; display: block; border-radius: 10px;">
+                                <div class="p-2 text-center fw-bold" style="color: #0f172a; font-size: 13px;">PDF p.62 — 제2부: 한글 모음 소모오 14종 통합 도감 (Im63)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 28-Character Quick Jumper Inside Modal -->
+                <div class="mt-4 p-3 rounded-4" style="background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(56, 189, 248, 0.3);">
+                    <div style="font-size: 12px; color: #7dd3fc; font-weight: 700; margin-bottom: 8px;">⚡ 팝업 내 28 캐릭터 바로 이동 (자음 14 · 모음 14)</div>
+                    <div id="somooModalQuickJumper" class="d-flex flex-wrap gap-1"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            var SOMOO_CHARACTERS = [
+                // ================== 자음 14종 (ㄱ 고롱 ~ ㅎ 호롱) ==================
+                {
+                    idx: 0, group: '자음', groupOrder: '01/14', jamo: 'ㄱ', name: '고롱', eng: 'GoLong',
+                    role: '발명가', height: '1.5cm', weight: '2.5g',
+                    birthday: '5월 19일 (발명의 날)', zodiac: '황소자리',
+                    likes: '태엽, 설계도', dislikes: '녹슨 나사',
+                    desc: '손재주가 좋아 무엇이든 뚝딱 만들어내는 괴짜 발명가입니다. 돋보기 안경을 쓰고 다닙니다.',
+                    model: 'Kimi-K3.1-Pro', dev: 'Moonshot AI · 중국 · 2.78T MoE · MXFP4', tier: 'Tier D · 1,561 GB',
+                    pages: 'p.3–8', repImg: 'Im4.jpg',
+                    images: [
+                        { file: 'Im4.jpg', title: '대표 3D 캐릭터 포트레이트 (고롱)' },
+                        { file: 'Im5.jpg', title: '4방향 3D 턴어라운드 시트 A (Front · Back · Right · Left)' },
+                        { file: 'Im6.jpg', title: '4방향 3D 턴어라운드 시트 B (디테일 뷰)' },
+                        { file: 'Im7.jpg', title: '3D 스토리 월드 씬 — 고롱의 태엽 발명 공방' },
+                        { file: 'Im8.jpg', title: '원작 캐릭터 컨셉 시트 A' },
+                        { file: 'Im9.jpg', title: '원작 캐릭터 통합 설정 도감 시트 (고롱)' }
+                    ]
+                },
+                {
+                    idx: 1, group: '자음', groupOrder: '02/14', jamo: 'ㄴ', name: '노롱', eng: 'NoLong',
+                    role: '가수', height: '1.6cm', weight: '2.3g',
+                    birthday: '6월 21일 (세계 음악의 날)', zodiac: '쌍둥이자리',
+                    likes: '마이크, 꿀차', dislikes: '삑사리(음정이탈)',
+                    desc: '아름다운 목소리로 숲속의 아침을 깨우는 아이돌 가수입니다. 노래를 부르면 꽃이 핍니다.',
+                    model: 'gemma-4-12B-it QAT w4a16', dev: 'Google · 미국 · 12B · INT4', tier: 'Tier A · 10.3 GB',
+                    pages: 'p.9–12', repImg: 'Im10.jpg',
+                    images: [
+                        { file: 'Im10.jpg', title: '대표 3D 캐릭터 포트레이트 (노롱)' },
+                        { file: 'Im11.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
+                        { file: 'Im12.jpg', title: '3D 스토리 월드 씬 — 숲속 아침을 깨우는 콘서트' },
+                        { file: 'Im13.jpg', title: '원작 캐릭터 통합 설정 도감 시트 (노롱)' }
+                    ]
+                },
+                {
+                    idx: 2, group: '자음', groupOrder: '03/14', jamo: 'ㄷ', name: '도롱', eng: 'DoLong',
+                    role: '도우미', height: '1.7cm', weight: '2.8g',
+                    birthday: '12월 5일 (자원봉사자의 날)', zodiac: '사수자리',
+                    likes: '칭찬 스티커, 구급상자', dislikes: '친구의 눈물',
+                    desc: '누군가 곤경에 처하면 가장 먼저 달려가는 친절한 해결사입니다. 늘 구급상자를 메고 다닙니다.',
+                    model: 'gemma-4-E4B-it QAT w4a16', dev: 'Google · 미국 · E4B · INT4', tier: 'Tier A · 11.5 GB',
+                    pages: 'p.13–16', repImg: 'Im14.jpg',
+                    images: [
+                        { file: 'Im14.jpg', title: '대표 3D 캐릭터 포트레이트 (도롱)' },
+                        { file: 'Im15.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
+                        { file: 'Im16.jpg', title: '3D 스토리 월드 씬 — 구급상자를 메고 달려가는 해결사' },
+                        { file: 'Im17.jpg', title: '원작 캐릭터 통합 설정 도감 시트 (도롱)' }
+                    ]
+                },
+                {
+                    idx: 3, group: '자음', groupOrder: '04/14', jamo: 'ㄹ', name: '로롱', eng: 'RoLong',
+                    role: '요리사', height: '1.6cm', weight: '3.0g',
+                    birthday: '10월 20일 (국제 요리사의 날)', zodiac: '천칭자리',
+                    likes: '달콤한 솜사탕, 구름빵', dislikes: '탄 음식',
+                    desc: '폭신한 구름과 달콤한 이슬로 세상에서 가장 맛있는 디저트를 만드는 행복 요리사입니다.',
+                    model: 'A.X-4.0-Light', dev: 'SK Telecom · 대한민국 · 7B · BF16', tier: 'Tier A · 14.5 GB',
+                    pages: 'p.17–20', repImg: 'Im18.jpg',
+                    images: [
+                        { file: 'Im18.jpg', title: '대표 3D 캐릭터 포트레이트 (로롱)' },
+                        { file: 'Im19.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
+                        { file: 'Im20.jpg', title: '3D 스토리 월드 씬 — 구름빵과 달콤한 디저트 베이커리' },
+                        { file: 'Im21.jpg', title: '원작 캐릭터 통합 설정 도감 시트 (로롱)' }
+                    ]
+                },
+                {
+                    idx: 4, group: '자음', groupOrder: '05/14', jamo: 'ㅁ', name: '모롱', eng: 'MoLong',
+                    role: '공예가 (뚝딱이)', height: '1.5cm', weight: '2.6g',
+                    birthday: '5월 1일 (근로자의 날)', zodiac: '황소자리',
+                    likes: '찰흙, 나무 블록', dislikes: '망가진 장난감',
+                    desc: '네모난 상자나 블록을 쌓아 멋진 집과 가구를 만드는 건축가이자 공예가입니다.',
+                    model: 'Qwen3.5-4B', dev: 'Alibaba Qwen · 중국 · 4B · BF16', tier: 'Tier A · 9.3 GB',
+                    pages: 'p.21–24', repImg: 'Im22.jpg',
+                    images: [
+                        { file: 'Im22.jpg', title: '대표 3D 캐릭터 포트레이트 (모롱)' },
+                        { file: 'Im23.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
+                        { file: 'Im24.jpg', title: '3D 스토리 월드 씬 — 나무 블록과 찰흙 공예 작업실' },
+                        { file: 'Im25.jpg', title: '원작 캐릭터 통합 설정 도감 시트 (모롱)' }
+                    ]
+                },
+                {
+                    idx: 5, group: '자음', groupOrder: '06/14', jamo: 'ㅂ', name: '보롱', eng: 'BoLong',
+                    role: '천문학자', height: '1.4cm', weight: '2.1g',
+                    birthday: '4월 12일 (세계 우주 비행의 날)', zodiac: '양자리',
+                    likes: '망원경, 별똥별', dislikes: '흐린 날, 먹구름',
+                    desc: '밤하늘의 별을 관찰하며 내일의 날씨와 운세를 점치는 신비로운 꼬마 천문학자입니다.',
+                    model: 'HyperCLOVAX-SEED-Think-14B GPTQ', dev: 'Naver · 대한민국 · 14B · INT4 · 양자화 K-Compression', tier: 'Tier A · 9.7 GB',
+                    pages: 'p.25–28', repImg: 'Im26.jpg',
+                    images: [
+                        { file: 'Im26.jpg', title: '대표 3D 캐릭터 포트레이트 (보롱)' },
+                        { file: 'Im27.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
+                        { file: 'Im28.jpg', title: '3D 스토리 월드 씬 — 밤하늘 별자리 관측 천문대' },
+                        { file: 'Im29.jpg', title: '원작 캐릭터 통합 설정 도감 시트 (보롱)' }
+                    ]
+                },
+                {
+                    idx: 6, group: '자음', groupOrder: '07/14', jamo: 'ㅅ', name: '소롱', eng: 'SoLong',
+                    role: '시인', height: '1.6cm', weight: '2.0g',
+                    birthday: '3월 21일 (세계 시의 날)', zodiac: '물고기자리',
+                    likes: '낙엽 책갈피, 산들바람', dislikes: '시끄러운 소음',
+                    desc: '바람 소리와 나뭇잎의 속삭임을 아름다운 시로 적어 내려가는 감성 풍부한 낭만 시인입니다.',
+                    model: 'Ministral-3-14B-Instruct', dev: 'Mistral AI · 프랑스 · 14B · BF16', tier: 'Tier A · 31.5 GB',
+                    pages: 'p.29–32', repImg: 'Im30.jpg',
+                    images: [
+                        { file: 'Im30.jpg', title: '대표 3D 캐릭터 포트레이트 (소롱)' },
+                        { file: 'Im31.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
+                        { file: 'Im32.jpg', title: '3D 스토리 월드 씬 — 산들바람과 낙엽 속 낭만 시 창작' },
+                        { file: 'Im33.jpg', title: '원작 캐릭터 통합 설정 도감 시트 (소롱)' }
+                    ]
+                },
+                {
+                    idx: 7, group: '자음', groupOrder: '08/14', jamo: 'ㅇ', name: '오롱', eng: 'OhLong',
+                    role: '개그맨 (웃음꽃)', height: '1.5cm', weight: '2.4g',
+                    birthday: '4월 1일 (만우절)', zodiac: '양자리',
+                    likes: '간지럼 태우기, 유머 책', dislikes: '지루하고 딱딱한 분위기',
+                    desc: '동그란 얼굴만큼이나 성격도 둥글둥글합니다. 엉뚱한 몸개그로 친구들을 웃게 만드는 분위기 메이커입니다.',
+                    model: 'Ministral-3-8B-Instruct', dev: 'Mistral AI · 프랑스 · 8B · BF16', tier: 'Tier A · 20.9 GB',
+                    pages: 'p.33–36', repImg: 'Im34.jpg',
+                    images: [
+                        { file: 'Im34.jpg', title: '대표 3D 캐릭터 포트레이트 (오롱)' },
+                        { file: 'Im35.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
+                        { file: 'Im36.jpg', title: '3D 스토리 월드 씬 — 웃음꽃 피어나는 개그 스테이지' },
+                        { file: 'Im37.jpg', title: '원작 캐릭터 통합 설정 도감 시트 (오롱)' }
+                    ]
+                },
+                {
+                    idx: 8, group: '자음', groupOrder: '09/14', jamo: 'ㅈ', name: '조롱', eng: 'JoLong',
+                    role: '상상가 (잠꾸러기)', height: '1.3cm', weight: '2.2g',
+                    birthday: '3월 15일 (세계 수면의 날)', zodiac: '물고기자리',
+                    likes: '푹신한 베개, 낮잠', dislikes: '자명종 소리',
+                    desc: '언제 어디서나 꾸벅꾸벅 졸지만, 꿈속에서 기상천외한 모험을 하며 아이디어를 얻는 상상가입니다.',
+                    model: 'kanana-1.5-8b-instruct', dev: 'Kakao · 대한민국 · 8B · BF16', tier: 'Tier A · 16.1 GB',
+                    pages: 'p.37–40', repImg: 'Im38.jpg',
+                    images: [
+                        { file: 'Im38.jpg', title: '대표 3D 캐릭터 포트레이트 (조롱)' },
+                        { file: 'Im39.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
+                        { file: 'Im40.jpg', title: '3D 스토리 월드 씬 — 구름 침대 위 기상천외한 꿈나라 모험' },
+                        { file: 'Im41.jpg', title: '원작 캐릭터 통합 설정 도감 시트 (조롱)' }
+                    ]
+                },
+                {
+                    idx: 9, group: '자음', groupOrder: '10/14', jamo: 'ㅊ', name: '초롱', eng: 'ChoLong',
+                    role: '댄서', height: '1.7cm', weight: '2.1g',
+                    birthday: '4월 29일 (세계 춤의 날)', zodiac: '황소자리',
+                    likes: '신나는 리듬, 반짝이 신발', dislikes: '가만히 앉아있기',
+                    desc: '초롱초롱한 눈망울을 빛내며 춤을 추는 댄싱머신입니다. 노롱이의 노래에 맞춰 춤추는 것을 가장 좋아합니다.',
+                    model: 'gemma-4-26B-A4B-it AWQ 4bit', dev: 'Google · 미국 · 26B MoE · INT4 · 양자화 cyankiwi', tier: 'Tier B · 17.2 GB',
+                    pages: 'p.41–44', repImg: 'Im42.jpg',
+                    images: [
+                        { file: 'Im42.jpg', title: '대표 3D 캐릭터 포트레이트 (초롱)' },
+                        { file: 'Im43.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
+                        { file: 'Im44.jpg', title: '3D 스토리 월드 씬 — 반짝이 신발과 화려한 댄스 스테이지' },
+                        { file: 'Im45.jpg', title: '원작 캐릭터 통합 설정 도감 시트 (초롱)' }
+                    ]
+                },
+                {
+                    idx: 10, group: '자음', groupOrder: '11/14', jamo: 'ㅋ', name: '코롱', eng: 'KoLong',
+                    role: '파수꾼 (키다리)', height: '2.0cm', weight: '2.9g',
+                    birthday: '6월 21일 (세계 기린의 날)', zodiac: '게자리',
+                    likes: '높은 나무 위, 쌍안경', dislikes: '낮은 천장',
+                    desc: '소모오 친구들 중 키가 가장 큽니다. 높은 곳에서 망을 보며 마을의 안전을 지키는 든든한 파수꾼입니다.',
+                    model: 'Qwen3.8-27B AWQ INT4', dev: 'Alibaba Qwen · 중국 · 27B · INT4 · 양자화 cyankiwi', tier: 'Tier B · 21.0 GB',
+                    pages: 'p.45–48', repImg: 'Im46.jpg',
+                    images: [
+                        { file: 'Im46.jpg', title: '대표 3D 캐릭터 포트레이트 (코롱)' },
+                        { file: 'Im47.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
+                        { file: 'Im48.jpg', title: '3D 스토리 월드 씬 — 높은 나무 위에서 마을을 지키는 파수꾼' },
+                        { file: 'Im49.jpg', title: '원작 캐릭터 통합 설정 도감 시트 (코롱)' }
+                    ]
+                },
+                {
+                    idx: 11, group: '자음', groupOrder: '12/14', jamo: 'ㅌ', name: '토롱', eng: 'ToLong',
+                    role: '논리가 (달변가)', height: '1.6cm', weight: '2.5g',
+                    birthday: '11월 21일 (세계 철학의 날)', zodiac: '전갈자리',
+                    likes: '토론하기, 백과사전', dislikes: '억지 부리기',
+                    desc: '궁금한 것이 많아 질문도 많고 말도 잘하는 똑똑한 친구입니다. 친구들 사이의 다툼을 논리적으로 중재합니다.',
+                    model: 'kanana-2-30b-a3b AWQ w4a16', dev: 'Kakao · 대한민국 · 30B MoE · INT4 · 양자화 NotoriousH2', tier: 'Tier B · 16.6 GB',
+                    pages: 'p.49–52', repImg: 'Im50.jpg',
+                    images: [
+                        { file: 'Im50.jpg', title: '대표 3D 캐릭터 포트레이트 (토롱)' },
+                        { file: 'Im51.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
+                        { file: 'Im52.jpg', title: '3D 스토리 월드 씬 — 지혜와 논리로 중재하는 토론 광장' },
+                        { file: 'Im53.jpg', title: '원작 캐릭터 통합 설정 도감 시트 (토롱)' }
+                    ]
+                },
+                {
+                    idx: 12, group: '자음', groupOrder: '13/14', jamo: 'ㅍ', name: '포롱', eng: 'PoLong',
+                    role: '탐정', height: '1.5cm', weight: '2.3g',
+                    birthday: '5월 22일 (셜록 홈즈의 날)', zodiac: '쌍둥이자리',
+                    likes: '돋보기, 수수께끼', dislikes: '미제 사건, 거짓말',
+                    desc: '마을에서 잃어버린 물건이 생기면 작은 단서도 놓치지 않고 찾아내는 명탐정입니다.',
+                    model: 'gemma-4-31B-it QAT w4a16', dev: 'Google · 미국 · 31B · INT4', tier: 'Tier B · 23.3 GB',
+                    pages: 'p.53–56', repImg: 'Im54.jpg',
+                    images: [
+                        { file: 'Im54.jpg', title: '대표 3D 캐릭터 포트레이트 (포롱)' },
+                        { file: 'Im55.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
+                        { file: 'Im56.jpg', title: '3D 스토리 월드 씬 — 돋보기로 단서를 추적하는 명탐정' },
+                        { file: 'Im57.jpg', title: '원작 캐릭터 통합 설정 도감 시트 (포롱)' }
+                    ]
+                },
+                {
+                    idx: 13, group: '자음', groupOrder: '14/14', jamo: 'ㅎ', name: '호롱', eng: 'HoLong',
+                    role: '천하장사', height: '1.9cm', weight: '3.5g',
+                    birthday: '8월 8일 (세계 무도인의 날)', zodiac: '사자자리',
+                    likes: '무거운 것 들기, 운동', dislikes: '약한 친구 괴롭히기',
+                    desc: '작은 체구지만 자기 몸보다 몇 배나 큰 도토리나 나뭇가지를 번쩍 들어 올리는 힘센 수호자입니다.',
+                    model: 'Qwen3.8-27B FP8', dev: 'Alibaba Qwen · 중국 · 27B · FP8', tier: 'Tier C · 30.9 GB',
+                    pages: 'p.57–61', repImg: 'Im58.jpg',
+                    images: [
+                        { file: 'Im58.jpg', title: '대표 3D 캐릭터 포트레이트 (호롱)' },
+                        { file: 'Im59.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
+                        { file: 'Im60.jpg', title: '3D 스토리 월드 씬 — 거대한 바위를 번쩍 들어 올리는 천하장사' },
+                        { file: 'Im61.jpg', title: '원작 캐릭터 컨셉 시트 A' },
+                        { file: 'Im62.jpg', title: '원작 캐릭터 통합 설정 도감 시트 (호롱)' }
+                    ]
+                },
+
+                // ================== 모음 14종 (ㅏ 아롱 ~ ㅖ 예롱) ==================
+                {
+                    idx: 14, group: '모음', groupOrder: '01/14', jamo: 'ㅏ', name: '아롱', eng: 'AhLong',
+                    role: '화가', height: '1.5cm', weight: '2.4g',
+                    birthday: '4월 15일 (세계 예술의 날)', zodiac: '양자리',
+                    likes: '무지개 물감, 캔버스', dislikes: '굳어버린 붓',
+                    desc: '세상의 모든 아름다운 색을 모아 그림을 그리는 화가입니다. 아롱이가 그린 그림은 가끔 살아 움직입니다.',
+                    model: 'Qwen3.6-35B-A3B FP8', dev: 'Alibaba Qwen · 중국 · 35B MoE · FP8', tier: 'Tier C · 37.5 GB',
+                    pages: 'p.63–65', repImg: 'Im64.jpg',
+                    images: [
+                        { file: 'Im64.jpg', title: '대표 3D 캐릭터 포트레이트 (아롱)' },
+                        { file: 'Im65.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
+                        { file: 'Im66.jpg', title: '3D 스토리 월드 씬 A — 무지개 물감 숲속 아틀리에' },
+                        { file: 'Im67.jpg', title: '3D 스토리 월드 씬 B — 살아 움직이는 캔버스 그림' }
+                    ]
+                },
+                {
+                    idx: 15, group: '모음', groupOrder: '02/14', jamo: 'ㅑ', name: '야롱', eng: 'YaLong',
+                    role: '전령사 (배달부)', height: '1.6cm', weight: '2.1g',
+                    birthday: '10월 9일 (세계 우편의 날)', zodiac: '천칭자리',
+                    likes: '빠른 바람, 편지 가방', dislikes: '길 잃어버리기',
+                    desc: '소모오 마을에서 발이 가장 빠릅니다. 친구들의 소식과 편지를 빛의 속도로 배달합니다.',
+                    model: 'gemma-4-26B-A4B-it FP8-dynamic', dev: 'Google · 미국 · 26B MoE · FP8 · 양자화 Red Hat AI', tier: 'Tier C · 28.7 GB',
+                    pages: 'p.66–68', repImg: 'Im68.jpg',
+                    images: [
+                        { file: 'Im68.jpg', title: '대표 3D 캐릭터 포트레이트 (야롱)' },
+                        { file: 'Im69.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
+                        { file: 'Im70.jpg', title: '3D 스토리 월드 씬 A — 빛의 속도로 달리는 숲속 우체부' },
+                        { file: 'Im71.jpg', title: '3D 스토리 월드 씬 B — 편지 가방과 바람의 질주' },
+                        { file: 'Im72.jpg', title: '3D 스토리 월드 씬 C — 구름 다리를 건너는 특급 전령사' }
+                    ]
+                },
+                {
+                    idx: 16, group: '모음', groupOrder: '03/14', jamo: 'ㅓ', name: '어롱', eng: 'EoLong',
+                    role: '정원사', height: '1.5cm', weight: '2.6g',
+                    birthday: '4월 5일 (식목일)', zodiac: '양자리',
+                    likes: '물뿌리개, 따뜻한 햇살', dislikes: '해충, 시든 꽃',
+                    desc: '식물의 마음을 읽고 대화할 수 있는 정원사입니다. 시든 꽃도 어롱이가 만지면 활짝 피어납니다.',
+                    model: 'HyperCLOVAX-SEED-Think-14B', dev: 'Naver · 대한민국 · 14B · BF16', tier: 'Tier C · 59.0 GB',
+                    pages: 'p.68–69', repImg: 'Im73.jpg',
+                    images: [
+                        { file: 'Im73.jpg', title: '대표 3D 캐릭터 포트레이트 (어롱)' },
+                        { file: 'Im74.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
+                        { file: 'Im75.jpg', title: '3D 스토리 월드 씬 — 따스한 햇살 아래 꽃을 피우는 정원사' }
+                    ]
+                },
+                {
+                    idx: 17, group: '모음', groupOrder: '04/14', jamo: 'ㅕ', name: '여롱', eng: 'YeoLong',
+                    role: '치유사 (의사)', height: '1.6cm', weight: '2.3g',
+                    birthday: '4월 7일 (세계 보건의 날)', zodiac: '양자리',
+                    likes: '약초 차, 반창고', dislikes: '아픈 친구들',
+                    desc: '따뜻한 손길로 친구들의 다친 곳과 아픈 마음을 치료해 주는 다정한 숲속 의사 선생님입니다.',
+                    model: 'Devstral-Small-2-24B-Instruct', dev: 'Mistral AI · 프랑스 · 24B · BF16', tier: 'Tier C · 51.6 GB',
+                    pages: 'p.70–72', repImg: 'Im76.jpg',
+                    images: [
+                        { file: 'Im76.jpg', title: '대표 3D 캐릭터 포트레이트 (여롱)' },
+                        { file: 'Im77.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
+                        { file: 'Im78.jpg', title: '3D 스토리 월드 씬 A — 약초 차와 반창고 치유 공방' },
+                        { file: 'Im79.jpg', title: '3D 스토리 월드 씬 B — 숲속 진료실의 다정한 치유사' },
+                        { file: 'Im80.jpg', title: '3D 스토리 월드 씬 C — 마음을 돌보는 숲속 병원' }
+                    ]
+                },
+                {
+                    idx: 18, group: '모음', groupOrder: '05/14', jamo: 'ㅗ', name: '올롱', eng: 'OlLong',
+                    role: '마술사', height: '1.7cm', weight: '2.5g',
+                    birthday: '10월 31일 (마술의 날)', zodiac: '전갈자리',
+                    likes: '카드, 비둘기', dislikes: '마술의 비밀 누설',
+                    desc: '상상을 현실로 만드는 마법사입니다. 엉뚱한 마술로 친구들에게 놀라움과 웃음을 선물합니다.',
+                    model: 'K-EXAONE-2.0-750B-A37B FP8', dev: 'LG AI Research · 대한민국 · 750B MoE · FP8', tier: 'Tier D · 752 GB',
+                    pages: 'p.72–73', repImg: 'Im81.jpg',
+                    images: [
+                        { file: 'Im81.jpg', title: '대표 3D 캐릭터 포트레이트 (올롱)' },
+                        { file: 'Im82.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
+                        { file: 'Im83.jpg', title: '3D 스토리 월드 씬 — 카드와 비둘기가 펼쳐지는 마술 극장' }
+                    ]
+                },
+                {
+                    idx: 19, group: '모음', groupOrder: '06/14', jamo: 'ㅛ', name: '요롱', eng: 'YoLong',
+                    role: '동물조련사', height: '1.6cm', weight: '2.6g',
+                    birthday: '10월 4일 (세계 동물의 날)', zodiac: '천칭자리',
+                    likes: '동물 친구들, 간식', dislikes: '밀렵꾼, 동물 학대',
+                    desc: '숲속 모든 동물과 대화할 수 있습니다. 사나운 동물도 요롱이 앞에서는 순한 양이 됩니다.',
+                    model: 'A.X-K2', dev: 'SK Telecom · 대한민국 · 519B MoE · BF16', tier: 'Tier D · 694 GB',
+                    pages: 'p.74–75', repImg: 'Im84.jpg',
+                    images: [
+                        { file: 'Im84.jpg', title: '대표 3D 캐릭터 포트레이트 (요롱)' },
+                        { file: 'Im85.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
+                        { file: 'Im86.jpg', title: '3D 스토리 월드 씬 — 숲속 동물 친구들과 대화하는 조련사' }
+                    ]
+                },
+                {
+                    idx: 20, group: '모음', groupOrder: '07/14', jamo: 'ㅜ', name: '우롱', eng: 'WooLong',
+                    role: '기록가 (사서)', height: '1.5cm', weight: '2.5g',
+                    birthday: '4월 23일 (세계 책의 날)', zodiac: '황소자리',
+                    likes: '만년필, 고서적', dislikes: '책 찢기, 망각',
+                    desc: '마을의 역사와 모든 일을 꼼꼼하게 기록합니다. 숲의 모든 지식이 담긴 걸어 다니는 백과사전입니다.',
+                    model: 'Motif-3', dev: 'Motif Technologies · 대한민국 · 300B MoE · BF16', tier: 'Tier D · 630 GB',
+                    pages: 'p.75–76', repImg: 'Im87.jpg',
+                    images: [
+                        { file: 'Im87.jpg', title: '대표 3D 캐릭터 포트레이트 (우롱)' },
+                        { file: 'Im88.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
+                        { file: 'Im89.jpg', title: '3D 스토리 월드 씬 — 숲의 역사를 기록하는 대도서관 사서' }
+                    ]
+                },
+                {
+                    idx: 21, group: '모음', groupOrder: '08/14', jamo: 'ㅠ', name: '유롱', eng: 'YuLong',
+                    role: '해양탐험가', height: '1.6cm', weight: '2.3g',
+                    birthday: '6월 8일 (세계 해양의 날)', zodiac: '쌍둥이자리',
+                    likes: '오리발, 조개껍데기', dislikes: '해양 쓰레기',
+                    desc: '물속에서 인어처럼 자유롭게 움직입니다. 깊은 강이나 호수 바닥을 탐험하며 보물을 찾습니다.',
+                    model: 'DeepSeek-V4.1-Flash', dev: 'DeepSeek · 중국 · 284B MoE · FP8', tier: 'Tier D · 510 GB',
+                    pages: 'p.77–78', repImg: 'Im90.jpg',
+                    images: [
+                        { file: 'Im90.jpg', title: '대표 3D 캐릭터 포트레이트 (유롱)' },
+                        { file: 'Im91.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
+                        { file: 'Im92.jpg', title: '3D 스토리 월드 씬 — 산호초와 바다거북이 있는 심해 보물 탐험' }
+                    ]
+                },
+                {
+                    idx: 22, group: '모음', groupOrder: '09/14', jamo: 'ㅡ', name: '으롱', eng: 'EuLong',
+                    role: '명상가 (밸런서)', height: '1.6cm', weight: '2.4g',
+                    birthday: '5월 21일 (명상의 날)', zodiac: '쌍둥이자리',
+                    likes: '평화, 수평선', dislikes: '기우뚱한 것, 소란',
+                    desc: '흔들리지 않는 평정심을 가졌습니다. 친구들이 흥분하거나 싸울 때 마음의 중심을 잡아줍니다.',
+                    model: 'GLM-5.3-Flash', dev: 'Z.ai (Zhipu) · 중국 · 106B MoE · BF16', tier: 'Tier D · 328 GB',
+                    pages: 'p.78–79', repImg: 'Im93.jpg',
+                    images: [
+                        { file: 'Im93.jpg', title: '대표 3D 캐릭터 포트레이트 (으롱)' },
+                        { file: 'Im94.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
+                        { file: 'Im95.jpg', title: '3D 스토리 월드 씬 — 대나무 숲 계곡에서 마음의 균형을 잡는 명상가' }
+                    ]
+                },
+                {
+                    idx: 23, group: '모음', groupOrder: '10/14', jamo: 'ㅣ', name: '이롱', eng: 'YiLong',
+                    role: '재단사', height: '1.8cm', weight: '2.1g',
+                    birthday: '11월 24일 (바늘의 날)', zodiac: '사수자리',
+                    likes: '줄자, 비단', dislikes: '엉킨 실타래',
+                    desc: '바느질 솜씨가 매우 정교합니다. 친구들에게 딱 맞는 예쁜 옷을 지어주거나 찢어진 마음도 꿰매줍니다.',
+                    model: 'Qwen3.8-Flash-Next FP8', dev: 'Alibaba Qwen · 중국 · 80B MoE · FP8', tier: 'Tier D · 186 GB',
+                    pages: 'p.80–81', repImg: 'Im96.jpg',
+                    images: [
+                        { file: 'Im96.jpg', title: '대표 3D 캐릭터 포트레이트 (이롱)' },
+                        { file: 'Im97.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
+                        { file: 'Im98.jpg', title: '3D 스토리 월드 씬 — 비단과 재봉틀이 있는 정교한 의상실' }
+                    ]
+                },
+                {
+                    idx: 24, group: '모음', groupOrder: '11/14', jamo: 'ㅐ', name: '애롱', eng: 'AeLong',
+                    role: '선생님', height: '1.6cm', weight: '2.4g',
+                    birthday: '5월 15일 (스승의 날)', zodiac: '황소자리',
+                    likes: '칠판, 질문', dislikes: '편견, 차별',
+                    desc: '모르는 것을 친절하고 쉽게 가르쳐 줍니다. 어려운 지식도 애롱이의 설명을 들으면 금방 이해됩니다.',
+                    model: 'gpt-oss-120b', dev: 'OpenAI · 미국 · 117B MoE · MXFP4', tier: 'Tier D · 65.3 GB',
+                    pages: 'p.81–82', repImg: 'Im99.jpg',
+                    images: [
+                        { file: 'Im99.jpg', title: '대표 3D 캐릭터 포트레이트 (애롱)' },
+                        { file: 'Im100.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
+                        { file: 'Im101.jpg', title: '3D 스토리 월드 씬 — 칠판 앞에서 친절하게 지식을 알려주는 교실' }
+                    ]
+                },
+                {
+                    idx: 25, group: '모음', groupOrder: '12/14', jamo: 'ㅒ', name: '얍롱', eng: 'YapLong',
+                    role: '사진가', height: '1.6cm', weight: '2.5g',
+                    birthday: '8월 19일 (세계 사진의 날)', zodiac: '사자자리',
+                    likes: '카메라, 찰나의 순간', dislikes: '흔들린 사진',
+                    desc: '마을의 특별하고 행복한 순간들을 놓치지 않고 포착합니다. "얍!" 하고 셔터를 눌러 추억을 남깁니다.',
+                    model: 'Qwen2.5-VL-3B-Instruct', dev: 'Alibaba Qwen · 이미지 이해 (Vision-Language)', tier: '추가 후보 · 7.51 GB',
+                    pages: 'p.83–84', repImg: 'Im102.jpg',
+                    images: [
+                        { file: 'Im102.jpg', title: '대표 3D 캐릭터 포트레이트 (얍롱)' },
+                        { file: 'Im103.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
+                        { file: 'Im104.jpg', title: '3D 스토리 월드 씬 — 찰나의 추억을 포착하는 카메라 스튜디오' }
+                    ]
+                },
+                {
+                    idx: 26, group: '모음', groupOrder: '13/14', jamo: 'ㅔ', name: '에이롱', eng: 'EiLong',
+                    role: '길잡이 (내비게이터)', height: '1.7cm', weight: '2.3g',
+                    birthday: '9월 27일 (세계 관광의 날)', zodiac: '천칭자리',
+                    likes: '지도, 나침반', dislikes: '길치, 막힌 길',
+                    desc: '지도를 보고 길을 찾는 능력이 탁월합니다. 새로운 곳으로 모험을 떠날 때 가장 안전한 길로 안내합니다.',
+                    model: 'BGE-M3', dev: 'BAAI · 다국어 문서 검색 (Retrieval)', tier: '추가 후보 · 2.27 GB',
+                    pages: 'p.84–85', repImg: 'Im105.jpg',
+                    images: [
+                        { file: 'Im105.jpg', title: '대표 3D 캐릭터 포트레이트 (에이롱)' },
+                        { file: 'Im106.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
+                        { file: 'Im107.jpg', title: '3D 스토리 월드 씬 — 황금 나침반과 세계지도로 길을 안내하는 탐험실' }
+                    ]
+                },
+                {
+                    idx: 27, group: '모음', groupOrder: '14/14', jamo: 'ㅖ', name: '예롱', eng: 'YehLong',
+                    role: '연주가', height: '1.6cm', weight: '2.2g',
+                    birthday: '6월 21일 (세계 음악의 날)', zodiac: '게자리',
+                    likes: '바이올린, 악보', dislikes: '불협화음',
+                    desc: '다룰 줄 아는 악기가 아주 많습니다. 노롱이(가수)의 노래에 맞춰 환상적인 반주를 해줍니다.',
+                    model: 'Whisper large-v3-turbo', dev: 'OpenAI · 음성 전사 (Speech Recognition)', tier: '추가 후보 · 1.62 GB',
+                    pages: 'p.86–87', repImg: 'Im108.jpg',
+                    images: [
+                        { file: 'Im108.jpg', title: '대표 3D 캐릭터 포트레이트 (예롱)' },
+                        { file: 'Im109.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
+                        { file: 'Im110.jpg', title: '3D 스토리 월드 씬 A — 황금빛 숲속의 바이올린 선율' },
+                        { file: 'Im111.jpg', title: '3D 스토리 월드 씬 B — 클래식 오케스트라 콘서트홀 연주' }
+                    ]
+                }
+            ];
+
+            var currentSomooIdx = 0;
+            var tooltipEl = document.getElementById('somooHoverTooltip');
+            var modalEl = document.getElementById('somooDetailModal');
+
+            function positionSomooTooltip(clientX, clientY) {
+                if (!tooltipEl) return;
+                var tipW = 310;
+                var tipH = tooltipEl.offsetHeight || 355;
+                var pad = 16;
+                var x = clientX + 20;
+                var y = clientY - Math.round(tipH * 0.35);
+                if (x + tipW + pad > window.innerWidth) {
+                    x = clientX - tipW - 20;
+                }
+                if (x < pad) x = pad;
+                if (y + tipH + pad > window.innerHeight) {
+                    y = window.innerHeight - tipH - pad;
+                }
+                if (y < pad) y = pad;
+                tooltipEl.style.left = x + 'px';
+                tooltipEl.style.top = y + 'px';
+            }
+
+            window.showSomooHoverTooltip = function(idx, evt) {
+                var c = SOMOO_CHARACTERS[idx];
+                if (!c || !tooltipEl) return;
+                document.getElementById('somooTipJamo').textContent = c.jamo;
+                document.getElementById('somooTipName').textContent = c.name + ' (' + c.eng + ')';
+                document.getElementById('somooTipRole').textContent = c.role + ' · 키 ' + c.height + ' / ' + c.weight;
+                document.getElementById('somooTipGroup').textContent = c.group + ' ' + c.groupOrder;
+                var imgEl = document.getElementById('somooTipImg');
+                var targetSrc = 'assets/images/somoo/' + c.repImg;
+                if (imgEl.getAttribute('src') !== targetSrc) {
+                    imgEl.setAttribute('src', targetSrc);
+                }
+                imgEl.setAttribute('alt', c.jamo + ' ' + c.name + ' 대표 캐릭터 이미지');
+                document.getElementById('somooTipModel').textContent = c.model;
+                document.getElementById('somooTipTier').textContent = c.tier;
+                document.getElementById('somooTipDesc').textContent = c.desc;
+                tooltipEl.classList.add('show');
+                tooltipEl.setAttribute('aria-hidden', 'false');
+                if (evt && typeof evt.clientX === 'number') {
+                    positionSomooTooltip(evt.clientX, evt.clientY);
+                }
+            };
+
+            window.moveSomooHoverTooltip = function(evt) {
+                if (!tooltipEl || !tooltipEl.classList.contains('show')) return;
+                if (evt && typeof evt.clientX === 'number') {
+                    positionSomooTooltip(evt.clientX, evt.clientY);
+                }
+            };
+
+            window.hideSomooHoverTooltip = function() {
+                if (!tooltipEl) return;
+                tooltipEl.classList.remove('show');
+                tooltipEl.setAttribute('aria-hidden', 'true');
+            };
+
+            window.setSomooModalMainImage = function(file, title, charName) {
+                var mainImg = document.getElementById('somooModalMainImg');
+                var mainLabel = document.getElementById('somooMainImgLabel');
+                var zoomBtn = document.getElementById('somooMainImgZoomBtn');
+                var wrap = document.getElementById('somooMainImgWrap');
+                var fullSrc = 'assets/images/somoo/' + file;
+                if (mainImg) {
+                    mainImg.src = fullSrc;
+                    mainImg.alt = charName + ' — ' + title;
+                }
+                if (mainLabel) {
+                    mainLabel.textContent = '✨ ' + title;
+                }
+                var openZoom = function() {
+                    if (typeof openStoryLightbox === 'function') {
+                        openStoryLightbox(fullSrc, charName + ' — ' + title + ' (한글 소모오 캐릭터 통합 PDF 원본)', false);
+                    }
+                };
+                if (zoomBtn) zoomBtn.onclick = openZoom;
+                if (wrap) wrap.onclick = openZoom;
+
+                var thumbs = document.querySelectorAll('#somooModalThumbStrip .somoo-thumb-btn');
+                thumbs.forEach(function(btn) {
+                    if (btn.getAttribute('data-file') === file) {
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
+                    }
+                });
+            };
+
+            window.openSomooCharacterModal = function(idx) {
+                hideSomooHoverTooltip();
+                var c = SOMOO_CHARACTERS[idx];
+                if (!c || !modalEl) return;
+                currentSomooIdx = idx;
+
+                document.getElementById('somooModalCharacterView').style.display = 'block';
+                document.getElementById('somooModalOverviewView').style.display = 'none';
+
+                document.getElementById('somooModalJamoBadge').textContent = c.jamo;
+                document.getElementById('somooModalCategoryBadge').textContent = c.group + ' 캐릭터 ' + c.groupOrder;
+                document.getElementById('somooModalRoleBadge').textContent = c.role;
+                document.getElementById('somooModalPdfPages').textContent = 'PDF 원본 ' + c.pages;
+                document.getElementById('somooModalTitle').textContent = c.jamo + ' ' + c.name + ' (' + c.eng + ') — ' + c.role;
+                document.getElementById('somooModalEngName').textContent = c.eng + ' · 한글 ' + c.group + ' ' + c.jamo;
+                document.getElementById('somooModalDescription').textContent = c.desc;
+                document.getElementById('somooModalSize').textContent = '키 ' + c.height + ' · 몸무게 ' + c.weight;
+                document.getElementById('somooModalBirthday').textContent = c.birthday + ' · ' + c.zodiac;
+                document.getElementById('somooModalLikes').textContent = c.likes;
+                document.getElementById('somooModalDislikes').textContent = c.dislikes;
+                document.getElementById('somooModalModelName').textContent = c.model;
+                document.getElementById('somooModalModelSpec').textContent = c.dev;
+                document.getElementById('somooModalModelTier').textContent = c.tier;
+                document.getElementById('somooModalGalleryCount').textContent = 'PDF 원본 그림 ' + c.images.length + '장 수록';
+
+                // Populate Thumbnails
+                var thumbStrip = document.getElementById('somooModalThumbStrip');
+                thumbStrip.innerHTML = '';
+                c.images.forEach(function(imgObj, i) {
+                    var btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = 'somoo-thumb-btn' + (i === 0 ? ' active' : '');
+                    btn.setAttribute('data-file', imgObj.file);
+                    btn.title = imgObj.title;
+                    btn.innerHTML = '<img src="assets/images/somoo/' + imgObj.file + '" alt="' + imgObj.title + '" style="width:100%;height:100%;object-fit:cover;display:block;">';
+                    btn.onclick = function() {
+                        setSomooModalMainImage(imgObj.file, imgObj.title, c.jamo + ' ' + c.name + '(' + c.eng + ')');
+                    };
+                    thumbStrip.appendChild(btn);
+                });
+
+                // Set first image (Representative 3D Portrait) as main image
+                if (c.images.length > 0) {
+                    setSomooModalMainImage(c.images[0].file, c.images[0].title, c.jamo + ' ' + c.name + '(' + c.eng + ')');
+                }
+
+                // Populate Full PDF Artwork Gallery Grid
+                var galleryGrid = document.getElementById('somooModalGalleryGrid');
+                galleryGrid.innerHTML = '';
+                var colClass = c.images.length >= 4 ? 'col-md-6' : 'col-md-4';
+                c.images.forEach(function(imgObj, i) {
+                    var col = document.createElement('div');
+                    col.className = colClass;
+                    var fullUrl = 'assets/images/somoo/' + imgObj.file;
+                    var captionText = c.jamo + ' ' + c.name + ' (' + c.eng + ') — ' + imgObj.title;
+                    col.innerHTML =
+                        '<div class="somoo-gallery-card h-100 d-flex flex-column justify-content-between p-2">' +
+                            '<div style="background:#ffffff;border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center;min-height:220px;">' +
+                                '<img src="' + fullUrl + '" alt="' + captionText + '" loading="lazy" style="width:100%;height:auto;max-height:360px;object-fit:contain;display:block;">' +
+                            '</div>' +
+                            '<div class="d-flex align-items-center justify-content-between gap-2 px-2 pt-2 pb-1">' +
+                                '<span style="font-size:12.5px;font-weight:800;color:#0f172a;">' + (i + 1) + '. ' + imgObj.title + '</span>' +
+                                '<span class="badge rounded-pill" style="background:#0f172a;color:#fde68a;font-size:10.5px;">클릭 확대</span>' +
+                            '</div>' +
+                        '</div>';
+                    col.querySelector('.somoo-gallery-card').onclick = function() {
+                        setSomooModalMainImage(imgObj.file, imgObj.title, c.jamo + ' ' + c.name + '(' + c.eng + ')');
+                        if (typeof openStoryLightbox === 'function') {
+                            openStoryLightbox(fullUrl, captionText + ' (한글 소모오 캐릭터 통합 PDF 원본)', false);
+                        }
+                    };
+                    galleryGrid.appendChild(col);
+                });
+
+                // Update active pill in modal jumper
+                var pills = document.querySelectorAll('#somooModalQuickJumper .somoo-quick-pill');
+                pills.forEach(function(p, pIdx) {
+                    if (pIdx === idx) p.classList.add('active');
+                    else p.classList.remove('active');
+                });
+
+                modalEl.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            };
+
+            window.openSomooOverviewModal = function() {
+                hideSomooHoverTooltip();
+                if (!modalEl) return;
+                document.getElementById('somooModalCharacterView').style.display = 'none';
+                document.getElementById('somooModalOverviewView').style.display = 'block';
+                document.getElementById('somooModalJamoBadge').textContent = '28';
+                document.getElementById('somooModalCategoryBadge').textContent = '통합 도감 전체 보기';
+                document.getElementById('somooModalRoleBadge').textContent = '자음 14 · 모음 14';
+                document.getElementById('somooModalPdfPages').textContent = 'PDF p.1–87 전체';
+                document.getElementById('somooModalTitle').textContent = '한글 소모오 캐릭터 통합 도감 (자음 14종 · 모음 14종)';
+                modalEl.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            };
+
+            window.closeSomooModal = function() {
+                if (!modalEl) return;
+                modalEl.classList.remove('open');
+                document.body.style.overflow = '';
+            };
+
+            window.stepSomooCharacter = function(delta) {
+                var nextIdx = (currentSomooIdx + delta + SOMOO_CHARACTERS.length) % SOMOO_CHARACTERS.length;
+                openSomooCharacterModal(nextIdx);
+            };
+
+            // Keyboard navigation inside modal
+            document.addEventListener('keydown', function(e) {
+                if (!modalEl || !modalEl.classList.contains('open')) return;
+                if (e.key === 'Escape') {
+                    closeSomooModal();
+                } else if (e.key === 'ArrowLeft') {
+                    stepSomooCharacter(-1);
+                } else if (e.key === 'ArrowRight') {
+                    stepSomooCharacter(1);
+                }
+            });
+
+            // Initialize 28 Hotspots on Encyclopedia Image, Model Status Image, and Quick Selector Bars
+            function initSomooInteractiveOverlay() {
+                var encContainer = document.getElementById('somooEncyclopediaHotspots');
+                var statusContainer = document.getElementById('somooModelStatusHotspots');
+                var quickBar = document.getElementById('somooQuickSelectorBar');
+                var modalJumper = document.getElementById('somooModalQuickJumper');
+
+                // Row coordinates on story-ai-model-hangul-somoo-encyclopedia.jpg (4 rows x 7 cols)
+                var encRows = [
+                    { top: 15.0, height: 19.6 }, // Row 0: Consonants 1-7 (ㄱ ~ ㅅ)
+                    { top: 34.8, height: 19.6 }, // Row 1: Consonants 8-14 (ㅇ ~ ㅎ)
+                    { top: 59.0, height: 19.8 }, // Row 2: Vowels 1-7 (ㅏ ~ ㅜ)
+                    { top: 79.0, height: 19.6 }  // Row 3: Vowels 8-14 (ㅠ ~ ㅖ)
+                ];
+                var colStart = 1.5;
+                var colWidth = 97.0 / 7.0;
+
+                SOMOO_CHARACTERS.forEach(function(c, idx) {
+                    // 1. Hotspot on story-ai-model-hangul-somoo-encyclopedia.jpg
+                    if (encContainer) {
+                        var rowIdx = Math.floor(idx / 7);
+                        var colIdx = idx % 7;
+                        var r = encRows[rowIdx];
+                        var cell = document.createElement('button');
+                        cell.type = 'button';
+                        cell.className = 'somoo-hotspot-cell';
+                        cell.style.left = (colStart + colIdx * colWidth).toFixed(2) + '%';
+                        cell.style.top = r.top.toFixed(2) + '%';
+                        cell.style.width = colWidth.toFixed(2) + '%';
+                        cell.style.height = r.height.toFixed(2) + '%';
+                        cell.setAttribute('aria-label', c.jamo + ' ' + c.name + ' (' + c.role + ') 상세 도감 열기');
+                        cell.addEventListener('mouseenter', function(e) { showSomooHoverTooltip(idx, e); });
+                        cell.addEventListener('mousemove', function(e) { moveSomooHoverTooltip(e); });
+                        cell.addEventListener('mouseleave', hideSomooHoverTooltip);
+                        cell.addEventListener('click', function(e) {
+                            e.stopPropagation();
+                            openSomooCharacterModal(idx);
+                        });
+                        encContainer.appendChild(cell);
+                    }
+
+                    // 2. Hotspot on story-cognios-28-hangul-model-status.jpg (2 cols x 14 rows)
+                    if (statusContainer) {
+                        var isVowel = idx >= 14;
+                        var statusRowIdx = isVowel ? (idx - 14) : idx;
+                        var rowTop = 20.6 + statusRowIdx * (68.8 / 14.0);
+                        var rowH = 68.8 / 14.0;
+                        var rowBtn = document.createElement('button');
+                        rowBtn.type = 'button';
+                        rowBtn.className = 'somoo-hotspot-row';
+                        rowBtn.style.left = isVowel ? '51.0%' : '1.5%';
+                        rowBtn.style.width = '47.5%';
+                        rowBtn.style.top = rowTop.toFixed(2) + '%';
+                        rowBtn.style.height = rowH.toFixed(2) + '%';
+                        rowBtn.setAttribute('aria-label', c.jamo + ' ' + c.name + ' — ' + c.model + ' 상세 도감 열기');
+                        rowBtn.addEventListener('mouseenter', function(e) { showSomooHoverTooltip(idx, e); });
+                        rowBtn.addEventListener('mousemove', function(e) { moveSomooHoverTooltip(e); });
+                        rowBtn.addEventListener('mouseleave', hideSomooHoverTooltip);
+                        rowBtn.addEventListener('click', function(e) {
+                            e.stopPropagation();
+                            openSomooCharacterModal(idx);
+                        });
+                        statusContainer.appendChild(rowBtn);
+                    }
+
+                    // 3. Quick Selector Pill below Encyclopedia
+                    if (quickBar) {
+                        var pill = document.createElement('button');
+                        pill.type = 'button';
+                        pill.className = 'somoo-quick-pill';
+                        pill.innerHTML = '<span style="color:#fbbf24;font-weight:900;">' + c.jamo + '</span><span>' + c.name + '</span><span style="font-size:10.5px;opacity:0.75;">(' + c.role.split(' ')[0] + ')</span>';
+                        pill.addEventListener('mouseenter', function(e) { showSomooHoverTooltip(idx, e); });
+                        pill.addEventListener('mousemove', function(e) { moveSomooHoverTooltip(e); });
+                        pill.addEventListener('mouseleave', hideSomooHoverTooltip);
+                        pill.addEventListener('click', function() { openSomooCharacterModal(idx); });
+                        quickBar.appendChild(pill);
+                    }
+
+                    // 4. Quick Jumper Pill inside Modal
+                    if (modalJumper) {
+                        var mPill = document.createElement('button');
+                        mPill.type = 'button';
+                        mPill.className = 'somoo-quick-pill';
+                        mPill.innerHTML = '<span style="color:#fbbf24;font-weight:900;">' + c.jamo + '</span><span>' + c.name + '</span>';
+                        mPill.addEventListener('click', function() { openSomooCharacterModal(idx); });
+                        modalJumper.appendChild(mPill);
+                    }
+                });
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initSomooInteractiveOverlay);
+            } else {
+                initSomooInteractiveOverlay();
             }
         })();
     </script>
