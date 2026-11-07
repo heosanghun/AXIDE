@@ -199,22 +199,103 @@
                 transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), filter 0.35s ease;
                 filter: drop-shadow(0 16px 28px rgba(15, 23, 42, 0.14));
                 user-select: none;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
             }
             .hero-modu-fighting-mascot:hover {
                 transform: translateY(-6px) scale(1.03);
                 filter: drop-shadow(0 22px 34px rgba(25, 121, 244, 0.24));
             }
-            .hero-modu-fighting-mascot img {
+            .hero-modu-cheer-bubble {
+                position: relative;
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                background: linear-gradient(135deg, #1979F4 0%, #0D5BD9 100%);
+                color: #FFFFFF;
+                font-size: clamp(12.5px, 1.05vw, 14.5px);
+                font-weight: 800;
+                letter-spacing: -0.02em;
+                padding: 8px 15px;
+                border-radius: 999px;
+                border: 2px solid #FFFFFF;
+                box-shadow: 0 8px 22px rgba(25, 121, 244, 0.32);
+                margin-bottom: 10px;
+                white-space: nowrap;
+                transition: all 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+            }
+            .hero-modu-cheer-bubble::after {
+                content: "";
+                position: absolute;
+                bottom: -7px;
+                left: 50%;
+                transform: translateX(-50%) rotate(45deg);
+                width: 11px;
+                height: 11px;
+                background: #0D5BD9;
+                border-right: 2px solid #FFFFFF;
+                border-bottom: 2px solid #FFFFFF;
+            }
+            .hero-modu-cheer-bubble .cheer-icon {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background: #FBBF24;
+                color: #0F172A;
+                font-size: 11px;
+                font-weight: 900;
+                flex-shrink: 0;
+                transition: transform 0.28s ease, background 0.28s ease;
+            }
+            .hero-modu-fighting-mascot:hover .hero-modu-cheer-bubble {
+                background: linear-gradient(135deg, #0F172A 0%, #1E3A8A 100%);
+                border-color: #FBBF24;
+                box-shadow: 0 10px 26px rgba(251, 191, 36, 0.38);
+                transform: translateY(-3px) scale(1.04);
+            }
+            .hero-modu-fighting-mascot:hover .hero-modu-cheer-bubble::after {
+                background: #1E3A8A;
+                border-right-color: #FBBF24;
+                border-bottom-color: #FBBF24;
+            }
+            .hero-modu-fighting-mascot:hover .hero-modu-cheer-bubble .cheer-icon {
+                transform: scale(1.15);
+            }
+            .hero-modu-img-stage {
+                position: relative;
+                width: 100%;
+            }
+            .hero-modu-img-stage img {
                 width: 100%;
                 height: auto;
                 display: block;
+                transition: opacity 0.22s ease;
+            }
+            .hero-modu-img-stage .mascot-img-hover {
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                opacity: 0;
+                pointer-events: none;
+            }
+            .hero-modu-fighting-mascot:hover .hero-modu-img-stage .mascot-img-default {
+                opacity: 0;
+            }
+            .hero-modu-fighting-mascot:hover .hero-modu-img-stage .mascot-img-hover {
+                opacity: 1;
             }
             @media (max-width: 1279px) {
                 .hero-modu-fighting-mascot {
                     position: relative;
                     right: auto;
                     bottom: auto;
-                    width: 190px;
+                    width: 210px;
                     margin: 24px auto 0;
                 }
             }
@@ -248,9 +329,16 @@
                     </div>
                 </div>
             </div>
-            <!-- 모두의 창업 화이팅 로봇 (우측 히어로 마스코트) -->
-            <div class="hero-modu-fighting-mascot" onclick="if(typeof openSomooCharacterModal==='function'){openSomooCharacterModal(4,'modu_startup');}" title="모두의 창업 로봇 — 화이팅! (클릭 시 360° 다각도·포즈 상세 보기)">
-                <img src="assets/images/somoo-jamo-robot/modu_startup_fighting_hero.png?v=20261107_fighting2" alt="모두의 창업 로봇 화이팅 응원 포즈 (웃는 모니터 표정)" decoding="async">
+            <!-- 모두의 창업 화이팅 & 1등 응원 로봇 (우측 히어로 마스코트 · 마우스 오버 시 1등 포즈 전환) -->
+            <div class="hero-modu-fighting-mascot" onclick="if(typeof openSomooCharacterModal==='function'){openSomooCharacterModal(4,'modu_startup');}" title="모두의 창업 1등을 응원합니다! (마우스를 올리면 1등 포즈로 전환 · 클릭 시 상세 도감 보기)">
+                <div class="hero-modu-cheer-bubble">
+                    <span class="cheer-icon">1st</span>
+                    <span>모두의 창업 1등을 응원합니다.</span>
+                </div>
+                <div class="hero-modu-img-stage">
+                    <img class="mascot-img-default" src="assets/images/somoo-jamo-robot/modu_startup_fighting_hero.png?v=20261107_fighting2" alt="모두의 창업 로봇 화이팅 응원 포즈 (기본)" decoding="async">
+                    <img class="mascot-img-hover" src="assets/images/somoo-jamo-robot/modu_startup_no1_hero.png?v=20261107_no1_v1" alt="모두의 창업 1등을 응원합니다 — 1등 검지 포즈 (마우스 오버)" decoding="async">
+                </div>
             </div>
         </div>
         <!-- /Hero Banner -->
