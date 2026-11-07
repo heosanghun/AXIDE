@@ -419,13 +419,13 @@
                                     <button type="button" id="somooMainCharBpUnderModalBtn" onclick="openSomooCharacterModal(0)" class="btn btn-sm rounded-pill px-3 py-1 fw-bold" style="background: rgba(251, 191, 36, 0.18); color: #fde68a; border: 1px solid rgba(251, 191, 36, 0.5); font-size: 11.5px;">
                                         ⚙️ ‘ㄱ 고롱’ 캐릭터 상세 도감 열기
                                     </button>
-                                    <button type="button" id="somooMainCharBpUnderZoomBtn" onclick="openStoryLightbox('assets/images/somoo-blueprint/bp_01.jpg?v=20261107_mainbp_v3', '한글 소모오 피지컬 AI — 01/28 ‘ㄱ 고롱(GoLong) · 발명가’ 마이크로덕형 14-DOF 메인 로봇 설계도', false)" class="btn btn-sm rounded-pill px-3 py-1 fw-bold" style="background: rgba(45, 212, 191, 0.2); color: #99f6e4; border: 1px solid rgba(45, 212, 191, 0.55); font-size: 11.5px;">
+                                    <button type="button" id="somooMainCharBpUnderZoomBtn" onclick="openStoryLightbox('assets/images/somoo-blueprint/bp_01.jpg?v=20261107_mainbp_v4', '한글 소모오 피지컬 AI — 01/28 ‘ㄱ 고롱(GoLong) · 발명가’ 마이크로덕형 14-DOF 메인 로봇 설계도', false)" class="btn btn-sm rounded-pill px-3 py-1 fw-bold" style="background: rgba(45, 212, 191, 0.2); color: #99f6e4; border: 1px solid rgba(45, 212, 191, 0.55); font-size: 11.5px;">
                                         🔍 메인 로봇 설계도 크게 확대
                                     </button>
                                 </div>
                             </div>
                             <div class="position-relative rounded-3 overflow-hidden" style="border: 1px solid rgba(251, 191, 36, 0.4); background: #0b162c; cursor: zoom-in;" onclick="if(typeof openCurrentMainSomooBpLightbox==='function') openCurrentMainSomooBpLightbox();">
-                                <img id="somooMainCharBpUnderImg" src="assets/images/somoo-blueprint/bp_01.jpg?v=20261107_mainbp_v3" alt="한글 소모오 피지컬 AI — 01/28 ‘ㄱ 고롱(GoLong) · 발명가’ 마이크로덕형 14-DOF 메인 로봇 설계도" style="width: 100%; height: auto; display: block;" decoding="async">
+                                <img id="somooMainCharBpUnderImg" src="assets/images/somoo-blueprint/bp_01.jpg?v=20261107_mainbp_v4" alt="한글 소모오 피지컬 AI — 01/28 ‘ㄱ 고롱(GoLong) · 발명가’ 마이크로덕형 14-DOF 메인 로봇 설계도" style="width: 100%; height: auto; display: block;" decoding="async">
                             </div>
                         </div>
 
@@ -2950,7 +2950,7 @@
                                         <div id="somooModalBlueprintNoticeText" style="font-size: 13px; color: #f8fafc; font-weight: 600; margin-top: 2px;">자음·모음 28종 소모오 캐릭터는 <strong>마이크로덕(MicroDuck)형 메인 로봇</strong>과 이를 돕는 <strong>독립 음절 한글 자모 파트너 이족보행 로봇(가봇~예봇)</strong>으로 함께 제작 중입니다.</div>
                                     </div>
                                     <div class="d-flex align-items-center flex-wrap gap-2">
-                                        <button type="button" id="somooModalBlueprintBtn" onclick="openStoryLightbox('assets/images/somoo-blueprint/bp_01.jpg?v=20261107_mainbp_v3', '한글 소모오 피지컬 AI — 01/28 ‘ㄱ 고롱(GoLong) · 발명가’ 마이크로덕형 14-DOF 메인 로봇 설계도', false)" class="btn btn-sm rounded-pill px-3 py-1 fw-bold" style="background: rgba(45, 212, 191, 0.2); color: #99f6e4; border: 1px solid rgba(45, 212, 191, 0.55); font-size: 11.5px;">
+                                        <button type="button" id="somooModalBlueprintBtn" onclick="openStoryLightbox('assets/images/somoo-blueprint/bp_01.jpg?v=20261107_mainbp_v4', '한글 소모오 피지컬 AI — 01/28 ‘ㄱ 고롱(GoLong) · 발명가’ 마이크로덕형 14-DOF 메인 로봇 설계도', false)" class="btn btn-sm rounded-pill px-3 py-1 fw-bold" style="background: rgba(45, 212, 191, 0.2); color: #99f6e4; border: 1px solid rgba(45, 212, 191, 0.55); font-size: 11.5px;">
                                             📐 ‘ㄱ 고롱’ 메인 로봇 설계도 보기
                                         </button>
                                         <button type="button" id="somooModalJamoBotBtn" onclick="openStoryLightbox('assets/images/somoo-jamo-robot/jr_01.jpg?v=20261107_jambot_v2', 'AXIDE / PHYSICAL AI 자모 파트너 로봇 — 01/28 ‘ㄱ 가봇(GaBot)’ (‘ㄱ 고롱’ 도우미 파트너 로봇)', false)" class="btn btn-sm rounded-pill px-3 py-1 fw-bold" style="background: rgba(139, 92, 246, 0.22); color: #ddd6fe; border: 1px solid rgba(167, 139, 250, 0.55); font-size: 11.5px;">
@@ -3489,7 +3489,7 @@
             }
             // Main Somoo Character MicroDuck 14-DOF Robot Blueprint (ㄱ 고롱 ~ ㅖ 예롱, 3-panel Cutaway X-Ray CAD)
             function getCharacterBlueprintUrl(idx) {
-                return 'assets/images/somoo-blueprint/bp_' + pad2(idx + 1) + '.jpg?v=20261107_mainbp_v3';
+                return 'assets/images/somoo-blueprint/bp_' + pad2(idx + 1) + '.jpg?v=20261107_mainbp_v4';
             }
             // Hangul Jamo Bipedal Partner Robot Archive Board (ㄱ 가봇 ~ ㅖ 예봇)
             function getJamoPartnerRobotUrl(idx) {
