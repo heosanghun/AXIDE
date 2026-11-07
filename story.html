@@ -391,11 +391,42 @@
                             </div>
                         </div>
 
-                        <!-- Physical AI 28-Character Theme Robot Archive Interactive Board (C:\Project\myhistory\AXIDE_한글_테마로봇_28장) -->
+                        <!-- Physical AI 28-Jamo Bipedal Partner Robot Archive Interactive Board (가봇 ~ 예봇, C:\Project\myhistory\AXIDE_한글_테마로봇_28장) -->
                         <div id="somooBpShowcaseWrap" class="mt-3 position-relative rounded-4 overflow-hidden" style="border: 1.5px solid rgba(251, 191, 36, 0.48); background: #FDF3E8; box-shadow: 0 20px 48px rgba(2, 6, 23, 0.65);">
-                            <img id="somooBpShowcaseImg" src="assets/images/somoo-blueprint/bp_01.jpg?v=20261107_theme28_v2" alt="AXIDE / PHYSICAL AI 로봇 설계 아카이브 — 01/28 ㄱ 고롱(GoLong) 발명가형 이족보행 로봇" style="width: 100%; height: auto; display: block;" decoding="async">
+                            <img id="somooBpShowcaseImg" src="assets/images/somoo-jamo-robot/jr_01.jpg?v=20261107_jambot" alt="AXIDE / PHYSICAL AI 로봇 설계 아카이브 — 01/28 ㄱ 가봇(GaBot) · ‘ㄱ 고롱’ 도우미 파트너 발명가형 이족보행 로봇" style="width: 100%; height: auto; display: block;" decoding="async">
                             <!-- Interactive Hotspots: Upper Robot Lightbox, [캐릭터 상세 보기], [설계도 확대], 28 Jamo Selector (ㄱ~ㅎ, ㅏ~ㅖ), [이전 설계도 / 다음 설계도] -->
                             <div id="somooBpBoardHotspots" style="position: absolute; inset: 0; pointer-events: none;"></div>
+                        </div>
+
+                        <!-- Synchronized Main Somoo Character MicroDuck Robot Blueprint (고롱 ~ 예롱 28종 메인 로봇 설계도 — 위 자모 클릭 시 하단에 즉시 생성/전환) -->
+                        <div id="somooMainCharBpUnderWrap" class="mt-3 p-3 rounded-4" style="background: linear-gradient(145deg, rgba(11, 22, 44, 0.96), rgba(6, 17, 39, 0.98)); border: 1.5px solid rgba(45, 212, 191, 0.55); box-shadow: 0 20px 48px rgba(2, 6, 23, 0.7);">
+                            <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2 px-1">
+                                <div class="d-flex align-items-center flex-wrap gap-2">
+                                    <span class="badge rounded-pill px-3 py-1 fw-bold" style="background: linear-gradient(90deg, #0d9488, #0284c7); color: #ffffff; font-size: 11.5px; letter-spacing: 0.04em;">
+                                        🌟 MAIN SOMOO ROBOT · 28종 메인 캐릭터 로봇 설계도
+                                    </span>
+                                    <span id="somooMainCharBpUnderTitle" class="fw-bold text-white" style="font-size: 14.5px;">
+                                        01/28 · ‘ㄱ 고롱(GoLong) · 발명가’ 마이크로덕형 14-DOF 메인 로봇 설계도 <span style="color: #fde68a; font-size: 12.5px;">(파트너 자모 로봇: ‘ㄱ 가봇 GaBot’)</span>
+                                    </span>
+                                </div>
+                                <div class="d-flex align-items-center flex-wrap gap-2">
+                                    <button type="button" onclick="stepSomooBlueprintShowcase(-1)" class="btn btn-sm rounded-pill px-3 py-1 fw-bold" style="background: rgba(30, 41, 59, 0.9); color: #cbd5e1; border: 1px solid rgba(148, 163, 184, 0.35); font-size: 11.5px;">
+                                        ◀ 이전
+                                    </button>
+                                    <button type="button" onclick="stepSomooBlueprintShowcase(1)" class="btn btn-sm rounded-pill px-3 py-1 fw-bold" style="background: rgba(30, 41, 59, 0.9); color: #cbd5e1; border: 1px solid rgba(148, 163, 184, 0.35); font-size: 11.5px;">
+                                        다음 ▶
+                                    </button>
+                                    <button type="button" id="somooMainCharBpUnderModalBtn" onclick="openSomooCharacterModal(0)" class="btn btn-sm rounded-pill px-3 py-1 fw-bold" style="background: rgba(251, 191, 36, 0.18); color: #fde68a; border: 1px solid rgba(251, 191, 36, 0.5); font-size: 11.5px;">
+                                        ⚙️ ‘ㄱ 고롱’ 캐릭터 상세 도감 열기
+                                    </button>
+                                    <button type="button" id="somooMainCharBpUnderZoomBtn" onclick="openStoryLightbox('assets/images/somoo-blueprint/bp_01.jpg?v=20261107_mainbp', '한글 소모오 피지컬 AI — 01/28 ‘ㄱ 고롱(GoLong) · 발명가’ 마이크로덕형 14-DOF 메인 로봇 설계도', false)" class="btn btn-sm rounded-pill px-3 py-1 fw-bold" style="background: rgba(45, 212, 191, 0.2); color: #99f6e4; border: 1px solid rgba(45, 212, 191, 0.55); font-size: 11.5px;">
+                                        🔍 메인 로봇 설계도 크게 확대
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="position-relative rounded-3 overflow-hidden" style="border: 1px solid rgba(251, 191, 36, 0.4); background: #0b162c; cursor: zoom-in;" onclick="if(typeof openCurrentMainSomooBpLightbox==='function') openCurrentMainSomooBpLightbox();">
+                                <img id="somooMainCharBpUnderImg" src="assets/images/somoo-blueprint/bp_01.jpg?v=20261107_mainbp" alt="한글 소모오 피지컬 AI — 01/28 ‘ㄱ 고롱(GoLong) · 발명가’ 마이크로덕형 14-DOF 메인 로봇 설계도" style="width: 100%; height: auto; display: block;" decoding="async">
+                            </div>
                         </div>
 
                         <!-- Quick Jump Visual Banner to Physical AI Mobility Archive (28개 자모 · 100개 테마 · 4000컷) -->
@@ -2915,12 +2946,17 @@
                                 <!-- Physical AI Companion & Educational Robot Notice Inside Modal -->
                                 <div class="p-3 px-4 rounded-4 d-flex align-items-center justify-content-between flex-wrap gap-2" style="background: linear-gradient(135deg, rgba(20, 184, 166, 0.16), rgba(15, 23, 42, 0.95)); border: 1px solid rgba(45, 212, 191, 0.48);">
                                     <div>
-                                        <div style="font-size: 11.5px; font-weight: 800; color: #2dd4bf;">🤖 PHYSICAL AI · 반려 로봇 & 교육용 로봇 맞춤 설계도 수록</div>
-                                        <div id="somooModalBlueprintNoticeText" style="font-size: 13px; color: #f8fafc; font-weight: 600; margin-top: 2px;">자음·모음 28종 소모오 캐릭터는 각각의 역할과 Cogni-OS 두뇌에 맞춘 <strong>마이크로덕(MicroDuck)형 이족보행 피지컬 AI 로봇</strong>으로 제작 중입니다.</div>
+                                        <div style="font-size: 11.5px; font-weight: 800; color: #2dd4bf;">🤖 PHYSICAL AI · 메인 캐릭터 로봇(고롱~예롱) & 자모 파트너 로봇(가봇~예봇) 28종 수록</div>
+                                        <div id="somooModalBlueprintNoticeText" style="font-size: 13px; color: #f8fafc; font-weight: 600; margin-top: 2px;">자음·모음 28종 소모오 캐릭터는 <strong>마이크로덕(MicroDuck)형 메인 로봇</strong>과 이를 돕는 <strong>독립 음절 한글 자모 파트너 이족보행 로봇(가봇~예봇)</strong>으로 함께 제작 중입니다.</div>
                                     </div>
-                                    <button type="button" id="somooModalBlueprintBtn" onclick="openStoryLightbox('assets/images/somoo-blueprint/bp_01.jpg?v=20261107_theme28_v2', 'AXIDE / PHYSICAL AI 로봇 설계 아카이브 — 01/28 ㄱ 고롱(GoLong) 발명가형 이족보행 로봇 설계도', false)" class="btn btn-sm rounded-pill px-3 py-1 fw-bold" style="background: rgba(45, 212, 191, 0.2); color: #99f6e4; border: 1px solid rgba(45, 212, 191, 0.55); font-size: 11.5px;">
-                                        📐 ‘ㄱ 고롱’ 로봇 설계도 보기
-                                    </button>
+                                    <div class="d-flex align-items-center flex-wrap gap-2">
+                                        <button type="button" id="somooModalBlueprintBtn" onclick="openStoryLightbox('assets/images/somoo-blueprint/bp_01.jpg?v=20261107_mainbp', '한글 소모오 피지컬 AI — 01/28 ‘ㄱ 고롱(GoLong) · 발명가’ 마이크로덕형 14-DOF 메인 로봇 설계도', false)" class="btn btn-sm rounded-pill px-3 py-1 fw-bold" style="background: rgba(45, 212, 191, 0.2); color: #99f6e4; border: 1px solid rgba(45, 212, 191, 0.55); font-size: 11.5px;">
+                                            📐 ‘ㄱ 고롱’ 메인 로봇 설계도 보기
+                                        </button>
+                                        <button type="button" id="somooModalJamoBotBtn" onclick="openStoryLightbox('assets/images/somoo-jamo-robot/jr_01.jpg?v=20261107_jambot', 'AXIDE / PHYSICAL AI 자모 파트너 로봇 — 01/28 ‘ㄱ 가봇(GaBot)’ (‘ㄱ 고롱’ 도우미 파트너 로봇)', false)" class="btn btn-sm rounded-pill px-3 py-1 fw-bold" style="background: rgba(139, 92, 246, 0.22); color: #ddd6fe; border: 1px solid rgba(167, 139, 250, 0.55); font-size: 11.5px;">
+                                            🤖 ‘ㄱ 가봇’ 자모 파트너 로봇 보기
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -3406,6 +3442,38 @@
                 }
             ];
 
+            // 28 Independent Hangul Syllable Names for the Jamo-Block Bipedal Partner Robots (가봇 ~ 예봇)
+            var JAMO_PARTNER_ROBOTS = [
+                { botName: '가봇', botEng: 'GaBot' },    // 01 ㄱ (고롱 파트너)
+                { botName: '나봇', botEng: 'NaBot' },    // 02 ㄴ (노롱 파트너)
+                { botName: '다봇', botEng: 'DaBot' },    // 03 ㄷ (도롱 파트너)
+                { botName: '라봇', botEng: 'RaBot' },    // 04 ㄹ (로롱 파트너)
+                { botName: '마봇', botEng: 'MaBot' },    // 05 ㅁ (모롱 파트너)
+                { botName: '바봇', botEng: 'BaBot' },    // 06 ㅂ (보롱 파트너)
+                { botName: '사봇', botEng: 'SaBot' },    // 07 ㅅ (소롱 파트너)
+                { botName: '영봇', botEng: 'YeongBot' }, // 08 ㅇ (오롱 파트너)
+                { botName: '자봇', botEng: 'JaBot' },    // 09 ㅈ (조롱 파트너)
+                { botName: '차봇', botEng: 'ChaBot' },   // 10 ㅊ (초롱 파트너)
+                { botName: '카봇', botEng: 'KaBot' },    // 11 ㅋ (코롱 파트너)
+                { botName: '타봇', botEng: 'TaBot' },    // 12 ㅌ (토롱 파트너)
+                { botName: '파봇', botEng: 'PaBot' },    // 13 ㅍ (포롱 파트너)
+                { botName: '하봇', botEng: 'HaBot' },    // 14 ㅎ (호롱 파트너)
+                { botName: '아봇', botEng: 'ABot' },     // 15 ㅏ (아롱 파트너)
+                { botName: '야봇', botEng: 'YaBot' },    // 16 ㅑ (야롱 파트너)
+                { botName: '어봇', botEng: 'EoBot' },    // 17 ㅓ (어롱 파트너)
+                { botName: '여봇', botEng: 'YeoBot' },   // 18 ㅕ (여롱 파트너)
+                { botName: '오봇', botEng: 'OBot' },     // 19 ㅗ (올롱 파트너)
+                { botName: '요봇', botEng: 'YoBot' },    // 20 ㅛ (요롱 파트너)
+                { botName: '우봇', botEng: 'UBot' },     // 21 ㅜ (우롱 파트너)
+                { botName: '유봇', botEng: 'YuBot' },    // 22 ㅠ (유롱 파트너)
+                { botName: '으봇', botEng: 'EuBot' },    // 23 ㅡ (으롱 파트너)
+                { botName: '이봇', botEng: 'IBot' },     // 24 ㅣ (이롱 파트너)
+                { botName: '애봇', botEng: 'AeBot' },    // 25 ㅐ (애롱 파트너)
+                { botName: '얘봇', botEng: 'YaeBot' },   // 26 ㅒ (얍롱 파트너)
+                { botName: '에봇', botEng: 'EBot' },     // 27 ㅔ (에이롱 파트너)
+                { botName: '예봇', botEng: 'YeBot' }     // 28 ㅖ (예롱 파트너)
+            ];
+
             var currentSomooIdx = 0;
             var tooltipEl = document.getElementById('somooHoverTooltip');
             var modalEl = document.getElementById('somooDetailModal');
@@ -3419,22 +3487,65 @@
             function getJamoSquareUrl(idx) {
                 return 'assets/images/hangul28/jamo_sq_' + pad2(idx + 1) + '.jpg';
             }
+            // Main Somoo Character MicroDuck 14-DOF Robot Blueprint (ㄱ 고롱 ~ ㅖ 예롱, 3-panel Cutaway X-Ray CAD)
             function getCharacterBlueprintUrl(idx) {
-                return 'assets/images/somoo-blueprint/bp_' + pad2(idx + 1) + '.jpg?v=20261107_theme28_v2';
+                return 'assets/images/somoo-blueprint/bp_' + pad2(idx + 1) + '.jpg?v=20261107_mainbp';
+            }
+            // Hangul Jamo Bipedal Partner Robot Archive Board (ㄱ 가봇 ~ ㅖ 예봇)
+            function getJamoPartnerRobotUrl(idx) {
+                return 'assets/images/somoo-jamo-robot/jr_' + pad2(idx + 1) + '.jpg?v=20261107_jambot';
             }
 
             var currentBpShowcaseIdx = 0;
+            window.openCurrentMainSomooBpLightbox = function() {
+                var c = SOMOO_CHARACTERS[currentBpShowcaseIdx];
+                if (!c || typeof openStoryLightbox !== 'function') return;
+                var mainBpUrl = getCharacterBlueprintUrl(currentBpShowcaseIdx);
+                var mainBpCap = '한글 소모오 피지컬 AI — ' + pad2(currentBpShowcaseIdx + 1) + '/28 ‘' + c.jamo + ' ' + c.name + '(' + c.eng + ') · ' + c.role + '’ 마이크로덕형 14-DOF 메인 로봇 설계도 (' + c.model + ' 탑재)';
+                openStoryLightbox(mainBpUrl, mainBpCap, false);
+            };
+
             window.selectSomooBlueprintShowcase = function(idx) {
                 if (idx < 0 || idx >= SOMOO_CHARACTERS.length) return;
                 currentBpShowcaseIdx = idx;
                 var c = SOMOO_CHARACTERS[idx];
-                var bpUrl = getCharacterBlueprintUrl(idx);
-                var bpCaption = 'AXIDE / PHYSICAL AI 로봇 설계 아카이브 — ' + pad2(idx + 1) + '/28 ‘' + c.jamo + ' ' + c.name + '(' + c.eng + ') · ' + c.role + '’ 이족보행 반려·교육용 로봇 설계도 (' + c.model + ' 탑재)';
+                var jb = JAMO_PARTNER_ROBOTS[idx] || { botName: c.name + '봇', botEng: c.eng + 'Bot' };
+
+                // 1) Update Top Board: Hangul Jamo Bipedal Partner Robot (가봇 ~ 예봇)
+                var jrUrl = getJamoPartnerRobotUrl(idx);
+                var jrCaption = 'AXIDE / PHYSICAL AI 로봇 설계 아카이브 — ' + pad2(idx + 1) + '/28 ‘' + c.jamo + ' ' + jb.botName + '(' + jb.botEng + ')’ · ‘' + c.jamo + ' ' + c.name + '’ 도우미 파트너 ' + c.role + '형 이족보행 로봇 (' + c.model + ' 탑재)';
                 var imgEl = document.getElementById('somooBpShowcaseImg');
                 if (imgEl) {
-                    imgEl.src = bpUrl;
-                    imgEl.alt = bpCaption;
+                    imgEl.src = jrUrl;
+                    imgEl.alt = jrCaption;
                 }
+
+                // 2) Update Lower Board: Main Somoo Character MicroDuck Robot Blueprint (고롱 ~ 예롱)
+                var mainBpUrl = getCharacterBlueprintUrl(idx);
+                var mainBpCaption = '한글 소모오 피지컬 AI — ' + pad2(idx + 1) + '/28 ‘' + c.jamo + ' ' + c.name + '(' + c.eng + ') · ' + c.role + '’ 마이크로덕형 14-DOF 메인 로봇 설계도';
+                var underImgEl = document.getElementById('somooMainCharBpUnderImg');
+                if (underImgEl) {
+                    underImgEl.src = mainBpUrl;
+                    underImgEl.alt = mainBpCaption;
+                }
+                var underTitleEl = document.getElementById('somooMainCharBpUnderTitle');
+                if (underTitleEl) {
+                    underTitleEl.innerHTML = pad2(idx + 1) + '/28 · ‘' + c.jamo + ' ' + c.name + '(' + c.eng + ') · ' + c.role + '’ 마이크로덕형 14-DOF 메인 로봇 설계도 <span style="color: #fde68a; font-size: 12.5px;">(파트너 자모 로봇: ‘' + c.jamo + ' ' + jb.botName + ' ' + jb.botEng + '’)</span>';
+                }
+                var underModalBtn = document.getElementById('somooMainCharBpUnderModalBtn');
+                if (underModalBtn) {
+                    underModalBtn.innerHTML = '⚙️ ‘' + c.jamo + ' ' + c.name + '’ 캐릭터 상세 도감 열기';
+                    underModalBtn.onclick = function() { openSomooCharacterModal(idx); };
+                }
+                var underZoomBtn = document.getElementById('somooMainCharBpUnderZoomBtn');
+                if (underZoomBtn) {
+                    underZoomBtn.onclick = function() {
+                        if (typeof openStoryLightbox === 'function') {
+                            openStoryLightbox(mainBpUrl, mainBpCaption, false);
+                        }
+                    };
+                }
+
                 var jamoBtns = document.querySelectorAll('#somooBpBoardHotspots .somoo-bp-jamo-btn');
                 jamoBtns.forEach(function(btn, bIdx) {
                     btn.setAttribute('aria-pressed', bIdx === idx ? 'true' : 'false');
@@ -3525,19 +3636,24 @@
                 var wrap = document.getElementById('somooMainImgWrap');
                 var subHint = document.getElementById('somooMainImgSubHint');
                 var fullSrc = resolveAssetUrl(file);
-                var isBlueprint = (file.indexOf('somoo-blueprint/') !== -1 || file.indexOf('microduck-blueprint') !== -1);
+                var isMainBlueprint = (file.indexOf('somoo-blueprint/') !== -1 || file.indexOf('microduck-blueprint') !== -1);
+                var isJamoPartnerBot = (file.indexOf('somoo-jamo-robot/') !== -1);
                 if (mainImg) {
                     mainImg.src = fullSrc;
                     mainImg.alt = charName + ' — ' + title;
                 }
                 if (mainLabel) {
                     var badgeText = shortLabel || title;
-                    mainLabel.textContent = (isBlueprint ? '📐 ' : '✨ ') + badgeText;
+                    mainLabel.textContent = (isMainBlueprint ? '📐 ' : (isJamoPartnerBot ? '🤖 ' : '✨ ')) + badgeText;
                     mainLabel.title = title;
-                    if (isBlueprint) {
+                    if (isMainBlueprint) {
                         mainLabel.style.background = 'rgba(20, 184, 166, 0.22)';
                         mainLabel.style.color = '#99f6e4';
                         mainLabel.style.borderColor = 'rgba(45, 212, 191, 0.55)';
+                    } else if (isJamoPartnerBot) {
+                        mainLabel.style.background = 'rgba(139, 92, 246, 0.24)';
+                        mainLabel.style.color = '#ddd6fe';
+                        mainLabel.style.borderColor = 'rgba(167, 139, 250, 0.58)';
                     } else {
                         mainLabel.style.background = 'rgba(251, 191, 36, 0.2)';
                         mainLabel.style.color = '#fde68a';
@@ -3545,16 +3661,21 @@
                     }
                 }
                 if (wrap) {
-                    if (isBlueprint) {
-                        wrap.style.background = '#FDF3E8';
+                    if (isMainBlueprint) {
+                        wrap.style.background = '#0b162c';
                         wrap.style.borderColor = 'rgba(45, 212, 191, 0.58)';
+                    } else if (isJamoPartnerBot) {
+                        wrap.style.background = '#FDF3E8';
+                        wrap.style.borderColor = 'rgba(167, 139, 250, 0.58)';
                     } else {
                         wrap.style.background = '#ffffff';
                         wrap.style.borderColor = 'rgba(251, 191, 36, 0.4)';
                     }
                 }
                 if (subHint) {
-                    subHint.textContent = isBlueprint ? '📐 클릭하여 로봇 설계 아카이브 원본 확대' : '🔍 클릭 시 고해상도 확대';
+                    subHint.textContent = isMainBlueprint
+                        ? '📐 클릭하여 메인 마이크로덕 로봇 CAD 설계도 원본 확대'
+                        : (isJamoPartnerBot ? '🤖 클릭하여 한글 자모 파트너 이족보행 로봇 설계도 확대' : '🔍 클릭 시 고해상도 확대');
                 }
                 var openZoom = function() {
                     if (typeof openStoryLightbox === 'function') {
@@ -3579,6 +3700,7 @@
                 var c = SOMOO_CHARACTERS[idx];
                 if (!c || !modalEl) return;
                 currentSomooIdx = idx;
+                var jb = JAMO_PARTNER_ROBOTS[idx] || { botName: c.name + '봇', botEng: c.eng + 'Bot' };
 
                 document.getElementById('somooModalCharacterView').style.display = 'block';
                 document.getElementById('somooModalOverviewView').style.display = 'none';
@@ -3610,7 +3732,7 @@
                 document.getElementById('somooModalRoleBadge').textContent = c.role;
                 document.getElementById('somooModalPdfPages').textContent = 'PDF 원본 ' + c.pages;
                 document.getElementById('somooModalTitle').textContent = c.jamo + ' ' + c.name + ' (' + c.eng + ') — ' + c.role;
-                document.getElementById('somooModalEngName').textContent = c.eng + ' · 한글 ' + c.group + ' ' + c.jamo;
+                document.getElementById('somooModalEngName').textContent = c.eng + ' · 한글 ' + c.group + ' ' + c.jamo + ' (파트너 로봇: ' + jb.botName + ' ' + jb.botEng + ')';
                 document.getElementById('somooModalDescription').textContent = c.desc;
                 document.getElementById('somooModalSize').textContent = '키 ' + c.height + ' · 몸무게 ' + c.weight;
                 document.getElementById('somooModalBirthday').textContent = c.birthday + ' · ' + c.zodiac;
@@ -3620,13 +3742,13 @@
                 document.getElementById('somooModalModelSpec').textContent = c.dev;
                 document.getElementById('somooModalModelTier').textContent = c.tier;
 
-                // Update bespoke Physical AI MicroDuck Robot Blueprint button & gallery item for THIS character
+                // 1) Main Somoo Character MicroDuck Robot Blueprint (고롱 ~ 예롱 — preserved in original #2 slot!)
                 var bpUrl = getCharacterBlueprintUrl(idx);
                 var bpTitle = '피지컬 AI 반려·교육용 로봇 — ‘' + c.jamo + ' ' + c.name + '(' + c.eng + ') · ' + c.role + '’ 마이크로덕(MicroDuck)형 14-DOF 이족보행 설계도';
-                var bpShortLabel = '피지컬 AI 로봇 설계도 (‘' + c.jamo + ' ' + c.name + '’ · 14-DOF)';
+                var bpShortLabel = '피지컬 AI 메인 로봇 설계도 (‘' + c.jamo + ' ' + c.name + '’ · 14-DOF)';
                 var modalBpBtn = document.getElementById('somooModalBlueprintBtn');
                 if (modalBpBtn) {
-                    modalBpBtn.innerHTML = '📐 ‘' + c.jamo + ' ' + c.name + '’ 로봇 설계도 보기';
+                    modalBpBtn.innerHTML = '📐 ‘' + c.jamo + ' ' + c.name + '’ 메인 로봇 설계도 보기';
                     modalBpBtn.onclick = function() {
                         setSomooModalMainImage(bpUrl, bpTitle, c.jamo + ' ' + c.name + '(' + c.eng + ')', bpShortLabel);
                         if (typeof openStoryLightbox === 'function') {
@@ -3635,9 +3757,26 @@
                     };
                 }
 
-                // Combine PDF images + Bespoke Character Robot Blueprint + Local 3D Hangul Jamo Block
+                // 2) Hangul Jamo Bipedal Partner Robot (가봇 ~ 예봇 — added right next to main robot!)
+                var jrUrl = getJamoPartnerRobotUrl(idx);
+                var jrTitle = '한글 자모 파트너 이족보행 로봇 — ‘' + c.jamo + ' ' + jb.botName + '(' + jb.botEng + ')’ (‘' + c.jamo + ' ' + c.name + '’ 도우미 파트너 · ' + c.role + '형 이족보행 로봇)';
+                var jrShortLabel = '자모 파트너 로봇 (‘' + c.jamo + ' ' + jb.botName + ' ' + jb.botEng + '’)';
+                var modalJrBtn = document.getElementById('somooModalJamoBotBtn');
+                if (modalJrBtn) {
+                    modalJrBtn.innerHTML = '🤖 ‘' + c.jamo + ' ' + jb.botName + '’ 자모 파트너 로봇 보기';
+                    modalJrBtn.onclick = function() {
+                        setSomooModalMainImage(jrUrl, jrTitle, c.jamo + ' ' + c.name + '(' + c.eng + ')', jrShortLabel);
+                        if (typeof openStoryLightbox === 'function') {
+                            openStoryLightbox(jrUrl, jrTitle, false);
+                        }
+                    };
+                }
+
+                // Combine PDF images + Main Character Robot Blueprint (#2) + Jamo Partner Robot (#3) + Local 3D Hangul Jamo Block
                 var baseImages = c.images.filter(function(item) {
-                    return item.file.indexOf('story-somoo-golong-microduck-blueprint') === -1 && item.file.indexOf('somoo-blueprint/') === -1;
+                    return item.file.indexOf('story-somoo-golong-microduck-blueprint') === -1 &&
+                           item.file.indexOf('somoo-blueprint/') === -1 &&
+                           item.file.indexOf('somoo-jamo-robot/') === -1;
                 });
                 var allImages = [];
                 if (baseImages.length > 0) {
@@ -3647,12 +3786,22 @@
                         shortLabel: baseImages[0].title
                     });
                 }
+                // #2: Main Somoo Character MicroDuck Robot Blueprint (고롱 ~ 예롱)
                 allImages.push({
                     file: bpUrl,
                     title: bpTitle,
                     shortLabel: bpShortLabel,
-                    thumbTag: 'CAD 설계도',
+                    thumbTag: '메인 로봇',
                     thumbTagBg: '#0d9488',
+                    thumbTagColor: '#ffffff'
+                });
+                // #3: Hangul Jamo Bipedal Partner Robot (가봇 ~ 예봇)
+                allImages.push({
+                    file: jrUrl,
+                    title: jrTitle,
+                    shortLabel: jrShortLabel,
+                    thumbTag: jb.botName,
+                    thumbTagBg: '#6f3cab',
                     thumbTagColor: '#ffffff'
                 });
                 for (var bi = 1; bi < baseImages.length; bi++) {
@@ -3670,7 +3819,7 @@
                     thumbTagBg: '#fbbf24',
                     thumbTagColor: '#0f172a'
                 });
-                document.getElementById('somooModalGalleryCount').textContent = 'PDF 원본 ' + baseImages.length + '장 + 피지컬 AI 로봇 설계도 1장 + 3D 한글 블록 1장';
+                document.getElementById('somooModalGalleryCount').textContent = 'PDF 원본 ' + baseImages.length + '장 + 메인 로봇 설계도 1장 + 자모 파트너 로봇 1장 + 3D 한글 블록 1장';
 
                 // Populate Thumbnails
                 var thumbStrip = document.getElementById('somooModalThumbStrip');
@@ -3682,11 +3831,13 @@
                     btn.setAttribute('data-file', imgObj.file);
                     btn.title = imgObj.title;
                     var srcUrl = resolveAssetUrl(imgObj.file);
-                    var isBpThumb = (imgObj.file.indexOf('somoo-blueprint/') !== -1 || imgObj.file.indexOf('microduck-blueprint') !== -1);
+                    var isMainBp = (imgObj.file.indexOf('somoo-blueprint/') !== -1 || imgObj.file.indexOf('microduck-blueprint') !== -1);
+                    var isJrBot = (imgObj.file.indexOf('somoo-jamo-robot/') !== -1);
+                    var thumbBg = isMainBp ? '#0b162c' : (isJrBot ? '#FDF3E8' : '#fff');
                     var tagHtml = imgObj.thumbTag
                         ? '<span class="somoo-thumb-tag" style="background:' + imgObj.thumbTagBg + ';color:' + imgObj.thumbTagColor + ';">' + imgObj.thumbTag + '</span>'
                         : '';
-                    btn.innerHTML = '<img src="' + srcUrl + '" alt="' + imgObj.title + '" style="width:100%;height:100%;object-fit:contain;background:' + (isBpThumb ? '#FDF3E8' : '#fff') + ';display:block;">' + tagHtml;
+                    btn.innerHTML = '<img src="' + srcUrl + '" alt="' + imgObj.title + '" style="width:100%;height:100%;object-fit:contain;background:' + thumbBg + ';display:block;">' + tagHtml;
                     btn.onclick = function() {
                         setSomooModalMainImage(imgObj.file, imgObj.title, c.jamo + ' ' + c.name + '(' + c.eng + ')', imgObj.shortLabel);
                     };
@@ -3707,10 +3858,12 @@
                     col.className = colClass;
                     var fullUrl = resolveAssetUrl(imgObj.file);
                     var captionText = c.jamo + ' ' + c.name + ' (' + c.eng + ') — ' + imgObj.title;
-                    var isBpCard = (imgObj.file.indexOf('somoo-blueprint/') !== -1 || imgObj.file.indexOf('microduck-blueprint') !== -1);
+                    var isMainBpCard = (imgObj.file.indexOf('somoo-blueprint/') !== -1 || imgObj.file.indexOf('microduck-blueprint') !== -1);
+                    var isJrCard = (imgObj.file.indexOf('somoo-jamo-robot/') !== -1);
+                    var cardBg = isMainBpCard ? '#0b162c' : (isJrCard ? '#FDF3E8' : '#ffffff');
                     col.innerHTML =
                         '<div class="somoo-gallery-card h-100 d-flex flex-column justify-content-between p-2">' +
-                            '<div style="background:' + (isBpCard ? '#FDF3E8' : '#ffffff') + ';border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center;min-height:220px;">' +
+                            '<div style="background:' + cardBg + ';border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center;min-height:220px;">' +
                                 '<img src="' + fullUrl + '" alt="' + captionText + '" loading="lazy" style="width:100%;height:auto;max-height:360px;object-fit:contain;display:block;">' +
                             '</div>' +
                             '<div class="d-flex align-items-center justify-content-between gap-2 px-2 pt-2 pb-1">' +
@@ -3892,8 +4045,9 @@
                     var openCurrentBpLightbox = function() {
                         var curChar = SOMOO_CHARACTERS[currentBpShowcaseIdx];
                         if (!curChar || typeof openStoryLightbox !== 'function') return;
-                        var url = getCharacterBlueprintUrl(currentBpShowcaseIdx);
-                        var cap = 'AXIDE / PHYSICAL AI 로봇 설계 아카이브 — ' + pad2(currentBpShowcaseIdx + 1) + '/28 ‘' + curChar.jamo + ' ' + curChar.name + '(' + curChar.eng + ') · ' + curChar.role + '’ 이족보행 반려·교육용 로봇 설계도 (' + curChar.model + ' 탑재)';
+                        var jb = JAMO_PARTNER_ROBOTS[currentBpShowcaseIdx] || { botName: curChar.name + '봇', botEng: curChar.eng + 'Bot' };
+                        var url = getJamoPartnerRobotUrl(currentBpShowcaseIdx);
+                        var cap = 'AXIDE / PHYSICAL AI 로봇 설계 아카이브 — ' + pad2(currentBpShowcaseIdx + 1) + '/28 ‘' + curChar.jamo + ' ' + jb.botName + '(' + jb.botEng + ')’ · ‘' + curChar.jamo + ' ' + curChar.name + '’ 도우미 파트너 ' + curChar.role + '형 이족보행 로봇 (' + curChar.model + ' 탑재)';
                         openStoryLightbox(url, cap, false);
                     };
 
@@ -3947,6 +4101,7 @@
                         var isVowel = idx >= 14;
                         var colIdx = isVowel ? (idx - 14) : idx;
                         var xr = bpColRanges[colIdx];
+                        var jb = JAMO_PARTNER_ROBOTS[idx] || { botName: c.name + '봇', botEng: c.eng + 'Bot' };
                         var jBtn = document.createElement('button');
                         jBtn.type = 'button';
                         jBtn.className = 'somoo-bp-hotspot-btn somoo-bp-jamo-btn';
@@ -3954,8 +4109,8 @@
                         jBtn.style.width = ((xr[1] - xr[0] + 1) / 1672.0 * 100.0).toFixed(2) + '%';
                         jBtn.style.top = isVowel ? '90.56%' : '83.22%';
                         jBtn.style.height = '5.15%';
-                        jBtn.title = pad2(idx + 1) + '/28 · ' + c.jamo + ' ' + c.name + ' (' + c.role + ') 로봇 설계도 보기';
-                        jBtn.setAttribute('aria-label', c.jamo + ' ' + c.name + ' 로봇 설계도 선택');
+                        jBtn.title = pad2(idx + 1) + '/28 · ' + c.jamo + ' ' + jb.botName + '(' + jb.botEng + ') & 메인 ' + c.name + '(' + c.role + ') 로봇 설계도 보기';
+                        jBtn.setAttribute('aria-label', c.jamo + ' ' + jb.botName + ' 및 ' + c.name + ' 로봇 설계도 선택');
                         jBtn.setAttribute('aria-pressed', idx === 0 ? 'true' : 'false');
                         jBtn.addEventListener('click', function(e) {
                             e.stopPropagation();
@@ -3995,13 +4150,16 @@
                     });
                     bpBoardHotspots.appendChild(nextBpBtn);
 
-                    // Preload all 28 theme robot boards in idle time for zero-latency switching
+                    // Preload all 28 Jamo Partner Robot boards AND 28 Main Somoo Character Robot boards in idle time
                     setTimeout(function() {
                         SOMOO_CHARACTERS.forEach(function(_, idx) {
                             if (idx === 0) return;
-                            var preImg = new Image();
-                            preImg.decoding = 'async';
-                            preImg.src = getCharacterBlueprintUrl(idx);
+                            var preJr = new Image();
+                            preJr.decoding = 'async';
+                            preJr.src = getJamoPartnerRobotUrl(idx);
+                            var preBp = new Image();
+                            preBp.decoding = 'async';
+                            preBp.src = getCharacterBlueprintUrl(idx);
                         });
                     }, 1200);
                 }
