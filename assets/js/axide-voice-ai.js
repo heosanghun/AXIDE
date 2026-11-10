@@ -668,10 +668,10 @@
         }
       };
     }
-    if (/팀|임원|리더십|안수진|황영배|바이오 전문가|신물질 전문가/.test(lower)) {
+    if (/팀|임원|리더십|안수진|su\s*jin\s*an|뇌기반|황영배|바이오 전문가|신물질 전문가/.test(lower)) {
       return {
         clipKey: "team",
-        reply: "허상훈 대표와 KAIST 안수진 CTO, 충북대학교 황영배 교수, 그리고 바이오 AI 및 차세대 신물질 전문가로 구성된 리더십 섹션으로 안내해 드리겠습니다.",
+        reply: "허상훈 대표와 KAIST 뇌기반AI 안수진 박사(CTO, Dr. Su Jin An), 충북대학교 황영배 교수, 그리고 바이오 AI 및 차세대 신물질 전문가로 구성된 리더십 섹션으로 안내해 드리겠습니다.",
         action: {
           type: document.querySelector(".section-team") ? "scroll" : "navigate",
           target: document.querySelector(".section-team") ? ".section-team" : "about.html"
