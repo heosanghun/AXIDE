@@ -2354,30 +2354,9 @@
     document.body.classList.remove("axide-mode-eyecare", "axide-mode-contrast", "axide-low-motion");
     document.documentElement.classList.remove("axide-scale-md", "axide-scale-lg");
 
-    // Inject Right-Side Floating BGM Toggle Pill Button (right side, above #goTop)
-    if (!document.getElementById("axideRightBgmToggle")) {
-      const rightBgmBtn = document.createElement("button");
-      rightBgmBtn.type = "button";
-      rightBgmBtn.id = "axideRightBgmToggle";
-      rightBgmBtn.className = "axide-right-bgm-pill";
-      rightBgmBtn.setAttribute("aria-label", "배경음악 켜기 / 끄기");
-      rightBgmBtn.setAttribute("title", '배경음악 켜기/끄기 (베토벤: 피아노 협주곡 5번 "황제" 2악장 반복)');
-      rightBgmBtn.innerHTML = `
-        <svg class="axide-bgm-note" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M9 18V5l12-2v13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="6" cy="18" r="3" stroke="currentColor" stroke-width="2"/>
-          <circle cx="18" cy="16" r="3" stroke="currentColor" stroke-width="2"/>
-        </svg>
-        <span class="axide-bgm-eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-        <span id="axideRightBgmLabel">배경음악 켜기</span>
-      `;
-      rightBgmBtn.addEventListener("click", function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        toggleBgmPlayback();
-      });
-      document.body.appendChild(rightBgmBtn);
-    }
+    // Remove any legacy floating BGM pill (handled cleanly in top header)
+    const oldRightBgm = document.getElementById("axideRightBgmToggle");
+    if (oldRightBgm) oldRightBgm.remove();
 
     const savedRate = localStorage.getItem("axide_voice_rate") || "1.0";
     const savedMuted = localStorage.getItem("axide_voice_muted") === "true";
@@ -3166,33 +3145,9 @@
   };
 
   function initAxideGlobalI18n() {
-    // 1. Inject Floating Right-Side Language Switcher Pill above BGM Pill
-    if (!document.getElementById("axideRightLangToggle")) {
-      const rightLang = document.createElement("div");
-      rightLang.id = "axideRightLangToggle";
-      rightLang.className = "axide-right-lang-pill axide-no-i18n notranslate";
-      rightLang.setAttribute("role", "group");
-      rightLang.setAttribute("aria-label", "언어 전환 / Language Switcher");
-      rightLang.innerHTML = `
-        <span class="axide-lang-globe" aria-hidden="true">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"></circle>
-            <line x1="2" y1="12" x2="22" y2="12"></line>
-            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-          </svg>
-        </span>
-        <button type="button" class="axide-lang-seg-btn" data-axide-lang-btn="ko" title="한국어 (Korean)">한국어</button>
-        <button type="button" class="axide-lang-seg-btn" data-axide-lang-btn="en" title="English">EN</button>
-      `;
-      rightLang.querySelectorAll("[data-axide-lang-btn]").forEach((b) => {
-        b.addEventListener("click", function (e) {
-          e.preventDefault();
-          e.stopPropagation();
-          window.setAxideLanguage(this.getAttribute("data-axide-lang-btn") || "ko");
-        });
-      });
-      document.body.appendChild(rightLang);
-    }
+    // 1. Remove any legacy floating Language Switcher pill (handled cleanly in top header)
+    const oldRightLang = document.getElementById("axideRightLangToggle");
+    if (oldRightLang) oldRightLang.remove();
 
     // 2. Also inject into Mobile Menu (#mobileMenu) if present
     const mobileMenuBody = document.querySelector("#mobileMenu .canvas-body, #mobileMenu .offcanvas-body");
