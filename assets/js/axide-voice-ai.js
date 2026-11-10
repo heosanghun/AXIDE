@@ -1243,6 +1243,92 @@
           font-size: 12px;
         }
       }
+      @media (min-width: 1200px) {
+        header.tf-header .header-inner {
+          max-width: 1220px !important;
+        }
+      }
+      .axide-header-lang-pill {
+        position: relative;
+        z-index: 1060;
+        display: inline-flex;
+        align-items: center;
+        height: 40px;
+        padding: 3px;
+        border-radius: 999px;
+        border: 1px solid rgba(56, 189, 248, 0.45);
+        background: linear-gradient(135deg, #0b1120 0%, #111827 100%);
+        box-shadow: 0 6px 18px rgba(2, 6, 23, 0.32);
+        pointer-events: auto !important;
+        flex-shrink: 0;
+      }
+      .axide-lang-seg-btn {
+        border: none;
+        outline: none;
+        background: transparent;
+        color: #94a3b8;
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: -0.01em;
+        padding: 0 11px;
+        height: 32px;
+        border-radius: 999px;
+        cursor: pointer !important;
+        transition: all 0.22s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1;
+        white-space: nowrap;
+      }
+      .axide-lang-seg-btn:hover {
+        color: #f8fafc;
+      }
+      .axide-lang-seg-btn.active {
+        background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);
+        color: #04101f !important;
+        box-shadow: 0 2px 10px rgba(56, 189, 248, 0.45);
+      }
+      .axide-right-lang-pill {
+        position: fixed !important;
+        right: 24px !important;
+        bottom: 140px !important;
+        z-index: 2147483001 !important;
+        height: 40px;
+        padding: 3px 5px 3px 11px;
+        border-radius: 999px;
+        border: 1.5px solid rgba(56, 189, 248, 0.48);
+        background: rgba(9, 13, 22, 0.96);
+        color: #e2e8f0;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        pointer-events: auto !important;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.58), 0 0 18px rgba(56, 189, 248, 0.2);
+      }
+      .axide-right-lang-pill .axide-lang-globe {
+        color: #38bdf8;
+        display: inline-flex;
+        align-items: center;
+        margin-right: 2px;
+      }
+      @media (max-width: 767px) {
+        .axide-right-lang-pill {
+          right: 16px !important;
+          bottom: 126px !important;
+          height: 36px;
+          padding: 2px 4px 2px 9px;
+        }
+        .axide-header-lang-pill {
+          height: 36px;
+          padding: 2px;
+        }
+        .axide-lang-seg-btn {
+          height: 28px;
+          padding: 0 8px;
+          font-size: 11px;
+        }
+      }
       .axide-bgm-eq i {
         display: block;
         width: 2.5px;
@@ -1876,9 +1962,29 @@
           toggleBgmPlayback();
         });
 
+        const langPill = document.createElement("div");
+        langPill.className = "axide-header-lang-pill axide-no-i18n notranslate";
+        langPill.setAttribute("role", "group");
+        langPill.setAttribute("aria-label", "언어 선택 / Language Switcher");
+        langPill.innerHTML = `
+          <button type="button" class="axide-lang-seg-btn" data-axide-lang-btn="ko" title="한국어로 보기 (Korean)">한국어</button>
+          <button type="button" class="axide-lang-seg-btn" data-axide-lang-btn="en" title="Switch to English">EN</button>
+        `;
+        langPill.querySelectorAll("[data-axide-lang-btn]").forEach((b) => {
+          b.addEventListener("click", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const targetLang = this.getAttribute("data-axide-lang-btn") || "ko";
+            if (typeof window.setAxideLanguage === "function") {
+              window.setAxideLanguage(targetLang);
+            }
+          });
+        });
+
         if (existingCta) {
           rightWrap.appendChild(existingCta);
         }
+        rightWrap.appendChild(langPill);
         rightWrap.appendChild(bgmBtn);
         rightWrap.appendChild(micBtn);
         if (existingMobileBtn) {
@@ -2677,6 +2783,476 @@
     };
 
     tryStartBgm();
+    initAxideGlobalI18n();
+  }
+
+  /* --------------------------------------------------------------------------
+   * 6. Global Korean (KO) <-> English (EN) Full-Site Language Switcher Engine
+   * -------------------------------------------------------------------------- */
+  const STORAGE_KEY_LANG = "axide_site_lang";
+  const STORAGE_KEY_EN_CACHE = "axide_en_cache_v3";
+  let axideCurrentLang = "ko";
+  let axideI18nObserver = null;
+  let axideTranslationInFlight = false;
+
+  const AXIDE_EXACT_DICT = {
+    "홈": "Home",
+    "홈 01 — 방산 폐쇄망 AI 표준": "Home 01 — Defense Air-Gapped AI Standard",
+    "홈 02 — 소버린 AI 모션": "Home 02 — Sovereign AI Motion",
+    "회사소개": "About",
+    "회사소개 & 리더십": "Company & Leadership",
+    "CI 로고 철학 (X·Y·T 월드모델)": "CI Logo Philosophy (X·Y·T World Model)",
+    "창업 스토리": "Founder's Story",
+    "Act 1. 한글 모듈 → 3D 12년 → Cogni-OS": "Act 1. Hangul Modules → 12-Yr 3D → Cogni-OS",
+    "Act 1-B. 한글사랑 영상 & 전시 아카이브": "Act 1-B. Hangul Love Video & Exhibition Archive",
+    "Act 2. 폐쇄망 작동 흐름 & 방산 부품 여권": "Act 2. Air-Gapped Workflow & Part Passport",
+    "Act 3. 50번째 전화 & 현장의 증명": "Act 3. The 50th Call & Field Proof",
+    "Epilogue. 대전의 중심축 · 3막 비전": "Epilogue. Daejeon Hub & 3-Act Vision",
+    "바이오·신물질 연구": "Bio & Materials",
+    "바이오·신물질": "Bio & Materials",
+    "Nature Biotech 공동연구 & 서신": "Nature Biotech Joint Research & Letter",
+    "무질서 단백질(IDP) & EquiPhase DEQ": "Disordered Proteins (IDP) & EquiPhase DEQ",
+    "폐쇄망 ADAS · 간암/간섬유화 AI": "Air-Gapped ADAS · Liver Cancer & Fibrosis AI",
+    "가상 세포 시뮬레이션 & 신물질": "Virtual Cell Simulation & Novel Materials",
+    "난제 해결의 자신감 & 글로벌 비전": "Breakthrough Confidence & Global Vision",
+    "솔루션": "Solutions",
+    "Cogni-OS 3층 아키텍처 & 하드웨어": "Cogni-OS 3-Layer Architecture & Hardware",
+    "Cogni-OS 4대 핵심 기술 도해": "Cogni-OS 4 Core Technologies Infographics",
+    "방산 부품 여권 (Part Passport v1)": "Defense Part Passport (Spec v1)",
+    "월드모델 (World Model ↗)": "World Model (Live App ↗)",
+    "실증사례": "Case Studies",
+    "공급계약 & 5단계 진화 로드맵": "Supply Contracts & 5-Stage Roadmap",
+    "아주산업 1호 계약 & 도면 복원 실측": "Contract #1 (Aju Ind.) & CAD Benchmark",
+    "기술·규제 백서": "Whitepapers",
+    "기술 백서 & 규제 브리핑": "Technical Whitepaper & Compliance Briefing",
+    "기술 아카이브 (2열)": "Technical Archive (2-Column)",
+    "기술 아카이브 (3열)": "Technical Archive (3-Column)",
+    "DEQ 상수 메모리 & 감사 봉인 상세": "DEQ O(1) Constant Memory & Audit Seal",
+    "도입문의": "Contact",
+    "1시간 현장 데모 신청": "Book 1-Hr Field Demo",
+    "스토리 & 도해 정독하기": "Read Full Story & Diagrams",
+    "박사논문 · 폐쇄망 도해 보기": "View Ph.D. & Air-Gap Diagrams",
+    "박사논문 · 폐쇄망 도해 닫기": "Hide Ph.D. & Air-Gap Diagrams",
+    "✕ 도해 닫기": "✕ Close Diagrams",
+    "모두의 창업 1등을 응원합니다.": "Cheering for #1 in Startup for All!",
+    "“AI를 밖에서 빌려 쓰지 말고,": "“Don't Rent AI from Outside —",
+    "조각내고 증류해 공장 안으로”": "Partition, Distill, and Run It Inside the Factory”",
+    "도면은 공장 안에, 부품은 여권을 들고": "Blueprints Stay in the Factory, Parts Carry a Passport",
+    "증명을 파는 소버린 AI 기업": "The Sovereign AI Company Selling Cryptographic Proof",
+    "AXIDE(법인 설립 준비 중)": "AXIDE (Incorporation in Progress)",
+    "증명을 파는 회사": "The Company That Sells Proof",
+    "방산 부품 여권 & 하드웨어 보기": "Explore Part Passport & Hardware",
+    "도입 비용 및 구독 플랜": "Pricing & Subscription Plans",
+    "3층 아키텍처 상세 보기": "Explore 3-Layer Architecture",
+    "CI 로고 철학 전체 보기 ↗": "Explore Full CI Philosophy ↗",
+    "한글코드 부품여권 · 검수 봉인 상세 보기 ↗": "Explore Hangul Part Passport & Seal ↗",
+    "바이오·신물질 AI 테마관 열기": "Open Bio & Materials AI Pavilion",
+    "에일리 박사 공동연구 서신 & 논문 보기": "View Dr. Ailie Marx Letter & Paper",
+    "창업 스토리 이어보기": "Continue to Founder's Story",
+    "허상훈 (Sang-Hun Heo)": "Sang-Hun Heo (Founder & CEO)",
+    "안수진 박사 (Dr. Su Jin An)": "Dr. Su Jin An (CTO)",
+    "KAIST 뇌기반AI 박사": "Ph.D. in Brain-Based AI, KAIST",
+    "CTO · KAIST 뇌기반AI 연구원 · DEQ 코어 & B200 DPO 총괄": "CTO · KAIST Brain-Based AI Researcher · Lead of DEQ Core & B200 DPO",
+    "황영배 교수 (Prof. Young-Bae Hwang)": "Prof. Young-Bae Hwang (Academic Advisor)",
+    "충북대 산업AI학과 교수": "Professor of Industrial AI, CBNU",
+    "TTA · KTL 시험인증 자문": "TTA & KTL Certification Advisor",
+    "연구 자문 · 충북대 산업인공지능학과 교수 · TTA/KTL 자문": "Academic Advisor · Prof. of Industrial AI at CBNU · TTA/KTL Advisor",
+    "학위/소속": "Degree / Affiliation",
+    "핵심총괄": "Core Lead",
+    "소속/직위": "Affiliation / Role",
+    "공인자문": "Certification Advisory",
+    "핵심연구": "Core Research",
+    "특화기술": "Key Tech",
+    "특화소재": "Target Materials",
+    "특허 제10-2973709호": "KR Patent No. 10-2973709",
+    "문체부장관 표창": "Minister of Culture Award",
+    "문체부장관 표창 (2012)": "Minister of Culture Award (2012)",
+    "3D 산업 시뮬레이션 12년": "12 Years in 3D Industrial Simulation",
+    "충북대 산업AI 박사졸업 예정": "Ph.D. Candidate in Industrial AI, CBNU",
+    "특허 제10-2973709호 · PCT": "KR Patent 10-2973709 & PCT",
+    "배경음악 켜기": "Play BGM",
+    "배경음악 정지": "Pause BGM",
+    "공간을 한 장씩 쌓으면,": "Stacking Planes of Space,",
+    "시간이 됩니다.": "Becomes Time.",
+    "시간 펼치기 (슬라이더 조절)": "Unfold Time Axis (Adjust Slider)",
+    "시간 펼치기 (슬라이더를 좌우로 움직여 보세요)": "Unfold Time Axis (Slide Left or Right)",
+    "로고 모양 (겹침)": "Logo View (Stacked)",
+    "반쯤 펼침": "Half Unfolded",
+    "완전 분해 (X·Y·T)": "Exploded View (X·Y·T)",
+    "펼침 (X·Y·T 분해)": "Exploded (X·Y·T)",
+    "펼침": "Exploded",
+    "예측의 평면": "Plane of Prediction (Future)",
+    "학습의 평면": "Plane of Learning (Present)",
+    "현실의 평면": "Plane of Reality (Past)"
+  };
+
+  function loadEnCache() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY_EN_CACHE);
+      return raw ? JSON.parse(raw) : {};
+    } catch (e) {
+      return {};
+    }
+  }
+
+  function saveEnCache(cacheObj) {
+    try {
+      localStorage.setItem(STORAGE_KEY_EN_CACHE, JSON.stringify(cacheObj));
+    } catch (e) {}
+  }
+
+  function refineAxideEnglish(enText) {
+    if (!enText) return enText;
+    let s = enText;
+    const replacements = [
+      [/\bAexide\b|\bExide\b|\bAxide\b/gi, "AXIDE"],
+      [/\bCogni\s*OS\b|\bCogniOS\b/gi, "Cogni-OS"],
+      [/\bSu-Jin Ahn\b|\bSujin Ahn\b|\bSu-jin An\b|\bSujin An\b/gi, "Su Jin An"],
+      [/\bSanghun Heo\b|\bSang-hun Heo\b/gi, "Sang-Hun Heo"],
+      [/\bYoungbae Hwang\b|\bYoung-bae Hwang\b/gi, "Young-Bae Hwang"],
+      [/\bpart passport\b|\bparts passport\b/gi, "Part Passport"],
+      [/\bdefense part passport\b/gi, "Defense Part Passport"],
+      [/\bclosed network\b/gi, "air-gapped network"],
+      [/\bClosed Network\b/g, "Air-Gapped Network"],
+      [/\breasoning distillation\b/gi, "Reasoning Distillation"],
+      [/\bdual process\b/gi, "Dual-Process"],
+      [/\bbrain-based AI\b/gi, "Brain-Based AI"],
+      [/\bworld model\b/gi, "World Model"]
+    ];
+    for (let i = 0; i < replacements.length; i++) {
+      s = s.replace(replacements[i][0], replacements[i][1]);
+    }
+    return s;
+  }
+
+  function syncLangSwitchButtons(lang) {
+    document.querySelectorAll("[data-axide-lang-btn]").forEach((btn) => {
+      const bLang = btn.getAttribute("data-axide-lang-btn");
+      btn.classList.toggle("active", bLang === lang);
+      btn.setAttribute("aria-pressed", bLang === lang ? "true" : "false");
+    });
+    document.documentElement.lang = lang === "en" ? "en" : "ko-KR";
+    document.body.setAttribute("data-axide-lang", lang);
+  }
+
+  function shouldSkipElement(el) {
+    if (!el || el.nodeType !== 1) return true;
+    const tag = el.tagName;
+    if (tag === "SCRIPT" || tag === "STYLE" || tag === "NOSCRIPT" || tag === "CODE" || tag === "PRE") return true;
+    if (el.closest && el.closest(".axide-no-i18n")) return true;
+    return false;
+  }
+
+  function collectTranslatableTextNodes(rootEl) {
+    const root = rootEl || document.body;
+    const nodes = [];
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode: function (node) {
+        if (!node.parentElement || shouldSkipElement(node.parentElement)) {
+          return NodeFilter.FILTER_REJECT;
+        }
+        const val = node.__axideKoOrig !== undefined ? node.__axideKoOrig : node.nodeValue;
+        if (!val || !/[가-힣]/.test(val)) {
+          return NodeFilter.FILTER_SKIP;
+        }
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    let curr;
+    while ((curr = walker.nextNode())) {
+      nodes.push(curr);
+    }
+    return nodes;
+  }
+
+  function applyLeadingTrailingWhitespace(origRaw, translatedCore) {
+    const leadMatch = origRaw.match(/^\s*/);
+    const trailMatch = origRaw.match(/\s*$/);
+    const lead = leadMatch ? leadMatch[0] : "";
+    const trail = trailMatch ? trailMatch[0] : "";
+    return lead + translatedCore + trail;
+  }
+
+  async function fetchBatchKoToEn(normStrings) {
+    if (!normStrings.length) return {};
+    const joined = normStrings.join("\n");
+    const url = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=ko&tl=en&dt=t&q=" + encodeURIComponent(joined);
+    const resp = await fetch(url);
+    if (!resp.ok) throw new Error("HTTP " + resp.status);
+    const data = await resp.json();
+    const fullEn = (data && data[0] ? data[0].map((seg) => (seg && seg[0]) || "").join("") : "");
+    const lines = fullEn.split("\n");
+    const resultMap = {};
+    for (let i = 0; i < normStrings.length; i++) {
+      const translated = refineAxideEnglish((lines[i] || normStrings[i]).trim());
+      if (translated) {
+        resultMap[normStrings[i]] = translated;
+      }
+    }
+    return resultMap;
+  }
+
+  async function translateDomToEnglish(rootEl) {
+    const nodes = collectTranslatableTextNodes(rootEl);
+    const cache = loadEnCache();
+    const pendingByNorm = new Map();
+
+    // 1. Save original KO & apply exact dictionary / cached translations immediately (0ms)
+    nodes.forEach((node) => {
+      if (node.__axideKoOrig === undefined) {
+        node.__axideKoOrig = node.nodeValue;
+      }
+      const raw = node.__axideKoOrig;
+      const norm = raw.replace(/\s+/g, " ").trim();
+      if (!norm) return;
+
+      if (AXIDE_EXACT_DICT[norm]) {
+        node.nodeValue = applyLeadingTrailingWhitespace(raw, AXIDE_EXACT_DICT[norm]);
+        return;
+      }
+      if (cache[norm]) {
+        node.nodeValue = applyLeadingTrailingWhitespace(raw, cache[norm]);
+        return;
+      }
+      if (!pendingByNorm.has(norm)) {
+        pendingByNorm.set(norm, []);
+      }
+      pendingByNorm.get(norm).push(node);
+    });
+
+    // Translate attributes (placeholder, title, aria-label)
+    const attrRoot = rootEl || document.body;
+    if (attrRoot && attrRoot.querySelectorAll) {
+      attrRoot.querySelectorAll("[placeholder], [title], [aria-label]").forEach((el) => {
+        if (shouldSkipElement(el)) return;
+        ["placeholder", "title", "aria-label"].forEach((attr) => {
+          const val = el.getAttribute(attr);
+          if (!val) return;
+          const backupAttr = "data-axide-ko-" + attr;
+          if (!el.hasAttribute(backupAttr)) {
+            if (!/[가-힣]/.test(val)) return;
+            el.setAttribute(backupAttr, val);
+          }
+          const koVal = el.getAttribute(backupAttr);
+          if (!koVal) return;
+          const norm = koVal.replace(/\s+/g, " ").trim();
+          const exactOrCached = AXIDE_EXACT_DICT[norm] || cache[norm];
+          if (exactOrCached) {
+            el.setAttribute(attr, exactOrCached);
+          } else {
+            if (!pendingByNorm.has(norm)) pendingByNorm.set(norm, []);
+            pendingByNorm.get(norm).push({ isAttr: true, el: el, attr: attr, raw: koVal });
+          }
+        });
+      });
+    }
+
+    // Translate document.title
+    if (!document.__axideKoTitle && /[가-힣]/.test(document.title)) {
+      document.__axideKoTitle = document.title;
+    }
+    if (document.__axideKoTitle) {
+      const tNorm = document.__axideKoTitle.replace(/\s+/g, " ").trim();
+      if (AXIDE_EXACT_DICT[tNorm] || cache[tNorm]) {
+        document.title = AXIDE_EXACT_DICT[tNorm] || cache[tNorm];
+      } else {
+        if (!pendingByNorm.has(tNorm)) pendingByNorm.set(tNorm, []);
+        pendingByNorm.get(tNorm).push({ isDocTitle: true, raw: document.__axideKoTitle });
+      }
+    }
+
+    const allUnknownNorms = Array.from(pendingByNorm.keys());
+    if (!allUnknownNorms.length) return;
+
+    // 2. Chunk unknown strings into batches (~1,400 chars per batch) and run 6 parallel workers
+    const batches = [];
+    let currentBatch = [];
+    let currentLen = 0;
+    for (let i = 0; i < allUnknownNorms.length; i++) {
+      const s = allUnknownNorms[i];
+      if (currentBatch.length >= 24 || (currentLen + s.length > 1400 && currentBatch.length > 0)) {
+        batches.push(currentBatch);
+        currentBatch = [];
+        currentLen = 0;
+      }
+      currentBatch.push(s);
+      currentLen += s.length + 1;
+    }
+    if (currentBatch.length > 0) batches.push(currentBatch);
+
+    let batchIdx = 0;
+    let cacheUpdated = false;
+    async function worker() {
+      while (batchIdx < batches.length) {
+        const myIdx = batchIdx++;
+        const batch = batches[myIdx];
+        try {
+          const translatedMap = await fetchBatchKoToEn(batch);
+          Object.keys(translatedMap).forEach((normKey) => {
+            const enVal = translatedMap[normKey];
+            cache[normKey] = enVal;
+            cacheUpdated = true;
+            if (axideCurrentLang !== "en") return;
+            const targets = pendingByNorm.get(normKey) || [];
+            targets.forEach((t) => {
+              if (t.isDocTitle) {
+                document.title = enVal;
+              } else if (t.isAttr) {
+                t.el.setAttribute(t.attr, enVal);
+              } else {
+                t.nodeValue = applyLeadingTrailingWhitespace(t.__axideKoOrig || normKey, enVal);
+              }
+            });
+          });
+        } catch (err) {
+          // Ignore network error for individual batch
+        }
+      }
+    }
+
+    const concurrency = Math.min(6, batches.length);
+    const workers = [];
+    for (let w = 0; w < concurrency; w++) {
+      workers.push(worker());
+    }
+    await Promise.all(workers);
+    if (cacheUpdated) {
+      saveEnCache(cache);
+    }
+  }
+
+  function restoreDomToKorean() {
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null);
+    let curr;
+    while ((curr = walker.nextNode())) {
+      if (curr.__axideKoOrig !== undefined) {
+        curr.nodeValue = curr.__axideKoOrig;
+      }
+    }
+    document.querySelectorAll("[data-axide-ko-placeholder], [data-axide-ko-title], [data-axide-ko-aria-label]").forEach((el) => {
+      ["placeholder", "title", "aria-label"].forEach((attr) => {
+        const backup = el.getAttribute("data-axide-ko-" + attr);
+        if (backup !== null) {
+          el.setAttribute(attr, backup);
+        }
+      });
+    });
+    if (document.__axideKoTitle) {
+      document.title = document.__axideKoTitle;
+    }
+  }
+
+  window.setAxideLanguage = function (lang) {
+    const normalized = lang === "en" ? "en" : "ko";
+    axideCurrentLang = normalized;
+    try {
+      localStorage.setItem(STORAGE_KEY_LANG, normalized);
+    } catch (e) {}
+    syncLangSwitchButtons(normalized);
+    if (normalized === "en") {
+      translateDomToEnglish(document.body);
+    } else {
+      restoreDomToKorean();
+    }
+  };
+
+  window.toggleAxideLanguage = function () {
+    window.setAxideLanguage(axideCurrentLang === "en" ? "ko" : "en");
+  };
+
+  function initAxideGlobalI18n() {
+    // 1. Inject Floating Right-Side Language Switcher Pill above BGM Pill
+    if (!document.getElementById("axideRightLangToggle")) {
+      const rightLang = document.createElement("div");
+      rightLang.id = "axideRightLangToggle";
+      rightLang.className = "axide-right-lang-pill axide-no-i18n notranslate";
+      rightLang.setAttribute("role", "group");
+      rightLang.setAttribute("aria-label", "언어 전환 / Language Switcher");
+      rightLang.innerHTML = `
+        <span class="axide-lang-globe" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          </svg>
+        </span>
+        <button type="button" class="axide-lang-seg-btn" data-axide-lang-btn="ko" title="한국어 (Korean)">한국어</button>
+        <button type="button" class="axide-lang-seg-btn" data-axide-lang-btn="en" title="English">EN</button>
+      `;
+      rightLang.querySelectorAll("[data-axide-lang-btn]").forEach((b) => {
+        b.addEventListener("click", function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          window.setAxideLanguage(this.getAttribute("data-axide-lang-btn") || "ko");
+        });
+      });
+      document.body.appendChild(rightLang);
+    }
+
+    // 2. Also inject into Mobile Menu (#mobileMenu) if present
+    const mobileMenuBody = document.querySelector("#mobileMenu .canvas-body, #mobileMenu .offcanvas-body");
+    if (mobileMenuBody && !document.getElementById("axideMobileLangSwitch")) {
+      const mbLang = document.createElement("div");
+      mbLang.id = "axideMobileLangSwitch";
+      mbLang.className = "d-flex align-items-center justify-content-between px-3 py-2 mb-3 rounded-3 axide-no-i18n notranslate";
+      mbLang.style.cssText = "background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(56, 189, 248, 0.35);";
+      mbLang.innerHTML = `
+        <span style="font-size: 13px; font-weight: 700; color: #e2e8f0;">🌐 Language / 언어</span>
+        <div class="axide-header-lang-pill">
+          <button type="button" class="axide-lang-seg-btn" data-axide-lang-btn="ko">한국어</button>
+          <button type="button" class="axide-lang-seg-btn" data-axide-lang-btn="en">English</button>
+        </div>
+      `;
+      mbLang.querySelectorAll("[data-axide-lang-btn]").forEach((b) => {
+        b.addEventListener("click", function (e) {
+          e.preventDefault();
+          window.setAxideLanguage(this.getAttribute("data-axide-lang-btn") || "ko");
+        });
+      });
+      mobileMenuBody.insertBefore(mbLang, mobileMenuBody.firstChild);
+    }
+
+    // 3. Determine initial language from URL (?lang=en|ko) or localStorage
+    let initLang = "ko";
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const urlLang = (params.get("lang") || "").toLowerCase();
+      if (urlLang === "en" || urlLang === "ko") {
+        initLang = urlLang;
+        localStorage.setItem(STORAGE_KEY_LANG, initLang);
+      } else {
+        initLang = localStorage.getItem(STORAGE_KEY_LANG) || "ko";
+      }
+    } catch (e) {}
+
+    window.setAxideLanguage(initLang);
+
+    // 4. Observe dynamic DOM mutations (modals, drawers, Mobility 100 cards, lightboxes) when in EN mode
+    if (!axideI18nObserver && "MutationObserver" in window) {
+      let debounceTimer = null;
+      axideI18nObserver = new MutationObserver((mutations) => {
+        if (axideCurrentLang !== "en") return;
+        let hasNewElements = false;
+        for (let i = 0; i < mutations.length; i++) {
+          if (mutations[i].addedNodes && mutations[i].addedNodes.length > 0) {
+            hasNewElements = true;
+            break;
+          }
+        }
+        if (hasNewElements) {
+          clearTimeout(debounceTimer);
+          debounceTimer = setTimeout(() => {
+            if (axideCurrentLang === "en" && !axideTranslationInFlight) {
+              axideTranslationInFlight = true;
+              translateDomToEnglish(document.body).finally(() => {
+                axideTranslationInFlight = false;
+              });
+            }
+          }, 120);
+        }
+      });
+      axideI18nObserver.observe(document.body, { childList: true, subtree: true });
+    }
   }
 
   if (document.readyState === "loading") {
