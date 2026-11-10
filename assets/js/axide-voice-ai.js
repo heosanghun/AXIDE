@@ -1243,9 +1243,14 @@
           font-size: 12px;
         }
       }
-      @media (min-width: 1200px) {
+      @media (min-width: 992px) {
         header.tf-header .header-inner {
-          max-width: 1220px !important;
+          max-width: 1120px !important;
+          padding: 10px 18px 10px 28px !important;
+          gap: 16px !important;
+        }
+        header.tf-header .nav-menu-main {
+          gap: 22px !important;
         }
       }
       .axide-header-lang-pill {
@@ -1982,7 +1987,7 @@
         });
 
         if (existingCta) {
-          rightWrap.appendChild(existingCta);
+          existingCta.remove();
         }
         rightWrap.appendChild(langPill);
         rightWrap.appendChild(bgmBtn);
