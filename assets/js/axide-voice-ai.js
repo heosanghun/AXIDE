@@ -2869,7 +2869,20 @@
     "펼침": "Exploded",
     "예측의 평면": "Plane of Prediction (Future)",
     "학습의 평면": "Plane of Learning (Present)",
-    "현실의 평면": "Plane of Reality (Past)"
+    "현실의 평면": "Plane of Reality (Past)",
+    "🎓 홍익대학원 석사논문 (2011) 원문 ↓": "🎓 Hongik Univ. Master's Thesis (2011) PDF ↓",
+    "한글 28자·모 3D 모듈 & Cogni-OS X·Y·T 퍼즐의 학술적 원형": "Academic Origin of 28 Hangul Jamo 3D Modules & Cogni-OS X·Y·T Puzzle",
+    "홍익대학교 대학원 석사학위논문 — 『한글 자·모를 모티브로 한 미취학 아동용 놀이가구디자인에 관한 연구 : 보육시설 실내공간을 중심으로』": "Hongik University Master's Thesis — 『A Study on Preschool Childhood Play Furniture Design Using Hangeul Consonants and Vowels as a Motif』",
+    "📥 홍익대학원 석사논문 원문 PDF 다운로드": "📥 Download Master's Thesis PDF",
+    "📖 새 창에서 석사학위논문 원문 열람 (PDF 보기) ↗": "📖 View Master's Thesis PDF in New Tab ↗",
+    "📥 석사논문 PDF 다운로드 (14.1MB)": "📥 Download Thesis PDF (14.1MB)",
+    "📖 새 창에서 원문 보기 ↗": "📖 View Original PDF ↗",
+    "석사학위논문 공식 표지": "Official Thesis Cover",
+    "28자·모 정밀 CAD 도면": "28-Jamo Precision CAD",
+    "한글 28자모 3D 렌더링": "28-Jamo 3D Rendering",
+    "자모 모듈 조립·결합 구조": "Isometric Assembly",
+    "X·Y·T 조립 퍼즐의 원형": "Origin of X·Y·T Puzzle",
+    "보육시설 조립·착석 실증": "Real Preschool Field Test"
   };
 
   function loadEnCache() {
