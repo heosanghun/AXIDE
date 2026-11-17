@@ -3201,12 +3201,13 @@
             visibility: hidden;
             transform: translate3d(0, 6px, 0) scale(0.97);
             transition: opacity 0.14s ease, transform 0.14s ease, visibility 0.14s ease;
-            background: linear-gradient(165deg, rgba(15, 23, 42, 0.98) 0%, rgba(7, 11, 20, 0.99) 100%);
-            border: 1.5px solid rgba(251, 191, 36, 0.75);
+            background: #FBF9F5;
+            border: 1.5px solid #9B84C4;
             border-radius: 18px;
-            box-shadow: 0 22px 50px rgba(2, 6, 23, 0.85), 0 0 25px rgba(251, 191, 36, 0.22);
+            box-shadow: 0 22px 50px rgba(30, 20, 50, 0.28);
             overflow: hidden;
-            padding: 12px;
+            padding: 14px;
+            color: #231F20;
         }
         #somooHoverTooltip.show {
             opacity: 1;
@@ -3217,12 +3218,12 @@
             position: fixed;
             inset: 0;
             z-index: 9999;
-            background: rgba(2, 6, 23, 0.86);
+            background: rgba(15, 12, 24, 0.72);
             backdrop-filter: blur(8px);
             display: none;
             align-items: center;
             justify-content: center;
-            padding: 20px 14px;
+            padding: 18px 14px;
             overflow-y: auto;
         }
         #somooDetailModal.open {
@@ -3230,46 +3231,196 @@
         }
         .somoo-modal-dialog {
             width: 100%;
-            max-width: 1140px;
-            max-height: 92vh;
-            background: linear-gradient(165deg, #0b1120 0%, #0f172a 55%, #070b14 100%);
-            border: 1.5px solid rgba(251, 191, 36, 0.55);
+            max-width: 1120px;
+            max-height: 94vh;
+            background: #FBF9F5;
+            border: 1.5px solid #D5CBE6;
             border-radius: 22px;
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.88);
+            box-shadow: 0 30px 80px rgba(15, 10, 30, 0.48);
             display: flex;
             flex-direction: column;
             overflow: hidden;
-            color: #f8fafc;
+            color: #231F20;
+        }
+        .somoo-ed-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 18px 34px 14px;
+            margin: 0 4px;
+            border-bottom: 1.5px solid #B5A3D1;
+            background: #FBF9F5;
+        }
+        .somoo-ed-header-center {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            max-width: 440px;
+            margin: 0 auto;
+        }
+        .somoo-ed-header-line {
+            flex: 1;
+            height: 1.5px;
+            background: #B5A3D1;
+        }
+        .somoo-ed-nav-btn {
+            border: 1.5px solid #9A8AB2;
+            border-radius: 999px;
+            background: #FBF9F5;
+            color: #231F20;
+            font-size: 13.5px;
+            font-weight: 800;
+            padding: 5px 16px;
+            cursor: pointer;
+            transition: all 0.16s ease;
+            white-space: nowrap;
+        }
+        .somoo-ed-nav-btn:hover {
+            background: #EDE6F7;
+            border-color: #6B4E9B;
+            color: #4A3570;
+        }
+        .somoo-ed-close-btn {
+            background: transparent;
+            border: none;
+            color: #4A3570;
+            font-size: 22px;
+            font-weight: 800;
+            line-height: 1;
+            padding: 2px 6px;
+            cursor: pointer;
+            transition: transform 0.15s ease, color 0.15s ease;
+        }
+        .somoo-ed-close-btn:hover {
+            color: #1E1B24;
+            transform: scale(1.1);
         }
         .somoo-modal-body {
             overflow-y: auto;
-            padding: 22px 24px 26px;
+            padding: 24px 34px 28px;
+            background: #FBF9F5;
+        }
+        .somoo-ed-main-grid {
+            display: grid;
+            grid-template-columns: 45% 55%;
+            align-items: stretch;
+        }
+        .somoo-ed-left-col {
+            padding-right: 30px;
+            border-right: 1.5px solid #E3DCEF;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-width: 0;
+        }
+        .somoo-ed-right-col {
+            padding-left: 34px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-width: 0;
+        }
+        .somoo-ed-spec-table {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border-top: 1.5px solid #D4CAE5;
+            border-bottom: 1.5px solid #D4CAE5;
+        }
+        .somoo-ed-spec-cell {
+            padding: 12px 4px;
+        }
+        .somoo-ed-spec-cell.cell-tl {
+            border-right: 1.5px solid #D4CAE5;
+            border-bottom: 1.5px solid #D4CAE5;
+            padding-right: 16px;
+        }
+        .somoo-ed-spec-cell.cell-tr {
+            border-bottom: 1.5px solid #D4CAE5;
+            padding-left: 20px;
+        }
+        .somoo-ed-spec-cell.cell-bl {
+            border-right: 1.5px solid #D4CAE5;
+            padding-right: 16px;
+        }
+        .somoo-ed-spec-cell.cell-br {
+            padding-left: 20px;
+        }
+        .somoo-ed-spec-label {
+            font-size: 13px;
+            font-weight: 800;
+            color: #5E438B;
+            margin-bottom: 3px;
+        }
+        .somoo-ed-spec-val {
+            font-size: 18px;
+            font-weight: 800;
+            color: #1E1B24;
+            line-height: 1.3;
+        }
+        .somoo-ed-model-box {
+            background: #F2EEF8;
+            border-radius: 14px;
+            padding: 15px 22px;
+            margin-top: 16px;
+        }
+        .somoo-ed-robot-box {
+            background: #F2EEF8;
+            border-radius: 14px;
+            overflow: hidden;
+            margin-top: 12px;
+        }
+        .somoo-ed-robot-header {
+            background: #E4DBF3;
+            padding: 8px 22px;
+            font-size: 13.5px;
+            font-weight: 800;
+            color: #52387D;
+        }
+        .somoo-ed-robot-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 13px 22px;
+        }
+        .somoo-ed-robot-btn {
+            background: transparent;
+            border: none;
+            text-align: left;
+            padding: 4px 6px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.16s ease;
+        }
+        .somoo-ed-robot-btn:hover {
+            background: rgba(107, 78, 155, 0.09);
         }
         .somoo-thumb-btn {
             position: relative;
-            border: 2px solid rgba(148, 163, 184, 0.3);
-            border-radius: 10px;
+            border: 1.5px solid #D8D0E5;
+            border-radius: 12px;
             overflow: hidden;
-            padding: 0;
+            padding: 3px;
             background: #ffffff;
             cursor: pointer;
-            width: 56px;
-            height: 56px;
+            width: 66px;
+            height: 66px;
             flex-shrink: 0;
             transition: all 0.16s ease;
         }
         .somoo-thumb-btn.active,
         .somoo-thumb-btn:hover {
-            border-color: #fbbf24;
-            box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.35);
+            border: 2px solid #6B4E9B;
+            box-shadow: 0 4px 12px rgba(107, 78, 155, 0.22);
             transform: translateY(-2px);
         }
         .somoo-thumb-tag {
             position: absolute;
-            left: 2px;
-            right: 2px;
-            bottom: 2px;
-            font-size: 9px;
+            left: 3px;
+            right: 3px;
+            bottom: 3px;
+            font-size: 8.5px;
             font-weight: 800;
             line-height: 1.15;
             padding: 1px 2px;
@@ -3282,14 +3433,14 @@
             background: #ffffff;
             border-radius: 14px;
             overflow: hidden;
-            border: 1px solid rgba(251, 191, 36, 0.35);
-            box-shadow: 0 10px 26px rgba(2, 6, 23, 0.45);
+            border: 1px solid #D8D0E5;
+            box-shadow: 0 8px 20px rgba(30, 20, 50, 0.08);
             transition: transform 0.18s ease, box-shadow 0.18s ease;
             cursor: zoom-in;
         }
         .somoo-gallery-card:hover {
             transform: translateY(-3px);
-            box-shadow: 0 16px 34px rgba(251, 191, 36, 0.25);
+            box-shadow: 0 14px 28px rgba(107, 78, 155, 0.18);
         }
         .somoo-bp-upper-zoom {
             position: absolute;
@@ -3327,246 +3478,238 @@
         .somoo-bp-hotspot-btn:active {
             transform: scale(0.96);
         }
+        @media (max-width: 991px) {
+            .somoo-ed-main-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            .somoo-ed-left-col {
+                padding-right: 0;
+                border-right: none;
+                border-bottom: 1.5px solid #E3DCEF;
+                padding-bottom: 20px;
+            }
+            .somoo-ed-right-col {
+                padding-left: 0;
+            }
+            .somoo-ed-header {
+                padding: 14px 18px 12px;
+            }
+            .somoo-ed-header-center {
+                display: none;
+            }
+            .somoo-modal-body {
+                padding: 18px 18px 22px;
+            }
+        }
         @media (max-width: 767px) {
             #somooHoverTooltip {
                 display: none !important;
             }
-            .somoo-modal-body {
-                padding: 16px 14px 20px;
-            }
         }
     </style>
 
-    <!-- Floating Hover Preview Card (Shows 3D Hangul Jamo Block + Representative 3D Character Image on Mouseover) -->
+    <!-- Floating Hover Preview Card (Warm Cream-Lavender Editorial Style) -->
     <div id="somooHoverTooltip" role="tooltip" aria-hidden="true">
-        <div class="d-flex align-items-center justify-content-between gap-2 mb-2">
+        <div class="d-flex align-items-center justify-content-between gap-2 mb-2 pb-1" style="border-bottom: 1px solid #DFD7EC;">
             <div class="d-flex align-items-center gap-2">
-                <div style="width: 38px; height: 38px; border-radius: 9px; background: #ffffff; border: 1.5px solid #fbbf24; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <div style="width: 36px; height: 36px; border-radius: 9px; background: #EFEAF7; border: 1px solid #C5B6E0; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
                     <img id="somooTipJamoImg" src="assets/images/hangul28/jamo_sq_01.jpg" alt="한글 28자 3D 블록" style="width: 100%; height: 100%; object-fit: contain; display: block;">
                 </div>
                 <div>
                     <div class="d-flex align-items-center gap-1">
-                        <span id="somooTipJamo" style="font-size: 15px; font-weight: 900; color: #fbbf24;">ㄱ</span>
-                        <span id="somooTipName" style="font-size: 15px; font-weight: 800; color: #ffffff; line-height: 1.2;">고롱 (GoLong)</span>
+                        <span id="somooTipJamo" style="font-size: 15px; font-weight: 900; color: #5E438B;">ㄱ</span>
+                        <span id="somooTipName" style="font-size: 15px; font-weight: 800; color: #1E1B24; line-height: 1.2;">고롱 (GoLong)</span>
                     </div>
-                    <div id="somooTipRole" style="font-size: 12px; color: #fde68a; font-weight: 700;">발명가 · 키 1.5cm / 2.5g</div>
+                    <div id="somooTipRole" style="font-size: 12px; color: #6B4E9B; font-weight: 700;">발명가 · 1.5cm · 2.5g</div>
                 </div>
             </div>
-            <span id="somooTipGroup" class="badge rounded-pill" style="font-size: 10.5px; background: rgba(56, 189, 248, 0.18); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.4);">자음 01</span>
+            <span id="somooTipGroup" class="badge rounded-pill" style="font-size: 10.5px; background: #E6DDF5; color: #4A3570; font-weight: 800;">자음 01/14</span>
         </div>
-        <!-- Dual Preview: Representative 3D Character + Original 3D Hangul Jamo Block -->
-        <div style="display: grid; grid-template-columns: 1fr 92px; gap: 8px; height: 205px;">
-            <div style="background: #ffffff; border-radius: 12px; overflow: hidden; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(251, 191, 36, 0.45); position: relative;">
-                <img id="somooTipImg" src="assets/images/somoo/Im4.jpg" alt="대표 캐릭터 이미지" style="max-width: 100%; max-height: 205px; width: auto; height: auto; object-fit: contain; display: block;">
-                <span style="position: absolute; left: 7px; bottom: 7px; background: rgba(15, 23, 42, 0.88); color: #fde68a; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 999px; border: 1px solid rgba(251, 191, 36, 0.5);">대표 3D 캐릭터</span>
+        <div style="display: grid; grid-template-columns: 1fr 90px; gap: 8px; height: 195px;">
+            <div style="background: #ffffff; border-radius: 12px; overflow: hidden; display: flex; align-items: center; justify-content: center; border: 1px solid #E2DCEB; position: relative;">
+                <img id="somooTipImg" src="assets/images/somoo/Im4.jpg" alt="대표 캐릭터 이미지" style="max-width: 100%; max-height: 190px; width: auto; height: auto; object-fit: contain; display: block;">
             </div>
-            <div style="background: #ffffff; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 8px 6px; border: 1px solid rgba(56, 189, 248, 0.45);">
-                <span style="font-size: 10px; font-weight: 800; color: #0f172a; background: #e0f2fe; padding: 2px 6px; border-radius: 999px;">한글 28자 3D</span>
-                <img id="somooTipBlockLarge" src="assets/images/hangul28/jamo_sq_01.jpg" alt="한글 3D 자모 블록" style="width: 76px; height: 76px; object-fit: contain; display: block;">
-                <span id="somooTipBlockLabel" style="font-size: 11px; font-weight: 800; color: #0f172a;">자음 ㄱ 블록</span>
+            <div style="background: #F4F0FA; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 8px 6px; border: 1px solid #DFD7EC;">
+                <img id="somooTipBlockLarge" src="assets/images/hangul28/jamo_sq_01.jpg" alt="한글 3D 자모 블록" style="width: 72px; height: 72px; object-fit: contain; display: block;">
+                <span id="somooTipBlockLabel" style="font-size: 11px; font-weight: 800; color: #231F20; background: #EAE4D9; padding: 2px 8px; border-radius: 6px; margin-top: 6px;">ㄱ 원형 블록</span>
             </div>
         </div>
         <div class="mt-2 pt-1">
             <div class="d-flex align-items-center justify-content-between gap-1 mb-1">
-                <span id="somooTipModel" style="font-size: 12px; font-weight: 800; color: #38bdf8;">Kimi-K3.1-Pro</span>
-                <span id="somooTipTier" class="badge rounded-pill" style="font-size: 10.5px; background: rgba(251, 191, 36, 0.18); color: #fde68a;">Tier D · 1,561 GB</span>
+                <span id="somooTipModel" style="font-size: 13px; font-weight: 900; color: #1E1B24;">Kimi-K3.1-Pro</span>
+                <span id="somooTipTier" class="badge rounded-pill" style="font-size: 10.5px; background: #6B4E9B; color: #ffffff;">Tier D · 1,561 GB</span>
             </div>
-            <p id="somooTipDesc" class="mb-2" style="font-size: 11.5px; color: #cbd5e1; line-height: 1.42; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;"></p>
-            <div class="text-center py-1 rounded-pill fw-bold" style="background: rgba(56, 189, 248, 0.16); color: #7dd3fc; font-size: 11px; border: 1px solid rgba(56, 189, 248, 0.35);">
-                🖱️ 클릭하여 PDF 상세 캐릭터 도감·설정화 보기
+            <p id="somooTipDesc" class="mb-2" style="font-size: 12px; color: #3F3A47; font-weight: 600; line-height: 1.42; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;"></p>
+            <div class="text-center py-1 rounded-pill fw-bold" style="background: #E6DDF5; color: #4A3570; font-size: 11px;">
+                클릭하여 한글 소모오 캐릭터 도감 열기
             </div>
         </div>
     </div>
 
-    <!-- Click Popup Modal (Shows Detailed Character Profile, 3D Hangul Jamo Block & All Extracted PDF Artwork) -->
+    <!-- Click Popup Modal (Editorial Cream & Lavender Reference Design) -->
     <div id="somooDetailModal" role="dialog" aria-modal="true" aria-labelledby="somooModalTitle" onclick="if(event.target === this) closeSomooModal()">
         <div class="somoo-modal-dialog" onclick="event.stopPropagation()">
-            <!-- Modal Top Header -->
-            <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 px-4 py-3" style="background: rgba(15, 23, 42, 0.95); border-bottom: 1px solid rgba(251, 191, 36, 0.32);">
-                <div class="d-flex align-items-center gap-3 flex-wrap">
-                    <div class="d-flex align-items-center gap-2">
-                        <div id="somooModalJamoImgWrap" style="width: 48px; height: 48px; border-radius: 12px; background: #ffffff; border: 2px solid #fbbf24; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(251, 191, 36, 0.35);">
-                            <img id="somooModalJamoImg" src="assets/images/hangul28/jamo_sq_01.jpg" alt="한글 28자 3D 블록" style="width: 100%; height: 100%; object-fit: contain; display: block;">
-                        </div>
-                        <span id="somooModalJamoBadge" class="d-inline-flex align-items-center justify-content-center rounded-3 fw-bold" style="width: 44px; height: 44px; font-size: 24px; background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #0f172a; box-shadow: 0 4px 14px rgba(251, 191, 36, 0.35);">ㄱ</span>
-                    </div>
-                    <div>
-                        <div class="d-flex align-items-center gap-2 flex-wrap">
-                            <span id="somooModalCategoryBadge" class="badge rounded-pill" style="background: rgba(56, 189, 248, 0.2); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.45); font-size: 11px;">자음 캐릭터 01 / 14</span>
-                            <span id="somooModalRoleBadge" class="badge rounded-pill" style="background: rgba(251, 191, 36, 0.2); color: #fde68a; border: 1px solid rgba(251, 191, 36, 0.45); font-size: 11px;">발명가</span>
-                            <span id="somooModalPdfPages" style="font-size: 11.5px; color: #94a3b8;">PDF 원본 p.3–8</span>
-                        </div>
-                        <h4 id="somooModalTitle" class="mb-0 mt-1 fw-bold text-white" style="font-size: 21px;">고롱 (GoLong) — 한글 소모오 캐릭터 통합 도감</h4>
-                    </div>
-                </div>
+            <!-- Modal Top Header (Matches Image 1 Reference 100%) -->
+            <div class="somoo-ed-header">
                 <div class="d-flex align-items-center gap-2">
-                    <button type="button" onclick="stepSomooCharacter(-1)" class="btn btn-sm rounded-pill px-3 py-1 fw-bold" style="background: rgba(30, 41, 59, 0.9); color: #e2e8f0; border: 1px solid rgba(148, 163, 184, 0.4); font-size: 12.5px;" title="이전 캐릭터 (←)">
+                    <div id="somooModalJamoImgWrap" style="width: 40px; height: 40px; border-radius: 10px; background: #EFEAF7; border: 1px solid #D5C8EB; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                        <img id="somooModalJamoImg" src="assets/images/hangul28/jamo_sq_01.jpg" alt="한글 28자 3D 블록" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+                    </div>
+                    <span id="somooModalJamoBadge" style="display: none;">ㄱ</span>
+                    <span style="font-size: 20px; font-weight: 900; color: #1E1B24; letter-spacing: -0.02em;">한글 소모오 캐릭터 도감</span>
+                </div>
+
+                <div class="somoo-ed-header-center">
+                    <div class="somoo-ed-header-line"></div>
+                    <span id="somooModalCategoryBadge" style="font-size: 16px; font-weight: 800; color: #5B3E90; white-space: nowrap;">자음 01 / 14</span>
+                    <div class="somoo-ed-header-line"></div>
+                </div>
+
+                <div class="d-flex align-items-center gap-2">
+                    <button type="button" onclick="stepSomooCharacter(-1)" class="somoo-ed-nav-btn" title="이전 캐릭터 (←)">
                         ◀ 이전
                     </button>
-                    <button type="button" onclick="stepSomooCharacter(1)" class="btn btn-sm rounded-pill px-3 py-1 fw-bold" style="background: rgba(30, 41, 59, 0.9); color: #e2e8f0; border: 1px solid rgba(148, 163, 184, 0.4); font-size: 12.5px;" title="다음 캐릭터 (→)">
+                    <button type="button" onclick="stepSomooCharacter(1)" class="somoo-ed-nav-btn" title="다음 캐릭터 (→)">
                         다음 ▶
                     </button>
-                    <button type="button" onclick="closeSomooModal()" class="btn btn-sm rounded-circle d-inline-flex align-items-center justify-content-center fw-bold" style="width: 34px; height: 34px; background: rgba(239, 68, 68, 0.2); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.45); font-size: 16px;" title="닫기 (ESC)">
+                    <span style="width: 1.5px; height: 18px; background: #B5A3D1; margin: 0 4px;"></span>
+                    <button type="button" onclick="closeSomooModal()" class="somoo-ed-close-btn" title="닫기 (ESC)" aria-label="닫기">
                         ✕
                     </button>
                 </div>
             </div>
 
-            <!-- Modal Scrollable Body -->
+            <!-- Modal Body -->
             <div class="somoo-modal-body">
-                <!-- Character Profile + Interactive Main Image Showcase -->
+                <!-- Character Profile View (Matches Image 1 Reference 100%) -->
                 <div id="somooModalCharacterView">
-                    <div class="row g-4 align-items-stretch">
-                        <!-- Left Column: Representative 3D Image & Interactive Switcher -->
-                        <div class="col-lg-5" style="min-width: 0;">
-                            <div class="h-100 d-flex flex-column justify-content-between p-3 rounded-4" style="background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(251, 191, 36, 0.38); min-width: 0; overflow: hidden;">
-                                <div style="min-width: 0;">
-                                    <div class="d-flex align-items-center justify-content-between gap-2 mb-2" style="min-width: 0; width: 100%;">
-                                        <span id="somooMainImgLabel" class="px-3 py-1 fw-bold" style="flex: 1 1 0%; min-width: 0; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: block; border-radius: 999px; background: rgba(251, 191, 36, 0.2); color: #fde68a; border: 1px solid rgba(251, 191, 36, 0.45); font-size: 11.5px; line-height: 1.4;">✨ 대표 3D 캐릭터 포트레이트</span>
-                                        <button type="button" id="somooMainImgZoomBtn" class="btn btn-sm rounded-pill px-2.5 py-1 fw-bold" style="flex-shrink: 0; white-space: nowrap; font-size: 11px; line-height: 1.25; padding: 4px 10px; color: #7dd3fc; background: rgba(56, 189, 248, 0.16); border: 1px solid rgba(56, 189, 248, 0.42);">
-                                            🔍 전체화면 확대
-                                        </button>
-                                    </div>
-                                    <div id="somooMainImgWrap" style="position: relative; background: #ffffff; border-radius: 14px; height: 330px; display: flex; align-items: center; justify-content: center; overflow: hidden; border: 1px solid rgba(251, 191, 36, 0.4); cursor: zoom-in; transition: background 0.2s ease, border-color 0.2s ease;">
-                                        <img id="somooModalMainImg" src="assets/images/somoo/Im4.jpg" alt="한글 소모오 대표 캐릭터" style="max-width: 100%; max-height: 330px; width: auto; height: auto; object-fit: contain; display: block;">
-                                        <span id="somooMainImgSubHint" style="position: absolute; right: 10px; bottom: 8px; background: rgba(15, 23, 42, 0.84); color: #e2e8f0; border: 1px solid rgba(148, 163, 184, 0.35); border-radius: 999px; font-size: 10.5px; font-weight: 700; padding: 2px 9px; pointer-events: none;">클릭 시 고해상도 확대</span>
-                                    </div>
+                    <div class="somoo-ed-main-grid">
+                        <!-- Left Column: Character Portrait + Pedestal 3D Jamo Block + Original PDF Thumbnail Strip -->
+                        <div class="somoo-ed-left-col">
+                            <div id="somooMainImgWrap" style="position: relative; background: #FBF9F5; border-radius: 16px; height: 400px; display: flex; align-items: center; justify-content: center; overflow: hidden; cursor: zoom-in;">
+                                <img id="somooModalMainImg" src="assets/images/somoo/Im4.jpg" alt="한글 소모오 대표 캐릭터" style="max-width: 86%; max-height: 390px; width: auto; height: auto; object-fit: contain; display: block; transition: transform 0.2s ease;">
+
+                                <!-- Floating Pedestal 3D Hangul Block (Bottom-Right of Stage, just like Image 1) -->
+                                <div id="somooModalStoryBlockCard" onclick="event.stopPropagation();" style="position: absolute; right: 6px; bottom: 8px; display: flex; flex-direction: column; align-items: center; cursor: zoom-in; z-index: 3;" title="클릭하여 한글 28자 3D 원형 블록 확대">
+                                    <img id="somooModalStoryBlockImg" src="assets/images/hangul28/jamo_01.jpg" alt="한글 28자 3D 원형 블록" style="width: 105px; height: 105px; object-fit: contain; display: block; filter: drop-shadow(0 8px 14px rgba(30, 20, 50, 0.15));">
+                                    <span id="somooModalStoryBlockCaption" style="background: linear-gradient(180deg, #F4F1EA 0%, #E5DFD5 100%); border: 1px solid #D2C9BC; border-radius: 8px; padding: 4px 14px; font-size: 13px; font-weight: 800; color: #1E1B24; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); margin-top: -6px; white-space: nowrap;">ㄱ 원형 블록</span>
                                 </div>
-                                <div class="mt-3" style="min-width: 0;">
-                                    <div style="font-size: 11.5px; color: #94a3b8; margin-bottom: 6px; font-weight: 600;">📸 PDF 수록 이미지 + 피지컬 AI 설계도 + 3D 블록 선택 (클릭 시 상단 프리뷰 전환):</div>
-                                    <div id="somooModalThumbStrip" class="d-flex align-items-center gap-2 flex-wrap"></div>
+                            </div>
+
+                            <!-- Bottom Thumbnail Strip: 원문 도감 p.3–8 -->
+                            <div class="mt-3 pt-1">
+                                <div class="d-flex align-items-center gap-3 mb-2">
+                                    <span id="somooModalPdfPages" style="font-size: 14px; font-weight: 800; color: #4A3570; white-space: nowrap;">원문 도감 p.3–8</span>
+                                    <div style="flex: 1; height: 1.5px; background: #B5A3D1;"></div>
                                 </div>
+                                <div id="somooModalThumbStrip" class="d-flex align-items-center gap-2 flex-wrap"></div>
                             </div>
                         </div>
 
-                        <!-- Right Column: Detailed Character Profile from PDF + 3D Hangul Jamo Block + Cogni-OS AI Model Info -->
-                        <div class="col-lg-7">
-                            <div class="h-100 d-flex flex-column justify-content-between gap-3">
-                                <!-- Story & Worldview Box + Original 3D Hangul Jamo Block Showcase -->
-                                <div class="p-3 px-4 rounded-4" style="background: linear-gradient(135deg, rgba(251, 191, 36, 0.14), rgba(15, 23, 42, 0.92)); border: 1px solid rgba(251, 191, 36, 0.45);">
-                                    <div class="d-flex align-items-center gap-3 flex-wrap flex-sm-nowrap">
-                                        <div id="somooModalStoryBlockCard" style="width: 96px; height: 96px; border-radius: 14px; background: #ffffff; border: 2px solid rgba(251, 191, 36, 0.75); overflow: hidden; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: zoom-in; box-shadow: 0 8px 20px rgba(2, 6, 23, 0.45);" title="클릭하여 한글 28자 3D 원형 블록 확대">
-                                            <img id="somooModalStoryBlockImg" src="assets/images/hangul28/jamo_01.jpg" alt="한글 28자 3D 블록" style="width: 100%; height: 74px; object-fit: contain; display: block;">
-                                            <span id="somooModalStoryBlockCaption" style="font-size: 10px; font-weight: 800; color: #0f172a; background: #fef3c7; width: 100%; text-align: center; padding: 1px 0;">3D 원형 블록 ㄱ</span>
-                                        </div>
-                                        <div class="flex-grow-1">
-                                            <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-1">
-                                                <span style="font-size: 12px; font-weight: 800; color: #fbbf24; letter-spacing: 0.04em;">📖 한글 소모오 공식 캐릭터 스토리 · 28자모 조형</span>
-                                                <span id="somooModalEngName" style="font-size: 12px; color: #fde68a; font-weight: 700;">GoLong · ㄱ</span>
-                                            </div>
-                                            <p id="somooModalDescription" class="mb-0 text-white fw-semibold" style="font-size: 15px; line-height: 1.58;"></p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Detailed Metadata Grid (Height/Weight, Birthday/Zodiac, Likes, Dislikes) -->
-                                <div class="row g-2">
-                                    <div class="col-sm-6">
-                                        <div class="p-3 rounded-4 h-100" style="background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(148, 163, 184, 0.25);">
-                                            <div style="font-size: 11.5px; color: #94a3b8; font-weight: 700;">📏 신체 사이즈 (키 · 몸무게)</div>
-                                            <div id="somooModalSize" class="mt-1 fw-bold text-white" style="font-size: 15px;">키 1.5cm · 몸무게 2.5g</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="p-3 rounded-4 h-100" style="background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(148, 163, 184, 0.25);">
-                                            <div style="font-size: 11.5px; color: #94a3b8; font-weight: 700;">🎂 생일 (기념일) · 별자리</div>
-                                            <div id="somooModalBirthday" class="mt-1 fw-bold text-white" style="font-size: 14.5px;">5월 19일 (발명의 날) · 황소자리</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="p-3 rounded-4 h-100" style="background: rgba(16, 185, 129, 0.10); border: 1px solid rgba(16, 185, 129, 0.35);">
-                                            <div style="font-size: 11.5px; color: #6ee7b7; font-weight: 700;">💚 좋아하는 것 (Likes)</div>
-                                            <div id="somooModalLikes" class="mt-1 fw-bold text-white" style="font-size: 14.5px;">태엽, 설계도</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="p-3 rounded-4 h-100" style="background: rgba(244, 63, 94, 0.10); border: 1px solid rgba(244, 63, 94, 0.35);">
-                                            <div style="font-size: 11.5px; color: #fda4af; font-weight: 700;">💔 싫어하는 것 (Dislikes)</div>
-                                            <div id="somooModalDislikes" class="mt-1 fw-bold text-white" style="font-size: 14.5px;">녹슨 나사</div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Cogni-OS Mapped AI Model Specification Box -->
-                                <div class="p-3 px-4 rounded-4" style="background: linear-gradient(135deg, rgba(14, 165, 233, 0.16), rgba(15, 23, 42, 0.95)); border: 1px solid rgba(56, 189, 248, 0.5);">
-                                    <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-1">
-                                        <span style="font-size: 11.5px; font-weight: 800; color: #38bdf8; letter-spacing: 0.04em;">🤖 AXIDE / Cogni-OS 매핑 AI 모델 사양</span>
-                                        <span id="somooModalModelTier" class="badge rounded-pill px-3 py-1 fw-bold" style="background: rgba(251, 191, 36, 0.22); color: #fde68a; border: 1px solid rgba(251, 191, 36, 0.5); font-size: 11.5px;">Tier D · 1,561 GB</span>
-                                    </div>
-                                    <div id="somooModalModelName" class="fw-bold text-white" style="font-size: 18px;">Kimi-K3.1-Pro</div>
-                                    <div id="somooModalModelSpec" style="font-size: 13px; color: #cbd5e1; margin-top: 2px;">Moonshot AI · 중국 · 2.78T MoE · MXFP4</div>
-                                </div>
-
-                                <!-- Physical AI Companion & Educational Robot Notice Inside Modal -->
-                                <div class="p-3 px-4 rounded-4 d-flex align-items-center justify-content-between flex-wrap gap-2" style="background: linear-gradient(135deg, rgba(20, 184, 166, 0.16), rgba(15, 23, 42, 0.95)); border: 1px solid rgba(45, 212, 191, 0.48);">
-                                    <div>
-                                        <div style="font-size: 11.5px; font-weight: 800; color: #2dd4bf;">🤖 PHYSICAL AI · 메인 캐릭터 로봇(고롱~예롱) & 자모 파트너 로봇(가봇~예봇) 28종 수록</div>
-                                        <div id="somooModalBlueprintNoticeText" style="font-size: 13px; color: #f8fafc; font-weight: 600; margin-top: 2px;">자음·모음 28종 소모오 캐릭터는 <strong>마이크로덕(MicroDuck)형 메인 로봇</strong>과 이를 돕는 <strong>독립 음절 한글 자모 파트너 이족보행 로봇(가봇~예봇)</strong>으로 함께 제작 중입니다.</div>
-                                    </div>
-                                    <div class="d-flex align-items-center flex-wrap gap-2">
-                                        <button type="button" id="somooModalBlueprintBtn" onclick="openStoryLightbox('assets/images/somoo-blueprint/bp_01.jpg?v=20261107_mainbp_v6', '한글 소모오 피지컬 AI — 01/28 ‘ㄱ 고롱(GoLong) · 발명가’ 마이크로덕형 14-DOF 메인 로봇 설계도', false)" class="btn btn-sm rounded-pill px-3 py-1 fw-bold" style="background: rgba(45, 212, 191, 0.2); color: #99f6e4; border: 1px solid rgba(45, 212, 191, 0.55); font-size: 11.5px;">
-                                            📐 ‘ㄱ 고롱’ 메인 로봇 설계도 보기
-                                        </button>
-                                        <button type="button" id="somooModalJamoBotBtn" onclick="openStoryLightbox('assets/images/somoo-jamo-robot/jr_01.jpg?v=20261107_jambot_v9', 'AXIDE / PHYSICAL AI 자모 파트너 로봇 — 01/28 ‘ㄱ 가봇(GaBot)’ (‘ㄱ 고롱’ 도우미 파트너 로봇)', false)" class="btn btn-sm rounded-pill px-3 py-1 fw-bold" style="background: rgba(139, 92, 246, 0.22); color: #ddd6fe; border: 1px solid rgba(167, 139, 250, 0.55); font-size: 11.5px;">
-                                            🤖 ‘ㄱ 가봇’ 자모 파트너 로봇 보기
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Full PDF Character Artwork Gallery (All Extracted PDF Images + 3D Hangul Block for This Character) -->
-                    <div class="mt-4 pt-3" style="border-top: 1px solid rgba(148, 163, 184, 0.24);">
-                        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+                        <!-- Right Column: Huge Title + Story + 2x2 Spec Table + Cogni-OS Model Card + Physical AI Card -->
+                        <div class="somoo-ed-right-col">
                             <div>
-                                <h5 class="mb-0 fw-bold text-white" style="font-size: 16.5px;">🎨 PDF 원본 캐릭터 도감·턴어라운드·스토리 씬 & 한글 28자 3D 블록 전체 보기</h5>
-                                <span style="font-size: 12px; color: #94a3b8;">『한글 소모오 캐릭터 통합.pdf』에서 추출한 원본 아트워크와 로컬 『한글28자』 3D 원형 블록입니다. 클릭하면 크게 확대됩니다.</span>
+                                <!-- Top Hero Name & Role Pill -->
+                                <div class="d-flex align-items-end gap-3 flex-wrap">
+                                    <h2 id="somooModalTitle" style="font-size: 62px; font-weight: 900; color: #231F20; line-height: 0.96; letter-spacing: -0.03em; margin: 0;">고롱</h2>
+                                    <div class="d-flex flex-column align-items-start pb-1">
+                                        <div id="somooModalEngName" style="font-size: 32px; font-weight: 800; color: #7C5FA8; line-height: 1.05;">GoLong</div>
+                                        <span id="somooModalRoleBadge" style="display: inline-block; margin-top: 6px; background: #E6DDF5; color: #4A3570; font-size: 13.5px; font-weight: 800; padding: 4px 14px; border-radius: 999px;">발명가 · 한글 자음 ㄱ</span>
+                                    </div>
+                                </div>
+
+                                <!-- Character Story Copy -->
+                                <p id="somooModalDescription" style="font-size: 16.5px; font-weight: 700; color: #231F20; line-height: 1.58; margin: 18px 0 18px; white-space: pre-line;"></p>
+
+                                <!-- 2x2 Editorial Spec Table -->
+                                <div class="somoo-ed-spec-table">
+                                    <div class="somoo-ed-spec-cell cell-tl">
+                                        <div class="somoo-ed-spec-label">키 · 몸무게</div>
+                                        <div id="somooModalSize" class="somoo-ed-spec-val">1.5 cm · 2.5 g</div>
+                                    </div>
+                                    <div class="somoo-ed-spec-cell cell-tr">
+                                        <div class="somoo-ed-spec-label">생일 · 별자리</div>
+                                        <div id="somooModalBirthday" class="somoo-ed-spec-val">5월 19일 (발명의 날) · 황소자리</div>
+                                    </div>
+                                    <div class="somoo-ed-spec-cell cell-bl">
+                                        <div class="somoo-ed-spec-label">좋아하는 것</div>
+                                        <div id="somooModalLikes" class="somoo-ed-spec-val">태엽, 설계도</div>
+                                    </div>
+                                    <div class="somoo-ed-spec-cell cell-br">
+                                        <div class="somoo-ed-spec-label">싫어하는 것</div>
+                                        <div id="somooModalDislikes" class="somoo-ed-spec-val">녹슨 나사</div>
+                                    </div>
+                                </div>
                             </div>
-                            <span id="somooModalGalleryCount" class="badge rounded-pill px-3 py-1" style="background: rgba(251, 191, 36, 0.18); color: #fde68a; font-size: 12px;">총 7장 수록</span>
+
+                            <div>
+                                <!-- Card 1: AXIDE / Cogni-OS 매칭 모델 -->
+                                <div class="somoo-ed-model-box">
+                                    <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+                                        <span style="font-size: 13.5px; font-weight: 800; color: #5E438B;">AXIDE / Cogni-OS 매칭 모델</span>
+                                        <span id="somooModalModelTier" style="background: #6B4E9B; color: #ffffff; font-size: 12px; font-weight: 800; padding: 3px 12px; border-radius: 999px;">Tier D · 1,561 GB</span>
+                                    </div>
+                                    <div id="somooModalModelName" style="font-size: 25px; font-weight: 900; color: #1E1B24; line-height: 1.2; margin-top: 4px;">Kimi-K3.1-Pro</div>
+                                    <div id="somooModalModelSpec" style="font-size: 14.5px; font-weight: 600; color: #5A5365; margin-top: 2px;">Moonshot AI · 2.78T MoE · MXFP4</div>
+                                </div>
+
+                                <!-- Card 2: 피지컬 AI · 제작 중 -->
+                                <div class="somoo-ed-robot-box">
+                                    <div class="somoo-ed-robot-header">피지컬 AI · 제작 중</div>
+                                    <div class="somoo-ed-robot-grid">
+                                        <button type="button" id="somooModalBlueprintBtn" class="somoo-ed-robot-btn" style="border-right: 1.5px solid #D4CAE5; padding-right: 14px;" title="클릭하여 메인 로봇 설계도 보기">
+                                            <div id="somooModalMainRobotTitle" style="font-size: 18px; font-weight: 800; color: #1E1B24;">메인 로봇 고롱</div>
+                                            <div id="somooModalMainRobotSub" style="font-size: 14px; font-weight: 600; color: #5A5365; margin-top: 2px;">MicroDuck형</div>
+                                        </button>
+                                        <button type="button" id="somooModalJamoBotBtn" class="somoo-ed-robot-btn" style="padding-left: 16px;" title="클릭하여 파트너 로봇 설계도 보기">
+                                            <div id="somooModalPartnerRobotTitle" style="font-size: 18px; font-weight: 800; color: #1E1B24;">파트너 로봇 가봇</div>
+                                            <div id="somooModalPartnerRobotSub" style="font-size: 14px; font-weight: 600; color: #5A5365; margin-top: 2px;">GaBot · 독립 이족보행</div>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div id="somooModalGalleryGrid" class="row g-3"></div>
                     </div>
+
+                    <!-- Hidden elements kept for JS compatibility -->
+                    <div id="somooModalGalleryGrid" style="display: none;"></div>
+                    <span id="somooModalGalleryCount" style="display: none;"></span>
+                    <div id="somooModalQuickJumper" style="display: none;"></div>
                 </div>
 
                 <!-- Group Overview Mode (Pages 1, 2, 62 of PDF) -->
                 <div id="somooModalOverviewView" style="display: none;">
-                    <div class="mb-3 p-3 rounded-4" style="background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(251, 191, 36, 0.4);">
-                        <h5 class="mb-1 fw-bold text-white" style="font-size: 17px;">📚 『한글 소모오 캐릭터 통합.pdf』 전체 대표 그룹 포스터 & 개요</h5>
-                        <p class="mb-0" style="font-size: 13px; color: #cbd5e1;">한글 자음 14종(ㄱ 고롱 ~ ㅎ 호롱)과 모음 14종(ㅏ 아롱 ~ ㅖ 예롱)으로 구성된 28종 소모오 캐릭터 통합 도감의 표지 및 전체 그룹 아트워크입니다. 아래에서 개별 캐릭터 버튼을 클릭하면 각 캐릭터 상세 도감으로 이동합니다.</p>
+                    <div class="mb-3 p-3 rounded-4" style="background: #F2EEF8; border: 1px solid #D4CAE5;">
+                        <h5 class="mb-1 fw-bold" style="font-size: 17px; color: #1E1B24;">📚 『한글 소모오 캐릭터 통합.pdf』 전체 대표 그룹 포스터 & 개요</h5>
+                        <p class="mb-0" style="font-size: 13.5px; color: #4A3570;">한글 자음 14종(ㄱ 고롱 ~ ㅎ 호롱)과 모음 14종(ㅏ 아롱 ~ ㅖ 예롱)으로 구성된 28종 소모오 캐릭터 통합 도감의 표지 및 전체 그룹 아트워크입니다.</p>
                     </div>
                     <div class="row g-3">
                         <div class="col-md-6">
                             <div class="somoo-gallery-card p-2" onclick="openStoryLightbox('assets/images/somoo/Im1.jpg', '한글 소모오 캐릭터 통합 — 자음 14종 그룹 아트워크 (PDF p.1)', false)">
                                 <img src="assets/images/somoo/Im1.jpg" alt="한글 소모오 자음 그룹" style="width: 100%; height: auto; display: block; border-radius: 10px;">
-                                <div class="p-2 text-center fw-bold" style="color: #0f172a; font-size: 13px;">PDF p.1 — 한글 소모오 자음 그룹 아트워크 (Im1)</div>
+                                <div class="p-2 text-center fw-bold" style="color: #1E1B24; font-size: 13px;">PDF p.1 — 한글 소모오 자음 그룹 아트워크 (Im1)</div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="somoo-gallery-card p-2" onclick="openStoryLightbox('assets/images/somoo/Im2.jpg', '한글 소모오 캐릭터 통합 — 모음 14종 그룹 아트워크 (PDF p.1)', false)">
                                 <img src="assets/images/somoo/Im2.jpg" alt="한글 소모오 모음 그룹" style="width: 100%; height: auto; display: block; border-radius: 10px;">
-                                <div class="p-2 text-center fw-bold" style="color: #0f172a; font-size: 13px;">PDF p.1 — 한글 소모오 모음 그룹 아트워크 (Im2)</div>
+                                <div class="p-2 text-center fw-bold" style="color: #1E1B24; font-size: 13px;">PDF p.1 — 한글 소모오 모음 그룹 아트워크 (Im2)</div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="somoo-gallery-card p-2" onclick="openStoryLightbox('assets/images/somoo/Im3.jpg', '한글 소모오 자음 14종 캐릭터 통합 포스터 (PDF p.2)', false)">
                                 <img src="assets/images/somoo/Im3.jpg" alt="한글 소모오 자음 14종 통합 포스터" style="width: 100%; height: auto; display: block; border-radius: 10px;">
-                                <div class="p-2 text-center fw-bold" style="color: #0f172a; font-size: 13px;">PDF p.2 — 제1부: 한글 자음 소모오 14종 통합 도감 (Im3)</div>
+                                <div class="p-2 text-center fw-bold" style="color: #1E1B24; font-size: 13px;">PDF p.2 — 제1부: 한글 자음 소모오 14종 통합 도감 (Im3)</div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="somoo-gallery-card p-2" onclick="openStoryLightbox('assets/images/somoo/Im63.jpg', '한글 소모오 모음 14종 캐릭터 통합 포스터 (PDF p.62)', false)">
                                 <img src="assets/images/somoo/Im63.jpg" alt="한글 소모오 모음 14종 통합 포스터" style="width: 100%; height: auto; display: block; border-radius: 10px;">
-                                <div class="p-2 text-center fw-bold" style="color: #0f172a; font-size: 13px;">PDF p.62 — 제2부: 한글 모음 소모오 14종 통합 도감 (Im63)</div>
+                                <div class="p-2 text-center fw-bold" style="color: #1E1B24; font-size: 13px;">PDF p.62 — 제2부: 한글 모음 소모오 14종 통합 도감 (Im63)</div>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- 28-Character Quick Jumper Inside Modal -->
-                <div class="mt-4 p-3 rounded-4" style="background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(56, 189, 248, 0.3);">
-                    <div style="font-size: 12px; color: #7dd3fc; font-weight: 700; margin-bottom: 8px;">⚡ 팝업 내 28 캐릭터 · 3D 한글 자모 바로 이동 (자음 14 · 모음 14)</div>
-                    <div id="somooModalQuickJumper" class="d-flex flex-wrap gap-1"></div>
                 </div>
             </div>
         </div>
@@ -4187,60 +4330,38 @@
                 tooltipEl.setAttribute('aria-hidden', 'true');
             };
 
-            window.setSomooModalMainImage = function(file, title, charName, shortLabel) {
+            function formatFriendlyDesc(c) {
+                if (c.idx === 0) {
+                    return '손재주가 좋아 무엇이든 뚝딱 만들어내는 괴짜 발명가예요.\n늘 돋보기 안경을 쓰고 다녀요.';
+                }
+                var s = c.desc || '';
+                s = s.replace(/입니다\.\s*/g, '예요.\n').replace(/합니다\.$/g, '해요.').replace(/닙니다\.$/g, '녀요.').replace(/릅니다\.$/g, '른답니다.').replace(/듭니다\.$/g, '든답니다.').replace(/줍니다\.$/g, '준답니다.').replace(/있습니다\.$/g, '있어요.');
+                return s.trim();
+            }
+
+            window.setSomooModalMainImage = function(file, title, charName, shortLabel, isRepPortrait) {
                 var mainImg = document.getElementById('somooModalMainImg');
-                var mainLabel = document.getElementById('somooMainImgLabel');
-                var zoomBtn = document.getElementById('somooMainImgZoomBtn');
                 var wrap = document.getElementById('somooMainImgWrap');
-                var subHint = document.getElementById('somooMainImgSubHint');
+                var storyBlockCard = document.getElementById('somooModalStoryBlockCard');
                 var fullSrc = resolveAssetUrl(file);
                 var isMainBlueprint = (file.indexOf('somoo-blueprint/') !== -1 || file.indexOf('microduck-blueprint') !== -1);
                 var isJamoPartnerBot = (file.indexOf('somoo-jamo-robot/') !== -1);
                 if (mainImg) {
                     mainImg.src = fullSrc;
                     mainImg.alt = charName + ' — ' + title;
+                    mainImg.style.maxWidth = isRepPortrait ? '84%' : '96%';
                 }
-                if (mainLabel) {
-                    var badgeText = shortLabel || title;
-                    mainLabel.textContent = (isMainBlueprint ? '📐 ' : (isJamoPartnerBot ? '🤖 ' : '✨ ')) + badgeText;
-                    mainLabel.title = title;
-                    if (isMainBlueprint) {
-                        mainLabel.style.background = 'rgba(20, 184, 166, 0.22)';
-                        mainLabel.style.color = '#99f6e4';
-                        mainLabel.style.borderColor = 'rgba(45, 212, 191, 0.55)';
-                    } else if (isJamoPartnerBot) {
-                        mainLabel.style.background = 'rgba(139, 92, 246, 0.24)';
-                        mainLabel.style.color = '#ddd6fe';
-                        mainLabel.style.borderColor = 'rgba(167, 139, 250, 0.58)';
-                    } else {
-                        mainLabel.style.background = 'rgba(251, 191, 36, 0.2)';
-                        mainLabel.style.color = '#fde68a';
-                        mainLabel.style.borderColor = 'rgba(251, 191, 36, 0.45)';
-                    }
+                if (storyBlockCard) {
+                    storyBlockCard.style.display = isRepPortrait ? 'flex' : 'none';
                 }
                 if (wrap) {
-                    if (isMainBlueprint) {
-                        wrap.style.background = '#0b162c';
-                        wrap.style.borderColor = 'rgba(45, 212, 191, 0.58)';
-                    } else if (isJamoPartnerBot) {
-                        wrap.style.background = '#FDF3E8';
-                        wrap.style.borderColor = 'rgba(167, 139, 250, 0.58)';
-                    } else {
-                        wrap.style.background = '#ffffff';
-                        wrap.style.borderColor = 'rgba(251, 191, 36, 0.4)';
-                    }
-                }
-                if (subHint) {
-                    subHint.textContent = isMainBlueprint
-                        ? '📐 클릭하여 메인 마이크로덕 로봇 CAD 설계도 원본 확대'
-                        : (isJamoPartnerBot ? '🤖 클릭하여 한글 자모 파트너 이족보행 로봇 설계도 확대' : '🔍 클릭 시 고해상도 확대');
+                    wrap.style.background = isMainBlueprint ? '#0b162c' : '#FBF9F5';
                 }
                 var openZoom = function() {
                     if (typeof openStoryLightbox === 'function') {
                         openStoryLightbox(fullSrc, charName + ' — ' + title, false);
                     }
                 };
-                if (zoomBtn) zoomBtn.onclick = openZoom;
                 if (wrap) wrap.onclick = openZoom;
 
                 var thumbs = document.querySelectorAll('#somooModalThumbStrip .somoo-thumb-btn');
@@ -4273,12 +4394,13 @@
                 var storyBlockImg = document.getElementById('somooModalStoryBlockImg');
                 var storyBlockCap = document.getElementById('somooModalStoryBlockCaption');
                 var storyBlockCard = document.getElementById('somooModalStoryBlockCard');
-                var jamoShortLabel = '한글 28자 3D 원형 블록 (' + c.group + ' ' + c.jamo + ')';
+                var jamoShortLabel = c.jamo + ' 원형 블록';
                 if (storyBlockImg) storyBlockImg.src = jamoFullUrl;
-                if (storyBlockCap) storyBlockCap.textContent = '3D 원형 블록 ' + c.jamo;
+                if (storyBlockCap) storyBlockCap.textContent = c.jamo + ' 원형 블록';
                 if (storyBlockCard) {
-                    storyBlockCard.onclick = function() {
-                        setSomooModalMainImage(jamoFullUrl, '한글 28자 3D 원형 조형 블록 (' + c.group + ' ' + c.jamo + ')', c.jamo + ' ' + c.name + '(' + c.eng + ')', jamoShortLabel);
+                    storyBlockCard.onclick = function(e) {
+                        if (e && e.stopPropagation) e.stopPropagation();
+                        setSomooModalMainImage(jamoFullUrl, '한글 28자 3D 원형 조형 블록 (' + c.group + ' ' + c.jamo + ')', c.jamo + ' ' + c.name + '(' + c.eng + ')', jamoShortLabel, false);
                         if (typeof openStoryLightbox === 'function') {
                             openStoryLightbox(jamoFullUrl, c.jamo + ' ' + c.name + ' (' + c.eng + ') — 한글 28자 3D 원형 조형 블록 (' + c.group + ' ' + c.jamo + ')', false);
                         }
@@ -4286,51 +4408,58 @@
                 }
 
                 document.getElementById('somooModalJamoBadge').textContent = c.jamo;
-                document.getElementById('somooModalCategoryBadge').textContent = c.group + ' 캐릭터 ' + c.groupOrder;
-                document.getElementById('somooModalRoleBadge').textContent = c.role;
-                document.getElementById('somooModalPdfPages').textContent = 'PDF 원본 ' + c.pages;
-                document.getElementById('somooModalTitle').textContent = c.jamo + ' ' + c.name + ' (' + c.eng + ') — ' + c.role;
-                document.getElementById('somooModalEngName').textContent = c.eng + ' · 한글 ' + c.group + ' ' + c.jamo + ' (파트너 로봇: ' + jb.botName + ' ' + jb.botEng + ')';
-                document.getElementById('somooModalDescription').textContent = c.desc;
-                document.getElementById('somooModalSize').textContent = '키 ' + c.height + ' · 몸무게 ' + c.weight;
+                document.getElementById('somooModalCategoryBadge').textContent = c.group + ' ' + c.groupOrder.replace('/', ' / ');
+                document.getElementById('somooModalRoleBadge').textContent = c.role + ' · 한글 ' + c.group + ' ' + c.jamo;
+                document.getElementById('somooModalPdfPages').textContent = '원문 도감 ' + c.pages;
+                document.getElementById('somooModalTitle').textContent = c.name;
+                document.getElementById('somooModalEngName').textContent = c.eng;
+                document.getElementById('somooModalDescription').textContent = formatFriendlyDesc(c);
+                document.getElementById('somooModalSize').textContent = c.height.replace(/\s*cm/i, ' cm') + ' · ' + c.weight.replace(/\s*g/i, ' g');
                 document.getElementById('somooModalBirthday').textContent = c.birthday + ' · ' + c.zodiac;
                 document.getElementById('somooModalLikes').textContent = c.likes;
                 document.getElementById('somooModalDislikes').textContent = c.dislikes;
                 document.getElementById('somooModalModelName').textContent = c.model;
-                document.getElementById('somooModalModelSpec').textContent = c.dev;
+                document.getElementById('somooModalModelSpec').textContent = c.dev.replace(/ · (중국|미국|프랑스|한국|오픈소스|다국적) · /g, ' · ');
                 document.getElementById('somooModalModelTier').textContent = c.tier;
 
-                // 1) Main Somoo Character MicroDuck Robot Blueprint (고롱 ~ 예롱 — preserved in original #2 slot!)
+                // 1) Main Somoo Character MicroDuck Robot Blueprint (고롱 ~ 예롱)
                 var bpUrl = getCharacterBlueprintUrl(idx);
                 var bpTitle = '피지컬 AI 반려·교육용 로봇 — ‘' + c.jamo + ' ' + c.name + '(' + c.eng + ') · ' + c.role + '’ 마이크로덕(MicroDuck)형 14-DOF 이족보행 설계도';
-                var bpShortLabel = '피지컬 AI 메인 로봇 설계도 (‘' + c.jamo + ' ' + c.name + '’ · 14-DOF)';
+                var bpShortLabel = '메인 로봇 ' + c.name + ' (MicroDuck형)';
+                var mainRobotTitleEl = document.getElementById('somooModalMainRobotTitle');
+                var mainRobotSubEl = document.getElementById('somooModalMainRobotSub');
+                if (mainRobotTitleEl) mainRobotTitleEl.textContent = '메인 로봇 ' + c.name;
+                if (mainRobotSubEl) mainRobotSubEl.textContent = 'MicroDuck형';
                 var modalBpBtn = document.getElementById('somooModalBlueprintBtn');
                 if (modalBpBtn) {
-                    modalBpBtn.innerHTML = '📐 ‘' + c.jamo + ' ' + c.name + '’ 메인 로봇 설계도 보기';
                     modalBpBtn.onclick = function() {
-                        setSomooModalMainImage(bpUrl, bpTitle, c.jamo + ' ' + c.name + '(' + c.eng + ')', bpShortLabel);
+                        setSomooModalMainImage(bpUrl, bpTitle, c.jamo + ' ' + c.name + '(' + c.eng + ')', bpShortLabel, false);
                         if (typeof openStoryLightbox === 'function') {
                             openStoryLightbox(bpUrl, bpTitle, false);
                         }
                     };
                 }
 
-                // 2) Hangul Jamo Bipedal Partner Robot (가봇 ~ 예봇 — added right next to main robot!)
+                // 2) Hangul Jamo Bipedal Partner Robot (가봇 ~ 예봇)
                 var jrUrl = getJamoPartnerRobotUrl(idx);
                 var jrTitle = '한글 자모 파트너 이족보행 로봇 — ‘' + c.jamo + ' ' + jb.botName + '(' + jb.botEng + ')’ (‘' + c.jamo + ' ' + c.name + '’ 도우미 파트너 · ' + c.role + '형 이족보행 로봇)';
-                var jrShortLabel = '자모 파트너 로봇 (‘' + c.jamo + ' ' + jb.botName + ' ' + jb.botEng + '’)';
+                var jrShortLabel = '파트너 로봇 ' + jb.botName + ' (' + jb.botEng + ' · 독립 이족보행)';
+                var partnerRobotTitleEl = document.getElementById('somooModalPartnerRobotTitle');
+                var partnerRobotSubEl = document.getElementById('somooModalPartnerRobotSub');
+                if (partnerRobotTitleEl) partnerRobotTitleEl.textContent = '파트너 로봇 ' + jb.botName;
+                if (partnerRobotSubEl) partnerRobotSubEl.textContent = jb.botEng + ' · 독립 이족보행';
                 var modalJrBtn = document.getElementById('somooModalJamoBotBtn');
                 if (modalJrBtn) {
-                    modalJrBtn.innerHTML = '🤖 ‘' + c.jamo + ' ' + jb.botName + '’ 자모 파트너 로봇 보기';
                     modalJrBtn.onclick = function() {
-                        setSomooModalMainImage(jrUrl, jrTitle, c.jamo + ' ' + c.name + '(' + c.eng + ')', jrShortLabel);
+                        setSomooModalMainImage(jrUrl, jrTitle, c.jamo + ' ' + c.name + '(' + c.eng + ')', jrShortLabel, false);
                         if (typeof openStoryLightbox === 'function') {
                             openStoryLightbox(jrUrl, jrTitle, false);
                         }
                     };
                 }
 
-                // Combine PDF images + Main Character Robot Blueprint (#2) + Jamo Partner Robot (#3) + Local 3D Hangul Jamo Block
+                // Build clean 6-thumbnail strip matching Image 1:
+                // [0] Representative 3D Portrait, [1] Original Settings Sheet, [2] 3D Jamo Block, [3..] Turnaround & Story World Scene
                 var baseImages = c.images.filter(function(item) {
                     return item.file.indexOf('story-somoo-golong-microduck-blueprint') === -1 &&
                            item.file.indexOf('somoo-blueprint/') === -1 &&
@@ -4341,28 +4470,35 @@
                     allImages.push({
                         file: baseImages[0].file,
                         title: baseImages[0].title,
-                        shortLabel: baseImages[0].title
+                        shortLabel: baseImages[0].title,
+                        isRep: true
                     });
                 }
-                // #2: Main Somoo Character MicroDuck Robot Blueprint (고롱 ~ 예롱)
+                if (baseImages.length > 1) {
+                    var lastIdx = baseImages.length - 1;
+                    allImages.push({
+                        file: baseImages[lastIdx].file,
+                        title: baseImages[lastIdx].title,
+                        shortLabel: baseImages[lastIdx].title,
+                        isRep: false
+                    });
+                }
                 allImages.push({
-                    file: bpUrl,
-                    title: bpTitle,
-                    shortLabel: bpShortLabel,
-                    thumbTag: '메인 로봇',
-                    thumbTagBg: '#0d9488',
-                    thumbTagColor: '#ffffff'
+                    file: jamoFullUrl,
+                    title: '한글 28자 3D 원형 조형 블록 (' + c.group + ' ' + c.jamo + ')',
+                    shortLabel: jamoShortLabel,
+                    isRep: false
                 });
-                // #3: Hangul Jamo Bipedal Partner Robot (가봇 ~ 예봇)
-                allImages.push({
-                    file: jrUrl,
-                    title: jrTitle,
-                    shortLabel: jrShortLabel,
-                    thumbTag: jb.botName,
-                    thumbTagBg: '#6f3cab',
-                    thumbTagColor: '#ffffff'
-                });
-                // Special Edition for idx === 4 (ㅁ 마봇): '모두의 창업' 스페셜 로봇 턴어라운드·포즈·웃는 모니터 표정 상세 도감
+                for (var bi = 1; bi < baseImages.length - 1; bi++) {
+                    if (allImages.length < 6) {
+                        allImages.push({
+                            file: baseImages[bi].file,
+                            title: baseImages[bi].title,
+                            shortLabel: baseImages[bi].title,
+                            isRep: false
+                        });
+                    }
+                }
                 var moduSheetUrl = 'assets/images/somoo-jamo-robot/modu_startup_robot_sheet.jpg?v=20261107_modu_v3';
                 var moduSheetTitle = '‘모두의 창업’ 스페셜 로봇 상세 도감 — 90° 정밀 옆모습 · 다양한 액션 포즈 · CRT 모니터 웃는 표정 & MicroDuck 절반 해부도';
                 var moduSheetShort = '모두의 창업 로봇 상세 도감 (옆모습 · 포즈 · 웃는 모니터 표정)';
@@ -4371,27 +4507,9 @@
                         file: moduSheetUrl,
                         title: moduSheetTitle,
                         shortLabel: moduSheetShort,
-                        thumbTag: '모두의 창업',
-                        thumbTagBg: '#1979f4',
-                        thumbTagColor: '#ffffff'
+                        isRep: false
                     });
                 }
-                for (var bi = 1; bi < baseImages.length; bi++) {
-                    allImages.push({
-                        file: baseImages[bi].file,
-                        title: baseImages[bi].title,
-                        shortLabel: baseImages[bi].title
-                    });
-                }
-                allImages.push({
-                    file: jamoFullUrl,
-                    title: '한글 28자 3D 원형 조형 블록 (' + c.group + ' ' + c.jamo + ' · 로컬 원본)',
-                    shortLabel: jamoShortLabel,
-                    thumbTag: '3D 블록',
-                    thumbTagBg: '#fbbf24',
-                    thumbTagColor: '#0f172a'
-                });
-                document.getElementById('somooModalGalleryCount').textContent = 'PDF 원본 ' + baseImages.length + '장 + 메인 로봇 설계도 1장 + 자모 파트너 로봇 ' + (idx === 4 ? '2장(모두의 창업 포함)' : '1장') + ' + 3D 한글 블록 1장';
 
                 // Populate Thumbnails
                 var thumbStrip = document.getElementById('somooModalThumbStrip');
@@ -4403,63 +4521,19 @@
                     btn.setAttribute('data-file', imgObj.file);
                     btn.title = imgObj.title;
                     var srcUrl = resolveAssetUrl(imgObj.file);
-                    var isMainBp = (imgObj.file.indexOf('somoo-blueprint/') !== -1 || imgObj.file.indexOf('microduck-blueprint') !== -1);
-                    var isJrBot = (imgObj.file.indexOf('somoo-jamo-robot/') !== -1);
-                    var thumbBg = isMainBp ? '#0b162c' : (isJrBot ? '#FDF3E8' : '#fff');
-                    var tagHtml = imgObj.thumbTag
-                        ? '<span class="somoo-thumb-tag" style="background:' + imgObj.thumbTagBg + ';color:' + imgObj.thumbTagColor + ';">' + imgObj.thumbTag + '</span>'
-                        : '';
-                    btn.innerHTML = '<img src="' + srcUrl + '" alt="' + imgObj.title + '" style="width:100%;height:100%;object-fit:contain;background:' + thumbBg + ';display:block;">' + tagHtml;
+                    btn.innerHTML = '<img src="' + srcUrl + '" alt="' + imgObj.title + '" style="width:100%;height:100%;object-fit:contain;background:#fff;border-radius:8px;display:block;">';
                     btn.onclick = function() {
-                        setSomooModalMainImage(imgObj.file, imgObj.title, c.jamo + ' ' + c.name + '(' + c.eng + ')', imgObj.shortLabel);
+                        setSomooModalMainImage(imgObj.file, imgObj.title, c.jamo + ' ' + c.name + '(' + c.eng + ')', imgObj.shortLabel, !!imgObj.isRep);
                     };
                     thumbStrip.appendChild(btn);
                 });
 
-                // Set initial main image (or '모두의 창업' robot sheet when focusMode === 'modu_startup')
+                // Set initial main image
                 if (focusMode === 'modu_startup' && idx === 4) {
-                    setSomooModalMainImage(moduSheetUrl, moduSheetTitle, 'ㅁ 마봇 (모두의 창업 스페셜 에디션)', moduSheetShort);
+                    setSomooModalMainImage(moduSheetUrl, moduSheetTitle, 'ㅁ 마봇 (모두의 창업 스페셜 에디션)', moduSheetShort, false);
                 } else if (allImages.length > 0) {
-                    setSomooModalMainImage(allImages[0].file, allImages[0].title, c.jamo + ' ' + c.name + '(' + c.eng + ')', allImages[0].shortLabel);
+                    setSomooModalMainImage(allImages[0].file, allImages[0].title, c.jamo + ' ' + c.name + '(' + c.eng + ')', allImages[0].shortLabel, true);
                 }
-
-                // Populate Full PDF Artwork + 3D Hangul Block Gallery Grid
-                var galleryGrid = document.getElementById('somooModalGalleryGrid');
-                galleryGrid.innerHTML = '';
-                var colClass = allImages.length >= 4 ? 'col-md-6' : 'col-md-4';
-                allImages.forEach(function(imgObj, i) {
-                    var col = document.createElement('div');
-                    col.className = colClass;
-                    var fullUrl = resolveAssetUrl(imgObj.file);
-                    var captionText = c.jamo + ' ' + c.name + ' (' + c.eng + ') — ' + imgObj.title;
-                    var isMainBpCard = (imgObj.file.indexOf('somoo-blueprint/') !== -1 || imgObj.file.indexOf('microduck-blueprint') !== -1);
-                    var isJrCard = (imgObj.file.indexOf('somoo-jamo-robot/') !== -1);
-                    var cardBg = isMainBpCard ? '#0b162c' : (isJrCard ? '#FDF3E8' : '#ffffff');
-                    col.innerHTML =
-                        '<div class="somoo-gallery-card h-100 d-flex flex-column justify-content-between p-2">' +
-                            '<div style="background:' + cardBg + ';border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center;min-height:220px;">' +
-                                '<img src="' + fullUrl + '" alt="' + captionText + '" loading="lazy" style="width:100%;height:auto;max-height:360px;object-fit:contain;display:block;">' +
-                            '</div>' +
-                            '<div class="d-flex align-items-center justify-content-between gap-2 px-2 pt-2 pb-1">' +
-                                '<span style="font-size:12.5px;font-weight:800;color:#0f172a;">' + (i + 1) + '. ' + imgObj.title + '</span>' +
-                                '<span class="badge rounded-pill" style="flex-shrink:0;background:#0f172a;color:#fde68a;font-size:10.5px;">클릭 확대</span>' +
-                            '</div>' +
-                        '</div>';
-                    col.querySelector('.somoo-gallery-card').onclick = function() {
-                        setSomooModalMainImage(imgObj.file, imgObj.title, c.jamo + ' ' + c.name + '(' + c.eng + ')', imgObj.shortLabel);
-                        if (typeof openStoryLightbox === 'function') {
-                            openStoryLightbox(fullUrl, captionText, false);
-                        }
-                    };
-                    galleryGrid.appendChild(col);
-                });
-
-                // Update active pill in modal jumper
-                var pills = document.querySelectorAll('#somooModalQuickJumper .somoo-quick-pill');
-                pills.forEach(function(p, pIdx) {
-                    if (pIdx === idx) p.classList.add('active');
-                    else p.classList.remove('active');
-                });
 
                 modalEl.classList.add('open');
                 document.body.style.overflow = 'hidden';
