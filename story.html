@@ -3385,6 +3385,11 @@
             padding: 13px 22px;
         }
         .somoo-ed-robot-btn {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            justify-content: center !important;
+            width: 100%;
             background: transparent;
             border: none;
             text-align: left;
@@ -3526,14 +3531,8 @@
             </div>
             <span id="somooTipGroup" class="badge rounded-pill" style="font-size: 10.5px; background: #E6DDF5; color: #4A3570; font-weight: 800;">자음 01/14</span>
         </div>
-        <div style="display: grid; grid-template-columns: 1fr 90px; gap: 8px; height: 195px;">
-            <div style="background: #ffffff; border-radius: 12px; overflow: hidden; display: flex; align-items: center; justify-content: center; border: 1px solid #E2DCEB; position: relative;">
-                <img id="somooTipImg" src="assets/images/somoo/Im4.jpg" alt="대표 캐릭터 이미지" style="max-width: 100%; max-height: 190px; width: auto; height: auto; object-fit: contain; display: block;">
-            </div>
-            <div style="background: #F4F0FA; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 8px 6px; border: 1px solid #DFD7EC;">
-                <img id="somooTipBlockLarge" src="assets/images/hangul28/jamo_sq_01.jpg" alt="한글 3D 자모 블록" style="width: 72px; height: 72px; object-fit: contain; display: block;">
-                <span id="somooTipBlockLabel" style="font-size: 11px; font-weight: 800; color: #231F20; background: #EAE4D9; padding: 2px 8px; border-radius: 6px; margin-top: 6px;">ㄱ 원형 블록</span>
-            </div>
+        <div style="height: 210px; background: #ffffff; border-radius: 12px; overflow: hidden; display: flex; align-items: center; justify-content: center; border: 1px solid #E2DCEB; position: relative;">
+            <img id="somooTipImg" src="assets/images/somoo/rep_01.jpg?v=20261118_v2" alt="대표 캐릭터 이미지" style="max-width: 100%; max-height: 204px; width: auto; height: auto; object-fit: contain; display: block;">
         </div>
         <div class="mt-2 pt-1">
             <div class="d-flex align-items-center justify-content-between gap-1 mb-1">
@@ -3587,14 +3586,8 @@
                     <div class="somoo-ed-main-grid">
                         <!-- Left Column: Character Portrait + Pedestal 3D Jamo Block + Original PDF Thumbnail Strip -->
                         <div class="somoo-ed-left-col">
-                            <div id="somooMainImgWrap" style="position: relative; background: #FBF9F5; border-radius: 16px; height: 400px; display: flex; align-items: center; justify-content: center; overflow: hidden; cursor: zoom-in;">
-                                <img id="somooModalMainImg" src="assets/images/somoo/Im4.jpg" alt="한글 소모오 대표 캐릭터" style="max-width: 86%; max-height: 390px; width: auto; height: auto; object-fit: contain; display: block; transition: transform 0.2s ease;">
-
-                                <!-- Floating Pedestal 3D Hangul Block (Bottom-Right of Stage, just like Image 1) -->
-                                <div id="somooModalStoryBlockCard" onclick="event.stopPropagation();" style="position: absolute; right: 6px; bottom: 8px; display: flex; flex-direction: column; align-items: center; cursor: zoom-in; z-index: 3;" title="클릭하여 한글 28자 3D 원형 블록 확대">
-                                    <img id="somooModalStoryBlockImg" src="assets/images/hangul28/jamo_01.jpg" alt="한글 28자 3D 원형 블록" style="width: 105px; height: 105px; object-fit: contain; display: block; filter: drop-shadow(0 8px 14px rgba(30, 20, 50, 0.15));">
-                                    <span id="somooModalStoryBlockCaption" style="background: linear-gradient(180deg, #F4F1EA 0%, #E5DFD5 100%); border: 1px solid #D2C9BC; border-radius: 8px; padding: 4px 14px; font-size: 13px; font-weight: 800; color: #1E1B24; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); margin-top: -6px; white-space: nowrap;">ㄱ 원형 블록</span>
-                                </div>
+                            <div id="somooMainImgWrap" style="position: relative; background: #FFFFFF; border: 1px solid #E5DFEE; border-radius: 18px; height: 410px; display: flex; align-items: center; justify-content: center; overflow: hidden; cursor: zoom-in; box-shadow: 0 8px 24px rgba(30, 20, 50, 0.05);">
+                                <img id="somooModalMainImg" src="assets/images/somoo/rep_01.jpg?v=20261118_v2" alt="한글 소모오 대표 캐릭터" style="max-width: 96%; max-height: 400px; width: auto; height: auto; object-fit: contain; display: block; transition: transform 0.2s ease;">
                             </div>
 
                             <!-- Bottom Thumbnail Strip: 원문 도감 p.3–8 -->
@@ -3726,9 +3719,9 @@
                     likes: '태엽, 설계도', dislikes: '녹슨 나사',
                     desc: '손재주가 좋아 무엇이든 뚝딱 만들어내는 괴짜 발명가입니다. 돋보기 안경을 쓰고 다닙니다.',
                     model: 'Kimi-K3.1-Pro', dev: 'Moonshot AI · 중국 · 2.78T MoE · MXFP4', tier: 'Tier D · 1,561 GB',
-                    pages: 'p.3–8', repImg: 'Im4.jpg',
+                    pages: 'p.3–8', repImg: 'rep_01.jpg?v=20261118_v2',
                     images: [
-                        { file: 'Im4.jpg', title: '대표 3D 캐릭터 포트레이트 (고롱)' },
+                        { file: 'rep_01.jpg?v=20261118_v2', title: '대표 3D 캐릭터 포트레이트 (고롱)' },
                         { file: 'assets/images/story/story-somoo-golong-microduck-blueprint.jpg?v=20261107_v3', title: '피지컬 AI 반려·교육용 로봇 — ‘ㄱ 고롱’ 마이크로덕(MicroDuck)형 이족보행 샘플 설계도' },
                         { file: 'Im5.jpg', title: '4방향 3D 턴어라운드 시트 A (Front · Back · Right · Left)' },
                         { file: 'Im6.jpg', title: '4방향 3D 턴어라운드 시트 B (디테일 뷰)' },
@@ -3744,9 +3737,9 @@
                     likes: '마이크, 꿀차', dislikes: '삑사리(음정이탈)',
                     desc: '아름다운 목소리로 숲속의 아침을 깨우는 아이돌 가수입니다. 노래를 부르면 꽃이 핍니다.',
                     model: 'gemma-4-12B-it QAT w4a16', dev: 'Google · 미국 · 12B · INT4', tier: 'Tier A · 10.3 GB',
-                    pages: 'p.9–12', repImg: 'Im10.jpg',
+                    pages: 'p.9–12', repImg: 'rep_02.jpg?v=20261118_v2',
                     images: [
-                        { file: 'Im10.jpg', title: '대표 3D 캐릭터 포트레이트 (노롱)' },
+                        { file: 'rep_02.jpg?v=20261118_v2', title: '대표 3D 캐릭터 포트레이트 (노롱)' },
                         { file: 'Im11.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
                         { file: 'Im12.jpg', title: '3D 스토리 월드 씬 — 숲속 아침을 깨우는 콘서트' },
                         { file: 'Im13.jpg', title: '원작 캐릭터 통합 설정 도감 시트 (노롱)' }
@@ -3759,9 +3752,9 @@
                     likes: '칭찬 스티커, 구급상자', dislikes: '친구의 눈물',
                     desc: '누군가 곤경에 처하면 가장 먼저 달려가는 친절한 해결사입니다. 늘 구급상자를 메고 다닙니다.',
                     model: 'gemma-4-E4B-it QAT w4a16', dev: 'Google · 미국 · E4B · INT4', tier: 'Tier A · 11.5 GB',
-                    pages: 'p.13–16', repImg: 'Im14.jpg',
+                    pages: 'p.13–16', repImg: 'rep_03.jpg?v=20261118_v2',
                     images: [
-                        { file: 'Im14.jpg', title: '대표 3D 캐릭터 포트레이트 (도롱)' },
+                        { file: 'rep_03.jpg?v=20261118_v2', title: '대표 3D 캐릭터 포트레이트 (도롱)' },
                         { file: 'Im15.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
                         { file: 'Im16.jpg', title: '3D 스토리 월드 씬 — 구급상자를 메고 달려가는 해결사' },
                         { file: 'Im17.jpg', title: '원작 캐릭터 통합 설정 도감 시트 (도롱)' }
@@ -3774,9 +3767,9 @@
                     likes: '달콤한 솜사탕, 구름빵', dislikes: '탄 음식',
                     desc: '폭신한 구름과 달콤한 이슬로 세상에서 가장 맛있는 디저트를 만드는 행복 요리사입니다.',
                     model: 'A.X-4.0-Light', dev: 'SK Telecom · 대한민국 · 7B · BF16', tier: 'Tier A · 14.5 GB',
-                    pages: 'p.17–20', repImg: 'Im18.jpg',
+                    pages: 'p.17–20', repImg: 'rep_04.jpg?v=20261118_v2',
                     images: [
-                        { file: 'Im18.jpg', title: '대표 3D 캐릭터 포트레이트 (로롱)' },
+                        { file: 'rep_04.jpg?v=20261118_v2', title: '대표 3D 캐릭터 포트레이트 (로롱)' },
                         { file: 'Im19.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
                         { file: 'Im20.jpg', title: '3D 스토리 월드 씬 — 구름빵과 달콤한 디저트 베이커리' },
                         { file: 'Im21.jpg', title: '원작 캐릭터 통합 설정 도감 시트 (로롱)' }
@@ -3789,9 +3782,9 @@
                     likes: '찰흙, 나무 블록', dislikes: '망가진 장난감',
                     desc: '네모난 상자나 블록을 쌓아 멋진 집과 가구를 만드는 건축가이자 공예가입니다.',
                     model: 'Qwen3.5-4B', dev: 'Alibaba Qwen · 중국 · 4B · BF16', tier: 'Tier A · 9.3 GB',
-                    pages: 'p.21–24', repImg: 'Im22.jpg',
+                    pages: 'p.21–24', repImg: 'rep_05.jpg?v=20261118_v2',
                     images: [
-                        { file: 'Im22.jpg', title: '대표 3D 캐릭터 포트레이트 (모롱)' },
+                        { file: 'rep_05.jpg?v=20261118_v2', title: '대표 3D 캐릭터 포트레이트 (모롱)' },
                         { file: 'Im23.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
                         { file: 'Im24.jpg', title: '3D 스토리 월드 씬 — 나무 블록과 찰흙 공예 작업실' },
                         { file: 'Im25.jpg', title: '원작 캐릭터 통합 설정 도감 시트 (모롱)' }
@@ -3804,9 +3797,9 @@
                     likes: '망원경, 별똥별', dislikes: '흐린 날, 먹구름',
                     desc: '밤하늘의 별을 관찰하며 내일의 날씨와 운세를 점치는 신비로운 꼬마 천문학자입니다.',
                     model: 'HyperCLOVAX-SEED-Think-14B GPTQ', dev: 'Naver · 대한민국 · 14B · INT4 · 양자화 K-Compression', tier: 'Tier A · 9.7 GB',
-                    pages: 'p.25–28', repImg: 'Im26.jpg',
+                    pages: 'p.25–28', repImg: 'rep_06.jpg?v=20261118_v2',
                     images: [
-                        { file: 'Im26.jpg', title: '대표 3D 캐릭터 포트레이트 (보롱)' },
+                        { file: 'rep_06.jpg?v=20261118_v2', title: '대표 3D 캐릭터 포트레이트 (보롱)' },
                         { file: 'Im27.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
                         { file: 'Im28.jpg', title: '3D 스토리 월드 씬 — 밤하늘 별자리 관측 천문대' },
                         { file: 'Im29.jpg', title: '원작 캐릭터 통합 설정 도감 시트 (보롱)' }
@@ -3819,9 +3812,9 @@
                     likes: '낙엽 책갈피, 산들바람', dislikes: '시끄러운 소음',
                     desc: '바람 소리와 나뭇잎의 속삭임을 아름다운 시로 적어 내려가는 감성 풍부한 낭만 시인입니다.',
                     model: 'Ministral-3-14B-Instruct', dev: 'Mistral AI · 프랑스 · 14B · BF16', tier: 'Tier A · 31.5 GB',
-                    pages: 'p.29–32', repImg: 'Im30.jpg',
+                    pages: 'p.29–32', repImg: 'rep_07.jpg?v=20261118_v2',
                     images: [
-                        { file: 'Im30.jpg', title: '대표 3D 캐릭터 포트레이트 (소롱)' },
+                        { file: 'rep_07.jpg?v=20261118_v2', title: '대표 3D 캐릭터 포트레이트 (소롱)' },
                         { file: 'Im31.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
                         { file: 'Im32.jpg', title: '3D 스토리 월드 씬 — 산들바람과 낙엽 속 낭만 시 창작' },
                         { file: 'Im33.jpg', title: '원작 캐릭터 통합 설정 도감 시트 (소롱)' }
@@ -3834,9 +3827,9 @@
                     likes: '간지럼 태우기, 유머 책', dislikes: '지루하고 딱딱한 분위기',
                     desc: '동그란 얼굴만큼이나 성격도 둥글둥글합니다. 엉뚱한 몸개그로 친구들을 웃게 만드는 분위기 메이커입니다.',
                     model: 'Ministral-3-8B-Instruct', dev: 'Mistral AI · 프랑스 · 8B · BF16', tier: 'Tier A · 20.9 GB',
-                    pages: 'p.33–36', repImg: 'Im34.jpg',
+                    pages: 'p.33–36', repImg: 'rep_08.jpg?v=20261118_v2',
                     images: [
-                        { file: 'Im34.jpg', title: '대표 3D 캐릭터 포트레이트 (오롱)' },
+                        { file: 'rep_08.jpg?v=20261118_v2', title: '대표 3D 캐릭터 포트레이트 (오롱)' },
                         { file: 'Im35.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
                         { file: 'Im36.jpg', title: '3D 스토리 월드 씬 — 웃음꽃 피어나는 개그 스테이지' },
                         { file: 'Im37.jpg', title: '원작 캐릭터 통합 설정 도감 시트 (오롱)' }
@@ -3849,9 +3842,9 @@
                     likes: '푹신한 베개, 낮잠', dislikes: '자명종 소리',
                     desc: '언제 어디서나 꾸벅꾸벅 졸지만, 꿈속에서 기상천외한 모험을 하며 아이디어를 얻는 상상가입니다.',
                     model: 'kanana-1.5-8b-instruct', dev: 'Kakao · 대한민국 · 8B · BF16', tier: 'Tier A · 16.1 GB',
-                    pages: 'p.37–40', repImg: 'Im38.jpg',
+                    pages: 'p.37–40', repImg: 'rep_09.jpg?v=20261118_v2',
                     images: [
-                        { file: 'Im38.jpg', title: '대표 3D 캐릭터 포트레이트 (조롱)' },
+                        { file: 'rep_09.jpg?v=20261118_v2', title: '대표 3D 캐릭터 포트레이트 (조롱)' },
                         { file: 'Im39.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
                         { file: 'Im40.jpg', title: '3D 스토리 월드 씬 — 구름 침대 위 기상천외한 꿈나라 모험' },
                         { file: 'Im41.jpg', title: '원작 캐릭터 통합 설정 도감 시트 (조롱)' }
@@ -3864,9 +3857,9 @@
                     likes: '신나는 리듬, 반짝이 신발', dislikes: '가만히 앉아있기',
                     desc: '초롱초롱한 눈망울을 빛내며 춤을 추는 댄싱머신입니다. 노롱이의 노래에 맞춰 춤추는 것을 가장 좋아합니다.',
                     model: 'gemma-4-26B-A4B-it AWQ 4bit', dev: 'Google · 미국 · 26B MoE · INT4 · 양자화 cyankiwi', tier: 'Tier B · 17.2 GB',
-                    pages: 'p.41–44', repImg: 'Im42.jpg',
+                    pages: 'p.41–44', repImg: 'rep_10.jpg?v=20261118_v2',
                     images: [
-                        { file: 'Im42.jpg', title: '대표 3D 캐릭터 포트레이트 (초롱)' },
+                        { file: 'rep_10.jpg?v=20261118_v2', title: '대표 3D 캐릭터 포트레이트 (초롱)' },
                         { file: 'Im43.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
                         { file: 'Im44.jpg', title: '3D 스토리 월드 씬 — 반짝이 신발과 화려한 댄스 스테이지' },
                         { file: 'Im45.jpg', title: '원작 캐릭터 통합 설정 도감 시트 (초롱)' }
@@ -3879,9 +3872,9 @@
                     likes: '높은 나무 위, 쌍안경', dislikes: '낮은 천장',
                     desc: '소모오 친구들 중 키가 가장 큽니다. 높은 곳에서 망을 보며 마을의 안전을 지키는 든든한 파수꾼입니다.',
                     model: 'Qwen3.8-27B AWQ INT4', dev: 'Alibaba Qwen · 중국 · 27B · INT4 · 양자화 cyankiwi', tier: 'Tier B · 21.0 GB',
-                    pages: 'p.45–48', repImg: 'Im46.jpg',
+                    pages: 'p.45–48', repImg: 'rep_11.jpg?v=20261118_v2',
                     images: [
-                        { file: 'Im46.jpg', title: '대표 3D 캐릭터 포트레이트 (코롱)' },
+                        { file: 'rep_11.jpg?v=20261118_v2', title: '대표 3D 캐릭터 포트레이트 (코롱)' },
                         { file: 'Im47.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
                         { file: 'Im48.jpg', title: '3D 스토리 월드 씬 — 높은 나무 위에서 마을을 지키는 파수꾼' },
                         { file: 'Im49.jpg', title: '원작 캐릭터 통합 설정 도감 시트 (코롱)' }
@@ -3894,9 +3887,9 @@
                     likes: '토론하기, 백과사전', dislikes: '억지 부리기',
                     desc: '궁금한 것이 많아 질문도 많고 말도 잘하는 똑똑한 친구입니다. 친구들 사이의 다툼을 논리적으로 중재합니다.',
                     model: 'kanana-2-30b-a3b AWQ w4a16', dev: 'Kakao · 대한민국 · 30B MoE · INT4 · 양자화 NotoriousH2', tier: 'Tier B · 16.6 GB',
-                    pages: 'p.49–52', repImg: 'Im50.jpg',
+                    pages: 'p.49–52', repImg: 'rep_12.jpg?v=20261118_v2',
                     images: [
-                        { file: 'Im50.jpg', title: '대표 3D 캐릭터 포트레이트 (토롱)' },
+                        { file: 'rep_12.jpg?v=20261118_v2', title: '대표 3D 캐릭터 포트레이트 (토롱)' },
                         { file: 'Im51.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
                         { file: 'Im52.jpg', title: '3D 스토리 월드 씬 — 지혜와 논리로 중재하는 토론 광장' },
                         { file: 'Im53.jpg', title: '원작 캐릭터 통합 설정 도감 시트 (토롱)' }
@@ -3909,9 +3902,9 @@
                     likes: '돋보기, 수수께끼', dislikes: '미제 사건, 거짓말',
                     desc: '마을에서 잃어버린 물건이 생기면 작은 단서도 놓치지 않고 찾아내는 명탐정입니다.',
                     model: 'gemma-4-31B-it QAT w4a16', dev: 'Google · 미국 · 31B · INT4', tier: 'Tier B · 23.3 GB',
-                    pages: 'p.53–56', repImg: 'Im54.jpg',
+                    pages: 'p.53–56', repImg: 'rep_13.jpg?v=20261118_v2',
                     images: [
-                        { file: 'Im54.jpg', title: '대표 3D 캐릭터 포트레이트 (포롱)' },
+                        { file: 'rep_13.jpg?v=20261118_v2', title: '대표 3D 캐릭터 포트레이트 (포롱)' },
                         { file: 'Im55.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
                         { file: 'Im56.jpg', title: '3D 스토리 월드 씬 — 돋보기로 단서를 추적하는 명탐정' },
                         { file: 'Im57.jpg', title: '원작 캐릭터 통합 설정 도감 시트 (포롱)' }
@@ -3924,9 +3917,9 @@
                     likes: '무거운 것 들기, 운동', dislikes: '약한 친구 괴롭히기',
                     desc: '작은 체구지만 자기 몸보다 몇 배나 큰 도토리나 나뭇가지를 번쩍 들어 올리는 힘센 수호자입니다.',
                     model: 'Qwen3.8-27B FP8', dev: 'Alibaba Qwen · 중국 · 27B · FP8', tier: 'Tier C · 30.9 GB',
-                    pages: 'p.57–61', repImg: 'Im58.jpg',
+                    pages: 'p.57–61', repImg: 'rep_14.jpg?v=20261118_v2',
                     images: [
-                        { file: 'Im58.jpg', title: '대표 3D 캐릭터 포트레이트 (호롱)' },
+                        { file: 'rep_14.jpg?v=20261118_v2', title: '대표 3D 캐릭터 포트레이트 (호롱)' },
                         { file: 'Im59.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
                         { file: 'Im60.jpg', title: '3D 스토리 월드 씬 — 거대한 바위를 번쩍 들어 올리는 천하장사' },
                         { file: 'Im61.jpg', title: '원작 캐릭터 컨셉 시트 A' },
@@ -3942,9 +3935,9 @@
                     likes: '무지개 물감, 캔버스', dislikes: '굳어버린 붓',
                     desc: '세상의 모든 아름다운 색을 모아 그림을 그리는 화가입니다. 아롱이가 그린 그림은 가끔 살아 움직입니다.',
                     model: 'Qwen3.6-35B-A3B FP8', dev: 'Alibaba Qwen · 중국 · 35B MoE · FP8', tier: 'Tier C · 37.5 GB',
-                    pages: 'p.63–65', repImg: 'Im64.jpg',
+                    pages: 'p.63–65', repImg: 'rep_15.jpg?v=20261118_v2',
                     images: [
-                        { file: 'Im64.jpg', title: '대표 3D 캐릭터 포트레이트 (아롱)' },
+                        { file: 'rep_15.jpg?v=20261118_v2', title: '대표 3D 캐릭터 포트레이트 (아롱)' },
                         { file: 'Im65.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
                         { file: 'Im66.jpg', title: '3D 스토리 월드 씬 A — 무지개 물감 숲속 아틀리에' },
                         { file: 'Im67.jpg', title: '3D 스토리 월드 씬 B — 살아 움직이는 캔버스 그림' }
@@ -3957,9 +3950,9 @@
                     likes: '빠른 바람, 편지 가방', dislikes: '길 잃어버리기',
                     desc: '소모오 마을에서 발이 가장 빠릅니다. 친구들의 소식과 편지를 빛의 속도로 배달합니다.',
                     model: 'gemma-4-26B-A4B-it FP8-dynamic', dev: 'Google · 미국 · 26B MoE · FP8 · 양자화 Red Hat AI', tier: 'Tier C · 28.7 GB',
-                    pages: 'p.66–68', repImg: 'Im68.jpg',
+                    pages: 'p.66–68', repImg: 'rep_16.jpg?v=20261118_v2',
                     images: [
-                        { file: 'Im68.jpg', title: '대표 3D 캐릭터 포트레이트 (야롱)' },
+                        { file: 'rep_16.jpg?v=20261118_v2', title: '대표 3D 캐릭터 포트레이트 (야롱)' },
                         { file: 'Im69.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
                         { file: 'Im70.jpg', title: '3D 스토리 월드 씬 A — 빛의 속도로 달리는 숲속 우체부' },
                         { file: 'Im71.jpg', title: '3D 스토리 월드 씬 B — 편지 가방과 바람의 질주' },
@@ -3973,9 +3966,9 @@
                     likes: '물뿌리개, 따뜻한 햇살', dislikes: '해충, 시든 꽃',
                     desc: '식물의 마음을 읽고 대화할 수 있는 정원사입니다. 시든 꽃도 어롱이가 만지면 활짝 피어납니다.',
                     model: 'HyperCLOVAX-SEED-Think-14B', dev: 'Naver · 대한민국 · 14B · BF16', tier: 'Tier C · 59.0 GB',
-                    pages: 'p.68–69', repImg: 'Im73.jpg',
+                    pages: 'p.68–69', repImg: 'rep_17.jpg?v=20261118_v2',
                     images: [
-                        { file: 'Im73.jpg', title: '대표 3D 캐릭터 포트레이트 (어롱)' },
+                        { file: 'rep_17.jpg?v=20261118_v2', title: '대표 3D 캐릭터 포트레이트 (어롱)' },
                         { file: 'Im74.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
                         { file: 'Im75.jpg', title: '3D 스토리 월드 씬 — 따스한 햇살 아래 꽃을 피우는 정원사' }
                     ]
@@ -3987,9 +3980,9 @@
                     likes: '약초 차, 반창고', dislikes: '아픈 친구들',
                     desc: '따뜻한 손길로 친구들의 다친 곳과 아픈 마음을 치료해 주는 다정한 숲속 의사 선생님입니다.',
                     model: 'Devstral-Small-2-24B-Instruct', dev: 'Mistral AI · 프랑스 · 24B · BF16', tier: 'Tier C · 51.6 GB',
-                    pages: 'p.70–72', repImg: 'Im76.jpg',
+                    pages: 'p.70–72', repImg: 'rep_18.jpg?v=20261118_v2',
                     images: [
-                        { file: 'Im76.jpg', title: '대표 3D 캐릭터 포트레이트 (여롱)' },
+                        { file: 'rep_18.jpg?v=20261118_v2', title: '대표 3D 캐릭터 포트레이트 (여롱)' },
                         { file: 'Im77.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
                         { file: 'Im78.jpg', title: '3D 스토리 월드 씬 A — 약초 차와 반창고 치유 공방' },
                         { file: 'Im79.jpg', title: '3D 스토리 월드 씬 B — 숲속 진료실의 다정한 치유사' },
@@ -4003,9 +3996,9 @@
                     likes: '카드, 비둘기', dislikes: '마술의 비밀 누설',
                     desc: '상상을 현실로 만드는 마법사입니다. 엉뚱한 마술로 친구들에게 놀라움과 웃음을 선물합니다.',
                     model: 'K-EXAONE-2.0-750B-A37B FP8', dev: 'LG AI Research · 대한민국 · 750B MoE · FP8', tier: 'Tier D · 752 GB',
-                    pages: 'p.72–73', repImg: 'Im81.jpg',
+                    pages: 'p.72–73', repImg: 'rep_19.jpg?v=20261118_v2',
                     images: [
-                        { file: 'Im81.jpg', title: '대표 3D 캐릭터 포트레이트 (올롱)' },
+                        { file: 'rep_19.jpg?v=20261118_v2', title: '대표 3D 캐릭터 포트레이트 (올롱)' },
                         { file: 'Im82.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
                         { file: 'Im83.jpg', title: '3D 스토리 월드 씬 — 카드와 비둘기가 펼쳐지는 마술 극장' }
                     ]
@@ -4017,9 +4010,9 @@
                     likes: '동물 친구들, 간식', dislikes: '밀렵꾼, 동물 학대',
                     desc: '숲속 모든 동물과 대화할 수 있습니다. 사나운 동물도 요롱이 앞에서는 순한 양이 됩니다.',
                     model: 'A.X-K2', dev: 'SK Telecom · 대한민국 · 519B MoE · BF16', tier: 'Tier D · 694 GB',
-                    pages: 'p.74–75', repImg: 'Im84.jpg',
+                    pages: 'p.74–75', repImg: 'rep_20.jpg?v=20261118_v2',
                     images: [
-                        { file: 'Im84.jpg', title: '대표 3D 캐릭터 포트레이트 (요롱)' },
+                        { file: 'rep_20.jpg?v=20261118_v2', title: '대표 3D 캐릭터 포트레이트 (요롱)' },
                         { file: 'Im85.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
                         { file: 'Im86.jpg', title: '3D 스토리 월드 씬 — 숲속 동물 친구들과 대화하는 조련사' }
                     ]
@@ -4031,9 +4024,9 @@
                     likes: '만년필, 고서적', dislikes: '책 찢기, 망각',
                     desc: '마을의 역사와 모든 일을 꼼꼼하게 기록합니다. 숲의 모든 지식이 담긴 걸어 다니는 백과사전입니다.',
                     model: 'Motif-3', dev: 'Motif Technologies · 대한민국 · 300B MoE · BF16', tier: 'Tier D · 630 GB',
-                    pages: 'p.75–76', repImg: 'Im87.jpg',
+                    pages: 'p.75–76', repImg: 'rep_21.jpg?v=20261118_v2',
                     images: [
-                        { file: 'Im87.jpg', title: '대표 3D 캐릭터 포트레이트 (우롱)' },
+                        { file: 'rep_21.jpg?v=20261118_v2', title: '대표 3D 캐릭터 포트레이트 (우롱)' },
                         { file: 'Im88.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
                         { file: 'Im89.jpg', title: '3D 스토리 월드 씬 — 숲의 역사를 기록하는 대도서관 사서' }
                     ]
@@ -4045,9 +4038,9 @@
                     likes: '오리발, 조개껍데기', dislikes: '해양 쓰레기',
                     desc: '물속에서 인어처럼 자유롭게 움직입니다. 깊은 강이나 호수 바닥을 탐험하며 보물을 찾습니다.',
                     model: 'DeepSeek-V4.1-Flash', dev: 'DeepSeek · 중국 · 284B MoE · FP8', tier: 'Tier D · 510 GB',
-                    pages: 'p.77–78', repImg: 'Im90.jpg',
+                    pages: 'p.77–78', repImg: 'rep_22.jpg?v=20261118_v2',
                     images: [
-                        { file: 'Im90.jpg', title: '대표 3D 캐릭터 포트레이트 (유롱)' },
+                        { file: 'rep_22.jpg?v=20261118_v2', title: '대표 3D 캐릭터 포트레이트 (유롱)' },
                         { file: 'Im91.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
                         { file: 'Im92.jpg', title: '3D 스토리 월드 씬 — 산호초와 바다거북이 있는 심해 보물 탐험' }
                     ]
@@ -4059,9 +4052,9 @@
                     likes: '평화, 수평선', dislikes: '기우뚱한 것, 소란',
                     desc: '흔들리지 않는 평정심을 가졌습니다. 친구들이 흥분하거나 싸울 때 마음의 중심을 잡아줍니다.',
                     model: 'GLM-5.3-Flash', dev: 'Z.ai (Zhipu) · 중국 · 106B MoE · BF16', tier: 'Tier D · 328 GB',
-                    pages: 'p.78–79', repImg: 'Im93.jpg',
+                    pages: 'p.78–79', repImg: 'rep_23.jpg?v=20261118_v2',
                     images: [
-                        { file: 'Im93.jpg', title: '대표 3D 캐릭터 포트레이트 (으롱)' },
+                        { file: 'rep_23.jpg?v=20261118_v2', title: '대표 3D 캐릭터 포트레이트 (으롱)' },
                         { file: 'Im94.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
                         { file: 'Im95.jpg', title: '3D 스토리 월드 씬 — 대나무 숲 계곡에서 마음의 균형을 잡는 명상가' }
                     ]
@@ -4073,9 +4066,9 @@
                     likes: '줄자, 비단', dislikes: '엉킨 실타래',
                     desc: '바느질 솜씨가 매우 정교합니다. 친구들에게 딱 맞는 예쁜 옷을 지어주거나 찢어진 마음도 꿰매줍니다.',
                     model: 'Qwen3.8-Flash-Next FP8', dev: 'Alibaba Qwen · 중국 · 80B MoE · FP8', tier: 'Tier D · 186 GB',
-                    pages: 'p.80–81', repImg: 'Im96.jpg',
+                    pages: 'p.80–81', repImg: 'rep_24.jpg?v=20261118_v2',
                     images: [
-                        { file: 'Im96.jpg', title: '대표 3D 캐릭터 포트레이트 (이롱)' },
+                        { file: 'rep_24.jpg?v=20261118_v2', title: '대표 3D 캐릭터 포트레이트 (이롱)' },
                         { file: 'Im97.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
                         { file: 'Im98.jpg', title: '3D 스토리 월드 씬 — 비단과 재봉틀이 있는 정교한 의상실' }
                     ]
@@ -4087,9 +4080,9 @@
                     likes: '칠판, 질문', dislikes: '편견, 차별',
                     desc: '모르는 것을 친절하고 쉽게 가르쳐 줍니다. 어려운 지식도 애롱이의 설명을 들으면 금방 이해됩니다.',
                     model: 'gpt-oss-120b', dev: 'OpenAI · 미국 · 117B MoE · MXFP4', tier: 'Tier D · 65.3 GB',
-                    pages: 'p.81–82', repImg: 'Im99.jpg',
+                    pages: 'p.81–82', repImg: 'rep_25.jpg?v=20261118_v2',
                     images: [
-                        { file: 'Im99.jpg', title: '대표 3D 캐릭터 포트레이트 (애롱)' },
+                        { file: 'rep_25.jpg?v=20261118_v2', title: '대표 3D 캐릭터 포트레이트 (애롱)' },
                         { file: 'Im100.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
                         { file: 'Im101.jpg', title: '3D 스토리 월드 씬 — 칠판 앞에서 친절하게 지식을 알려주는 교실' }
                     ]
@@ -4101,9 +4094,9 @@
                     likes: '카메라, 찰나의 순간', dislikes: '흔들린 사진',
                     desc: '마을의 특별하고 행복한 순간들을 놓치지 않고 포착합니다. "얍!" 하고 셔터를 눌러 추억을 남깁니다.',
                     model: 'Qwen2.5-VL-3B-Instruct', dev: 'Alibaba Qwen · 이미지 이해 (Vision-Language)', tier: '추가 후보 · 7.51 GB',
-                    pages: 'p.83–84', repImg: 'Im102.jpg',
+                    pages: 'p.83–84', repImg: 'rep_26.jpg?v=20261118_v2',
                     images: [
-                        { file: 'Im102.jpg', title: '대표 3D 캐릭터 포트레이트 (얍롱)' },
+                        { file: 'rep_26.jpg?v=20261118_v2', title: '대표 3D 캐릭터 포트레이트 (얍롱)' },
                         { file: 'Im103.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
                         { file: 'Im104.jpg', title: '3D 스토리 월드 씬 — 찰나의 추억을 포착하는 카메라 스튜디오' }
                     ]
@@ -4115,9 +4108,9 @@
                     likes: '지도, 나침반', dislikes: '길치, 막힌 길',
                     desc: '지도를 보고 길을 찾는 능력이 탁월합니다. 새로운 곳으로 모험을 떠날 때 가장 안전한 길로 안내합니다.',
                     model: 'BGE-M3', dev: 'BAAI · 다국어 문서 검색 (Retrieval)', tier: '추가 후보 · 2.27 GB',
-                    pages: 'p.84–85', repImg: 'Im105.jpg',
+                    pages: 'p.84–85', repImg: 'rep_27.jpg?v=20261118_v2',
                     images: [
-                        { file: 'Im105.jpg', title: '대표 3D 캐릭터 포트레이트 (에이롱)' },
+                        { file: 'rep_27.jpg?v=20261118_v2', title: '대표 3D 캐릭터 포트레이트 (에이롱)' },
                         { file: 'Im106.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
                         { file: 'Im107.jpg', title: '3D 스토리 월드 씬 — 황금 나침반과 세계지도로 길을 안내하는 탐험실' }
                     ]
@@ -4129,9 +4122,9 @@
                     likes: '바이올린, 악보', dislikes: '불협화음',
                     desc: '다룰 줄 아는 악기가 아주 많습니다. 노롱이(가수)의 노래에 맞춰 환상적인 반주를 해줍니다.',
                     model: 'Whisper large-v3-turbo', dev: 'OpenAI · 음성 전사 (Speech Recognition)', tier: '추가 후보 · 1.62 GB',
-                    pages: 'p.86–87', repImg: 'Im108.jpg',
+                    pages: 'p.86–87', repImg: 'rep_28.jpg?v=20261118_v2',
                     images: [
-                        { file: 'Im108.jpg', title: '대표 3D 캐릭터 포트레이트 (예롱)' },
+                        { file: 'rep_28.jpg?v=20261118_v2', title: '대표 3D 캐릭터 포트레이트 (예롱)' },
                         { file: 'Im109.jpg', title: '4방향 3D 턴어라운드 시트 (Front · Back · Right · Left)' },
                         { file: 'Im110.jpg', title: '3D 스토리 월드 씬 A — 황금빛 숲속의 바이올린 선율' },
                         { file: 'Im111.jpg', title: '3D 스토리 월드 씬 B — 클래식 오케스트라 콘서트홀 연주' }
@@ -4342,20 +4335,16 @@
             window.setSomooModalMainImage = function(file, title, charName, shortLabel, isRepPortrait) {
                 var mainImg = document.getElementById('somooModalMainImg');
                 var wrap = document.getElementById('somooMainImgWrap');
-                var storyBlockCard = document.getElementById('somooModalStoryBlockCard');
                 var fullSrc = resolveAssetUrl(file);
                 var isMainBlueprint = (file.indexOf('somoo-blueprint/') !== -1 || file.indexOf('microduck-blueprint') !== -1);
-                var isJamoPartnerBot = (file.indexOf('somoo-jamo-robot/') !== -1);
                 if (mainImg) {
                     mainImg.src = fullSrc;
                     mainImg.alt = charName + ' — ' + title;
-                    mainImg.style.maxWidth = isRepPortrait ? '84%' : '96%';
-                }
-                if (storyBlockCard) {
-                    storyBlockCard.style.display = isRepPortrait ? 'flex' : 'none';
+                    mainImg.style.maxWidth = '96%';
+                    mainImg.style.maxHeight = '400px';
                 }
                 if (wrap) {
-                    wrap.style.background = isMainBlueprint ? '#0b162c' : '#FBF9F5';
+                    wrap.style.background = isMainBlueprint ? '#0b162c' : '#FFFFFF';
                 }
                 var openZoom = function() {
                     if (typeof openStoryLightbox === 'function') {
@@ -4483,12 +4472,7 @@
                         isRep: false
                     });
                 }
-                allImages.push({
-                    file: jamoFullUrl,
-                    title: '한글 28자 3D 원형 조형 블록 (' + c.group + ' ' + c.jamo + ')',
-                    shortLabel: jamoShortLabel,
-                    isRep: false
-                });
+
                 for (var bi = 1; bi < baseImages.length - 1; bi++) {
                     if (allImages.length < 6) {
                         allImages.push({
