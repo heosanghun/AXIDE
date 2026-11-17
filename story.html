@@ -919,9 +919,13 @@
                             <div class="position-relative rounded-3 overflow-hidden" style="border: 1px solid rgba(251, 191, 36, 0.4); background: #0b162c; cursor: zoom-in;" onclick="if(typeof openCurrentMainSomooBpLightbox==='function') openCurrentMainSomooBpLightbox();">
                                 <img id="somooMainCharBpUnderImg" src="assets/images/somoo-blueprint/bp_01.jpg?v=20261118_mainbp_v8" alt="AXIDE / PHYSICAL AI — 01/28 ‘ㄱ 고롱(GoLong)’ 마이크로덕형 이족보행 로봇 설계안 (01 내부 구조 · 02 외형 치수 · 03 자모 교체)" style="width: 100%; height: auto; display: block;" decoding="async">
                             </div>
-                            <!-- Companion Board for 01/28 GoLong: 이중 증류와 교체형 ㄱ 뿔 카트리지 -->
+                            <!-- Companion Board 2 for 01/28 GoLong: 이중 증류와 교체형 ㄱ 뿔 카트리지 -->
                             <div id="somooGolongDistillWrap" class="mt-3 position-relative rounded-3 overflow-hidden" style="border: 1px solid rgba(56, 189, 248, 0.45); background: #0b162c; cursor: zoom-in;" onclick="openStoryLightbox('assets/images/somoo-blueprint/bp_01_distillation.jpg?v=20261118_mainbp_v8', 'AXIDE / PHYSICAL AI — 01/28 ‘ㄱ 고롱(GoLong)’ 이중 증류와 교체형 ㄱ 뿔 카트리지 (01 고롱의 내부 구조 · 02 연구용 PC에서 이중 증류 · 03 ㄱ 뿔 카트리지 · 뿔 업데이트와 현장 실행)', false)">
                                 <img src="assets/images/somoo-blueprint/bp_01_distillation.jpg?v=20261118_mainbp_v8" alt="AXIDE / PHYSICAL AI — 01/28 ‘ㄱ 고롱(GoLong)’ 이중 증류와 교체형 ㄱ 뿔 카트리지 (논문 그림 1-1의 학습 구조를 적용한 로봇 개념 설계안)" style="width: 100%; height: auto; display: block;" decoding="async" loading="lazy">
+                            </div>
+                            <!-- Companion Board 3 for 01/28 GoLong: 뿔을 꽂은 채 업데이트하는 로봇 (로컬 Wi-Fi 무선 전송 & 장착된 ㄱ 뿔 기록) -->
+                            <div id="somooGolongOtaWrap" class="mt-3 position-relative rounded-3 overflow-hidden" style="border: 1px solid rgba(45, 212, 191, 0.5); background: #0b162c; cursor: zoom-in;" onclick="openStoryLightbox('assets/images/somoo-blueprint/bp_01_ota_horn.jpg?v=20261118_mainbp_v9', 'AXIDE / PHYSICAL AI — 01/28 ‘ㄱ 고롱(GoLong)’ 뿔을 꽂은 채 업데이트하는 로봇 (01 연구용 PC에서 이중 증류 · 02 로컬 Wi-Fi로 전송 · 03 장착된 ㄱ 뿔에 기록 · 04 교사 호출 없이 ㄱ 블록 조립)', false)">
+                                <img src="assets/images/somoo-blueprint/bp_01_ota_horn.jpg?v=20261118_mainbp_v9" alt="AXIDE / PHYSICAL AI — 01/28 ‘ㄱ 고롱(GoLong)’ 뿔을 꽂은 채 업데이트하는 로봇 (논문 그림 1-1의 증류 구조를 적용한 개념 설계안)" style="width: 100%; height: auto; display: block;" decoding="async" loading="lazy">
                             </div>
                         </div>
 
@@ -4252,6 +4256,10 @@
                 if (golongDistillEl) {
                     golongDistillEl.style.display = (idx === 0) ? 'block' : 'none';
                 }
+                var golongOtaEl = document.getElementById('somooGolongOtaWrap');
+                if (golongOtaEl) {
+                    golongOtaEl.style.display = (idx === 0) ? 'block' : 'none';
+                }
             };
 
             window.stepSomooBlueprintShowcase = function(delta) {
@@ -4502,6 +4510,12 @@
                         file: 'assets/images/somoo-blueprint/bp_01_distillation.jpg?v=20261118_mainbp_v8',
                         title: 'ㄱ 고롱 GoLong — 이중 증류와 교체형 ㄱ 뿔 카트리지 (논문 그림 1-1의 학습 구조를 적용한 로봇 개념 설계안)',
                         shortLabel: '이중 증류 · ㄱ 뿔 카트리지',
+                        isRep: false
+                    });
+                    allImages.push({
+                        file: 'assets/images/somoo-blueprint/bp_01_ota_horn.jpg?v=20261118_mainbp_v9',
+                        title: 'ㄱ 고롱 GoLong — 뿔을 꽂은 채 업데이트하는 로봇 (01 연구용 PC에서 이중 증류 · 02 로컬 Wi-Fi로 전송 · 03 장착된 ㄱ 뿔에 기록 · 04 교사 호출 없이 ㄱ 블록 조립)',
+                        shortLabel: '뿔 장착 무선 업데이트',
                         isRep: false
                     });
                 }
