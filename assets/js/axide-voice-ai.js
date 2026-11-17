@@ -671,7 +671,7 @@
     if (/팀|임원|리더십|안수진|su\s*jin\s*an|뇌기반|황영배|바이오 전문가|신물질 전문가/.test(lower)) {
       return {
         clipKey: "team",
-        reply: "허상훈 대표와 KAIST 뇌기반AI 안수진 박사(CTO, Dr. Su Jin An), 충북대학교 황영배 교수, 그리고 바이오 AI 및 차세대 신물질 전문가로 구성된 리더십 섹션으로 안내해 드리겠습니다.",
+        reply: "허상훈 대표와 KAIST 뇌기반AI 안수진 박사(CTO, Dr. Su Jin An), 충북대학교 지능로봇공학과 황영배 교수, 그리고 바이오 AI 및 차세대 신물질 전문가로 구성된 리더십 섹션으로 안내해 드리겠습니다.",
         action: {
           type: document.querySelector(".section-team") ? "scroll" : "navigate",
           target: document.querySelector(".section-team") ? ".section-team" : "about.html"
@@ -2838,9 +2838,11 @@
     "KAIST 뇌기반AI 박사": "Ph.D. in Brain-Based AI, KAIST",
     "CTO · KAIST 뇌기반AI 연구원 · DEQ 코어 & B200 DPO 총괄": "CTO · KAIST Brain-Based AI Researcher · Lead of DEQ Core & B200 DPO",
     "황영배 교수 (Prof. Young-Bae Hwang)": "Prof. Young-Bae Hwang (Academic Advisor)",
-    "충북대 산업AI학과 교수": "Professor of Industrial AI, CBNU",
+    "충북대학교 지능로봇공학과 교수": "Professor of Intelligent Robotics Engineering, CBNU",
+    "충북대 지능로봇공학과 교수": "Professor of Intelligent Robotics Engineering, CBNU",
     "TTA · KTL 시험인증 자문": "TTA & KTL Certification Advisor",
-    "연구 자문 · 충북대 산업인공지능학과 교수 · TTA/KTL 자문": "Academic Advisor · Prof. of Industrial AI at CBNU · TTA/KTL Advisor",
+    "연구 자문 · 충북대학교 지능로봇공학과 교수 · TTA/KTL 자문": "Academic Advisor · Prof. of Intelligent Robotics Eng. at CBNU · TTA/KTL Advisor",
+    "연구 자문 · 충북대 지능로봇공학과 교수 · TTA/KTL 자문": "Academic Advisor · Prof. of Intelligent Robotics Eng. at CBNU · TTA/KTL Advisor",
     "학위/소속": "Degree / Affiliation",
     "핵심총괄": "Core Lead",
     "소속/직위": "Affiliation / Role",
